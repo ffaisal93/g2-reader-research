@@ -1,0 +1,6 @@
+{
+  "stage": "blocked",
+  "state": "failed",
+  "updated_at_unix": 1787284900.1992877,
+  "error": "runner exited 1 for qwen3_official_fixedseed_pilot5_v8"
+}

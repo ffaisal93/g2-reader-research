@@ -1,0 +1,254 @@
+{
+  "model": "Qwen/Qwen3-VL-32B-Instruct-FP8",
+  "server": "vllm 0.27.1",
+  "response_format": {
+    "type": "json_object"
+  },
+  "source_failure_count": 24,
+  "valid_json_count": 24,
+  "schema_shape_count": 24,
+  "length_finish_count": 0,
+  "duration_seconds": 174.115,
+  "results": [
+    {
+      "source": "failed_response_20260820_140538_225827.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 19.705,
+      "input_characters": 994,
+      "output_characters": 1006,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_140548_996410.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 11.014,
+      "input_characters": 604,
+      "output_characters": 610,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_140553_672108.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 12.476,
+      "input_characters": 576,
+      "output_characters": 698,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_140608_175943.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 14.394,
+      "input_characters": 852,
+      "output_characters": 861,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_140613_821966.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 28.523,
+      "input_characters": 765,
+      "output_characters": 887,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_140619_119897.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 25.972,
+      "input_characters": 695,
+      "output_characters": 714,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_140642_052991.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 53.961,
+      "input_characters": 2105,
+      "output_characters": 2171,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_141046_051366.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 43.152,
+      "input_characters": 29398,
+      "output_characters": 1308,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_141422_682753.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 51.244,
+      "input_characters": 27636,
+      "output_characters": 1473,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_141448_369072.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 48.043,
+      "input_characters": 985,
+      "output_characters": 1011,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_141810_250469.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 59.46,
+      "input_characters": 30715,
+      "output_characters": 869,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_141823_538986.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 65.436,
+      "input_characters": 1034,
+      "output_characters": 882,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142146_241273.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 72.95,
+      "input_characters": 16514,
+      "output_characters": 1122,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142202_309801.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 71.79,
+      "input_characters": 965,
+      "output_characters": 1012,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142234_987083.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 87.808,
+      "input_characters": 1129,
+      "output_characters": 1200,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142556_018517.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 94.997,
+      "input_characters": 17195,
+      "output_characters": 1289,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142605_871331.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 99.155,
+      "input_characters": 1302,
+      "output_characters": 1329,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142613_073974.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 91.707,
+      "input_characters": 1007,
+      "output_characters": 1021,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_142938_497835.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 123.694,
+      "input_characters": 18787,
+      "output_characters": 1532,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_143330_291338.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 117.466,
+      "input_characters": 27915,
+      "output_characters": 1277,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_143651_849389.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 143.922,
+      "input_characters": 19251,
+      "output_characters": 1001,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_143722_656287.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 145.304,
+      "input_characters": 1002,
+      "output_characters": 1029,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_144045_041451.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 173.408,
+      "input_characters": 14930,
+      "output_characters": 2168,
+      "error": null
+    },
+    {
+      "source": "failed_response_20260820_144347_757897.txt",
+      "valid_json": true,
+      "schema_shape": true,
+      "finish_reason": "stop",
+      "seconds": 154.389,
+      "input_characters": 14325,
+      "output_characters": 769,
+      "error": null
+    }
+  ]
+}

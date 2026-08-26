@@ -43,7 +43,15 @@ models/
 g2_reader_lab/experiments/failure_audit_100/questions/
 g2_reader_lab/experiments/failure_audit_100/review_packets/
 g2_reader_lab/experiments/low_resource_content_graph/results/
-g2_reader_lab/results/
+# Runtime result trees are reproducible, but compact audit conclusions and
+# machine-readable validation summaries are research records worth preserving.
+g2_reader_lab/results/*
+!g2_reader_lab/results/official_trace/
+g2_reader_lab/results/official_trace/*
+!g2_reader_lab/results/official_trace/audits/
+g2_reader_lab/results/official_trace/audits/*
+!g2_reader_lab/results/official_trace/audits/*.md
+!g2_reader_lab/results/official_trace/audits/*.json
 **/*.pkl
 **/*.pickle
 **/*.log

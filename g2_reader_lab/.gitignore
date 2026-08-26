@@ -28,9 +28,9 @@ models/
 results/**/runs/
 results/**/*.jsonl
 results/**/*.json
+!results/official_trace/audits/*.json
 
 # OS/editor files
 .DS_Store
 .idea/
 .vscode/
-
