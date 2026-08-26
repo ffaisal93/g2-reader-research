@@ -20,6 +20,23 @@ workspace. It combines these studies:
 The detailed reports and the original traces remain the evidence sources. A
 raw-source decision has priority over an earlier automatic decision.
 
+## Contents
+
+1. Main conclusions
+2. Parts of the evaluated system
+3. Experiment sequence
+4. Failure terms
+5. Final SPIQA-100 results
+6. Content Graph construction results
+7. Quality loss from the optimized graph
+8. Structured-output results
+9. Reader-model sensitivity
+10. Repeatability
+11. Scalability
+12. Recommended repair sequence
+13. Supported and unsupported claims
+14. Evidence reports
+
 ## 1. Main conclusions
 
 The experiments give five main conclusions.
@@ -89,10 +106,62 @@ The main conclusion is:
 > no-loss replacement for the 32B teacher. The online G² path is also not yet
 > reliable for production use.
 
+| Main measurement | Result |
+|---|---:|
+| Mean 32B teacher construction time | 2,979.94 s |
+| Mean optimized-8B construction time | 141.14 s |
+| Mean construction speed increase | 21.11 times |
+| Candidate decisive evidence in top 5 | 5/5 |
+| Same reader correct on teacher graphs | 5/5 |
+| Same reader raw correct on candidate graphs | 4/5 |
+| Mean teacher-graph query time | 47.27 s |
+| Mean candidate-graph query time | 113.57 s |
+| Valid SPIQA audit questions | 95 |
+| Correct parsed or recoverable audit answers | 65/95 |
+
 ## 2. Parts of the evaluated system
 
 G² has an offline phase and an online phase. Do not combine the measurements
 from these two phases.
+
+**Figure 1. G² system boundary**
+
+```mermaid
+flowchart LR
+    D[Processed documents] --> A[Node analysis]
+    A --> E[Embeddings and links]
+    E --> V[Node evolution]
+    V --> C[(Saved Content Graph)]
+    Q[Question] --> R[Graph retrieval]
+    C --> R
+    R --> P[Planning Graph]
+    P --> W[Workers]
+    W --> S{Evidence sufficient?}
+    S -- No --> P
+    S -- Yes --> F[Final synthesis]
+    F --> O[Output parser]
+
+    subgraph Offline construction
+      D
+      A
+      E
+      V
+      C
+    end
+
+    subgraph Online reader
+      Q
+      R
+      P
+      W
+      S
+      F
+      O
+    end
+```
+
+The left side runs before question answering. The right side runs for each
+question. A test can change one side and keep the other side constant.
 
 ### 2.1 Offline Content Graph construction
 
@@ -139,6 +208,16 @@ We evaluated these configurations:
 The SPIQA-100 results apply to the optimized-8B graph and the official G²
 online path. They are not the results of the complete original 32B system.
 
+| Test name | Graph builder | Online reader | Purpose |
+|---|---|---|---|
+| 32B teacher baseline | Qwen3-VL-32B | Qwen3-VL-32B | Measure the original-style full path. |
+| Matched graph comparison | 32B or optimized 8B | Same Qwen3-VL-8B | Isolate Content Graph quality. |
+| Matched reader replay | Same optimized-8B graph | 8B or 32B | Isolate online-reader sensitivity. |
+| SPIQA-100 audit | Optimized Qwen3-VL-8B | Qwen3-VL-8B | Measure low-resource failures at larger scale. |
+
+The matched tests are important. A full-pipeline comparison changes too many
+components at the same time.
+
 ## 3. Experiment sequence
 
 We did the work in this sequence:
@@ -154,6 +233,17 @@ We did the work in this sequence:
 9. We replayed selected cases with the 32B reader.
 10. We checked 12 disputed visual cases against the raw images.
 
+| Phase | Main input | Main output | Decision gate |
+|---|---|---|---|
+| Runtime audit | Released official source | List of execution blockers | The official path must complete one valid case. |
+| Teacher measurement | Saved 32B runs | Calls, tokens, and stage times | Keep a fixed teacher control. |
+| Structured-output canary | Real analysis prompts | JSON and schema results | Require 100-percent valid completed responses. |
+| One-graph optimization | `spiqa_58` | Fast candidate graph | Keep all nodes and decisive evidence. |
+| Five-graph loss test | Five teacher/candidate pairs | Matched quality and time results | Reject a no-loss claim after one material loss. |
+| SPIQA-100 execution | Fixed 100-question slice | Complete graphs and passive traces | Resume without loss after interruption. |
+| Post-hoc review | Raw outputs and traces | Semantic and causal labels | Do not use exact match as final judgment. |
+| Raw visual review | Exact graph images and source images | Final visual decisions | Correct provisional labels. |
+
 This sequence prevents incorrect causal claims. A text mismatch is not always
 an answer error. An 8B failure is not always an original G² failure. A bad
 benchmark reference is not a system failure.
@@ -162,6 +252,43 @@ benchmark reference is not a system failure.
 
 For each question, we identify the earliest decisive failure. A later failure
 can also occur. We record that later failure as a secondary failure.
+
+**Figure 2. Failure localization sequence**
+
+```mermaid
+flowchart TD
+    B{Question and reference agree with source?}
+    B -- No --> DF[dataset_failure]
+    B -- Yes --> R{Decisive evidence retrieved?}
+    R -- No --> RF[retrieval_failure]
+    R -- Yes --> P{Plan contains all required operations?}
+    P -- No --> DE[decomposition_failure]
+    P -- Yes --> W{Worker claims supported by evidence?}
+    W -- No --> WF[worker_support_failure]
+    W -- Yes --> C{Final combination correct?}
+    C -- No --> CF[composition_failure]
+    C -- Yes --> S{Checker control decision correct?}
+    S -- No --> SF[sufficiency_failure]
+    S -- Yes --> O{Machine-readable output accepted?}
+    O -- No --> PF[parser_failure]
+    O -- Yes --> NF[no_failure]
+```
+
+Use the first failed test as the primary category. Record later effects as
+secondary categories.
+
+| Term | Main question | Example | Final count |
+|---|---|---|---:|
+| `dataset_failure` | Does the benchmark agree with the source? | `spiqa_452` | 5 excluded |
+| `retrieval_failure` | Did the Worker receive the decisive evidence? | `spiqa_578` | 4 |
+| `worker_support_failure` | Does the evidence support the Worker answer? | `spiqa_4` | 20 |
+| `decomposition_failure` | Did the plan request every necessary operation? | `spiqa_44` | 2 |
+| `composition_failure` | Did final synthesis combine correct inputs correctly? | `spiqa_47` | 1 |
+| `sufficiency_failure` | Did the checker make the correct control decision? | `spiqa_542` | Secondary only |
+| `parser_failure` | Did software accept valid answer structure? | `spiqa_39`, `spiqa_96` | 9 phenomena |
+| `infrastructure_failure` | Did plumbing stop valid execution? | Undefined embedding client | Excluded |
+| `unverifiable` | Is the stored evidence sufficient for review? | Raw visual queue | 0 unresolved |
+| `no_failure` | Is the answer correct and supported? | `spiqa_163` | Not a failure |
 
 ### 4.1 `dataset_failure`
 
@@ -417,6 +544,12 @@ tag. Eight outputs had no safe answer candidate.
 Semantic review found six valid questions with correct raw answers that the
 final parser rejected.
 
+| Parser result | Question IDs | Meaning |
+|---|---|---|
+| Correct raw answer lost | `spiqa_29`, `spiqa_39`, `spiqa_55`, `spiqa_61`, `spiqa_249`, `spiqa_272` | The answer was present, but the final tag structure failed. |
+| Final response incomplete or no safe answer | `spiqa_26`, `spiqa_223` | The reasoning had useful evidence, but no safe complete final answer was available. |
+| Planning Graph JSON invalid | `spiqa_96` | Worker execution could not start. |
+
 Final parser-phenomenon count: **9**. This count includes wrong or empty
 outcomes and correct raw answers that the parser lost.
 
@@ -443,6 +576,15 @@ round when no VLM evolution occurred.
 
 We exclude infrastructure-blocked runs from answer accuracy.
 
+| Blocker | Observed effect | Minimum repair | Behavior effect |
+|---|---|---|---|
+| Undefined `embed_aclient` | All embedding calls failed. Retrieval continued with empty evidence. | Bind the configured embedding client. Fail the question on construction error. | Plumbing only |
+| Evolution signature mismatch | Each evolution call rejected `max_tokens`. Original nodes remained unchanged. | Accept and forward the existing argument. | Restores intended evolution |
+| Cache-path mismatch | The runtime did not load saved evolved graphs. | Check the full `<id>_iter_<round>` path. | Persistence only |
+| Missing optional `judge` | Logging crashed after final synthesis. | Use `item.get('judge')`. | Logging only |
+| Truncated image JSON | One image became a failure note. | Retry once with a strict bounded schema. | Error recovery only |
+| Prompt/consumer field mismatch | Strict output omitted required `text_content`. | Make the schema agree with the consumer. | Interface repair |
+
 ### 4.9 `unverifiable`
 
 #### Meaning
@@ -455,6 +597,42 @@ This label is temporary. It is not proof of a system failure.
 We decoded the exact graph images for 12 disputed visual cases. We matched each
 image to the source with image dimensions and perceptual hashes. After this
 work, zero cases remained unverifiable.
+
+| Question | Final decision | Main raw-image finding |
+|---|---|---|
+| `spiqa_116` | Worker support | The curves differ only slightly at x=7. The reported ten-point difference is false. |
+| `spiqa_163` | No failure | The image supports recursive four-part Hilbert construction. |
+| `spiqa_164` | Dataset failure | Node 1 is the directly connected border router. The reference uses the full topology. |
+| `spiqa_195` | Dataset failure | The orange ACGAN loss rises with high variation. Both losses do not decrease. |
+| `spiqa_215` | No failure | RGB features are texture-rich. Depth features show cleaner shapes. |
+| `spiqa_234` | No failure | PPL decreases with K and approaches the RNTN baseline. |
+| `spiqa_235` | No failure | Error decreases with FLOPS. The small adaptive ANN performs better. |
+| `spiqa_281` | Dataset failure | The plot has a middle peak. It is not fully inverse with frequency. |
+| `spiqa_368` | Worker support plus parser | The correct attack curves were present. The Workers did not read them. |
+| `spiqa_452` | Dataset failure | ENet is the largest bubble. TecoGAN has the better low tOF value. |
+| `spiqa_578` | Retrieval | Table 4 was present. The required topic rows from Table 6 were absent. |
+| `spiqa_98` | Worker support plus parser | Goodput decreases. Segment loss is small and not monotonic. |
+
+**Figure 3. `spiqa_116` evidence packet**
+
+![Contact sheet for spiqa_116](failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/contact_sheet.jpg)
+
+The labels show the retrieved and cited graph images. The chart permits a
+direct check of the x=7 claim.
+
+**Figure 4. `spiqa_368` evidence packet**
+
+![Contact sheet for spiqa_368](failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_368/contact_sheet.jpg)
+
+The required attack plot was in the retrieved evidence. This image changed the
+primary label from retrieval failure to Worker support failure.
+
+**Figure 5. `spiqa_578` evidence packet**
+
+![Contact sheet for spiqa_578](failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_578/contact_sheet.jpg)
+
+The retrieved images contain model-level results. They do not contain the
+required topic-word table.
 
 ### 4.10 `no_failure`
 
@@ -492,6 +670,22 @@ The excluded IDs are `spiqa_79`, `spiqa_164`, `spiqa_195`, `spiqa_281`, and
 - Incorrect answers or no answers: **30/95**
 - Ambiguous valid results: **0**
 
+**Figure 6. Final outcome accounting**
+
+```mermaid
+flowchart TD
+    A[100 requested questions] --> B[5 defective benchmark questions]
+    A --> C[95 valid questions]
+    C --> D[65 semantically correct]
+    C --> E[30 incorrect or no answer]
+    D --> F[59 officially parsed]
+    D --> G[6 correct raw answers lost by parser]
+```
+
+Do not add the five defective questions to the system error count. Also, do not
+add the six parser losses to the 30 incorrect outcomes. The six answers are
+semantically correct.
+
 ### 5.3 Failure counts
 
 | Failure | Count | Meaning |
@@ -505,6 +699,14 @@ The excluded IDs are `spiqa_79`, `spiqa_164`, `spiqa_195`, `spiqa_281`, and
 
 The total is not 36 wrong questions. One question can have a primary failure
 and a secondary failure.
+
+| Failure | Final question IDs |
+|---|---|
+| Worker support | `spiqa_0`, `spiqa_110`, `spiqa_116`, `spiqa_18`, `spiqa_181`, `spiqa_196`, `spiqa_222`, `spiqa_245`, `spiqa_34`, `spiqa_347`, `spiqa_368`, `spiqa_381`, `spiqa_392`, `spiqa_4`, `spiqa_434`, `spiqa_440`, `spiqa_522`, `spiqa_585`, `spiqa_586`, `spiqa_98` |
+| Parser | `spiqa_223`, `spiqa_249`, `spiqa_26`, `spiqa_272`, `spiqa_29`, `spiqa_39`, `spiqa_55`, `spiqa_61`, `spiqa_96` |
+| Retrieval | `spiqa_292`, `spiqa_396`, `spiqa_510`, `spiqa_578` |
+| Decomposition | `spiqa_44`, `spiqa_571` |
+| Composition | `spiqa_47` |
 
 ## 6. Content Graph construction results
 
@@ -532,6 +734,18 @@ main avoidable delays were:
 - hundreds of one-item embedding requests;
 - repeated raw neighbor text in evolution prompts.
 
+| `spiqa_58` stage | 32B teacher | Unoptimized 8B | Optimized 8B v5 |
+|---|---:|---:|---:|
+| Text analysis | 474.72 s | 358.97 s | 60.51 s |
+| Image analysis | 652.37 s | 653.97 s | 91.64 s |
+| Initial embeddings | 141.07 s reported total embedding stage | 100.76 s | 3.64 s |
+| Evolution | 1,959.69 s | 336.05 s | 65.41 s |
+| Changed-node re-embedding | Included above | 60.59 s | 0.92 s |
+| Complete measured build | 3,227.84 s | 1,510.77 s | 158.76 s |
+
+The optimized text and image queues overlap. Do not add their stage times to
+calculate the total time. The table shows where the work decreased.
+
 ### 6.2 Optimization methods
 
 The successful builder used these methods:
@@ -548,6 +762,24 @@ The successful builder used these methods:
 The builder did not remove question-independent G² operations. It analyzed all
 nodes and evolved all nodes.
 
+**Figure 7. Safe construction optimization path**
+
+```mermaid
+flowchart TD
+    N[All extracted nodes] --> X[Concurrent bounded VLM analysis]
+    X --> B[GPU embedding batches]
+    B --> M[Matrix neighbor search]
+    M --> E[One evolution call for every node]
+    E --> U{Summary or keywords changed?}
+    U -- Yes --> RE[Re-embed changed node]
+    U -- No --> K[Reuse existing embedding]
+    RE --> G[(Saved candidate graph)]
+    K --> G
+```
+
+The path keeps the G² analysis and evolution operations. It removes repeated
+transport, repeated embedding, and unnecessary prompt text.
+
 ### 6.3 Construction performance
 
 | Measurement | 32B teacher | Optimized 8B candidate |
@@ -556,6 +788,18 @@ nodes and evolved all nodes.
 | Mean construction time | 49.67 min | 2.35 min |
 | Mean speed increase | — | 21.11 times |
 | Maximum candidate time | — | 169.10 s |
+
+| Question | Evidence type | Teacher nodes | Candidate nodes | Teacher build | Candidate build | Speed increase |
+|---|---|---:|---:|---:|---:|---:|
+| `spiqa_58` | Figure and text | 182 | 182 | 3,227.84 s | 156.47 s | 20.63 times |
+| `spiqa_108` | Multi-line chart | 169 | 169 | 2,392.51 s | 134.75 s | 17.76 times |
+| `spiqa_378` | Numerical table | 164 | 165 | approximately 2,347 s | 106.81 s | 21.97 times |
+| `spiqa_540` | Figure and formula | 199 | 203 | 4,226.00 s | 169.10 s | 24.99 times |
+| `spiqa_542` | Table and figure | 179 | 179 | 2,706.37 s | 138.55 s | 19.53 times |
+
+The teacher removed some chunks after it made the upstream
+`No meaningful information` value. The candidate kept the raw nodes. This
+condition explains the small node-count differences.
 
 The 100-question run gave these results:
 
@@ -591,6 +835,17 @@ The paired test used the same 8B online reader for both graph types.
 
 Candidate graph query time was 2.40 times longer. The candidate metadata caused
 more sufficiency refinement.
+
+| Question | Reader on teacher graph | Time | Reader on candidate graph | Time | Main result |
+|---|---|---:|---|---:|---|
+| `spiqa_58` | Correct | 36.79 s | Correct | 40.94 s | No material answer loss |
+| `spiqa_108` | Correct and parsed | 110.13 s | Correct raw answer; parsed `null` | 253.51 s | Checker and parser instability |
+| `spiqa_378` | Exact answer | 40.30 s | Exact answer after repair | 155.52 s | Worker table error repaired by refinement |
+| `spiqa_540` | `DMRNet` | 28.04 s | Evidence reported unavailable | 31.87 s | Confirmed answer loss |
+| `spiqa_542` | `RCE` | 21.08 s | `RCE` | 86.02 s | Correct with unnecessary refinement |
+
+This table uses one online model on both graph types. Thus, the graph is the
+only planned difference in each row.
 
 ### 7.1 Clear quality loss: `spiqa_540`
 
@@ -677,6 +932,23 @@ The results were:
 - 8B incorrect and 32B correct: 4;
 - 8B correct and 32B incorrect: 0.
 
+| Question | 8B audit category at replay time | 32B parser | 32B semantic result | Replay time |
+|---|---|---|---|---:|
+| `spiqa_39` | Parser | Success | Correct | 277.18 s |
+| `spiqa_4` | Worker support | Success | Correct | 85.05 s |
+| `spiqa_110` | Worker support | Success | Incorrect | 113.61 s |
+| `spiqa_116` | Worker support | Success | Correct | 96.07 s |
+| `spiqa_522` | Worker support | Success | Incorrect | 92.43 s |
+| `spiqa_163` | Provisional retrieval | Success | Correct | 110.33 s |
+| `spiqa_195` | Provisional retrieval | Success | Incorrect | 90.66 s |
+| `spiqa_396` | Retrieval | Success | Correct | 120.07 s |
+| `spiqa_44` | Decomposition | Success | Incorrect | 168.82 s |
+| `spiqa_571` | Decomposition | Success | Incorrect | 452.45 s |
+| `spiqa_47` | Composition | Success | Incorrect | 177.27 s |
+
+The table shows the categories at replay time. Later raw-image review changed
+`spiqa_163` to no failure and changed `spiqa_195` to dataset failure.
+
 These results show that some failures depend on the online model. A stronger
 reader repaired some cases, but it did not repair all cases.
 
@@ -723,6 +995,17 @@ deduplicated artifact for each stable document or collection version.
 At 160.85 seconds for each sequential cold build, 17,000 builds would take
 approximately 31.6 days. This value is an extrapolation. We did not run a
 17,000-document benchmark.
+
+| Sequential cold builds | Optimized mean at 160.85 s | Teacher mean at 2,979.94 s |
+|---:|---:|---:|
+| 100 | 4.47 hours | 3.45 days |
+| 1,000 | 1.86 days | 34.49 days |
+| 17,000 | 31.65 days | 586.33 days |
+
+This table assumes one sequential build for each item. It does not include
+parallel servers, shared documents, or content-hash reuse. Each measured graph
+also contains a document bundle. Thus, the table is a workload warning and not
+a measured deployment result.
 
 A large deployment needs these functions:
 
