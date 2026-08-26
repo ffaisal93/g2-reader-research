@@ -18,7 +18,8 @@ sys.path.append(os.path.dirname(current_dir))
 
 from agent_search.logging import setup_logging
 from agent_search.counter import ProcessSafeCounter
-from config.config import LLM_BASE_URL, LLM_API_KEY
+from agent_search.passive_trace import append_event
+from config.config import LLM_BASE_URL, LLM_API_KEY, RANDOM_SEED
 from config.config import (
     reasoner_prompt_with_trajectory,
     zero_shot_rag_prompt, 
@@ -41,8 +42,13 @@ class DAGPred:
         self.logger = None
         self.counter = ProcessSafeCounter(args.save_dir)
         self._memory_cache = {}
+        self._trace_question_id = "unassigned"
+        self._trace_run_idx = 0
 
-    def query_llm(self, prompt, model, tokenizer, client=None, temperature=0.0, max_new_tokens=128, stop=None, images: List[str] = None, track_usage: bool = True):
+    def _trace(self, event, **payload):
+        append_event(self.args.save_dir, self._trace_question_id, event, payload)
+
+    def query_llm(self, prompt, model, tokenizer, client=None, temperature=0.0, max_new_tokens=128, stop=None, images: List[str] = None, track_usage: bool = True, trace_purpose: str = "unspecified"):
         max_len = 4096
         input_ids = tokenizer.encode(prompt)
         if len(input_ids) > max_len:
@@ -52,6 +58,7 @@ class DAGPred:
         model_name = model
         while tries < 5:
             tries += 1
+            call_start = time.time()
             try:
                 if images and images:
                     content = [
@@ -73,6 +80,7 @@ class DAGPred:
                     messages=messages,
                     temperature=temperature,
                     max_tokens=max_new_tokens,
+                    seed=RANDOM_SEED,
                 )
                 if track_usage:
                     try:
@@ -88,10 +96,37 @@ class DAGPred:
                         )
                     except Exception:
                         pass
-                return completion.choices[0].message.content
+                response_text = completion.choices[0].message.content
+                usage = getattr(completion, "usage", None)
+                self._trace(
+                    "model_call",
+                    purpose=trace_purpose,
+                    attempt=tries,
+                    status="ok",
+                    latency_seconds=time.time() - call_start,
+                    model=model_name,
+                    temperature=temperature,
+                    max_tokens=max_new_tokens,
+                    image_count=len(images or []),
+                    prompt=prompt,
+                    response=response_text,
+                    prompt_tokens=getattr(usage, "prompt_tokens", 0) if usage else 0,
+                    completion_tokens=getattr(usage, "completion_tokens", 0) if usage else 0,
+                    total_tokens=getattr(usage, "total_tokens", 0) if usage else 0,
+                )
+                return response_text
             except KeyboardInterrupt as e:
                 raise e
             except Exception as e:
+                self._trace(
+                    "model_call",
+                    purpose=trace_purpose,
+                    attempt=tries,
+                    status="error",
+                    latency_seconds=time.time() - call_start,
+                    model=model_name,
+                    error=str(e),
+                )
                 print(f"Error Occurs: \"{str(e)}\"        Retry ...")
                 time.sleep(1)
         else:
@@ -157,8 +192,11 @@ class DAGPred:
             return formatted_texts.strip(), images
 
         except Exception as e:
-            print(f"Retriever error: {e}")
-            return "", []
+            message = f"Retriever error: {e}"
+            print(message)
+            if self.logger:
+                self.logger.exception(message)
+            raise RuntimeError(message) from e
 
     def _select_query_keywords(self, question: str, model: str, tokenizer, client, max_k: int = 8) -> List[str]:
         """
@@ -201,7 +239,7 @@ class DAGPred:
             "Output only the JSON array."
         )
         try:
-            resp = self.query_llm(prompt, model, tokenizer, client, temperature=0.0, max_new_tokens=128, track_usage=False)
+            resp = self.query_llm(prompt, model, tokenizer, client, temperature=0.0, max_new_tokens=128, track_usage=False, trace_purpose="keyword_routing")
             import json, re
             try:
                 kws = json.loads(resp)
@@ -314,6 +352,7 @@ class DAGPred:
                 
                 retrieval_results.append({
                     "index": idx,
+                    "node_id": getattr(note, "id", None) if not isinstance(note, dict) else note.get("id"),
                     "type": "image" if visual else "text",
                     "content": content if not visual else "[IMAGE_BASE64]",
                     "text_content": text_content if visual else content,
@@ -363,6 +402,7 @@ class DAGPred:
                        
                 semantic_results.append({
                     "index": idx,
+                    "node_id": getattr(note, "id", None) if not isinstance(note, dict) else note.get("id"),
                     "type": "image" if visual else "text",
                     "content": content if not visual else "[IMAGE_BASE64]",
                     "text_content": text_content if visual else content,  # 图片显示OCRtext，text显示原文
@@ -517,19 +557,22 @@ class DAGPred:
             return formatted_texts.strip(), images
 
         except Exception as e:
-            print(f"Retriever (split sem+BM25) error: {e}")
-            return "", []
+            message = f"Retriever (split sem+BM25) error: {e}"
+            print(message)
+            if self.logger:
+                self.logger.exception(message)
+            raise RuntimeError(message) from e
     
     def reasoner_with_trajectory(self, related_contexts, query, trajectorys, model, tokenizer, client, item, top_k=10,  images: List[str] = None):
         reasoner_input = self.reasoner_prompt_with_trajectory.replace("$DOC$", related_contexts).replace("$Q$", query).replace("$TRA$", trajectorys)
 
-        response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.0, max_new_tokens=2048,images=images)
+        response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.0, max_new_tokens=2048,images=images, trace_purpose="final_synthesis")
 
         return response, reasoner_input
 
     def reasoner_dag_node(self, related_contexts, query, model, tokenizer, client, images: List[str] = None):
         reasoner_input = self.reasoner_dag_prompt.replace("$DOC$", related_contexts).replace("$Q$", query)
-        response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.0, max_new_tokens=2048, images=images)
+        response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.0, max_new_tokens=2048, images=images, trace_purpose="worker")
         return response
 
     def save_model_responses_to_folders(self, item, response_list, save_dir, model_name, data_id, run_idx: str = None,task: str = None,content: str = None, adjust_round: int = 0):
@@ -588,7 +631,8 @@ class DAGPred:
             try:
                 response = self.query_llm(
                     input_prompt, model, tokenizer, client,
-                    temperature=0.5, max_new_tokens=1000, images=images
+                    temperature=0.5, max_new_tokens=1000, images=images,
+                    trace_purpose="planning"
                 )
                 self.logger.info(f" DAG decomposition response generated, length: {len(response)} 字符")
                 # 提取 <dag> 标签包围的 JSON
@@ -654,7 +698,8 @@ class DAGPred:
             try:
                 response = self.query_llm(
                     input_prompt, model, tokenizer, client,
-                    temperature=0.5, max_new_tokens=1000, images=images
+                    temperature=0.5, max_new_tokens=1000, images=images,
+                    trace_purpose="planning_refinement"
                 )
                 self.logger.info(f" DAG adjustment response generated, length: {len(response)} 字符")
 
@@ -777,6 +822,16 @@ class DAGPred:
             response = "No response"
         # 修改: 用 (round, node_id) 作为 key 存储结果，避免内存覆盖
         self.node_results[(adjust_round, node_id)] = response
+        self._trace(
+            "worker_result",
+            round=adjust_round,
+            node_id=node_id,
+            task=task,
+            child_ids=list(node.get("children", [])),
+            context=context,
+            image_count=len(images or []),
+            response=response,
+        )
         self.logger.info(f" nodes {node_id} 推理完成: {response[:100]}... (Round {adjust_round})")
 
         # 保存nodes响应：注入 adjust_round
@@ -798,11 +853,12 @@ class DAGPred:
         
         check_prompt = self.evidence_checker_prompt.replace("$Q$", question).replace("$DOC$", main_context).replace("$EVIDENCE$", evidence_str)
         
-        response = self.query_llm(check_prompt, model, tokenizer, client, temperature=0.0, max_new_tokens=216, images=images)
+        response = self.query_llm(check_prompt, model, tokenizer, client, temperature=0.0, max_new_tokens=216, images=images, trace_purpose="evidence_check")
         
         # 提取 <check> JSON
         match = re.search(r'<check>(.*?)</check>', response, re.DOTALL)
         if not match:
+            self._trace("evidence_check", round=adjust_round, parsed=False, response=response, sufficient=False, gaps=[])
             self.logger.warning(f" 证据检查 (Round {adjust_round}) 未找到 <check> 标签，defaulting to insufficient")
             return False, []
         
@@ -810,9 +866,11 @@ class DAGPred:
             check_json = json.loads(match.group(1).strip())
             sufficient = check_json.get('sufficient', False)
             gaps = check_json.get('gaps', []) if 'gaps' in check_json else []
+            self._trace("evidence_check", round=adjust_round, parsed=True, response=response, sufficient=bool(sufficient), gaps=gaps)
             self.logger.info(f" Evidence check result (Round {adjust_round}): sufficient={sufficient}, identified gaps={len(gaps)}")
             return sufficient, gaps
         except json.JSONDecodeError:
+            self._trace("evidence_check", round=adjust_round, parsed=False, response=response, sufficient=False, gaps=[])
             self.logger.warning(f" 证据检查 JSON parsing failed (Round {adjust_round})，defaulting to insufficient")
             return False, []
 
@@ -848,6 +906,9 @@ class DAGPred:
             ############################## 主检索（与DAG版本相同）##############################
             question = item['question']
             id = item['_id']
+            self._trace_question_id = str(id)
+            self._trace_run_idx = run_idx
+            self._trace("question_start", run_index=run_idx, question=question, reference=item.get("answer"), mode="no_dag")
             
             self.logger.info(f" Task ID: {id}, Starting initial retrieval...")
             
@@ -875,7 +936,8 @@ class DAGPred:
             response = self.query_llm(
                         reasoner_input, model, tokenizer, client, 
                         temperature=0.2, max_new_tokens=2048, 
-                        images=initial_images
+                        images=initial_images,
+                        trace_purpose="direct_synthesis"
                     )
             if response is None or response == "":
                 response=f'No output'
@@ -888,6 +950,7 @@ class DAGPred:
             process_time = end_time - start_time
             time_ls.append(process_time)
             item['process_time'] = process_time
+            self._trace("question_end", prediction=item.get("pred"), response=response, duration_seconds=process_time, status="ok")
             
             current_count = self.counter.increment()
             self.logger.info(f" Task ID: {id}, Prediction: {item['pred']}, Correct answer: {item['answer']},  Time: {process_time:.4f}s, Completed: {current_count}")
@@ -964,6 +1027,9 @@ class DAGPred:
             question = item['question']
 
             id = item['_id']  # 统一使用 _id 作为检索 link
+            self._trace_question_id = str(id)
+            self._trace_run_idx = run_idx
+            self._trace("question_start", run_index=run_idx, question=question, reference=item.get("answer"), mode="dag")
             
             self.logger.info(f" Task ID: {id}, Starting initial retrieval...")
             # [NEW] 关键词路由 agent
@@ -1000,9 +1066,10 @@ class DAGPred:
             item['response'] = response
             item['pred'] = self.extract_output(response)
             item['process_time'] = process_time
+            self._trace("question_end", prediction=item.get("pred"), response=response, duration_seconds=process_time, status="ok")
             
             current_count = self.counter.increment()
-            self.logger.info(f" Task ID: {id}, Prediction: {item['pred']}, Correct answer: {item['answer']}, Judgment: {item['judge']}, Time: {process_time:.4f}s, Completed: {current_count}")
+            self.logger.info(f" Task ID: {id}, Prediction: {item['pred']}, Correct answer: {item['answer']}, Judgment: {item.get('judge')}, Time: {process_time:.4f}s, Completed: {current_count}")
             self.save_model_responses_to_folders(item, [response], args.save_dir, model, item['_id'],content=main_context)  
             idx += 1
 
@@ -1083,7 +1150,7 @@ class DAGPred:
                 texts, images = self.retriever(question, link, top_k=10, save_retrieval=True, item=item)
                 context = texts
                 reasoner_input = self.zero_shot_rag_prompt.replace("$DOC$", context).replace("$Q$", question)
-                response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images)
+                response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images, trace_purpose="invalid_dag_fallback")
                 return response
             
             # Topo sort (Kahn 算法)
@@ -1102,10 +1169,11 @@ class DAGPred:
                 texts, images = self.retriever(question, link, top_k=10, save_retrieval=True, item=item)
                 context = texts
                 reasoner_input = self.zero_shot_rag_prompt.replace("$DOC$", context).replace("$Q$", question)
-                response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images)
+                response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images, trace_purpose="cyclic_dag_fallback")
                 return response  # 回退
             
             self.logger.info(f" DAG execution order determined: {len(execution_order)} 个nodes - {execution_order}")
+            self._trace("planning_execution", round=adjust_round, dag=dag, execution_order=list(execution_order))
             
             # 逐nodes执行：层层递进 (子结果增强父上下文)，注入 adjust_round
             for node_id in execution_order:
@@ -1147,7 +1215,7 @@ class DAGPred:
             texts, images = self.retriever(question, link, top_k=10, save_retrieval=True, item=item)
             context = texts
             reasoner_input = self.zero_shot_rag_prompt.replace("$DOC$", context).replace("$Q$", question)
-            response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images)
+            response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images, trace_purpose="empty_trajectory_fallback")
             if response is None:
                 response = "No response"
             return response

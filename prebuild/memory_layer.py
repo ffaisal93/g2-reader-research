@@ -2,6 +2,7 @@
 from ast import Str
 from typing import List, Dict, Optional,Union
 import json
+import os
 import uuid
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
@@ -24,10 +25,15 @@ from config.config import (
     MEMORY_SYSTEMS_DIR,
     PROMPTS,
     MAX_CONCURRENCY,
+    RANDOM_SEED,
 )
 from openai import AsyncOpenAI
 
-qwen_aclient = AsyncOpenAI(api_key=LLM_API_KEY, base_url=LLM_BASE_URL)
+qwen_aclient = AsyncOpenAI(
+    api_key=LLM_API_KEY,
+    base_url=LLM_BASE_URL,
+    timeout=float(os.environ.get("G2_REQUEST_TIMEOUT_SECONDS", "3600")),
+)
 
 embed_client = OpenAI(api_key=EMBED_API_KEY, base_url=EMBED_BASE_URL)
 embed_aclient = AsyncOpenAI(api_key=EMBED_API_KEY, base_url=EMBED_BASE_URL)
@@ -150,7 +156,7 @@ class AgenticMemorySystem:
 
 
 
-    async def _call_llm_evolve(self, messages, response_format, temperature=0.7):
+    async def _call_llm_evolve(self, messages, response_format, temperature=0.7, max_tokens=2048):
         async with self._evolve_semaphore: 
             call_start = time.time()  
             try:
@@ -159,7 +165,8 @@ class AgenticMemorySystem:
                     messages=messages,
                     response_format=response_format,
                     temperature=temperature,
-                    max_tokens=2048
+                    max_tokens=max_tokens,
+                    seed=RANDOM_SEED,
                 )
             except Exception as e:
                 print(f"[evolve] API error: {e}")

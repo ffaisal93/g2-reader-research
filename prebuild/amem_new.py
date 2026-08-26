@@ -9,6 +9,8 @@ from openai import OpenAI,AsyncOpenAI
 
 from config.config import (
     LLM_BASE_URL,
+    EMBED_BASE_URL,
+    EMBED_API_KEY,
     LLM_API_KEY,
     MODELS,
     LLM_GENERATION,
@@ -18,6 +20,7 @@ from config.config import (
     DATASETS,
     MAX_CONCURRENCY,
     PARALLEL_ANALYSIS,
+    RANDOM_SEED,
 )
 
 from prebuild.memory_layer import AgenticMemorySystem
@@ -38,9 +41,34 @@ except Exception:
 # -----------------------------
 # Client
 # -----------------------------
-qwen_aclient = AsyncOpenAI(api_key=LLM_API_KEY, base_url=LLM_BASE_URL)
+qwen_aclient = AsyncOpenAI(
+    api_key=LLM_API_KEY,
+    base_url=LLM_BASE_URL,
+    timeout=float(os.environ.get("G2_REQUEST_TIMEOUT_SECONDS", "3600")),
+)
+embed_aclient = AsyncOpenAI(
+    api_key=EMBED_API_KEY,
+    base_url=EMBED_BASE_URL,
+    timeout=float(os.environ.get("G2_REQUEST_TIMEOUT_SECONDS", "3600")),
+)
 
 _llm_sem_by_loop = {}
+
+CONTENT_ANALYSIS_RETRY_SCHEMA = {
+    "name": "content_analysis",
+    "strict": True,
+    "schema": {
+        "type": "object",
+        "properties": {
+            "keywords": {"type": "array", "items": {"type": "string"}, "maxItems": 256},
+            "summary": {"type": "string", "maxLength": 1200},
+            "tags": {"type": "array", "items": {"type": "string"}, "maxItems": 32},
+            "text_content": {"type": "string", "maxLength": 2400},
+        },
+        "required": ["keywords", "summary", "tags", "text_content"],
+        "additionalProperties": False,
+    },
+}
 
 def _get_llm_semaphore():
     loop = asyncio.get_running_loop()
@@ -186,62 +214,71 @@ def _log_failed_response(raw: str, error: Exception, is_multimodal: bool, user_p
 async def call_llm_json(system: str, user_payload, *, is_multimodal: bool = False):
     sem = _get_llm_semaphore()
     async with sem:
-        call_start = time.time() 
-        try:
-            resp = await qwen_aclient.chat.completions.create(
+        last_error: Exception | None = None
+        for attempt in range(2):
+            retrying = attempt > 0
+            attempt_system = system
+            generation = dict(LLM_GENERATION)
+            response_format = {"type": "json_object"}
+            if retrying:
+                attempt_system += (
+                    " This is a retry after invalid or truncated JSON. Return one compact, complete JSON object. "
+                    "Do not repeat OCR values. Return only keywords, summary, tags, and text_content."
+                )
+                generation["max_tokens"] = min(int(generation.get("max_tokens", 8192)), 4096)
+                response_format = {
+                    "type": "json_schema",
+                    "json_schema": CONTENT_ANALYSIS_RETRY_SCHEMA,
+                }
+                print("[RETRY] retrying structured analysis with compact-output constraints")
+
+            call_start = time.time()
+            try:
+                resp = await qwen_aclient.chat.completions.create(
                     model=MODELS["chat"],
                     messages=[
-                        {"role": "system", "content": system},
+                        {"role": "system", "content": attempt_system},
                         {"role": "user", "content": user_payload},
                     ],
-                    response_format={"type": "json_object"},
-                    **LLM_GENERATION,
+                    response_format=response_format,
+                    seed=RANDOM_SEED + attempt,
+                    **generation,
                 )
-        except Exception as err:
-                # network / timeout / Azure filtering
-            print(f"[ERROR] LLM request failed: {err}")
-            await asyncio.sleep(1)
-            raise 
+            except Exception as err:
+                last_error = err
+                print(f"[ERROR] LLM request failed (attempt {attempt + 1}/2): {err}")
+                if not retrying:
+                    await asyncio.sleep(1)
+                    continue
+                raise
 
-        # only record duration for successful calls
-        call_duration = time.time() - call_start
-        
-        try:
-            qkind = "analyze_multimodal" if is_multimodal else "analyze_text"
-            add_chat_usage(
-                getattr(resp, "usage", None),
-                {"model": MODELS["chat"], "qkind": qkind}
-            )
-            # only record duration for successful calls
-            stage = "image_analysis" if is_multimodal else "text_analysis"
-            add_single_call_duration(stage, call_duration)
-        except Exception:
-            pass 
+            call_duration = time.time() - call_start
+            try:
+                qkind = "analyze_multimodal" if is_multimodal else "analyze_text"
+                add_chat_usage(
+                    getattr(resp, "usage", None),
+                    {"model": MODELS["chat"], "qkind": qkind, "attempt": attempt + 1}
+                )
+                stage = "image_analysis" if is_multimodal else "text_analysis"
+                add_single_call_duration(stage, call_duration)
+            except Exception:
+                pass
 
-        raw = resp.choices[0].message.content
-        finish_reason = resp.choices[0].finish_reason if resp.choices else None
-        
-        # check if truncated
-        if finish_reason == "length":
-            print(f"[WARNING] response truncated (finish_reason=length),可能导致 JSON 不完整")
-        
-        try:
-            return json.loads(raw)
-        except json.JSONDecodeError as e:
-            print(f"{e}")
-            # try to extract JSON object
-            import re
-            m = re.search(r"\{[\s\S]*\}", raw)
-            if m:
-                try:
-                    return json.loads(m.group(0))
-                except json.JSONDecodeError as e2:
-                    # record failed response
-                    _log_failed_response(raw, e2, is_multimodal, user_payload)
+            raw = resp.choices[0].message.content
+            finish_reason = resp.choices[0].finish_reason if resp.choices else None
+            try:
+                if finish_reason == "length":
+                    raise ValueError("response truncated (finish_reason=length)")
+                return json.loads(raw)
+            except (json.JSONDecodeError, ValueError) as error:
+                last_error = error
+                print(f"[WARNING] invalid structured response (attempt {attempt + 1}/2): {error}")
+                _log_failed_response(raw, error, is_multimodal, user_payload)
+                if retrying:
                     raise
-            # record failed response
-            _log_failed_response(raw, e, is_multimodal, user_payload)
-            raise
+
+        assert last_error is not None
+        raise last_error
     
 
 async def analyze_content(payload: str, *, modality: str) -> Dict[str, any]:
@@ -360,10 +397,11 @@ async def construct_memory(
 
     # load or initialize memory system
     existing = set(os.listdir(MEMORY_SYSTEMS_DIR))
-    if name in existing:
+    saved_name = name + "_iter_" + str(evolve_iters)
+    if saved_name in existing:
         print(f"Loading existing memory system: {name}")
         ms = AgenticMemorySystem(model_name=MODELS["embed"], llm_model=MODELS["chat"])  # type: ignore
-        ms.load_memory_system(name+"_iter_"+str(evolve_iters))
+        ms.load_memory_system(saved_name)
     else:
         print("initialize memory system")
         ms = AgenticMemorySystem(model_name=MODELS["embed"], llm_model=MODELS["chat"])  # type: ignore

@@ -134,8 +134,28 @@ MAX_CONCURRENCY = 10
 
 PARALLEL_ANALYSIS = False
 
+# The released pipeline samples during planning and graph evolution. Expose a
+# single runtime seed so an audit can hold that stochastic input constant.
+RANDOM_SEED = int(os.environ.get("G2_RANDOM_SEED", "42"))
+
 @dataclass
 class SaveChecks:
     min_bytes: int = 10
 
 SAVE_CHECKS = SaveChecks()
+
+# The released repository ships placeholder endpoints and filesystem paths.
+# Opting into the local adapter changes configuration only; the official
+# retrieval, graph, planning, Worker, checker, and synthesis code is untouched.
+if os.environ.get("G2_USE_LOCAL_RUNTIME", "").lower() in {"1", "true", "yes"}:
+    from config.local_runtime import (
+        DATASETS,
+        EMBED_API_KEY,
+        EMBED_BASE_URL,
+        LLM_API_KEY,
+        LLM_BASE_URL,
+        MAX_CONCURRENCY,
+        MEMORY_SYSTEMS_DIR,
+        MODELS,
+        PDF_TMP_DIR,
+    )
