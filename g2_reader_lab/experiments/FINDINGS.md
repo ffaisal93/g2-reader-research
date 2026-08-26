@@ -1,795 +1,852 @@
 # Consolidated G²-Reader Experimental Findings
 
-Last updated: 2026-08-26
+Last update: 2026-08-26
 
-This is the single, authoritative narrative of the G²-Reader experiments in
-this workspace. It combines the official-runtime audit, the low-resource
-Content Graph experiment, the teacher/student loss evaluation, the resumable
-SPIQA-100 failure audit, matched 32B replays, parser recovery, and raw-image
-adjudication.
+This document uses ASD-STE100 style where practical. Technical names, code
+labels, model names, and benchmark identifiers are approved technical terms in
+this document.
 
-The detailed reports and immutable traces remain the evidence base. When an
-early automated classification conflicts with the later raw-source review, the
-raw-source decision recorded here takes precedence.
+This document is the primary report for all G²-Reader experiments in this
+workspace. It combines these studies:
 
-## 1. Executive conclusion
+- the official-runtime audit;
+- the low-resource Content Graph experiment;
+- the teacher/student loss evaluation;
+- the SPIQA-100 failure audit;
+- the matched 32B replays;
+- the parser recovery;
+- the raw-image review.
 
-The experiments establish five main results.
+The detailed reports and the original traces remain the evidence sources. A
+raw-source decision has priority over an earlier automatic decision.
 
-1. **Official-style G² Content Graph construction is computationally
-   expensive in this environment.** Across five saved 32B teacher graphs, mean
-   construction time was 2,979.94 seconds, or 49.67 minutes, for a bundle of
-   roughly 165–199 nodes. The pipeline performs one initial VLM analysis per
-   node and one VLM evolution call per node, producing hundreds of multimodal
-   calls and roughly two million tokens per graph.
+## 1. Main conclusions
 
-2. **A low-resource implementation can reduce cold construction to about
-   2–3 minutes without removing the G² construction stages.** The optimized 8B
-   builder averaged 141.14 seconds across five graphs, a 21.11× construction
-   speedup. It retained all extracted evidence nodes and still evolved every
-   node once. This is a real throughput improvement, not a result of
-   question-dependent filtering or selective evolution.
+The experiments give five main conclusions.
 
-3. **The fast builder does not yet preserve teacher operational quality.** In
-   the five-question matched comparison, the same 8B online reader answered
-   5/5 correctly on 32B teacher graphs, but only 3/5 were officially parsed as
-   correct on optimized-8B graphs. Ignoring one final-tag parser loss, raw
-   semantic correctness was 4/5. The candidate retrieved decisive evidence in
-   all five cases, so the loss is primarily evidence-description and
-   Worker/checker interaction, not ordinary top-5 retrieval recall.
+### 1.1 Official-style graph construction is slow
 
-4. **The 100-question audit identifies Worker evidence use as the dominant
-   answer-stage weakness.** After excluding five defective benchmark cases,
-   the optimized-8B configuration produced 65/95 semantically correct parsed
-   or recoverable raw answers and 30 incorrect/no-answer outcomes. Corrected
-   failure phenomena were: Worker support 20, parser 9, retrieval 4,
-   decomposition 2, and composition 1.
+The 32B teacher took a mean time of 2,979.94 seconds for five saved graphs.
+This time is 49.67 minutes for each graph.
 
-5. **Some failures belong to the released G² integration, not just the small
-   model.** The official online path relies on prompt-generated tagged JSON
-   without schema enforcement. A matched 32B replay reproduced the malformed
-   Planning Graph for `spiqa_96` on all 15 retries. The final answer parser also
-   discards otherwise correct answers when `</output>` is missing. These are
-   system-interface defects even though model choice affects how often they
-   occur.
+Each graph contained approximately 165 to 199 nodes. The system made one
+initial VLM call for each node. It then made one evolution call for each node.
+Thus, one graph required hundreds of VLM calls and approximately two million
+tokens.
 
-The defensible overall conclusion is:
+### 1.2 The optimized builder is much faster
 
-> We have a substantially faster G²-compatible Content Graph builder and a
-> source-grounded map of the remaining failures, but we do not yet have a
-> no-regression replacement for the 32B teacher or a production-reliable G²
-> online reader.
+The optimized 8B builder took a mean time of 141.14 seconds. This time is 2.35
+minutes for each graph. The mean speed increase was 21.11 times.
 
-## 2. What system was evaluated
+The builder kept all extracted evidence nodes. It also evolved each node one
+time. It did not use a question-dependent filter. It did not use selective
+evolution.
 
-G² has two distinct phases that must not be conflated.
+### 1.3 The optimized builder causes a quality loss
+
+We used the same 8B online reader with teacher graphs and candidate graphs. The
+reader answered 5 of 5 questions correctly with the teacher graphs.
+
+With the candidate graphs, the official system parsed 3 of 5 answers as
+correct. Raw semantic review found 4 of 5 correct answers. One correct raw
+answer failed because its final output tag was incomplete.
+
+The candidate graphs contained the decisive evidence for all five questions.
+Thus, normal top-5 retrieval recall was not the main problem. The main problem
+was the description and use of the evidence.
+
+### 1.4 Worker support is the largest answer-stage problem
+
+The audit started with 100 SPIQA questions. We removed five defective benchmark
+questions. The final valid set contained 95 questions.
+
+The optimized-8B system gave 65 correct parsed or recoverable raw answers. It
+gave 30 incorrect answers or no answers.
+
+The final failure counts are:
+
+- Worker support: 20;
+- parser: 9;
+- retrieval: 4;
+- decomposition: 2;
+- composition: 1.
+
+### 1.5 Some defects are in the official G² interface
+
+The official online planner makes tagged JSON from prompt instructions. The
+planner does not use enforced JSON Schema output.
+
+For `spiqa_96`, the matched 32B reader made invalid Planning Graph JSON on all
+15 retries. A larger model did not remove this defect.
+
+The final parser also rejects correct answers when the closing `</output>` tag
+is absent. Thus, model quality is not the only cause of parser failures.
+
+The main conclusion is:
+
+> The optimized Content Graph builder is much faster. However, it is not yet a
+> no-loss replacement for the 32B teacher. The online G² path is also not yet
+> reliable for production use.
+
+## 2. Parts of the evaluated system
+
+G² has an offline phase and an online phase. Do not combine the measurements
+from these two phases.
 
 ### 2.1 Offline Content Graph construction
 
 ```text
 processed documents
   → ordered text, table, and figure nodes
-  → per-node VLM analysis
+  → VLM analysis for each node
   → embeddings and initial links
-  → per-node graph evolution
-  → changed summaries re-embedded
+  → graph evolution for each node
+  → new embeddings for changed summaries
   → saved Content Graph
 ```
 
-This phase is conceptually query-independent. Once a graph for a fixed
-document collection exists, questions should reuse it.
+This phase does not use the question. A fixed document collection can use one
+saved graph for many questions.
 
 ### 2.2 Online question answering
 
 ```text
 question
-  → Content Graph retrieval
-  → Planning Graph decomposition
-  → dependency-ordered Workers
-  → sufficiency check
-  → optional global refinement/replanning
-  → final synthesis
-  → <output> tag parser
+  → retrieve evidence from the Content Graph
+  → make a Planning Graph
+  → run Workers in dependency order
+  → check evidence sufficiency
+  → refine the plan when necessary
+  → make the final answer
+  → parse the <output> tag
 ```
 
-The Content Graph affects what evidence is retrieved and how that evidence is
-described. The Planning Graph controls which reasoning tasks execute and how
-their answers depend on one another. The final parser determines whether the
-generated answer becomes an official prediction.
+The online reader contains all operations in this second flow. It does not
+build the Content Graph.
 
-### 2.3 Compared configurations
+### 2.3 Evaluated configurations
 
-The experiments used three related but non-equivalent configurations:
+We evaluated these configurations:
 
-- **32B teacher construction:** official traced construction with
+- **32B teacher construction:** The official traced builder used
   `Qwen3-VL-32B-Instruct-FP8`.
-- **Optimized 8B construction:** a behavior-preserving scheduling and
-  redundancy optimization using `Qwen3-VL-8B-Instruct-FP8`, concise structured
-  outputs, and the same basic G² graph stages.
-- **Matched online reader replays:** the graph was held fixed while the online
-  reader was changed, or the reader was held fixed while teacher and candidate
-  graphs were compared.
+- **Optimized 8B construction:** The candidate builder used
+  `Qwen3-VL-8B-Instruct-FP8` and safe scheduling changes.
+- **Matched reader tests:** These tests held one component constant. They
+  changed only the graph or only the online reader.
 
-The 100-question accuracy and failure counts describe the **optimized-8B graph
-plus official G² online path**. They must not be presented as the accuracy of
-the original end-to-end 32B G² system.
+The SPIQA-100 results apply to the optimized-8B graph and the official G²
+online path. They are not the results of the complete original 32B system.
 
-## 3. Experiment sequence and why it matters
+## 3. Experiment sequence
 
-The findings were obtained sequentially:
+We did the work in this sequence:
 
-1. Audit and minimally repair released runtime blockers so official G² could
-   execute locally without changing its reasoning algorithm.
-2. Measure an expensive fixed-seed 32B teacher graph.
-3. Validate whether strict structured decoding makes an 8B VLM usable.
-4. Optimize one graph first, then expand only after it passed completeness and
-   latency gates.
-5. Compare five saved teacher graphs with five optimized graphs under the same
-   online reader.
-6. Run a resumable 100-question SPIQA audit with complete passive traces.
-7. Recover explicit raw answers rejected by the official parser.
-8. Semantically adjudicate suspected errors and classify their earliest causal
-   failure.
-9. Replay selected cases with the 32B reader while holding the Content Graph
-   fixed.
-10. Inspect 12 disputed table/figure cases against the exact raw images and
-    correct the final labels.
+1. We found and repaired the minimum official-runtime blockers.
+2. We measured a fixed-seed 32B teacher graph.
+3. We tested strict structured output with an 8B VLM.
+4. We optimized one graph before we increased the test size.
+5. We compared five teacher graphs with five candidate graphs.
+6. We ran a resumable audit with 100 SPIQA questions.
+7. We recovered explicit answers that the official parser rejected.
+8. We reviewed suspected errors and found the earliest cause.
+9. We replayed selected cases with the 32B reader.
+10. We checked 12 disputed visual cases against the raw images.
 
-This ordering prevents three common mistakes: treating lexical mismatch as an
-error, attributing an 8B model failure to G² itself, and calling a benchmark
-reference defect a system failure.
+This sequence prevents incorrect causal claims. A text mismatch is not always
+an answer error. An 8B failure is not always an original G² failure. A bad
+benchmark reference is not a system failure.
 
-## 4. Failure taxonomy
+## 4. Failure terms
 
-The categories identify the **earliest decisive point** at which the system
-lost the ability to produce a supported answer. Later downstream errors may be
-recorded as secondary phenomena.
+For each question, we identify the earliest decisive failure. A later failure
+can also occur. We record that later failure as a secondary failure.
 
 ### 4.1 `dataset_failure`
 
-Definition: the benchmark question, reference answer, or question/reference
-pair is malformed or contradicted by the source. The system cannot be fairly
-scored against that row.
+#### Meaning
 
-Diagnostic test:
+The benchmark question or reference is defective. The source can contradict
+the reference. The question and the reference can also ask for different
+information.
 
-- Read the literal question and reference.
-- Inspect the original paper text, table, or figure.
-- Ask whether a source-supported answer can satisfy both the question and the
-  reference.
+Do not use this question to measure system accuracy.
 
-Example — `spiqa_452`:
+#### Test
 
-- The figure says bubble size represents tOF.
-- ENet is visibly the largest bubble.
-- Lower tOF indicates better temporal coherence.
-- The question equates the largest/highest tOF with the best result, while the
-  reference answers TecoGAN, which has better low tOF.
+1. Read the literal question.
+2. Read the reference answer.
+3. Inspect the source paper, table, or figure.
+4. Make sure that one source-supported answer can satisfy both items.
 
-This is not a G² error: the question itself combines incompatible criteria.
+#### Example: `spiqa_452`
 
-Other excluded cases:
+The figure uses bubble size for tOF. ENet is the largest bubble. However, a low
+tOF value gives better temporal coherence.
 
-- `spiqa_79`: the stored question is only `New question:`.
-- `spiqa_164`: the reference answers the overall five-hop topology, while the
-  literal question asks about directly connected Node 1.
-- `spiqa_195`: the reference says both ACGAN losses fall, contradicting the raw
-  curves.
-- `spiqa_281`: the reference claims a globally inverse frequency relationship,
-  while the source describes a hump-shaped Luhn profile.
+The question incorrectly says that the largest tOF is the best result. The
+reference gives TecoGAN because TecoGAN has better low tOF. The question mixes
+two incompatible conditions.
 
-Final count: **5 excluded benchmark cases**.
+#### Other examples
+
+- `spiqa_79` contains only `New question:` as its question.
+- `spiqa_164` asks about Node 1, but the reference gives the hop count for the
+  complete topology.
+- `spiqa_195` says that both ACGAN losses decrease. The raw curves do not show
+  this behavior.
+- `spiqa_281` specifies a fully inverse relation. The source shows a
+  hump-shaped Luhn profile.
+
+Final count: **5 excluded questions**.
 
 ### 4.2 `retrieval_failure`
 
-Definition: the information required to answer the question is absent from the
-evidence delivered to the relevant Worker. Retrieving a related table or an
-OCR fragment is not sufficient if the decisive row, column, figure, or passage
-is missing.
+#### Meaning
 
-Diagnostic test:
+The Worker does not receive the evidence that is necessary for the answer. A
+related table is not sufficient when the required row or column is absent.
 
-- Identify the minimum source evidence needed for the answer.
-- Inspect the actual retrieved node IDs and payloads.
-- If the evidence is not present, changing Worker reasoning alone cannot fix
-  the case.
+#### Test
 
-Example — `spiqa_578`:
+1. Identify the minimum evidence for the answer.
+2. Inspect the retrieved node IDs and their contents.
+3. Make sure that the decisive row, figure, or passage is present.
 
-- The question asks for the **topic words** having the highest internal
-  coherence.
-- Retrieval returned Table 4, which reports model-level NPMI and makes SCHOLAR
-  look best.
-- The required Table 6 topic row was not retrieved.
-- The missing answer was `turks armenian armenia turkish roads escape soviet
-  muslim mountain soul`, with coherence 0.77.
+If the evidence is absent, a better Worker cannot reliably answer the
+question.
 
-The Worker answered `SCHOLAR`, but the earliest decisive problem was that the
-topic table was unavailable. Raw-image review therefore corrected this from a
-provisional Worker label to retrieval failure.
+#### Example: `spiqa_578`
 
-Final count: **4** — `spiqa_292`, `spiqa_396`, `spiqa_510`, and `spiqa_578`.
+The question asks for the topic words with the highest internal coherence.
+Retrieval returned Table 4. Table 4 contains model-level NPMI values. It does
+not contain the required topic rows.
+
+The system answered `SCHOLAR`. The required Table 6 was absent. Table 6 gives
+this topic at 0.77:
+
+```text
+turks armenian armenia turkish roads escape soviet muslim mountain soul
+```
+
+The raw-image review changed the early Worker label to retrieval failure.
+
+Final count: **4**. The question IDs are `spiqa_292`, `spiqa_396`,
+`spiqa_510`, and `spiqa_578`.
 
 ### 4.3 `worker_support_failure`
 
-Definition: the decisive evidence was retrieved, but a Worker misread it,
-selected the wrong row/panel/entity, performed an unsupported inference, or
-claimed that visible evidence was unavailable.
+#### Meaning
 
-Diagnostic test:
+The Worker receives the decisive evidence but does not use it correctly. The
+Worker can select a wrong row, panel, label, value, or unit. It can also make a
+claim that the evidence does not support.
 
-- Verify that the exact evidence was in the Worker's context.
-- Compare every extracted value, label, unit, and claim with that evidence.
-- If the plan was adequate but the intermediate answer is unsupported, the
-  failure is at the Worker.
+#### Test
 
-Example — `spiqa_4`:
+1. Make sure that the exact evidence is in the Worker context.
+2. Compare each value, label, and unit with the source.
+3. Check each calculation and claim.
+4. Make sure that the Planning Graph asked for the correct operation.
 
-- The retrieved table gives 16,198 total negative CNSE samples.
-- The question asks for the number allocated to a 60% training split.
-- The Worker copied 16,198 instead of computing approximately 9,719.
+If the plan is correct and the intermediate answer is wrong, classify the case
+as a Worker support failure.
 
-Example — `spiqa_116`:
+#### Example: `spiqa_4`
 
-- The correct figure was retrieved.
-- At x=7, the proposed and Yosinski multi-shot curves are both around 71–72%,
-  with only a marginal difference.
-- The 8B answer invented an approximately ten-point advantage; even the 32B
-  replay's exact 75-versus-70 values came from incorrect x positions.
+The retrieved table gives 16,198 total negative CNSE samples. The question asks
+for the number in a 60-percent training split.
 
-Example — `spiqa_368`:
+The Worker copied 16,198. It did not calculate 60 percent of 16,198. The
+supported answer is approximately 9,719.
 
-- The correct MNIST attack curves were retrieved and readable.
-- Workers repeatedly said the required attack evidence was unavailable.
-- The final generation then ended without a usable answer tag.
+#### Example: `spiqa_116`
 
-This was initially suspected to be retrieval failure. Raw visual inspection
-showed that retrieval succeeded, so Worker support is primary and parser loss
-is secondary.
+The correct figure was present. At x=7, both curves are near 71 to 72 percent.
+The proposed method is only slightly better.
 
-Final count: **20**, the largest category. Eighteen of the twenty rationales
-contain table, figure, value, or trend language.
+The 8B answer reported an advantage of approximately ten percentage points.
+The raw figure does not support this value.
+
+#### Example: `spiqa_368`
+
+The correct MNIST attack curves were present and readable. The Workers said
+that the evidence was not available. Final generation then ended without a
+usable answer tag.
+
+The early label was retrieval failure. Raw visual review showed that retrieval
+was successful. Thus, Worker support is the primary failure. Parser failure is
+a secondary failure.
+
+Final count: **20**. This is the largest failure group. Eighteen rationales in
+this group contain table, figure, value, or trend terms.
 
 ### 4.4 `decomposition_failure`
 
-Definition: the Planning Graph omits, distorts, or incorrectly frames a
-subproblem required by the question. Even competent Workers cannot reliably
-recover an operation that the plan never asks them to perform.
+#### Meaning
 
-Diagnostic test:
+The Planning Graph does not include a necessary task. It can also describe a
+task incorrectly. Workers cannot reliably do an operation that the plan does
+not request.
 
-- Break the question into the minimum evidence and reasoning operations.
-- Compare that set with the generated Planning Graph nodes and dependencies.
-- Check especially for missing comparisons, complements, aggregations,
-  conditions, or entity disambiguation.
+#### Test
 
-Example — `spiqa_44`:
+1. List the minimum operations for the question.
+2. Compare the list with the Planning Graph tasks.
+3. Check for a missing comparison, complement, calculation, or condition.
 
-- The question asks for differences between sickle-cell and leukemia temporal
-  patterns.
-- The plan creates separate tasks for each patient.
-- It never creates the required comparison task.
-- The final answer focuses on leukemia and does not answer the comparative
-  question.
+#### Example: `spiqa_44`
 
-Example — `spiqa_571`:
+The question asks for differences between sickle-cell and leukemia patterns.
+The plan makes one task for each patient. It does not make a comparison task.
 
-- The plan insists on finding a single step whose input/output is directly
-  5,119→1,955.
-- The table shows a multi-step reduction and Step 4 produces the final 1,955.
-- The incorrect framing prevents the system from accepting Step 4 and it emits
-  no answer.
+The final answer discusses leukemia only. It does not answer the comparison
+question.
 
-Final count: **2** — `spiqa_44` and `spiqa_571`.
+#### Example: `spiqa_571`
+
+The plan searches for one step with a direct change from 5,119 to 1,955. The
+table shows a sequence of reductions. Step 4 produces the final value of 1,955.
+
+The incorrect task description prevents the system from accepting Step 4. The
+system gives no final answer.
+
+Final count: **2**. The question IDs are `spiqa_44` and `spiqa_571`.
 
 ### 4.5 `composition_failure`
 
-Definition: retrieval and intermediate Worker answers are adequate, but a
-parent task or final synthesis combines them incorrectly.
+#### Meaning
 
-Diagnostic test:
+Retrieval is correct. The Workers also give correct intermediate results. A
+parent task or final synthesis combines these results incorrectly.
 
-- Verify the supporting intermediate values independently.
-- Recompute the requested comparison from those values.
-- If the inputs are correct and the final transformation is wrong, it is a
-  composition failure rather than a retrieval or Worker extraction failure.
+#### Test
 
-Example — `spiqa_47`:
+1. Verify each intermediate result.
+2. Do the final operation independently.
+3. Compare this result with the final answer.
 
-- Workers correctly recover disagreement rates of 44.85% before intervention,
-  24.92% after GBI, and 33.91% after A*.
-- The individual reductions, 19.93 and 10.94 percentage points, are correct.
-- Final synthesis reports their 8.99-point absolute difference rather than the
-  comparison intended by the reference.
+#### Example: `spiqa_47`
+
+The Workers correctly find these disagreement rates:
+
+- before: 44.85 percent;
+- after GBI: 24.92 percent;
+- after A*: 33.91 percent.
+
+The individual reductions are 19.93 and 10.94 percentage points. Final
+synthesis reports their 8.99-point absolute difference. The reference requires
+a different comparison of the reductions.
+
+The intermediate values are correct. The final combination is wrong.
 
 Final count: **1**.
 
 ### 4.6 `sufficiency_failure`
 
-Definition: the sufficiency checker makes the wrong control decision. It may
-stop while a specific evidence gap remains, or demand unnecessary detail and
-trigger expensive global refinement even though the benchmark question is
-already answerable.
+#### Meaning
 
-This category can be an accuracy failure or only an efficiency failure. It is
-not a final primary category in the corrected 30 incorrect/no-answer outcomes,
-but it appears repeatedly as a secondary operational problem.
+The sufficiency checker makes an incorrect control decision. It can stop when
+an evidence gap remains. It can also request unnecessary work when the answer
+is already available.
 
-Example — `spiqa_542`:
+A sufficiency failure can cause a wrong answer. It can also cause only a time
+penalty. No sufficiency failure remained as a primary category in the final 30
+incorrect or empty outcomes. However, it was an important secondary problem.
 
-- The first Worker had the decisive `RCE = 0.77` row.
-- A sufficiency response was truncated and could not be parsed.
-- Official G² treated the parse failure as `insufficient`.
-- It ran four Planning Graph executions, 13 Worker tasks, four checks, and 22
-  online model calls before returning the already available correct answer.
+#### Example: `spiqa_542`
 
-Example — `spiqa_108`:
+The first Worker had the decisive `RCE = 0.77` row. The sufficiency response
+was incomplete and could not be parsed.
 
-- Figure 3 and supporting ESMM text were present.
-- The checker demanded exact chart values not required by the question.
-- Candidate-graph inference exhausted four adjustment rounds, took 253.51
-  seconds, and then lost a correct raw answer to the final tag parser.
+Official G² treated the parse failure as insufficient evidence. The system ran
+four Planning Graphs, 13 Worker tasks, four checks, and 22 model calls. It then
+returned the answer that was available in the first round.
 
-The current global refinement policy can therefore turn a small checker or
-formatting error into several minutes of redundant work.
+#### Example: `spiqa_108`
+
+The system had Figure 3 and the supporting ESMM text. The checker requested
+exact chart values that the benchmark question did not require.
+
+The system used all four refinement rounds. Query time increased to 253.51
+seconds. Final synthesis was correct, but the output parser rejected it.
 
 ### 4.7 `parser_failure`
 
-Definition: the model generated enough correct reasoning or answer content,
-but a machine-readable interface rejected it. Two distinct parser locations
-must be distinguished.
+#### Meaning
+
+The model makes useful answer content, but the software cannot read the
+required structure.
+
+There are two parser locations.
 
 #### Planning Graph parser failure
 
-The online planner emits JSON inside `<dag>` tags, but the released call does
-not require a JSON schema. Malformed JSON prevents Worker execution.
+The planner writes JSON inside `<dag>` tags. The official model call does not
+enforce a JSON schema. Invalid JSON stops Worker execution.
 
-Example — `spiqa_96`:
+Example: `spiqa_96`
 
-- The graph was built correctly.
-- Every Planning Graph attempt contained invalid JSON escapes such as a single
-  LaTeX backslash inside a JSON string.
-- The matched 32B reader reproduced this across all 15 official retries.
+The Content Graph was valid. Each Planning Graph response contained invalid
+JSON escapes. The matched 32B reader repeated this error on all 15 retries.
 
-This proves an official-path structured-output integration defect; it is not
-only an 8B incapability.
+This is an official structured-output interface defect. It is not only an 8B
+model defect.
 
 #### Final-output parser failure
 
-The official parser expects a complete `<output>...</output>` pair. If the
-answer is correct but the closing tag is missing, the official prediction is
-`null`.
+The official parser requires this format:
 
-Example — `spiqa_39`:
+```text
+<output>answer</output>
+```
 
-- The raw answer correctly says TRPO aligns with the true gradient more quickly
-  than PPO.
-- The opening `<output>` tag is present but `</output>` is missing.
-- Derived recovery can identify the answer, but the frozen official parser
-  returns no prediction.
+If `</output>` is absent, the parser returns `None`.
 
-Across 98 completed query outputs, 80 parsed officially, ten explicit unclosed
-outputs were recoverable, and eight had no safe candidate answer. After
-semantic review, six **correct** raw answers among valid cases were confirmed
-lost solely by final parsing.
+Example: `spiqa_39`
 
-Final corrected parser-phenomenon count: **9**. This includes parser failures
-that caused incorrect/no-answer outcomes and correct raw answers lost by the
-official interface.
+The raw answer correctly describes the faster TRPO gradient convergence. The
+opening `<output>` tag is present. The closing tag is absent. A human can read
+the answer, but the official parser records no prediction.
+
+The audit had 98 completed query outputs. The official parser accepted 80
+outputs. Ten outputs had an explicit recoverable opening tag without a closing
+tag. Eight outputs had no safe answer candidate.
+
+Semantic review found six valid questions with correct raw answers that the
+final parser rejected.
+
+Final parser-phenomenon count: **9**. This count includes wrong or empty
+outcomes and correct raw answers that the parser lost.
 
 ### 4.8 `infrastructure_failure`
 
-Definition: execution fails because of code plumbing, service health, missing
-clients, incompatible function signatures, filesystem paths, GPU/server
-termination, or artifact-writing problems—not because the reasoning pipeline
-answered incorrectly.
+#### Meaning
 
-Examples found while enabling the official runtime:
+The run fails because of software plumbing or service operation. The failure
+does not measure answer reasoning.
 
-- `embed_aclient` was undefined, causing all embeddings to fail.
-- `_call_llm_evolve()` was called with `max_tokens` although its released
-  signature did not accept that argument; per-node exception handling then
-  silently skipped evolution.
-- Saved graph directories used `<id>_iter_<round>`, while the cache existence
-  check looked only for `<id>`, preventing graph reuse.
-- Final logging accessed `item['judge']` even when the optional field was
-  absent, crashing after successful synthesis.
-- One 8B vLLM process exited after 14 successful canary requests; the logs show
-  SIGTERM but no CUDA, GPU-memory, or malformed-output cause.
+#### Examples
 
-Infrastructure-blocked runs are excluded from QA accuracy denominators.
+- The official runtime did not define `embed_aclient`.
+- The official code supplied `max_tokens` to a function that did not accept
+  this argument.
+- The save path used `<id>_iter_<round>`, but the cache check used only `<id>`.
+- Final logging required an optional `judge` field and caused a `KeyError`.
+- One VLM server stopped after 14 valid requests. The log showed SIGTERM but no
+  CUDA or GPU-memory error.
+
+The evolution signature defect was dangerous. The node exception handler kept
+the original nodes after each failure. Thus, the run could report an evolution
+round when no VLM evolution occurred.
+
+We exclude infrastructure-blocked runs from answer accuracy.
 
 ### 4.9 `unverifiable`
 
-Definition: the available stored evidence is too coarse, clipped, unreadable,
-or provenance-ambiguous to determine whether the system or benchmark is
-correct.
+#### Meaning
 
-This is a temporary audit status, not proof of failure. The 12 disputed visual
-cases were resolved by decoding exact graph images and matching them to source
-images using dimensions and perceptual hashes. Therefore, **zero** cases remain
-unverifiable after raw-image review.
+The saved evidence is not sufficient for a reliable decision. The image can be
+too small, clipped, unreadable, or without clear source information.
+
+This label is temporary. It is not proof of a system failure.
+
+We decoded the exact graph images for 12 disputed visual cases. We matched each
+image to the source with image dimensions and perceptual hashes. After this
+work, zero cases remained unverifiable.
 
 ### 4.10 `no_failure`
 
-Definition: the answer is semantically correct and sufficiently supported,
-even if it is not a lexical match to the benchmark reference or contains minor
-nonmaterial imprecision.
+#### Meaning
 
-Example — `spiqa_163`:
+The answer is correct and sufficiently supported. It does not have to use the
+same words as the reference.
 
-- The answer describes recursive four-way subdivision and reuse of the Hilbert
-  pattern.
-- This substantially matches the vague reference.
-- Raw visual review restored it from a provisional failure to `no_failure`.
+#### Example: `spiqa_163`
 
-This category matters because strict exact matching was extremely misleading:
-the live dashboard showed only five normalized exact matches, while final
-semantic/source adjudication found 65 correct answers among 95 valid cases.
+The answer describes recursive four-part subdivision of the Hilbert pattern.
+This description has the same meaning as the reference. Raw visual review
+changed the provisional failure label to `no_failure`.
 
-## 5. Corrected SPIQA-100 outcome accounting
+This category shows a problem with exact string comparison. The live dashboard
+found only five normalized exact matches. The final semantic review found 65
+correct answers in the 95 valid questions.
 
-### 5.1 Denominator
+## 5. Final SPIQA-100 results
+
+### 5.1 Valid questions
 
 - Requested questions: **100**
-- Invalid benchmark cases: **5**
+- Defective benchmark questions: **5**
 - Valid questions: **95**
 
 The excluded IDs are `spiqa_79`, `spiqa_164`, `spiqa_195`, `spiqa_281`, and
 `spiqa_452`.
 
-### 5.2 Correctness
+### 5.2 Answer results
 
 - Officially parsed and semantically correct: **59/95**
 - Additional correct raw answers rejected by the parser: **6**
-- Total semantically correct parsed/recoverable answers: **65/95**
-- Incorrect or no-answer outcomes: **30/95**
-- Remaining ambiguous valid outcomes: **0**
+- Total correct parsed or recoverable answers: **65/95**
+- Incorrect answers or no answers: **30/95**
+- Ambiguous valid results: **0**
 
-### 5.3 Failure phenomena
+### 5.3 Failure counts
 
-| Failure phenomenon | Count | Interpretation |
+| Failure | Count | Meaning |
 |---|---:|---|
-| Worker support | 20 | Retrieved evidence was misread or unsupported claims were produced. |
-| Parser | 9 | Planning/final structured output could not be consumed. |
-| Retrieval | 4 | Decisive evidence was not delivered to the task. |
-| Decomposition | 2 | The plan omitted or distorted a required operation. |
-| Composition | 1 | Correct intermediate results were combined incorrectly. |
-| **Total phenomena** | **36** | 30 wrong/no-answer outcomes plus six correct raw answers lost by parsing. |
+| Worker support | 20 | The Worker used retrieved evidence incorrectly. |
+| Parser | 9 | The software could not read Planning Graph or final output structure. |
+| Retrieval | 4 | The task did not receive decisive evidence. |
+| Decomposition | 2 | The plan omitted or changed a necessary operation. |
+| Composition | 1 | Final synthesis combined correct inputs incorrectly. |
+| **Total phenomena** | **36** | 30 wrong or empty outcomes plus six correct raw answers lost by parsing. |
 
-The table counts failure phenomena, not 36 distinct wrong questions. A case may
-have a primary cause and a secondary parser or checker consequence.
+The total is not 36 wrong questions. One question can have a primary failure
+and a secondary failure.
 
-## 6. Content Graph construction findings
+## 6. Content Graph construction results
 
-### 6.1 Why the original-style build was slow
+### 6.1 Cause of the long construction time
 
-For `spiqa_58`, the 32B teacher processed five documents and 182 nodes:
+For `spiqa_58`, the 32B teacher processed five documents and 182 nodes. It used:
 
 - 130 text-analysis calls;
 - 53 image-analysis calls, including one retry;
 - 182 evolution calls;
 - 365 total VLM calls;
 - 2,263,224 VLM tokens;
-- 45,916 explicit embedding tokens.
+- 45,916 embedding tokens.
 
-Measured stage time was dominated by VLM work, especially evolution and visual
-analysis. Graph bookkeeping and disk operations were not the main bottleneck.
-More HDD capacity would help retain caches and artifacts, but it would not make
-hundreds of GPU inference calls substantially faster.
+VLM work caused most of the delay. Evolution and image analysis were the
+largest stages. Graph operations and disk operations were not the main causes.
 
-The unoptimized 8B build still took 1,510.77 seconds (25.18 minutes). Its three
-largest avoidable costs were:
+More disk capacity can store more caches. It cannot make hundreds of GPU model
+calls much faster.
 
-- unconstrained visual responses running to an 8,192-token limit;
-- hundreds of one-item embedding HTTP requests;
-- large raw-neighbor payloads repeated in every evolution prompt.
+The unoptimized 8B build took 1,510.77 seconds. This time is 25.18 minutes. Its
+main avoidable delays were:
 
-### 6.2 Optimizations that produced the speedup
+- image responses that continued to the 8,192-token limit;
+- hundreds of one-item embedding requests;
+- repeated raw neighbor text in evolution prompts.
 
-The successful implementation used:
+### 6.2 Optimization methods
 
-- strict, bounded JSON schemas on the first analysis attempt;
-- concurrent text and image analysis under a global request limit;
-- batched BGE-M3 embeddings on available GPU headroom;
-- matrix-based neighbor selection from the existing embedding matrix;
-- re-embedding only summaries/keywords changed by evolution;
-- concise initial-plus-evolved retrieval representations;
-- existing neighbor summaries rather than duplicating full raw text in every
-  evolution prompt;
-- bounded recovery that retains raw evidence nodes when analysis metadata
-  fails.
+The successful builder used these methods:
 
-It did **not** introduce question-conditioned filtering, skip nodes, or remove
-per-node evolution.
+- strict and bounded JSON schemas on the first request;
+- concurrent text and image analysis with one global request limit;
+- batched BGE-M3 embeddings on the GPU;
+- matrix neighbor selection from saved embeddings;
+- new embeddings only for changed summaries or keywords;
+- initial and evolved analysis in the retrieval representation;
+- saved neighbor summaries instead of repeated full raw neighbor text;
+- bounded recovery that keeps the raw node when metadata analysis fails.
 
-### 6.3 Performance achieved
+The builder did not remove question-independent G² operations. It analyzed all
+nodes and evolved all nodes.
 
-Across the final five-graph comparison:
+### 6.3 Construction performance
 
-| Metric | 32B teacher | Optimized 8B candidate |
+| Measurement | 32B teacher | Optimized 8B candidate |
 |---|---:|---:|
 | Mean construction time | 2,979.94 s | 141.14 s |
 | Mean construction time | 49.67 min | 2.35 min |
-| Mean speedup | — | 21.11× |
+| Mean speed increase | — | 21.11 times |
 | Maximum candidate time | — | 169.10 s |
 
-In the 100-question run:
+The 100-question run gave these results:
 
-- all 100 Content Graphs completed;
+- 100 of 100 Content Graphs completed;
 - mean new graph time was 160.85 seconds;
-- 98 queries completed and two exhausted Planning Graph serialization retries;
-- mean completed online-query time was 71.82 seconds.
+- 98 online queries completed;
+- two queries failed after all Planning Graph retries;
+- mean completed query time was 71.82 seconds.
 
-### 6.4 Failed optimization trials were informative
+### 6.4 Rejected optimization trials
 
-Sub-three-minute time alone was not accepted as success:
+We did not accept a trial only because it was fast.
 
-- Trial v1 lost analyses because bounded structured outputs still allowed edge
-  cases such as literal tabs and truncated lists.
-- Trial v2 finished in 145.71 seconds but deleted most useful text nodes due to
-  a zero-length `text_content` schema mistake.
-- Trial v4 finished in 146.77 seconds but an aggressive bibliography rule
-  removed 25 valid chunks.
+- Trial v1 lost analyses because some structured outputs were invalid or
+  incomplete.
+- Trial v2 took 145.71 seconds but removed most useful text nodes. A bad schema
+  made their summaries equal to `No meaningful information`.
+- Trial v4 took 146.77 seconds but removed 25 valid chunks. An aggressive
+  bibliography instruction caused this loss.
 
-These runs demonstrate why node completeness and retrieval/QA checks must
-accompany latency measurements.
+Each accepted latency result must also pass node, retrieval, and answer checks.
 
-## 7. Quality loss from the fast Content Graph
+## 7. Quality loss from the optimized graph
 
-The five-question paired test held the online 8B reader fixed and changed only
-the graph.
+The paired test used the same 8B online reader for both graph types.
 
-| Metric | Teacher graph | Candidate graph |
+| Measurement | Teacher graph | Candidate graph |
 |---|---:|---:|
-| Decisive evidence in candidate top 5 | — | 5/5 |
 | Parsed correct answers | 5/5 | 3/5 |
 | Raw semantically correct answers | 5/5 | 4/5 |
 | Mean cached-query time | 47.27 s | 113.57 s |
+| Decisive evidence in candidate top 5 | — | 5/5 |
 
-Candidate graph query time was therefore 2.40× slower even though construction
-was far faster. The online checker invoked more refinement on candidate graph
-metadata.
+Candidate graph query time was 2.40 times longer. The candidate metadata caused
+more sufficiency refinement.
 
-### 7.1 The clearest quality loss: `spiqa_540`
+### 7.1 Clear quality loss: `spiqa_540`
 
-- The candidate retrieved the correct Figure 3 at rank one.
-- Its OCR states the relevant `L = 9` values and identifies DMRNet as best.
-- The Worker nevertheless interpreted the panels as `L=12` and `L=96`, then
-  claimed the requested result was unavailable.
-- The identical reader on the richer teacher graph answered `DMRNet`.
+The candidate retrieved the correct Figure 3 at rank one. Its OCR contained
+the correct `L = 9` values. The values showed that DMRNet was best.
 
-This shows that retaining and retrieving a raw image does not guarantee equal
-downstream performance. Graph-produced visual summaries and contextualization
-can change whether the Worker successfully reads the evidence.
+The Worker read the panels as `L=12` and `L=96`. It then said that the `L=9`
+result was not available. The same reader answered `DMRNet` with the teacher
+graph.
 
-### 7.2 Repaired but unstable: `spiqa_378`
+A raw image at rank one does not guarantee equal performance. The graph
+summary and context can change how the Worker reads the image.
+
+### 7.2 Repaired Worker error: `spiqa_378`
 
 The candidate retrieved the decisive table at rank one. One Worker read the
-correct DLA values, while another confused the NoCorrect row and calculated
-zero improvement. Global refinement eventually recovered the exact answer,
-but latency increased from 40.30 to 155.52 seconds.
+correct DLA values. A different Worker used the wrong NoCorrect row and
+calculated zero improvement.
 
-### 7.3 Correct but unnecessarily expensive: `spiqa_542`
+Global refinement finally made the correct answer. Query time increased from
+40.30 seconds to 155.52 seconds.
 
-Both graphs produced `RCE`, but candidate-graph latency rose from 21.08 to
-86.02 seconds because of an unnecessary adjustment round.
+### 7.3 Correct but slow: `spiqa_542`
 
-### 7.4 Consequence
+Both graphs produced `RCE`. Candidate graph query time increased from 21.08
+seconds to 86.02 seconds because of an unnecessary adjustment round.
 
-The safe scheduling/redundancy changes do not intrinsically discard raw
-evidence. The main observed risk is the smaller construction model and more
-compressed visual/evolution metadata. A claim of “21× faster with no
-performance loss” is rejected by the current evidence.
+### 7.4 Quality conclusion
 
-## 8. Structured-output findings
+The scheduling optimizations do not remove raw evidence. The main risk comes
+from the smaller construction model and its shorter visual and evolution
+metadata.
 
-### 8.1 Small models can produce reliable JSON when the server enforces it
-
-The conservative 8B server passed 40/40 constrained responses with valid JSON
-and valid schemas. This resolves the earlier Qwen2.5-VL-7B experience where
-`response_format={"type":"json_object"}` was accepted by the API but not
-actually enforced by the local server.
-
-Reliable structured output requires both:
-
-1. a server/decoder that enforces a grammar or JSON schema; and
-2. code that supplies a schema matching the consumer's real field contract.
-
-The official preprocessing prompt requested three image fields, while the
-consumer unconditionally read a fourth, `text_content`. Strict enforcement
-exposed this latent producer/consumer mismatch.
-
-### 8.2 A better model is not a substitute for a constrained interface
-
-The matched 32B replay of `spiqa_96` still generated invalid Planning Graph
-JSON on every retry. Larger models reduce some semantic errors, but they do not
-guarantee syntactically valid machine interfaces.
-
-### 8.3 Tolerant recovery must remain narrow
-
-The audit recovered an answer only when an explicit opening `<output>` tag was
-present and the missing closing tag was the sole defect. Free-form thought text
-was never silently promoted to an answer. This preserves audit integrity while
-showing exactly what the frozen parser lost.
-
-## 9. Model sensitivity and what can be attributed to G²
-
-Eleven selected cases were replayed with the 32B online reader on the exact same
-optimized-8B Content Graph:
-
-- completed: 11/11;
-- official parser successes: 11/11;
-- semantically correct 32B answers: 5/11 before later raw-source corrections;
-- 8B-incorrect cases repaired by 32B: 4;
-- 8B-correct cases regressed by 32B: 0.
-
-Interpretation:
-
-- Some Worker and parser behavior is model-sensitive.
-- A stronger reader repairs some cases, but not all.
-- `spiqa_44`, `spiqa_571`, and `spiqa_47` remained wrong under the matched 32B
-  reader, supporting system-level planning/composition concerns.
-- `spiqa_96` reproduces an official structured-interface defect with 32B.
-- These replays do not measure an end-to-end original 32B baseline because the
-  underlying Content Graph remains the optimized-8B graph.
-
-Therefore, the audit distinguishes three claims:
-
-- **Observed in the low-resource configuration:** supported for all corrected
-  counts.
-- **Sensitive to reader model:** supported when matched 32B changes the result.
-- **Intrinsic to the official G² design/integration:** requires reproduction
-  on the official path; currently strongest for structured parsing and some
-  planning/composition failures.
-
-## 10. Repeatability and operational variance
-
-Fixed seeds improved experimental control but did not make the complete system
-perfectly deterministic. `spiqa_540` failed in one matched candidate-graph run
-and answered correctly in a later audit replay with the nominally same graph,
-model, and seed.
-
-Possible sources include concurrent request scheduling, backend kernel
-nondeterminism, changed refinement trajectory after small textual differences,
-or service/runtime state. A single successful rerun must not erase a recorded
-failure. Production evaluation should report repeated-run stability in addition
-to one-shot accuracy.
-
-## 11. Scalability implications
-
-The Content Graph itself does not depend on the question. The practical
-scalability problem is the current experiment/application organization:
-graphs are constructed and cached for question-specific document bundles,
-rather than maintaining one deduplicated graph artifact per stable document or
-collection version.
-
-At the measured optimized mean of 160.85 seconds, 17,000 sequential cold graph
-builds would take roughly 31.6 days. This is only an extrapolation—not a
-measured 17,000-document benchmark—but it shows that rebuilding overlapping
-document bundles per question is not viable.
-
-A scalable deployment needs:
-
-- document/content-hash keyed analysis and embedding caches;
-- incremental graph construction when documents change;
-- deduplication across question bundles;
-- persistent graph/index loading independent of question ID;
-- distributed or batched offline ingestion;
-- an online path that only retrieves and reasons over already-built artifacts.
-
-Additional HDD/NFS space is useful for these persistent caches. It does not
-replace GPU compute or eliminate the hundreds of VLM calls required by cold
-construction.
-
-## 12. Recommended repair order
-
-### 12.1 First scientific repair: evidence-grounded Workers
-
-Worker support is the dominant corrected category, especially for tables,
-figures, values, and trends. The first controlled repair should require each
-Worker to return:
-
-- its answer;
-- cited retrieved node IDs;
-- extracted values and labels;
-- units;
-- the requested arithmetic/comparison operation.
-
-The runtime should then:
-
-1. verify that every cited node was actually retrieved;
-2. verify labels, values, and units against cited evidence;
-3. execute numerical operations deterministically;
-4. rerun only the failed Worker with focused rows/columns or a zoomed visual;
-5. recompute only Planning Graph ancestors that depend on the corrected task;
-6. use existing global replanning only if local repair fails.
-
-This proposal is supported by the 20 Worker failures and the 18/20
-table/figure/value/trend signal. It must still be tested against an unchanged
-baseline before being claimed as an improvement.
-
-### 12.2 Interface reliability repair
-
-Separately from scientific reasoning quality:
-
-- require schemas for Planning Graph and checker outputs;
-- align prompt schemas with consumer-required fields;
-- cap output sizes according to the actual contract;
-- distinguish `unparseable` from `insufficient` instead of automatically
-  triggering global replanning;
-- accept a complete explicit `<output>` body at end-of-stream when only the
-  closing tag is missing, while never promoting hidden thought text.
-
-### 12.3 Visual metadata repair
-
-Compare teacher and student analysis on the decisive visual nodes, especially
-`spiqa_540`. Replay identical Worker prompts with:
-
-- raw image plus 32B teacher summary;
-- raw image plus 8B student summary;
-- raw image alone.
-
-Only after localizing the minimum missing capability should a selective teacher
-fallback or distilled visual analyzer be introduced.
-
-### 12.4 Efficiency repair
-
-Replace unconditional global refinement with local dependency-aware repair.
-Cache all query-independent document artifacts by content hash. Measure both
-cold construction and cached-query latency, because the fast candidate graph
-currently makes online inference slower in several cases.
-
-## 13. What the current evidence does and does not prove
-
-Supported conclusions:
-
-- optimized construction is dramatically faster on the tested L40S setup;
-- all five optimized pilot builds finished below three minutes;
-- decisive top-5 evidence was retained in the five paired cases;
-- operational answer quality was lower on candidate graphs;
-- Worker evidence use is the largest observed failure class in the 100-case
-  low-resource audit;
-- the released parser/structured-output integration has reproducible defects;
-- five benchmark rows are unsuitable for accuracy scoring.
-
-Unsupported or premature conclusions:
-
-- that the optimized builder has no quality loss;
-- that 65/95 is the accuracy of original end-to-end 32B G²;
-- that every low-resource Worker failure is intrinsic to G²;
-- that the five-question loss rate estimates dataset-wide accuracy;
-- that all four visually identified semantic benchmark defects are ready for
-  publication without independent human confirmation;
-- that a 17,000-document deployment has been benchmarked.
-
-## 14. Source reports and precedence
-
-The consolidated conclusions above derive from:
-
-- [`low_resource_content_graph/REPORT.md`](low_resource_content_graph/REPORT.md)
-  — construction optimization timeline and three-case gate;
-- [`low_resource_content_graph/loss_evaluation/REPORT.md`](low_resource_content_graph/loss_evaluation/REPORT.md)
-  — five-case teacher/candidate graph comparison;
-- [`failure_audit_100/REPORT.md`](failure_audit_100/REPORT.md)
-  — resumable run protocol and execution record;
-- [`failure_audit_100/posthoc_adjudication/POSTHOC_REPORT.md`](failure_audit_100/posthoc_adjudication/POSTHOC_REPORT.md)
-  — corrected aggregate audit;
-- [`failure_audit_100/posthoc_adjudication/PARSER_RECOVERY.md`](failure_audit_100/posthoc_adjudication/PARSER_RECOVERY.md)
-  — narrow recovery of unclosed explicit outputs;
-- [`failure_audit_100/posthoc_adjudication/REPLAY_ADJUDICATION.md`](failure_audit_100/posthoc_adjudication/REPLAY_ADJUDICATION.md)
-  — matched 32B reader comparisons;
-- [`failure_audit_100/posthoc_adjudication/DATA_INTEGRITY.md`](failure_audit_100/posthoc_adjudication/DATA_INTEGRITY.md)
-  — invalid benchmark rows and `spiqa_96` reproduction;
-- [`failure_audit_100/posthoc_adjudication/visual_validation/VISUAL_VALIDATION.md`](failure_audit_100/posthoc_adjudication/visual_validation/VISUAL_VALIDATION.md)
-  — final raw-image corrections for 12 disputed cases.
-
-Precedence for disputed labels is:
+The current data rejects this statement:
 
 ```text
-raw source/image validation
-  > evidence-backed trace adjudication
-  > semantic answer adjudication
-  > lexical or exact-match screening
+The optimized builder is 21 times faster with no performance loss.
 ```
 
+## 8. Structured-output results
+
+### 8.1 Enforced schemas make 8B JSON reliable
+
+The conservative 8B server completed 40 of 40 constrained requests. All
+responses were valid JSON and passed their schemas.
+
+The earlier Qwen2.5-VL-7B server accepted
+`response_format={"type":"json_object"}` but did not enforce it. Thus, the
+model could still make invalid JSON.
+
+A reliable interface needs these two items:
+
+1. The server must enforce a grammar or JSON schema.
+2. The schema must agree with the fields that the code reads.
+
+The official image prompt requested three fields. The consumer required a
+fourth field named `text_content`. Strict output exposed this producer/consumer
+mismatch.
+
+### 8.2 A larger model does not guarantee valid structure
+
+The 32B reader also made invalid Planning Graph JSON for `spiqa_96`. Model size
+can reduce some semantic errors. It does not guarantee valid software
+interfaces.
+
+### 8.3 Recovery must be narrow
+
+The audit recovered an answer only when an explicit `<output>` opening tag was
+present. The audit did not use hidden thought text as an answer.
+
+This rule keeps the original audit evidence unchanged. It also shows exactly
+which answers the official parser lost.
+
+## 9. Reader-model sensitivity
+
+We replayed 11 selected questions with the 32B online reader. We kept the same
+optimized-8B Content Graph.
+
+The results were:
+
+- completed replays: 11/11;
+- official parser successes: 11/11;
+- semantically correct 32B answers: 5/11 before later raw-source corrections;
+- 8B incorrect and 32B correct: 4;
+- 8B correct and 32B incorrect: 0.
+
+These results show that some failures depend on the online model. A stronger
+reader repaired some cases, but it did not repair all cases.
+
+The 32B reader did not repair `spiqa_44`, `spiqa_571`, or `spiqa_47`. This
+supports Planning Graph and composition concerns.
+
+The 32B reader also repeated the `spiqa_96` parser defect. This supports an
+official interface concern.
+
+These tests are not a complete original-32B baseline. The Content Graph was
+still the optimized-8B graph.
+
+Use these claim levels:
+
+- **Observed in the low-resource system:** This applies to all final audit
+  counts.
+- **Sensitive to the reader model:** This applies when a matched 32B replay
+  changes the result.
+- **Part of the official G² design or interface:** This requires reproduction
+  on the official path.
+
+## 10. Repeatability
+
+A fixed seed did not make the full system fully repeatable. `spiqa_540` failed
+in one matched run. It answered correctly in a later run with the nominally
+same graph, model, and seed.
+
+Possible causes include:
+
+- concurrent request order;
+- nondeterministic GPU operations;
+- small text differences that change the refinement path;
+- different server state.
+
+Do not remove a recorded failure because one later run succeeds. A production
+evaluation must measure repeated-run stability and one-run accuracy.
+
+## 11. Scalability
+
+The Content Graph does not depend on a question. However, the current workflow
+saves graphs for question-specific document bundles. It does not use one
+deduplicated artifact for each stable document or collection version.
+
+At 160.85 seconds for each sequential cold build, 17,000 builds would take
+approximately 31.6 days. This value is an extrapolation. We did not run a
+17,000-document benchmark.
+
+A large deployment needs these functions:
+
+- analysis and embedding caches that use document content hashes;
+- incremental graph updates for changed documents;
+- deduplication across document bundles;
+- graph loading that does not use the question ID;
+- distributed or batched offline ingestion;
+- online retrieval from saved graph artifacts.
+
+More disk capacity helps store these artifacts. It does not replace the GPU
+work for cold construction.
+
+## 12. Recommended repair sequence
+
+### 12.1 First repair: evidence-grounded Workers
+
+Worker support is the largest failure group. Most cases use tables, figures,
+values, or trends.
+
+Require each Worker to return these fields:
+
+- answer;
+- cited evidence-node IDs;
+- extracted values and labels;
+- units;
+- arithmetic or comparison operation.
+
+Then do these operations:
+
+1. Make sure that each cited node was retrieved.
+2. Compare each value, label, and unit with the cited evidence.
+3. Do numerical calculations with deterministic code.
+4. If verification fails, give the Worker focused rows, columns, or a zoomed
+   image.
+5. Run that Worker one more time.
+6. Run only the parent Planning Graph tasks that use the corrected result.
+7. Use global replanning only when local repair fails.
+
+Test this repair against the unchanged baseline. Do not claim an improvement
+before the test is complete.
+
+### 12.2 Repair the structured interfaces
+
+Do these changes separately from reasoning changes:
+
+- enforce schemas for Planning Graph and checker outputs;
+- make prompt schemas agree with consumer fields;
+- use output limits that agree with the data contract;
+- do not treat an unparseable check as insufficient evidence;
+- accept a complete explicit output body when only its closing tag is absent;
+- do not use hidden thought text as the final answer.
+
+### 12.3 Repair visual metadata
+
+Compare teacher and student metadata for the decisive visual nodes. Start with
+`spiqa_540`.
+
+Use the same Worker prompt with these inputs:
+
+- raw image and 32B teacher summary;
+- raw image and 8B student summary;
+- raw image only.
+
+This test will show which summary information is necessary. After this test,
+evaluate a selective teacher fallback or a distilled visual model.
+
+### 12.4 Repair query-time efficiency
+
+Use local repair instead of global refinement when possible. Cache all
+question-independent document work by content hash.
+
+Measure cold construction time and cached-query time. The fast candidate graph
+currently causes longer online time in some cases.
+
+## 13. Supported and unsupported claims
+
+### 13.1 Supported claims
+
+- The optimized builder is much faster on the tested L40S system.
+- All five final candidate builds completed in less than three minutes.
+- Candidate top-5 retrieval contained decisive evidence for all five paired
+  questions.
+- Candidate graph operational quality was lower than teacher graph quality.
+- Worker support was the largest failure group in the low-resource audit.
+- The official structured-output and parser interfaces have repeatable defects.
+- Five benchmark questions are not suitable for accuracy measurement.
+
+### 13.2 Unsupported claims
+
+- The optimized builder has no quality loss.
+- The 65/95 result is the accuracy of the complete original 32B G² system.
+- All low-resource Worker failures are part of original G².
+- Five questions give a dataset-level loss rate.
+- The four visual benchmark defects are ready for publication without a second
+  independent human review.
+- The system has been tested on 17,000 documents.
+
+## 14. Evidence reports
+
+Use these reports for detailed evidence:
+
+- [`low_resource_content_graph/REPORT.md`](low_resource_content_graph/REPORT.md)
+  contains the construction optimization sequence.
+- [`low_resource_content_graph/loss_evaluation/REPORT.md`](low_resource_content_graph/loss_evaluation/REPORT.md)
+  contains the five-question graph comparison.
+- [`failure_audit_100/REPORT.md`](failure_audit_100/REPORT.md) contains the
+  resumable audit record.
+- [`failure_audit_100/posthoc_adjudication/POSTHOC_REPORT.md`](failure_audit_100/posthoc_adjudication/POSTHOC_REPORT.md)
+  contains the final audit totals.
+- [`failure_audit_100/posthoc_adjudication/PARSER_RECOVERY.md`](failure_audit_100/posthoc_adjudication/PARSER_RECOVERY.md)
+  contains the recovered explicit outputs.
+- [`failure_audit_100/posthoc_adjudication/REPLAY_ADJUDICATION.md`](failure_audit_100/posthoc_adjudication/REPLAY_ADJUDICATION.md)
+  contains the matched 32B reader results.
+- [`failure_audit_100/posthoc_adjudication/DATA_INTEGRITY.md`](failure_audit_100/posthoc_adjudication/DATA_INTEGRITY.md)
+  contains the invalid benchmark rows and the `spiqa_96` reproduction.
+- [`failure_audit_100/posthoc_adjudication/visual_validation/VISUAL_VALIDATION.md`](failure_audit_100/posthoc_adjudication/visual_validation/VISUAL_VALIDATION.md)
+  contains the final decisions for the 12 visual cases.
+
+For a disputed label, use this priority:
+
+```text
+raw source or image review
+  > trace-based causal review
+  > semantic answer review
+  > exact string comparison
+```
