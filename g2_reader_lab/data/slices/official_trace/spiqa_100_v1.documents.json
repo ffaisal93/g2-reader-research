@@ -1,0 +1,474 @@
+{
+  "dataset": "spiqa",
+  "scope": "first five documents listed per question, as hard-coded by the official runtime",
+  "documents": [
+    {
+      "dataset": "spiqa",
+      "document": "1603.00286v5.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1603.03833v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1605.07496v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1606.07384v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1608.02784v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.02654v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.03780v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.04363v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.04684v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.05742v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.07718v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1612.02803v5.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1701.03077v10.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1701.06171v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1702.03584v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1702.08694v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.00060v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.00899v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.02507v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.04887v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.07015v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.10730v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.00774v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.04539v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.05426v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.05958v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.07121v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.07854v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.08615v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.02798v6.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.02946v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.07164v8.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.07384v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.08016v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09296v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09882v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09966v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.10667v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.00633v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.00827v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.03847v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.04269v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.04284v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.08146v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.00189v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.00524v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.01917v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.01922v5.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.06320v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.08608v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.00160v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.01425v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.02153v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.03797v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.05239v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.06832v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.00139v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.02418v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.02755v5.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.08294v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.01507v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.05654v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.06177v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1802.07222v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1802.07351v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1802.07459v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.01128v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.02750v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.03467v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.04383v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.04572v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.05776v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.06506v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.00863v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.01429v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.04410v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.04786v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.05936v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.05938v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.05995v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.07707v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.07849v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.07931v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.00912v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.01216v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.02349v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.04609v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.04687v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.06431v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.06447v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.07567v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.08751v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.00263v5.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.00458v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.01246v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.01989v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.02731v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.03149v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.03449v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.03550v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.04276v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.02553v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.02721v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.06635v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.07073v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.08257v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.08481v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.09393v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.10673v1.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.00108v4.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.00281v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.06589v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.10735v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1901.00056v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1901.00398v2.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1906.06589v3.pdf"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1906.10843v1.pdf"
+    }
+  ]
+}

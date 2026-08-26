@@ -1,0 +1,138 @@
+name: g2-reader-lab
+captured: "2026-08-17"
+platform: linux-x86_64
+python: "3.12.3"
+environment_path: g2_reader_lab/.venv
+decision_notes:
+  - Python 3.12 was the only host interpreter; 3.10 and 3.11 were not on PATH.
+  - PyTorch uses its official CUDA 12.6 wheel; no system CUDA toolkit is required.
+  - The upstream requirements.txt was not installed.
+install_commands:
+  - python3 -m venv g2_reader_lab/.venv
+  - g2_reader_lab/.venv/bin/python -m pip install --upgrade pip uv
+  - >-
+    g2_reader_lab/.venv/bin/python -m pip install numpy pydantic PyYAML openai
+    Pillow scikit-learn tiktoken tqdm loguru pandas aiohttp
+    langchain-text-splitters PyPDF2 pytest pytest-asyncio
+  - >-
+    g2_reader_lab/.venv/bin/python -m pip install torch==2.7.1+cu126
+    --index-url https://download.pytorch.org/whl/cu126
+packages:
+  aiohappyeyeballs: 2.7.1
+  aiohttp: 3.14.3
+  aiosignal: 1.4.0
+  annotated-types: 0.8.0
+  anyio: 4.14.2
+  attrs: 26.1.0
+  certifi: 2026.7.22
+  charset-normalizer: 3.5.1
+  distro: 1.9.0
+  filelock: 3.32.3
+  frozenlist: 1.8.0
+  fsspec: 2026.7.0
+  h11: 0.16.0
+  httpcore: 1.0.9
+  httpcore2: 2.10.0
+  httpx: 0.28.1
+  httpx2: 2.10.0
+  idna: "3.18"
+  iniconfig: 2.3.0
+  Jinja2: 3.1.6
+  jiter: 0.16.0
+  joblib: 1.5.3
+  jsonpatch: "1.33"
+  jsonpointer: 3.1.1
+  langchain-core: 1.5.6
+  langchain-protocol: 0.0.18
+  langchain-text-splitters: 1.1.2
+  langsmith: 0.11.0
+  loguru: 0.7.3
+  MarkupSafe: 3.0.3
+  mpmath: 1.3.0
+  multidict: 6.7.1
+  narwhals: 2.24.0
+  networkx: 3.6.1
+  numpy: 2.5.2
+  nvidia-cublas-cu12: 12.6.4.1
+  nvidia-cuda-cupti-cu12: 12.6.80
+  nvidia-cuda-nvrtc-cu12: 12.6.77
+  nvidia-cuda-runtime-cu12: 12.6.77
+  nvidia-cudnn-cu12: 9.5.1.17
+  nvidia-cufft-cu12: 11.3.0.4
+  nvidia-cufile-cu12: 1.11.1.6
+  nvidia-curand-cu12: 10.3.7.77
+  nvidia-cusolver-cu12: 11.7.1.2
+  nvidia-cusparse-cu12: 12.5.4.2
+  nvidia-cusparselt-cu12: 0.6.3
+  nvidia-nccl-cu12: 2.26.2
+  nvidia-nvjitlink-cu12: 12.6.85
+  nvidia-nvtx-cu12: 12.6.77
+  openai: 3.2.0
+  orjson: 3.12.0
+  packaging: "26.3"
+  pandas: 3.0.5
+  pillow: 12.3.0
+  pluggy: 1.6.0
+  propcache: 0.5.2
+  pydantic: 2.13.4
+  pydantic_core: 2.46.4
+  Pygments: 2.21.0
+  PyPDF2: 3.0.1
+  pytest: 9.1.1
+  pytest-asyncio: 1.4.0
+  python-dateutil: 2.9.0.post0
+  PyYAML: 6.0.3
+  regex: 2026.7.19
+  requests: 2.34.2
+  requests-toolbelt: 1.0.0
+  scikit-learn: 1.9.0
+  scipy: 1.18.0
+  setuptools: 78.1.0
+  six: 1.17.0
+  sniffio: 1.3.1
+  sympy: 1.14.0
+  tenacity: 9.1.4
+  threadpoolctl: 3.6.0
+  tiktoken: 0.14.0
+  torch: 2.7.1+cu126
+  tqdm: 4.70.0
+  triton: 3.3.1
+  truststore: 0.10.4
+  typing-inspection: 0.4.4
+  typing_extensions: 4.16.0
+  urllib3: 2.7.0
+  uuid_utils: 0.17.0
+  uv: 0.12.5
+  websockets: 17.0.1
+  xxhash: 4.0.1
+  yarl: 1.24.5
+  zstandard: 0.25.0
+
+runtime_additions:
+  accelerate: 1.14.0
+  fastapi: 0.118.3
+  interegular: 0.3.3
+  lm-format-enforcer: 0.11.3
+  qwen-vl-utils: 0.0.14
+  safetensors: 0.8.0
+  sentence-transformers: 5.1.1
+  starlette: 0.48.0
+  tokenizers: 0.22.2
+  torchvision: 0.22.1+cu126
+  transformers: 4.57.0
+  uvicorn: 0.37.0
+model_runtime_notes:
+  - Qwen2.5-VL-7B-Instruct produces malformed output in FP16 on this host.
+  - BF16 was validated on the V100 and is required by the experiment profiles.
+  - Both model checkpoints are loaded only from /mnt/maxtox-nfs-student/zff/models.
+shared_service_envelope:
+  endpoint: http://127.0.0.1:18000/v1
+  attention: sdpa
+  dtype: bfloat16
+  max_input_characters: 20000
+  max_visual_pixels: 262144
+  max_output_tokens: 1024
+  cuda_allocator: expandable_segments:True
+  cleanup: reset peak statistics before and empty CUDA cache after each request
+  notes:
+    - The matched endpoint uses a 20,000-character head-tail envelope and 512x512 maximum image area to remain below V100 memory limits.

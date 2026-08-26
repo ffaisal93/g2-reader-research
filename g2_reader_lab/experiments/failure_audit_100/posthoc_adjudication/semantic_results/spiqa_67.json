@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_67",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The Mean-Shift algorithm maintains robustness to 50 outliers by iteratively shifting points toward regions of higher density in the parameter space, which naturally correspond to the true parameters (red dots). This density-based mode-seeking is reinforced by an energy minimization step that only accepts new modes if they do not increase the fit energy, favoring solutions that best explain the data. Finally, a post-processing validation step removes statistically insignificant models (likely outliers) by checking if the mean distance from inlier points to the estimated model is below a threshold, ensuring the final modes are robust and correspond to the true parameters.",
+  "reference": "The Mean-Shift algorithm is robust to outliers.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 25.510281324386597,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The Mean-Shift algorithm is robust to outliers."
+    ],
+    "candidate_claims": [
+      "The Mean-Shift algorithm maintains robustness to 50 outliers by iteratively shifting points toward regions of higher density in the parameter space, which naturally correspond to the true parameters (red dots).",
+      "This density-based mode-seeking is reinforced by an energy minimization step that only accepts new modes if they do not increase the fit energy, favoring solutions that best explain the data.",
+      "Finally, a post-processing validation step removes statistically insignificant models (likely outliers) by checking if the mean distance from inlier points to the estimated model is below a threshold, ensuring the final modes are robust and correspond to the true parameters."
+    ],
+    "substantive_differences": [
+      "The reference answer is a simple, factual statement: 'The Mean-Shift algorithm is robust to outliers.' It does not specify mechanisms, steps, or thresholds.",
+      "The candidate answer introduces multiple non-standard, unsupported mechanisms: an 'energy minimization step' and a 'post-processing validation step' with a 'mean distance threshold' — these are not part of the standard Mean-Shift algorithm and are not mentioned in the reference.",
+      "The candidate adds specific details (e.g., '50 outliers', 'red dots', 'inlier points') that may be contextually plausible but are not required or implied by the reference, which is a general statement of robustness.",
+      "The candidate's explanation contradicts the simplicity of the reference by implying a complex, multi-stage process that is not part of the standard Mean-Shift algorithm as commonly understood (which is purely density-based iterative shifting without energy minimization or post-processing validation)."
+    ],
+    "rationale": "The candidate answer goes beyond the reference by introducing specific, non-standard algorithmic steps (energy minimization, post-processing validation with distance threshold) that are not part of the standard Mean-Shift algorithm and are not mentioned in the reference. While the candidate correctly identifies the core idea of density-based mode-seeking, the added mechanisms are factually incorrect or unsupported, making the overall answer semantically incorrect relative to the reference, which is a simple, general claim of robustness without elaboration."
+  },
+  "usage": {
+    "prompt_tokens": 336,
+    "total_tokens": 824,
+    "completion_tokens": 488,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "question_id": "spiqa_378",
+  "question": "Based on Table 1 of the \"Unbiased Learning to Rank with Unbiased Propensity Estimation\" paper, which correction method achieved the highest nDCG@10 and ERR@10 scores for DNN models, and what was the exact improvement over the NoCorrect baseline in these metrics?",
+  "reference_answer": "The DNN trained with DLA achieved the best performance in terms of both nDCG@10 (0.421) and ERR@10 (0.582). Compared to not using any correction method (NoCorrect), DLA shows a significant improvement in both metrics, with nDCG@10 being higher by 0.063 and ERR@10 being higher by 0.082.",
+  "k": 5,
+  "graphs": {
+    "teacher_32b": {
+      "node_count": 164,
+      "results": [
+        {
+          "index": 126,
+          "content_hash": "0233f8bc607ed4120ada4cc6b89e4951a65d4ae1ed728696f01d748ff5cfc271",
+          "visual": true,
+          "score": 0.7043552262410814,
+          "summary": "Table 4 presents performance metrics (MAP, nDCG@k, ERR@k) for DNN models trained with DLA, DBN, UBM, and NoCorrect methods, showing DLA consistently achieves the highest scores across all metrics.",
+          "preview": "Table 4: Comparison of DNN trained with DLA and relevance signals extracted by click models. Significant improvements or degradations with respect to DLA are indicated with + / -. Correction Method MAP nDCG@1 ERR@1 nDCG@3 ERR@3 nDCG@5 ERR@5 nDCG@10 ERR@10 DLA 0.881 0.433 0.406 0.410 0.537 0.422 0.571 0.421 0.582 DBN 0.865 0.363 0.340 0.370 0.468- 0.390 0.504- 0.419 0.521- UBM 0.849- 0.359- 0.336- 0.343- 0.464- 0.352- 0.502- 0.365- 0.519- NoCorrect 0.810 0.357- 0.334- 0.348- 0.459- 0.349- 0.484- "
+        },
+        {
+          "index": 23,
+          "content_hash": "80a0cb89c695483fc66880b5900c9e7aa7fea5ed3d0f24cddca95b1e7d264fe8",
+          "visual": false,
+          "score": 0.6545810322887808,
+          "summary": "This note presents a comparison of DNN models trained with DLA and click models (DBN, UBM) on real click data, demonstrating DLA's superior performance in ERR@10 and highlighting the benefits of joint learning for unbiased ranking.",
+          "preview": "Figure 1: The performance of DNN trained with different bias corrections with respect to the value of $\\eta$ .\n\n  \nFigure 2: The MSE between the true click propensity and those estimated by DLA and RandList with respect to $\\eta$ .\n\n# 6.2 Comparison with Click Models\n\nTo answer RQ2 and to demonstrate the effectiveness of DLA on real click data, we compare the performance of the DNN models trained with DLA and click models in the real-world experiment. A summary of the results is shown in Table 4"
+        },
+        {
+          "index": 25,
+          "content_hash": "b5bd2fb04bf496a25cca0b60d2357f6427ac734526870bff81901c7d47582962",
+          "visual": false,
+          "score": 0.638605308832056,
+          "summary": "This note presents Table 4, comparing DNN models trained with DLA and click-model-derived relevance signals (DBN, UBM, NoCorrect) using metrics like MAP, nDCG@k, and ERR@k, showing DLA's superior performance across all measures.",
+          "preview": "Table 4: Comparison of DNN trained with DLA and relevance signals extracted by click models. Significant improvements or degradations with respect to DLA are indicated with $+ / -$ .   \n\n<table><tr><td rowspan=1 colspan=1>Correction Method</td><td rowspan=1 colspan=1>MAP</td><td rowspan=1 colspan=1>nDCG@1</td><td rowspan=1 colspan=1>ERR@1</td><td rowspan=1 colspan=1>nDCG@3</td><td rowspan=1 colspan=1>ERR@3</td><td rowspan=1 colspan=1>nDCG@5</td><td rowspan=1 colspan=1>ERR@5</td><td rowspan=1 col"
+        },
+        {
+          "index": 21,
+          "content_hash": "07a7474dbaf47b0630b86c874ea1e3e41386a4ed5af6dcdf9f5c9915bcf5872b",
+          "visual": false,
+          "score": 0.6635994901297935,
+          "summary": "This note analyzes the performance of DNN models with NoCorrect, RandList, and DLA bias correction methods under varying \u03b7, demonstrating DLA's robustness and superior estimation of inverse propensity weights via MSE analysis, supported by Figures 1 and 2 and Table 3 on Yahoo! LETOR.",
+          "preview": "\u03b7Figure 1 depicts the performance of the DNN models trained with NoCorrect, RandList and DLA with respect to different $\\eta$ . The presentation bias is severe when $\\eta$ is large and vanishes when $\\eta = 0$ \u03b7 \u03b7As shown in Figure 1, the performance of the DNN with NoCorrect is negative correlated with the value of $\\eta$ . Without bias correction, \u03b7the training of ranking models are exposed to click bias. Thus, an increase of $\\eta$ will hurt the performance of models trained with raw \u03b7clicks."
+        },
+        {
+          "index": 124,
+          "content_hash": "3b0f35e67349cc7a28f34450c9bc47f23e74d5bc70d5247c0de1e439b052ad01",
+          "visual": true,
+          "score": 0.6547541080243242,
+          "summary": "Line chart showing nDCG@10 performance of DNN models with DLA, RandList, and NoCorrect bias corrections across varying \u03b7 values, demonstrating DLA's robustness and superior performance.",
+          "preview": "Figure 1: The performance of DNN trained with different bias corrections with respect to the value of \u03b7. nDCG@10 0.74 0.73 0.72 0.71 0.70 0.69 0.68 0.67 0.66 0.65 0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0 \u03b7 DLA RandList NoCorrect"
+        }
+      ],
+      "teacher_text_evidence_hits": 3,
+      "teacher_text_evidence_total": 3
+    },
+    "candidate": {
+      "node_count": 165,
+      "results": [
+        {
+          "index": 127,
+          "content_hash": "0233f8bc607ed4120ada4cc6b89e4951a65d4ae1ed728696f01d748ff5cfc271",
+          "visual": true,
+          "score": 0.7033964221229677,
+          "summary": "Table 4 compares DNN performance with DLA, DBN, UBM, and NoCorrect correction methods on metrics like MAP and nDCG@k.",
+          "preview": "Table 4: Comparison of DNN trained with DLA and relevance signals extracted by click models. Significant improvements or degradations with respect to DLA are indicated with $+ / -$ . Correction Method MAP nDCG@1 ERR@1 nDCG@3 ERR@3 nDCG@5 ERR@5 nDCG@10 ERR@10 DLA 0.881 0.433 0.406 0.410 0.537 0.422 0.571 0.421 0.582 DBN 0.865- 0.363 0.340 0.370 0.468- 0.390 0.504- 0.419 0.521- UBM 0.849- 0.359- 0.336- 0.343- 0.464- 0.352- 0.502- 0.365- 0.519- NoCorrect 0.810- 0.357- 0.334- 0.348- 0.459- 0.349- 0."
+        },
+        {
+          "index": 26,
+          "content_hash": "b5bd2fb04bf496a25cca0b60d2357f6427ac734526870bff81901c7d47582962",
+          "visual": false,
+          "score": 0.606776176392981,
+          "summary": "Table compares DNN performance with DLA, DBN, UBM, and NoCorrect across MAP, nDCG@k, and ERR@k metrics.",
+          "preview": "Table 4: Comparison of DNN trained with DLA and relevance signals extracted by click models. Significant improvements or degradations with respect to DLA are indicated with $+ / -$ .   \n\n<table><tr><td rowspan=1 colspan=1>Correction Method</td><td rowspan=1 colspan=1>MAP</td><td rowspan=1 colspan=1>nDCG@1</td><td rowspan=1 colspan=1>ERR@1</td><td rowspan=1 colspan=1>nDCG@3</td><td rowspan=1 colspan=1>ERR@3</td><td rowspan=1 colspan=1>nDCG@5</td><td rowspan=1 colspan=1>ERR@5</td><td rowspan=1 col"
+        },
+        {
+          "index": 24,
+          "content_hash": "80a0cb89c695483fc66880b5900c9e7aa7fea5ed3d0f24cddca95b1e7d264fe8",
+          "visual": false,
+          "score": 0.6676064555201309,
+          "summary": "DLA outperforms click models (DBN, UBM) in DNN-based unbiased learning to rank, achieving >10% ERR@10 improvement.",
+          "preview": "Figure 1: The performance of DNN trained with different bias corrections with respect to the value of $\\eta$ .\n\n  \nFigure 2: The MSE between the true click propensity and those estimated by DLA and RandList with respect to $\\eta$ .\n\n# 6.2 Comparison with Click Models\n\nTo answer RQ2 and to demonstrate the effectiveness of DLA on real click data, we compare the performance of the DNN models trained with DLA and click models in the real-world experiment. A summary of the results is shown in Table 4"
+        },
+        {
+          "index": 21,
+          "content_hash": "07a7474dbaf47b0630b86c874ea1e3e41386a4ed5af6dcdf9f5c9915bcf5872b",
+          "visual": false,
+          "score": 0.617204971357872,
+          "summary": "Compares DNN model performance under varying click bias using NoCorrect, RandList, and DLA methods, highlighting DLA's robustness.",
+          "preview": "\u03b7Figure 1 depicts the performance of the DNN models trained with NoCorrect, RandList and DLA with respect to different $\\eta$ . The presentation bias is severe when $\\eta$ is large and vanishes when $\\eta = 0$ \u03b7 \u03b7As shown in Figure 1, the performance of the DNN with NoCorrect is negative correlated with the value of $\\eta$ . Without bias correction, \u03b7the training of ranking models are exposed to click bias. Thus, an increase of $\\eta$ will hurt the performance of models trained with raw \u03b7clicks."
+        },
+        {
+          "index": 25,
+          "content_hash": "3127fc4946cd86711b2816b23d408a2e31608c3f305597bb18d2c758ad54e4dc",
+          "visual": false,
+          "score": 0.5654264730300209,
+          "summary": "DLA enables end-to-end optimization for unbiased learning to rank by jointly training propensity and ranking models from click data.",
+          "preview": "Last but not least, joint learning enables DLA to conduct end-toend optimization for unbiased learning to rank. In fact, an important drawback of existing learning paradigms for unbiased learning to rank is that they optimize different objectives in different learning steps. For example, most click models are designed to optimize the likelihood of observed clicks. Although Malkevich et al. [20] have shown that UBM is better than DBN in terms of click simulation, the ranker trained with DBN perfo"
+        }
+      ],
+      "teacher_text_evidence_hits": 3,
+      "teacher_text_evidence_total": 3,
+      "overlap_with_teacher_32b_at_5": 4
+    }
+  }
+}

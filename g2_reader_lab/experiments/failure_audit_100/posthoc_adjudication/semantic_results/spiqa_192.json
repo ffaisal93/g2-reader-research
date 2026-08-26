@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_192",
+  "candidate_source": "official_parser",
+  "candidate_answer": "CTR and CTCVR",
+  "reference": "The two auxiliary tasks are CTR and CTCVR.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 8.697454452514648,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The two auxiliary tasks are CTR and CTCVR."
+    ],
+    "candidate_claims": [
+      "CTR and CTCVR"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'CTR and CTCVR' directly matches the two auxiliary tasks named in the reference answer. Although the candidate omits the introductory phrase 'The two auxiliary tasks are', it still conveys the same factual content without ambiguity or error. The core entities (CTR and CTCVR) are correctly identified and presented in the same order, satisfying the semantic equivalence requirement."
+  },
+  "usage": {
+    "prompt_tokens": 196,
+    "total_tokens": 350,
+    "completion_tokens": 154,
+    "prompt_tokens_details": null
+  }
+}

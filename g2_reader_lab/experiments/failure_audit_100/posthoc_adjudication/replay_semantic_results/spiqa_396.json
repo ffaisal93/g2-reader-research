@@ -1,0 +1,41 @@
+{
+  "question_id": "spiqa_396",
+  "candidate_source": "official_parser",
+  "candidate_answer": "HUMBI achieves the highest AUC among individual datasets (0.399), but both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it, with H36M+HUMBI achieving the highest overall AUC.",
+  "reference": "HUMBI performs best when used alone for training, with an average AUC of 0.399. While this is lower than the average AUC of models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI), HUMBI still achieves the highest score among the individual datasets.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 16.33160901069641,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "HUMBI performs best when used alone for training, with an average AUC of 0.399.",
+      "HUMBI still achieves the highest score among the individual datasets.",
+      "Models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI) outperform HUMBI when used alone."
+    ],
+    "candidate_claims": [
+      "HUMBI achieves the highest AUC among individual datasets (0.399).",
+      "Both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it.",
+      "H36M+HUMBI achieves the highest overall AUC."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate correctly identifies HUMBI as the top-performing individual dataset (AUC 0.399) and accurately reports that both combined datasets outperform it, with H36M+HUMBI achieving the highest overall AUC (0.433). The comparison and values match the reference. The candidate adds a minor clarification ('highest overall AUC') that is consistent with the reference and does not contradict it. No factual errors or omissions are present."
+  },
+  "usage": {
+    "prompt_tokens": 362,
+    "total_tokens": 683,
+    "completion_tokens": 321,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "HUMBI achieves the highest AUC among individual datasets (0.399), but both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it, with H36M+HUMBI achieving the highest overall AUC.",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_396/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 120.06985807418823,
+  "eight_b_candidate": null,
+  "eight_b_candidate_source": "no_candidate_answer",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "retrieval_failure"
+}

@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_215",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 34.44766116142273,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "fe8fb641-c001-41b3-9157-27120d5d6ca1"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly claims that the depth-exclusive model produces 'cleaner, silhouette-based filter responses' that are 'more robust to appearance changes', while the RGB model shows 'complex, texture-dependent patterns sensitive to lighting and clothing'. This is the opposite of the reference, which states that the RGB-based model's filter responses are 'more detailed and contain more information' than the depth-exclusive model's, because RGB images contain more information. The retrieved evidence includes the figure caption (node_id: fe8fb641-c001-41b3-9157-27120d5d6ca1) which correctly identifies the content of Figure 1(a) and (b), but the worker misinterpreted the visual content. The worker's response in round 0 for node n2 correctly identifies Figure 1(b) as the depth-exclusive model and locates the filter responses, but fails to extract the actual visual differences. The worker's final answer is unsupported by the evidence and contradicts the reference. The retrieval of the figure caption is sufficient to know what is shown, but the worker misread the visual implications. Therefore, the primary failure is a worker_support_failure, with a secondary retrieval_failure because the actual visual content of the filter responses (which would be needed to support the answer) was not retrieved or described in the text."
+  },
+  "usage": {
+    "prompt_tokens": 8327,
+    "total_tokens": 8820,
+    "completion_tokens": 493,
+    "prompt_tokens_details": null
+  }
+}

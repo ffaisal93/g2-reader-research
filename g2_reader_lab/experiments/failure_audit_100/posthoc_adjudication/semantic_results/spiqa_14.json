@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_14",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Who",
+  "reference": "ACNN performs best on \"Who\" questions.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 8.632793426513672,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "ACNN performs best on 'Who' questions."
+    ],
+    "candidate_claims": [
+      "Who"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Who' directly corresponds to the specific question type mentioned in the reference answer ('Who' questions). Although the candidate is minimal, it unambiguously identifies the correct question type, matching the factual meaning of the reference. The question asks for the specific question type within WikiQA where ACNN achieves highest accuracy, and 'Who' is the correct and complete identifier for that type. No contradiction, missing component, or incorrect value is present."
+  },
+  "usage": {
+    "prompt_tokens": 188,
+    "total_tokens": 353,
+    "completion_tokens": 165,
+    "prompt_tokens_details": null
+  }
+}

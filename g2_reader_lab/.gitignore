@@ -1,0 +1,36 @@
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Secrets and local configuration
+.env
+*.key
+
+# Upstream checkouts and patched worktrees
+external/
+baseline_original/G2_Reader_patched/
+
+# Downloaded documents, models, and generated artifacts
+data/documents/
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Generated results and traces (keep authored comparison reports)
+results/**/runs/
+results/**/*.jsonl
+results/**/*.json
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/
+

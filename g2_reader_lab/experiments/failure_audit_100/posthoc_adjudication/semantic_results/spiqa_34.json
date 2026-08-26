@@ -1,0 +1,35 @@
+{
+  "question_id": "spiqa_34",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The improved detection accuracy provides better localization, which enhances tracking performance (AP, MOTA, MOTP) but also increases sensitivity to object movement, leading to more frequent identity switches (IDS).",
+  "reference": "While the model trained on both MOT and detection sets shows improved performance in detection and tracking metrics (AP, MOTA, MOTP), it also exhibits a higher number of identity switches (IDS). This can be attributed to the increased diversity of instances introduced by the detection set. Although the MOT set provides a larger number of bounding boxes for training, the detection set adds varied examples that may lead to more frequent identity switches during tracking, even as it improves the model's overall performance.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 16.254806518554688,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The model trained on both MOT and detection sets shows improved performance in AP, MOTA, MOTP.",
+      "It exhibits higher identity switches (IDS).",
+      "This is due to increased diversity of instances from the detection set.",
+      "The detection set adds varied examples that may lead to more frequent identity switches, even as it improves overall performance."
+    ],
+    "candidate_claims": [
+      "Improved detection accuracy enhances tracking performance (AP, MOTA, MOTP).",
+      "Better localization increases sensitivity to object movement, leading to more identity switches (IDS)."
+    ],
+    "substantive_differences": [
+      "The reference attributes higher IDS to increased diversity of training instances from the detection set, while the candidate attributes it to increased sensitivity to object movement due to better localization.",
+      "The candidate introduces a causal mechanism (sensitivity to movement) not mentioned or implied in the reference.",
+      "The reference emphasizes the role of training data diversity, whereas the candidate focuses on inference-time behavior (localization sensitivity)."
+    ],
+    "rationale": "The candidate misattributes the cause of higher IDS. The reference points to the diversity of training instances from the detection set as the root cause, while the candidate proposes a different, unsupported mechanism involving sensitivity to movement during tracking. This is a substantive deviation in causal explanation, violating the requirement for semantic equivalence."
+  },
+  "usage": {
+    "prompt_tokens": 337,
+    "total_tokens": 648,
+    "completion_tokens": 311,
+    "prompt_tokens_details": null
+  }
+}

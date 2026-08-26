@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_234",
+  "candidate_source": "official_parser",
+  "candidate_answer": "For both r-RNTNs and RNTNs, increasing K from 1 to 10000 causes the test PPL to decrease significantly from around 150 to approximately 128.8, with minimal further improvement after K=100.",
+  "reference": "The test PPL of all the models decreases as K increases.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 17.315895080566406,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The test PPL of all the models decreases as K increases."
+    ],
+    "candidate_claims": [
+      "Increasing K from 1 to 10000 causes the test PPL to decrease significantly from around 150 to approximately 128.8.",
+      "Minimal further improvement after K=100."
+    ],
+    "substantive_differences": [
+      "The reference makes a general claim about decreasing PPL with increasing K, without specifying values or thresholds.",
+      "The candidate introduces specific numerical values (150 to 128.8) and a threshold (K=100) for minimal improvement, which are not present or implied in the reference.",
+      "The candidate implies a plateau at K=100, which contradicts the reference’s claim of continued decrease up to K=10000."
+    ],
+    "rationale": "The candidate adds specific quantitative details and a plateau claim that are not supported by the reference. The reference only states a general downward trend without specifying magnitudes or saturation points. The candidate’s claim about minimal improvement after K=100 contradicts the reference’s implication of continued improvement up to K=10000. Therefore, the candidate answer is semantically incorrect relative to the reference."
+  },
+  "usage": {
+    "prompt_tokens": 262,
+    "total_tokens": 565,
+    "completion_tokens": 303,
+    "prompt_tokens_details": null
+  }
+}

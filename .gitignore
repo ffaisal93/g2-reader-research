@@ -1,0 +1,55 @@
+# Credentials and local configuration
+api_keys/
+**/api_keys/
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+**/id_rsa*
+**/id_ed25519*
+
+# Python environments and caches
+**/.venv/
+**/.venv-*/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+*.py[cod]
+
+# Nested repositories maintained and backed up separately
+g2_reader_lab/minimal_g2_reader/
+g2_reader_lab/external/
+g2_reader_lab/data/manifests/G2-Reader-metadata.git/
+
+# Downloaded/processed datasets and model artifacts
+g2_reader_lab/data/documents/
+g2_reader_lab/data/processed_hf/
+models/
+**/*.safetensors
+**/*.ckpt
+**/*.pth
+**/*.pt
+**/*.onnx
+
+# Reproducible bulk runtime artifacts
+**/graphs/
+**/logs/
+**/_debug_logs/
+**/service_logs/
+**/failed_attempts/
+g2_reader_lab/experiments/failure_audit_100/questions/
+g2_reader_lab/experiments/failure_audit_100/review_packets/
+g2_reader_lab/experiments/low_resource_content_graph/results/
+g2_reader_lab/results/
+**/*.pkl
+**/*.pickle
+**/*.log
+
+# Editor and operating-system noise
+.DS_Store
+**/.vscode/
+**/.idea/
+*~

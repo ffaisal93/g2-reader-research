@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_80",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 26.176217555999756,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "43e2a063-590a-4d3c-9348-13b72b298ead"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer correctly states that the average number of inter-word semantic connections per word increases monotonically from 0.39 at κ=0 to 5.58 at κ=5. This is fully supported by Table 3, which was retrieved as visual evidence (node_id: 43e2a063-590a-4d3c-9348-13b72b298ead). The planning graph correctly decomposed the task into extracting values from Table 3. The worker accurately extracted the values, and the final answer correctly composed them into a monotonic trend. The sufficiency check correctly identified no gaps. All necessary evidence was retrieved, and no model or parser failures occurred. The answer is factually correct and fully supported by the evidence."
+  },
+  "usage": {
+    "prompt_tokens": 3478,
+    "total_tokens": 3855,
+    "completion_tokens": 377,
+    "prompt_tokens_details": null
+  }
+}

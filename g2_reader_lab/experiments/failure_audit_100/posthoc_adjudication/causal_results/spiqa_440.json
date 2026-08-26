@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_440",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 32.17551279067993,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "composition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "37f6852b-a000-45aa-acf2-eec153781f25"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence was retrieved: Table 4 (node_id: 37f6852b-a000-45aa-acf2-eec153781f25) contains the 'average' PSNR values for all methods on the Vid4 dataset. The highest value is 27.38 for DUF, not 27.34 for EDVR. The worker at node n2 incorrectly identified EDVR as having the highest average PSNR (35.02), but this value is from Table 5, which is for the ToS dataset, not Vid4. The worker misread the evidence by conflating datasets. The final answer 'EDVR' is unsupported by the Vid4 evidence. The planning was adequate (correctly decomposed to find the average PSNR in the Vid4 chart/table). The composition failure occurs because the final answer combines the incorrect intermediate result (EDVR from ToS) with the correct question context (Vid4), leading to a wrong final answer. The sufficiency check did not detect this because it only checked for gaps, not for misattribution of data. No raw visual review is needed—the text evidence is sufficient to identify the error."
+  },
+  "usage": {
+    "prompt_tokens": 5598,
+    "total_tokens": 6060,
+    "completion_tokens": 462,
+    "prompt_tokens_details": null
+  }
+}

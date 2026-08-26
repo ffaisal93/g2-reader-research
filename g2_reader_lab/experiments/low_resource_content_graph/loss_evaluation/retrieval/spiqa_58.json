@@ -1,0 +1,103 @@
+{
+  "question_id": "spiqa_58",
+  "question": "Based on Figure 1 and Section 3.3, how does the interaction between the filter generation module and the convolution module allow the ACNN framework to produce context-sensitive filters, and how does this process adapt to different input sentences?",
+  "reference_answer": "The ACNN framework learns context-sensitive filters through two modules: the filter generation module and the adaptive convolution module. The filter generation module produces a set of filters conditioned on the input sentence, while the adaptive convolution module applies the generated filters to an input sentence. The two modules are jointly differentiable, and the overall architecture can be trained in an end-to-end manner.",
+  "k": 5,
+  "graphs": {
+    "teacher_32b": {
+      "node_count": 182,
+      "results": [
+        {
+          "index": 4,
+          "content_hash": "ec5cc3f77aaf1fb498120417355b5754bdc8be5a5a6cb00e97682b9545397a99",
+          "visual": false,
+          "score": 0.8543464695559052,
+          "summary": "This note introduces the ACNN framework for context-sensitive filter generation in text processing, detailing the filter generation module that produces input-specific filters via CNN and deconvolutional layers, and its integration with the adaptive convolution module.",
+          "preview": "Note that in basic CNN sentence encoders, filter weights are the same for different inputs, which may be suboptimal for feature extraction (De Brabandere et al., 2016), especially in the case where conditional information is available.\n\n# 3.2 Learning context-sensitive filters\n\nThe proposed architecture to learn contextsensitive filters is composed of two principal modules: $( i )$ a filter generation module, which produces a set of filters conditioned on the input sentence; and $( i i )$ an ada"
+        },
+        {
+          "index": 5,
+          "content_hash": "c2dd866ae231e78ac2a6809fdbaec82c6fdf003961ef43540b6c12d2a1741a74",
+          "visual": false,
+          "score": 0.8388502281862188,
+          "summary": "This note details the ACNN framework's filter-generation module, which produces context-sensitive filters via CNN and deconvolutional layers, and its adaptive convolution module, which applies these filters to encode input sentences.",
+          "preview": "$$\n\\begin{array} { r l } & { z = \\mathrm { C N N } ( X ; \\pmb { \\theta } _ { e } ) , } \\\\ & { f = \\mathrm { D C N N } ( z ; \\pmb { \\theta } _ { d } ) , } \\end{array}\n$$\n\nwhere $\\pmb { \\theta } _ { e }$ and $\\theta _ { d }$ are the learned parameters in each layer of the filter-generating module, respectively. Specifically, we convolve $_ { z }$ with a filter of size $( f _ { s } , \\ l , \\ k _ { x } , \\ k _ { y } )$ , where $f _ { s }$ is the number of generated filters and the kernel size is $( "
+        },
+        {
+          "index": 130,
+          "content_hash": "702467151408faaf4f2beeeb5eaf1e1eaf243523f3bbbe1cdfd440e443d97076",
+          "visual": true,
+          "score": 0.807396068875277,
+          "summary": "Figure 1 \u2014 The general ACNN framework. The diagram illustrates a two-module architecture: a 'Filter generation module' that takes an input sentence x (represented as a sequence of word embeddings) and produces 'Context-aware Filters', which are then fed into a 'Convolution module' to generate a feature representation y. The caption notes that the input sentences to the filter generation and convolution modules could be different, as discussed in Section 3.3, indicating the framework's flexibility for tasks like text sequence matching.",
+          "preview": "Figure 1: The general ACNN framework. Notably, the input sentences to filter generating module and convolution module could be different (see Section 3.3). Context-aware Filters Convolution module Filter generation module x I 'll go back and try other dishes y"
+        },
+        {
+          "index": 3,
+          "content_hash": "83edd528c8712f31b4f452bf4c2d74b1e404625d651e5a56d2329312a80f0a86",
+          "visual": false,
+          "score": 0.672139071825089,
+          "summary": "This note introduces a meta network approach for generating context-sensitive CNN filters, inspired by hypernetworks and dynamic parameter prediction, with a focus on sentence feature abstraction using CNN architectures.",
+          "preview": "Our use of a meta network to generate parameters for another network is directly inspired by the recent success of hypernetworks for textgeneration tasks (Ha et al., 2017), and dynamic parameter-prediction for video-frame generation (De Brabandere et al., 2016). In contrast to these works that focus on generation problems, our model is based on context-sensitive CNN filters and is aimed at abstracting more informative and predictive sentence features. Most similar to our work, Liu et al. (2017) "
+        },
+        {
+          "index": 6,
+          "content_hash": "cfae3ee44329ac9e395fae2dbd7b9f80c385c0b16478e10271d15f7e09d85619",
+          "visual": false,
+          "score": 0.7021139185441814,
+          "summary": "This note describes the AdaQA model for question-answer matching, detailing its three modules: filter generation, adaptive convolution, and matching, with a focus on context-aware filter generation using CNN and deconvolution layers.",
+          "preview": "Given a factual question $q$ (associated with a list of candidate answers $\\{ a _ { 1 } , a _ { 2 } , \\ldots , a _ { m } \\}$ and their corresponding labels $\\pmb { y } = \\{ y _ { 1 } , y _ { 2 } , \\dots , y _ { m } \\} )$ , the goal of the model is to identify the correct answers from the set of candidates. For $i = 1 , 2 , \\dots , m$ , if $a _ { i }$ correctly answers $q$ , then $y _ { i } ~ = ~ 1$ , and otherwise $y _ { i } = 0$ . Therefore, the task can be cast as a classification problem wher"
+        }
+      ],
+      "teacher_text_evidence_hits": 4,
+      "teacher_text_evidence_total": 4
+    },
+    "candidate": {
+      "node_count": 182,
+      "results": [
+        {
+          "index": 4,
+          "content_hash": "ec5cc3f77aaf1fb498120417355b5754bdc8be5a5a6cb00e97682b9545397a99",
+          "visual": false,
+          "score": 0.8048169828079365,
+          "summary": "ACNN generates context-sensitive filters per input sentence via deconvolution, enhancing CNN feature extraction for text.",
+          "preview": "Note that in basic CNN sentence encoders, filter weights are the same for different inputs, which may be suboptimal for feature extraction (De Brabandere et al., 2016), especially in the case where conditional information is available.\n\n# 3.2 Learning context-sensitive filters\n\nThe proposed architecture to learn contextsensitive filters is composed of two principal modules: $( i )$ a filter generation module, which produces a set of filters conditioned on the input sentence; and $( i i )$ an ada"
+        },
+        {
+          "index": 130,
+          "content_hash": "702467151408faaf4f2beeeb5eaf1e1eaf243523f3bbbe1cdfd440e443d97076",
+          "visual": true,
+          "score": 0.782256119554495,
+          "summary": "Figure 1 \u2014 The general ACNN framework. The diagram shows an input sentence 'x' (e.g., 'I\u2019ll go back and try other dishes') feeding into a 'Filter generation module' that produces 'Context-aware Filters'. These filters are then applied by a 'Convolution module' to generate an output 'y'. The caption notes that the input sentences to the filter generation and convolution modules can be different.",
+          "preview": "Figure 1: The general ACNN framework. Notably, the input sentences to filter generating module and convolution module could be different (see Section 3.3). Context-aware Filters Convolution module Filter generation module y x I\u2019ll go back and try other dishes"
+        },
+        {
+          "index": 5,
+          "content_hash": "c2dd866ae231e78ac2a6809fdbaec82c6fdf003961ef43540b6c12d2a1741a74",
+          "visual": false,
+          "score": 0.8026647916818447,
+          "summary": "ACNN framework generates context-sensitive filters via encoder-decoder CNNs for adaptive sentence encoding.",
+          "preview": "$$\n\\begin{array} { r l } & { z = \\mathrm { C N N } ( X ; \\pmb { \\theta } _ { e } ) , } \\\\ & { f = \\mathrm { D C N N } ( z ; \\pmb { \\theta } _ { d } ) , } \\end{array}\n$$\n\nwhere $\\pmb { \\theta } _ { e }$ and $\\theta _ { d }$ are the learned parameters in each layer of the filter-generating module, respectively. Specifically, we convolve $_ { z }$ with a filter of size $( f _ { s } , \\ l , \\ k _ { x } , \\ k _ { y } )$ , where $f _ { s }$ is the number of generated filters and the kernel size is $( "
+        },
+        {
+          "index": 6,
+          "content_hash": "cfae3ee44329ac9e395fae2dbd7b9f80c385c0b16478e10271d15f7e09d85619",
+          "visual": false,
+          "score": 0.6226783729733916,
+          "summary": "AdaQA model uses adaptive CNNs with context-aware filters to classify correct answers to factual questions via dual-path encoding and matching.",
+          "preview": "Given a factual question $q$ (associated with a list of candidate answers $\\{ a _ { 1 } , a _ { 2 } , \\ldots , a _ { m } \\}$ and their corresponding labels $\\pmb { y } = \\{ y _ { 1 } , y _ { 2 } , \\dots , y _ { m } \\} )$ , the goal of the model is to identify the correct answers from the set of candidates. For $i = 1 , 2 , \\dots , m$ , if $a _ { i }$ correctly answers $q$ , then $y _ { i } ~ = ~ 1$ , and otherwise $y _ { i } = 0$ . Therefore, the task can be cast as a classification problem wher"
+        },
+        {
+          "index": 14,
+          "content_hash": "cf1b142112977b782ac11b9f8bf147807459deeb92c4bab1c3557a42e65c5730",
+          "visual": false,
+          "score": 0.7421709917961165,
+          "summary": "Visualizes ACNN filters via t-SNE on DBpedia, showing clustering by ontology, validating context-sensitive filter adaptation.",
+          "preview": "Filter visualization To better understand what information has been encoded into our contextsensitive filters, we visualize one of the filters for sentences within the test set (on the DBpedia dataset) with $t$ -SNE. The corresponding results are shown in Figure 3(c). It can be observed that the filters for documents with the same label (ontology) are grouped into clusters, indicating that for different types of document, ACNN has leveraged distinct convolutional filters for better feature extra"
+        }
+      ],
+      "teacher_text_evidence_hits": 3,
+      "teacher_text_evidence_total": 4,
+      "overlap_with_teacher_32b_at_5": 4
+    }
+  }
+}

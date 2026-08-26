@@ -1,0 +1,19 @@
+{
+  "name": "optimized_8b_spiqa100_failure_audit_v1",
+  "created_at": 1787670873.0956845,
+  "questions": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/slices/official_trace/spiqa_100_v1.jsonl",
+  "questions_sha256": "dbc159f2dc776fb66f44589db375133ab203cb5dfb67142ae2d89f8761e319b2",
+  "question_count": 100,
+  "source": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/implementations/student_8b_behavior_preserving",
+  "builder_model": "/mnt/maxtox-nfs-student/zff/models/qwen3-vl-8b-instruct-fp8",
+  "online_model": "/mnt/maxtox-nfs-student/zff/models/qwen3-vl-8b-instruct-fp8",
+  "embedding_model": "/mnt/maxtox-nfs-student/zff/models/bge-m3",
+  "seed": 42,
+  "top_k": 5,
+  "evolution_rounds": 1,
+  "document_limit": 5,
+  "graph_concurrency": 24,
+  "embedding_batch_size": 16,
+  "classification_mode": "post-hoc behavior-neutral",
+  "attribution_warning": "optimized 8B results are not automatically original 32B G2 failures"
+}

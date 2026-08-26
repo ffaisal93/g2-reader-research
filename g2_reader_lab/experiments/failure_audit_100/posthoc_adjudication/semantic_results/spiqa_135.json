@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_135",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The proposed method is more accurate in generating different hair colors when facial attributes are swapped compared to icGAN.",
+  "reference": "The proposed method is able to generate images with different hair colors more accurately than icGAN.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.23535966873169,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The proposed method generates images with different hair colors more accurately than icGAN."
+    ],
+    "candidate_claims": [
+      "The proposed method is more accurate in generating different hair colors when facial attributes are swapped compared to icGAN."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer conveys the same core comparison as the reference: the proposed method outperforms icGAN in accurately generating different hair colors during facial attribute swapping. The phrasing is a direct paraphrase with no factual deviation. The addition of 'when facial attributes are swapped' is consistent with the question context and does not alter the meaning. No contradiction, missing component, or incorrect entity is present."
+  },
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 387,
+    "completion_tokens": 177,
+    "prompt_tokens_details": null
+  }
+}

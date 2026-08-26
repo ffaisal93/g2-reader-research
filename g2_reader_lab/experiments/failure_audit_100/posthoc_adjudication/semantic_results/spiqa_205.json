@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_205",
+  "candidate_source": "official_parser",
+  "candidate_answer": "In overlapping cases, the model correctly locates shared opinion words for multiple aspects, leading to accurate classification. In error cases, the model fails to correctly identify sentiment because it does not give sufficient attention to critical negation words, resulting in misclassification.",
+  "reference": "An overlapping case is when multiple aspects share the same opinion snippet, while an error case is when the model incorrectly identifies an aspect or opinion.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 16.89165711402893,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "An overlapping case is when multiple aspects share the same opinion snippet.",
+      "An error case is when the model incorrectly identifies an aspect or opinion."
+    ],
+    "candidate_claims": [
+      "In overlapping cases, the model correctly locates shared opinion words for multiple aspects, leading to accurate classification.",
+      "In error cases, the model fails to correctly identify sentiment because it does not give sufficient attention to critical negation words, resulting in misclassification."
+    ],
+    "substantive_differences": [
+      "The candidate introduces a causal mechanism (model correctly locates shared opinion words) for overlapping cases, which is not mentioned or implied in the reference. The reference only defines overlapping cases structurally, not functionally or behaviorally.",
+      "The candidate attributes error cases to a specific failure (insufficient attention to negation words), which is not stated or implied in the reference. The reference defines error cases broadly as misidentification, without specifying the cause.",
+      "The candidate implies that overlapping cases are handled correctly by the model, while the reference makes no claim about the model’s performance—only about the nature of the cases."
+    ],
+    "rationale": "The candidate goes beyond the reference by adding performance claims and causal explanations not present in the reference. The reference is purely definitional, while the candidate introduces model behavior and error causes. This constitutes a factual mismatch in semantic content, violating the requirement for equivalent meaning."
+  },
+  "usage": {
+    "prompt_tokens": 276,
+    "total_tokens": 598,
+    "completion_tokens": 322,
+    "prompt_tokens_details": null
+  }
+}

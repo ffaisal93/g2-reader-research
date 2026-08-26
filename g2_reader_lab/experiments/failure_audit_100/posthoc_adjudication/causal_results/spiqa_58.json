@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_58",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 26.71026301383972,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "2886c7e9-1a43-4c54-8e03-404084428af5",
+      "d242e94c-d3d8-4d53-bb29-527a24788dc9"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer correctly describes the interaction between the filter generation and convolution modules in the ACNN framework. The retrieved evidence (nodes 2886c7e9-1a43-4c54-8e03-404084428af5 and d242e94c-d3d8-4d53-bb29-527a24788dc9) explicitly supports the key claims: the filter generation module encodes the input into a fixed-length vector and generates sample-specific filters via a deconvolutional layer, and the adaptive convolution module applies these filters to the input sentence. The worker responses for n1 and n2 accurately extract and summarize this information. The final answer correctly composes these components, explaining how the process enables adaptation to different sentences due to sample-specific filters. The sufficiency check confirms no gaps. The answer matches the reference in substance, though it adds technical detail (deconvolutional layer) not in the reference — which is acceptable as the reference is a summary. No retrieval, decomposition, composition, or worker support failures are present. The parser output is valid and complete."
+  },
+  "usage": {
+    "prompt_tokens": 4251,
+    "total_tokens": 4743,
+    "completion_tokens": 492,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_203",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The dashed projection shortcuts in residual networks (a) enable gradients to bypass intermediate layers directly, preventing vanishing gradients. In contrast, inception-like networks (b) lack such shortcuts, forcing gradients to propagate through all layers, which constrains flow and increases vanishing gradient risk.",
+  "reference": "Deep residual networks have skip connections that allow the gradient to flow directly from one layer to another, while networks built by stacking inception-like blocks do not.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.356223583221436,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Deep residual networks have skip connections that allow the gradient to flow directly from one layer to another.",
+      "Networks built by stacking inception-like blocks do not have such connections."
+    ],
+    "candidate_claims": [
+      "The dashed projection shortcuts in residual networks enable gradients to bypass intermediate layers directly, preventing vanishing gradients.",
+      "Inception-like networks lack such shortcuts, forcing gradients to propagate through all layers, which constrains flow and increases vanishing gradient risk."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer accurately captures the core comparison: residual networks use shortcuts to allow direct gradient flow, mitigating vanishing gradients, while inception-like networks lack such paths, leading to constrained gradient flow. The candidate adds context (e.g., 'preventing vanishing gradients', 'increases vanishing gradient risk') that is factually consistent and enhances clarity without contradicting the reference. The semantic meaning is equivalent, with acceptable paraphrasing and harmless elaboration."
+  },
+  "usage": {
+    "prompt_tokens": 275,
+    "total_tokens": 511,
+    "completion_tokens": 236,
+    "prompt_tokens_details": null
+  }
+}

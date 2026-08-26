@@ -1,0 +1,946 @@
+{
+  "repo_id": "LittleWhite1031/G2-Reader",
+  "revision": "57d76a6ab4872592dfe47dbf4fae6cd77bcf184b",
+  "document_count": 117,
+  "found_count": 117,
+  "estimated_bytes": 1263561291,
+  "errors": [],
+  "documents": [
+    {
+      "dataset": "spiqa",
+      "document": "1603.00286v5.pdf",
+      "prefix": "spiqa/1603.00286v5",
+      "file_count": 40,
+      "size_bytes": 10437535,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1603.03833v4.pdf",
+      "prefix": "spiqa/1603.03833v4",
+      "file_count": 18,
+      "size_bytes": 15726862,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1605.07496v3.pdf",
+      "prefix": "spiqa/1605.07496v3",
+      "file_count": 35,
+      "size_bytes": 9848593,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1606.07384v2.pdf",
+      "prefix": "spiqa/1606.07384v2",
+      "file_count": 85,
+      "size_bytes": 11422169,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1608.02784v2.pdf",
+      "prefix": "spiqa/1608.02784v2",
+      "file_count": 30,
+      "size_bytes": 5149318,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.02654v2.pdf",
+      "prefix": "spiqa/1611.02654v2",
+      "file_count": 20,
+      "size_bytes": 5477683,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.03780v2.pdf",
+      "prefix": "spiqa/1611.03780v2",
+      "file_count": 37,
+      "size_bytes": 15618919,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.04363v2.pdf",
+      "prefix": "spiqa/1611.04363v2",
+      "file_count": 23,
+      "size_bytes": 4335649,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.04684v1.pdf",
+      "prefix": "spiqa/1611.04684v1",
+      "file_count": 25,
+      "size_bytes": 4699422,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.05742v3.pdf",
+      "prefix": "spiqa/1611.05742v3",
+      "file_count": 30,
+      "size_bytes": 4916281,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.07718v2.pdf",
+      "prefix": "spiqa/1611.07718v2",
+      "file_count": 26,
+      "size_bytes": 8995306,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1612.02803v5.pdf",
+      "prefix": "spiqa/1612.02803v5",
+      "file_count": 79,
+      "size_bytes": 5553926,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1701.03077v10.pdf",
+      "prefix": "spiqa/1701.03077v10",
+      "file_count": 70,
+      "size_bytes": 26432903,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1701.06171v4.pdf",
+      "prefix": "spiqa/1701.06171v4",
+      "file_count": 20,
+      "size_bytes": 7842325,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1702.03584v3.pdf",
+      "prefix": "spiqa/1702.03584v3",
+      "file_count": 31,
+      "size_bytes": 4008242,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1702.08694v3.pdf",
+      "prefix": "spiqa/1702.08694v3",
+      "file_count": 29,
+      "size_bytes": 5748022,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.00060v2.pdf",
+      "prefix": "spiqa/1703.00060v2",
+      "file_count": 47,
+      "size_bytes": 4398556,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.00899v2.pdf",
+      "prefix": "spiqa/1703.00899v2",
+      "file_count": 44,
+      "size_bytes": 6501995,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.02507v3.pdf",
+      "prefix": "spiqa/1703.02507v3",
+      "file_count": 24,
+      "size_bytes": 5518358,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.04887v4.pdf",
+      "prefix": "spiqa/1703.04887v4",
+      "file_count": 25,
+      "size_bytes": 4139254,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.07015v3.pdf",
+      "prefix": "spiqa/1703.07015v3",
+      "file_count": 33,
+      "size_bytes": 8136077,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.10730v2.pdf",
+      "prefix": "spiqa/1703.10730v2",
+      "file_count": 30,
+      "size_bytes": 30731743,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.00774v3.pdf",
+      "prefix": "spiqa/1704.00774v3",
+      "file_count": 16,
+      "size_bytes": 2269314,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.04539v2.pdf",
+      "prefix": "spiqa/1704.04539v2",
+      "file_count": 18,
+      "size_bytes": 3547387,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.05426v4.pdf",
+      "prefix": "spiqa/1704.05426v4",
+      "file_count": 12,
+      "size_bytes": 3880937,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.05958v2.pdf",
+      "prefix": "spiqa/1704.05958v2",
+      "file_count": 26,
+      "size_bytes": 6219773,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.07121v2.pdf",
+      "prefix": "spiqa/1704.07121v2",
+      "file_count": 31,
+      "size_bytes": 9122887,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.07854v4.pdf",
+      "prefix": "spiqa/1704.07854v4",
+      "file_count": 49,
+      "size_bytes": 23041319,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.08615v2.pdf",
+      "prefix": "spiqa/1704.08615v2",
+      "file_count": 22,
+      "size_bytes": 10798421,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.02798v6.pdf",
+      "prefix": "spiqa/1705.02798v6",
+      "file_count": 32,
+      "size_bytes": 8172436,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.02946v3.pdf",
+      "prefix": "spiqa/1705.02946v3",
+      "file_count": 53,
+      "size_bytes": 14874047,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.07164v8.pdf",
+      "prefix": "spiqa/1705.07164v8",
+      "file_count": 51,
+      "size_bytes": 14954342,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.07384v2.pdf",
+      "prefix": "spiqa/1705.07384v2",
+      "file_count": 78,
+      "size_bytes": 16196565,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.08016v3.pdf",
+      "prefix": "spiqa/1705.08016v3",
+      "file_count": 67,
+      "size_bytes": 7718178,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09296v2.pdf",
+      "prefix": "spiqa/1705.09296v2",
+      "file_count": 29,
+      "size_bytes": 5377472,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09882v2.pdf",
+      "prefix": "spiqa/1705.09882v2",
+      "file_count": 20,
+      "size_bytes": 6992069,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09966v2.pdf",
+      "prefix": "spiqa/1705.09966v2",
+      "file_count": 28,
+      "size_bytes": 12557254,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.10667v4.pdf",
+      "prefix": "spiqa/1705.10667v4",
+      "file_count": 29,
+      "size_bytes": 7582632,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.00633v4.pdf",
+      "prefix": "spiqa/1706.00633v4",
+      "file_count": 41,
+      "size_bytes": 7880359,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.00827v2.pdf",
+      "prefix": "spiqa/1706.00827v2",
+      "file_count": 30,
+      "size_bytes": 29421158,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.03847v3.pdf",
+      "prefix": "spiqa/1706.03847v3",
+      "file_count": 32,
+      "size_bytes": 15215445,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.04269v2.pdf",
+      "prefix": "spiqa/1706.04269v2",
+      "file_count": 16,
+      "size_bytes": 10183238,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.04284v3.pdf",
+      "prefix": "spiqa/1706.04284v3",
+      "file_count": 16,
+      "size_bytes": 33271966,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1706.08146v3.pdf",
+      "prefix": "spiqa/1706.08146v3",
+      "file_count": 24,
+      "size_bytes": 9209749,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.00189v3.pdf",
+      "prefix": "spiqa/1707.00189v3",
+      "file_count": 10,
+      "size_bytes": 2308696,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.00524v2.pdf",
+      "prefix": "spiqa/1707.00524v2",
+      "file_count": 21,
+      "size_bytes": 4086355,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.01917v2.pdf",
+      "prefix": "spiqa/1707.01917v2",
+      "file_count": 27,
+      "size_bytes": 4677413,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.01922v5.pdf",
+      "prefix": "spiqa/1707.01922v5",
+      "file_count": 20,
+      "size_bytes": 10060990,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.06320v2.pdf",
+      "prefix": "spiqa/1707.06320v2",
+      "file_count": 24,
+      "size_bytes": 4543786,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1707.08608v3.pdf",
+      "prefix": "spiqa/1707.08608v3",
+      "file_count": 25,
+      "size_bytes": 5232876,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.00160v2.pdf",
+      "prefix": "spiqa/1708.00160v2",
+      "file_count": 22,
+      "size_bytes": 5704227,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.01425v4.pdf",
+      "prefix": "spiqa/1708.01425v4",
+      "file_count": 14,
+      "size_bytes": 5329578,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.02153v2.pdf",
+      "prefix": "spiqa/1708.02153v2",
+      "file_count": 44,
+      "size_bytes": 7353080,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.03797v1.pdf",
+      "prefix": "spiqa/1708.03797v1",
+      "file_count": 18,
+      "size_bytes": 2902795,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.05239v3.pdf",
+      "prefix": "spiqa/1708.05239v3",
+      "file_count": 48,
+      "size_bytes": 9616844,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.06832v3.pdf",
+      "prefix": "spiqa/1708.06832v3",
+      "file_count": 25,
+      "size_bytes": 5285374,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.00139v4.pdf",
+      "prefix": "spiqa/1709.00139v4",
+      "file_count": 39,
+      "size_bytes": 4208400,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.02418v2.pdf",
+      "prefix": "spiqa/1709.02418v2",
+      "file_count": 36,
+      "size_bytes": 3705989,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.02755v5.pdf",
+      "prefix": "spiqa/1709.02755v5",
+      "file_count": 47,
+      "size_bytes": 7680288,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.08294v3.pdf",
+      "prefix": "spiqa/1709.08294v3",
+      "file_count": 19,
+      "size_bytes": 7365757,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.01507v4.pdf",
+      "prefix": "spiqa/1710.01507v4",
+      "file_count": 15,
+      "size_bytes": 2050631,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.05654v2.pdf",
+      "prefix": "spiqa/1710.05654v2",
+      "file_count": 49,
+      "size_bytes": 13406599,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.06177v2.pdf",
+      "prefix": "spiqa/1710.06177v2",
+      "file_count": 26,
+      "size_bytes": 7710624,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1802.07222v1.pdf",
+      "prefix": "spiqa/1802.07222v1",
+      "file_count": 57,
+      "size_bytes": 10110846,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1802.07351v2.pdf",
+      "prefix": "spiqa/1802.07351v2",
+      "file_count": 33,
+      "size_bytes": 22815195,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1802.07459v2.pdf",
+      "prefix": "spiqa/1802.07459v2",
+      "file_count": 15,
+      "size_bytes": 5040224,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.01128v3.pdf",
+      "prefix": "spiqa/1803.01128v3",
+      "file_count": 29,
+      "size_bytes": 4017157,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.02750v3.pdf",
+      "prefix": "spiqa/1803.02750v3",
+      "file_count": 46,
+      "size_bytes": 8324619,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.03467v4.pdf",
+      "prefix": "spiqa/1803.03467v4",
+      "file_count": 34,
+      "size_bytes": 10507179,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.04383v2.pdf",
+      "prefix": "spiqa/1803.04383v2",
+      "file_count": 98,
+      "size_bytes": 15075401,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.04572v2.pdf",
+      "prefix": "spiqa/1803.04572v2",
+      "file_count": 44,
+      "size_bytes": 9016235,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.05776v2.pdf",
+      "prefix": "spiqa/1803.05776v2",
+      "file_count": 63,
+      "size_bytes": 11098865,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.06506v3.pdf",
+      "prefix": "spiqa/1803.06506v3",
+      "file_count": 44,
+      "size_bytes": 37280714,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.00863v3.pdf",
+      "prefix": "spiqa/1804.00863v3",
+      "file_count": 28,
+      "size_bytes": 30782570,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.01429v3.pdf",
+      "prefix": "spiqa/1804.01429v3",
+      "file_count": 21,
+      "size_bytes": 17680621,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.04410v2.pdf",
+      "prefix": "spiqa/1804.04410v2",
+      "file_count": 16,
+      "size_bytes": 3669942,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.04786v3.pdf",
+      "prefix": "spiqa/1804.04786v3",
+      "file_count": 20,
+      "size_bytes": 23291498,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.05936v2.pdf",
+      "prefix": "spiqa/1804.05936v2",
+      "file_count": 27,
+      "size_bytes": 9273179,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.05938v2.pdf",
+      "prefix": "spiqa/1804.05938v2",
+      "file_count": 37,
+      "size_bytes": 7183090,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.05995v2.pdf",
+      "prefix": "spiqa/1804.05995v2",
+      "file_count": 13,
+      "size_bytes": 7509367,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.07707v2.pdf",
+      "prefix": "spiqa/1804.07707v2",
+      "file_count": 15,
+      "size_bytes": 2565433,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.07849v4.pdf",
+      "prefix": "spiqa/1804.07849v4",
+      "file_count": 60,
+      "size_bytes": 4972985,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.07931v2.pdf",
+      "prefix": "spiqa/1804.07931v2",
+      "file_count": 15,
+      "size_bytes": 3822418,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.00912v4.pdf",
+      "prefix": "spiqa/1805.00912v4",
+      "file_count": 34,
+      "size_bytes": 9010980,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.01216v3.pdf",
+      "prefix": "spiqa/1805.01216v3",
+      "file_count": 42,
+      "size_bytes": 11909452,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.02349v2.pdf",
+      "prefix": "spiqa/1805.02349v2",
+      "file_count": 156,
+      "size_bytes": 17141822,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.04609v3.pdf",
+      "prefix": "spiqa/1805.04609v3",
+      "file_count": 11,
+      "size_bytes": 7508903,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.04687v2.pdf",
+      "prefix": "spiqa/1805.04687v2",
+      "file_count": 36,
+      "size_bytes": 18886776,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.06431v4.pdf",
+      "prefix": "spiqa/1805.06431v4",
+      "file_count": 73,
+      "size_bytes": 19317065,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.06447v3.pdf",
+      "prefix": "spiqa/1805.06447v3",
+      "file_count": 31,
+      "size_bytes": 5692628,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.07567v2.pdf",
+      "prefix": "spiqa/1805.07567v2",
+      "file_count": 33,
+      "size_bytes": 8967204,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.08751v2.pdf",
+      "prefix": "spiqa/1805.08751v2",
+      "file_count": 30,
+      "size_bytes": 12765587,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.00263v5.pdf",
+      "prefix": "spiqa/1809.00263v5",
+      "file_count": 36,
+      "size_bytes": 20572777,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.00458v1.pdf",
+      "prefix": "spiqa/1809.00458v1",
+      "file_count": 74,
+      "size_bytes": 12612401,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.01246v1.pdf",
+      "prefix": "spiqa/1809.01246v1",
+      "file_count": 47,
+      "size_bytes": 10617523,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.01989v2.pdf",
+      "prefix": "spiqa/1809.01989v2",
+      "file_count": 19,
+      "size_bytes": 3782233,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.02731v3.pdf",
+      "prefix": "spiqa/1809.02731v3",
+      "file_count": 19,
+      "size_bytes": 4440668,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.03149v2.pdf",
+      "prefix": "spiqa/1809.03149v2",
+      "file_count": 38,
+      "size_bytes": 18230014,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.03449v3.pdf",
+      "prefix": "spiqa/1809.03449v3",
+      "file_count": 22,
+      "size_bytes": 4700213,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.03550v3.pdf",
+      "prefix": "spiqa/1809.03550v3",
+      "file_count": 63,
+      "size_bytes": 9328769,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.04276v2.pdf",
+      "prefix": "spiqa/1809.04276v2",
+      "file_count": 27,
+      "size_bytes": 4506093,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.02553v4.pdf",
+      "prefix": "spiqa/1811.02553v4",
+      "file_count": 49,
+      "size_bytes": 10753860,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.02721v3.pdf",
+      "prefix": "spiqa/1811.02721v3",
+      "file_count": 34,
+      "size_bytes": 18553697,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.06635v1.pdf",
+      "prefix": "spiqa/1811.06635v1",
+      "file_count": 78,
+      "size_bytes": 6601871,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.07073v3.pdf",
+      "prefix": "spiqa/1811.07073v3",
+      "file_count": 22,
+      "size_bytes": 11489456,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.08257v1.pdf",
+      "prefix": "spiqa/1811.08257v1",
+      "file_count": 44,
+      "size_bytes": 7776847,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.08481v2.pdf",
+      "prefix": "spiqa/1811.08481v2",
+      "file_count": 34,
+      "size_bytes": 28366904,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.09393v4.pdf",
+      "prefix": "spiqa/1811.09393v4",
+      "file_count": 44,
+      "size_bytes": 32959245,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1811.10673v1.pdf",
+      "prefix": "spiqa/1811.10673v1",
+      "file_count": 24,
+      "size_bytes": 27229818,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.00108v4.pdf",
+      "prefix": "spiqa/1812.00108v4",
+      "file_count": 16,
+      "size_bytes": 5664658,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.00281v3.pdf",
+      "prefix": "spiqa/1812.00281v3",
+      "file_count": 47,
+      "size_bytes": 33862358,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.06589v2.pdf",
+      "prefix": "spiqa/1812.06589v2",
+      "file_count": 30,
+      "size_bytes": 10519276,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.10735v2.pdf",
+      "prefix": "spiqa/1812.10735v2",
+      "file_count": 28,
+      "size_bytes": 5312234,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1901.00056v2.pdf",
+      "prefix": "spiqa/1901.00056v2",
+      "file_count": 25,
+      "size_bytes": 4064806,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1901.00398v2.pdf",
+      "prefix": "spiqa/1901.00398v2",
+      "file_count": 67,
+      "size_bytes": 15469569,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1906.06589v3.pdf",
+      "prefix": "spiqa/1906.06589v3",
+      "file_count": 42,
+      "size_bytes": 18367778,
+      "found": true
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1906.10843v1.pdf",
+      "prefix": "spiqa/1906.10843v1",
+      "file_count": 34,
+      "size_bytes": 5183880,
+      "found": true
+    }
+  ]
+}

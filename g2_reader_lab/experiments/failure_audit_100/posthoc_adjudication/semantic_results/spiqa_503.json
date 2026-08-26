@@ -1,0 +1,28 @@
+{
+  "question_id": "spiqa_503",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ResNet-101",
+  "reference": "ResNet-101 from the reference paper reports top-1 validation error of 23.60 which is lower than ResNet-101 reevaluated (26.41) and DMRNet (23.66)",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.179869890213013,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "ResNet-101 from the reference paper reports top-1 validation error of 23.60",
+      "This is lower than ResNet-101 reevaluated (26.41) and DMRNet (23.66)"
+    ],
+    "candidate_claims": [
+      "ResNet-101 demonstrates the lowest Top-1 validation error"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'ResNet-101' correctly identifies the model with the lowest Top-1 validation error, as stated in the reference (23.60 vs. 26.41 and 23.66). The reference specifies that the ResNet-101 from the reference paper (23.60) is the lowest, and the candidate answer aligns with this factual claim without contradiction. The candidate omits specific values but correctly identifies the entity, which is sufficient to answer the central question. No substantive difference in meaning exists."
+  },
+  "usage": {
+    "prompt_tokens": 254,
+    "total_tokens": 505,
+    "completion_tokens": 251,
+    "prompt_tokens_details": null
+  }
+}

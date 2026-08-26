@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_235",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Increasing the budget in FLOPS reduces the test Top-1 error rates for both models, but the small ANN with adaptive loss weighting (AdaLoss, orange curve) consistently achieves lower error rates than the large ANN with non-adaptive weights (CONST, green curve) across all budget levels.",
+  "reference": "The test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 17.430774927139282,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies."
+    ],
+    "candidate_claims": [
+      "Increasing the budget in FLOPS reduces the test Top-1 error rates for both models",
+      "The small ANN with adaptive loss weighting (AdaLoss, orange curve) consistently achieves lower error rates than the large ANN with non-adaptive weights (CONST, green curve) across all budget levels."
+    ],
+    "substantive_differences": [
+      "The reference makes a general claim about three training strategies, while the candidate only mentions two models (implying a reduction in scope).",
+      "The candidate adds a comparative claim (AdaLoss consistently outperforms CONST) that is not present in the reference and cannot be verified as required by the question.",
+      "The reference does not mention specific model names or curve colors, which are extraneous details not required by the question or reference."
+    ],
+    "rationale": "The candidate introduces a comparative performance claim (AdaLoss vs. CONST) that is not in the reference and not required by the question. The reference focuses solely on the trend of error rate decreasing with FLOPS across all three strategies, without making any relative performance claims. The candidate’s answer, while factually plausible, diverges semantically from the reference by adding an unsupported comparison and omitting the third strategy. This constitutes a substantive difference in meaning, making it incorrect under the given rules."
+  },
+  "usage": {
+    "prompt_tokens": 271,
+    "total_tokens": 605,
+    "completion_tokens": 334,
+    "prompt_tokens_details": null
+  }
+}

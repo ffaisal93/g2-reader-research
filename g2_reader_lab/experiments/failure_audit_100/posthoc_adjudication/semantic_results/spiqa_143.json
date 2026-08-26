@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_143",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Consistency (average pairwise cosine similarity) improves with increasing state-action pairs for each method across different training iterations.",
+  "reference": "The quality of gradient estimation increases as the number of state-action pairs used in estimation increases.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 15.260738372802734,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The quality of gradient estimation increases as the number of state-action pairs used in estimation increases."
+    ],
+    "candidate_claims": [
+      "Consistency (average pairwise cosine similarity) improves with increasing state-action pairs for each method across different training iterations."
+    ],
+    "substantive_differences": [
+      "The reference answer makes a general claim about the quality of gradient estimation improving with more state-action pairs, without specifying a metric or context like 'across different training iterations'.",
+      "The candidate answer introduces a specific metric ('average pairwise cosine similarity') and adds context ('across different training iterations'), which is not mentioned in the reference and may not be supported by the question or reference.",
+      "The reference does not mention 'training iterations' or 'for each method' as explicit components of the trend, making the candidate's addition potentially misleading or unsupported."
+    ],
+    "rationale": "While the candidate captures the general trend of improvement with more state-action pairs, it introduces specific details (metric, training iterations, per-method) not present in the reference. The reference is a general statement about gradient estimation quality, while the candidate narrows and contextualizes it in ways that may not be semantically equivalent. This constitutes a substantive deviation, not a harmless paraphrase."
+  },
+  "usage": {
+    "prompt_tokens": 223,
+    "total_tokens": 515,
+    "completion_tokens": 292,
+    "prompt_tokens_details": null
+  }
+}

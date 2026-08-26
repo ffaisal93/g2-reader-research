@@ -1,0 +1,777 @@
+{
+  "targets": [
+    "spiqa_39",
+    "spiqa_4",
+    "spiqa_110",
+    "spiqa_116",
+    "spiqa_522",
+    "spiqa_163",
+    "spiqa_195",
+    "spiqa_396",
+    "spiqa_44",
+    "spiqa_571",
+    "spiqa_47"
+  ],
+  "states": {
+    "spiqa_39": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787704316.7150614,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_39",
+      "return_code": 0,
+      "duration_seconds": 293.3140082359314,
+      "finished_at": 1787704610.0307944,
+      "prediction": "TRPO consistently achieves higher cosine similarity with the true gradient than PPO at lower sample counts (e.g., 10² to 10³ state-action pairs) across all training iterations and environments, indicating superior gradient estimation. This implies that TRPO’s updates are more aligned with the true gradient, leading to more stable and reliable convergence, whereas PPO’s lower alignment, especially in later training stages, suggests less consistent optimization and potentially less stable convergence behavior.",
+      "reference": "TRPO generally converges faster to the true gradient than PPO.",
+      "raw_response_present": true,
+      "process_time": 277.181138753891,
+      "usage": {
+        "prompt_tokens": 52228,
+        "completion_tokens": 4950,
+        "total_tokens": 57178,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_4": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787704610.0345633,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_4",
+      "return_code": 0,
+      "duration_seconds": 100.89086413383484,
+      "finished_at": 1787704710.9272943,
+      "prediction": "9719",
+      "reference": "There are approximately 9,719 negative samples in the training set of the CNSE dataset.",
+      "raw_response_present": true,
+      "process_time": 85.05438590049744,
+      "usage": {
+        "prompt_tokens": 22751,
+        "completion_tokens": 1443,
+        "total_tokens": 24194,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_110": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787704710.9312413,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_110",
+      "return_code": 0,
+      "duration_seconds": 129.46687626838684,
+      "finished_at": 1787704840.3999379,
+      "prediction": "The performance of the LSTNet-attn model on the Solar-Energy dataset degrades as the forecasting horizon increases, with RSE increasing from 0.1816 at horizon 3 to 0.4403 at horizon 24, and correlation decreasing from 0.9848 at horizon 3 to 0.8995 at horizon 24.",
+      "reference": "The performance of LSTNet-attn generally improves as the horizon increases on the Solar-Energy dataset. This is evident from the fact that both the RMSE and correlation values improve with increasing horizon.",
+      "raw_response_present": true,
+      "process_time": 113.60988664627075,
+      "usage": {
+        "prompt_tokens": 39735,
+        "completion_tokens": 1857,
+        "total_tokens": 41592,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_116": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787704840.4037158,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_116",
+      "return_code": 0,
+      "duration_seconds": 110.23345613479614,
+      "finished_at": 1787704950.6390514,
+      "prediction": "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points.",
+      "reference": "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned.",
+      "raw_response_present": true,
+      "process_time": 96.07219386100769,
+      "usage": {
+        "prompt_tokens": 22138,
+        "completion_tokens": 1651,
+        "total_tokens": 23789,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_522": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787704950.6427515,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_522",
+      "return_code": 0,
+      "duration_seconds": 108.10381770133972,
+      "finished_at": 1787705058.7485259,
+      "prediction": "Conv-KNRM; B↑ (significant improvement over BM25), no significant difference relative to WT10 or AOL",
+      "reference": "The Conv-KNRM model performs best when trained on the NYT dataset and evaluated on the WT14 dataset, achieving an nDCG@20 score of 0.3215. This performance is significantly better than all the baselines: BM25 (B), WT10 (W), and AOL (A).",
+      "raw_response_present": true,
+      "process_time": 92.4267144203186,
+      "usage": {
+        "prompt_tokens": 23171,
+        "completion_tokens": 1585,
+        "total_tokens": 24756,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_163": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787705058.7523832,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_163",
+      "return_code": 0,
+      "duration_seconds": 125.38350415229797,
+      "finished_at": 1787705184.137932,
+      "prediction": "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level. The curve is drawn by recursively applying the same pattern within each sub-square and connecting them in a specific order (typically top-left, top-right, bottom-right, bottom-left) to form a continuous, space-filling path that preserves spatial locality.",
+      "reference": "The Hilbert space-filling curve is constructed recursively. The curve starts with a simple square, and then at each subsequent iteration, the curve is subdivided into four smaller squares. The curve is then drawn through each of these squares in a specific order.",
+      "raw_response_present": true,
+      "process_time": 110.32625436782837,
+      "usage": {
+        "prompt_tokens": 20154,
+        "completion_tokens": 1924,
+        "total_tokens": 22078,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_195": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787705184.142602,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_195",
+      "return_code": 0,
+      "duration_seconds": 104.99180769920349,
+      "finished_at": 1787705289.136487,
+      "prediction": "ACGAN exhibits unstable training behavior with high variance in both generator (orange) and discriminator (blue) losses, showing erratic fluctuations and no clear convergence, indicative of poor learning dynamics and likely mode collapse.",
+      "reference": "The training curves for the ACGAN show that the generator and discriminator losses both decrease over time. This indicates that the ACGAN is able to learn to generate realistic images.",
+      "raw_response_present": true,
+      "process_time": 90.66105079650879,
+      "usage": {
+        "prompt_tokens": 24073,
+        "completion_tokens": 1544,
+        "total_tokens": 25617,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_396": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787705289.1406407,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_396",
+      "return_code": 0,
+      "duration_seconds": 134.1996796131134,
+      "finished_at": 1787705423.3424895,
+      "prediction": "HUMBI achieves the highest AUC among individual datasets (0.399), but both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it, with H36M+HUMBI achieving the highest overall AUC.",
+      "reference": "HUMBI performs best when used alone for training, with an average AUC of 0.399. While this is lower than the average AUC of models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI), HUMBI still achieves the highest score among the individual datasets.",
+      "raw_response_present": true,
+      "process_time": 120.06985807418823,
+      "usage": {
+        "prompt_tokens": 16794,
+        "completion_tokens": 2165,
+        "total_tokens": 18959,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_44": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787705423.3468409,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_44",
+      "return_code": 0,
+      "duration_seconds": 183.6934163570404,
+      "finished_at": 1787705607.0426714,
+      "prediction": "For the sickle cell anemia patient, COPA (a) shows a smooth, large peak around day 5000 reflecting a gradual increase in medical activity due to a large visit gap, while Helwig (b) produces a step-like drop and recovery, assuming visits are close in time, and SPARTan (c) exhibits jagged, noisy spikes due to treating time categorically. For the leukemia patient, COPA (d) displays a smooth, gradual increase and decrease in magnitude, accurately modeling the clinical progression, whereas Helwig (e) shows a sharp, unrealistic spike suggesting early disease presence, and SPARTan (f) presents erratic, noisy fluctuations. None of the methods show clear periodicity, but COPA’s smooth patterns are most clinically meaningful.",
+      "reference": "The temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude. For sickle cell anemia patients, the patterns are generally smoother and more periodic, with lower overall magnitude. For leukemia patients, the patterns are more erratic and have higher overall magnitude.",
+      "raw_response_present": true,
+      "process_time": 168.8158552646637,
+      "usage": {
+        "prompt_tokens": 22100,
+        "completion_tokens": 3044,
+        "total_tokens": 25144,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_571": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787705607.047257,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_571",
+      "return_code": 0,
+      "duration_seconds": 466.7670111656189,
+      "finished_at": 1787706073.8169188,
+      "prediction": "No single step resulted in the reduction from 5,119 to 1,955; the reduction occurred across Steps 3 and 4.",
+      "reference": "Step 4, Reason disambiguation.",
+      "raw_response_present": true,
+      "process_time": 452.44780230522156,
+      "usage": {
+        "prompt_tokens": 89539,
+        "completion_tokens": 8146,
+        "total_tokens": 97685,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    },
+    "spiqa_47": {
+      "status": "complete",
+      "attempts": 1,
+      "started_at": 1787706073.8223016,
+      "output_dir": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_47",
+      "return_code": 0,
+      "duration_seconds": 193.3303849697113,
+      "finished_at": 1787706267.1551192,
+      "prediction": "GBI reduces the average disagreement rate by 19.93% (from 44.85% to 24.92%), while A* reduces it by 0.00% (from 33.91% to 33.91%).",
+      "reference": "GBI is more effective than A* in reducing the disagreement rate on the SRL-100 network's failure set. After applying GBI, the average disagreement rate drops to 24.92%, while A* only reduces it to 33.91%. This represents an 19.93% greater reduction in disagreement rate when using GBI compared to A*.",
+      "raw_response_present": true,
+      "process_time": 177.26745200157166,
+      "usage": {
+        "prompt_tokens": 26730,
+        "completion_tokens": 3178,
+        "total_tokens": 29908,
+        "embedding_tokens": 0,
+        "by_stage": {
+          "text_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_analysis": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "text_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "image_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "memory_evolution": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          },
+          "re_embedding": {
+            "embedding_tokens": 0,
+            "calls": 0,
+            "duration_sec": 0.0,
+            "max_single_call_sec": 0.0,
+            "avg_single_call_sec": 0.0
+          }
+        }
+      }
+    }
+  },
+  "finished_at": 1787706267.1593823
+}

@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_496",
+  "candidate_source": "official_parser",
+  "candidate_answer": "HDMF",
+  "reference": "HDMF achieved the best overall performance.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.337240219116211,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "HDMF achieved the best overall performance."
+    ],
+    "candidate_claims": [
+      "HDMF"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'HDMF' directly identifies the model that achieved the highest performance, as stated in the reference. While the reference includes the phrase 'best overall performance', the candidate provides the correct entity (HDMF) without extraneous detail. In the context of the question, which asks for the model that consistently achieved the highest performance across all metrics, the candidate answer is semantically equivalent and sufficient. The omission of the phrase 'achieved the best overall performance' does not alter the factual meaning, as the question explicitly asks for the model name. No contradiction, wrong entity, or missing component is present."
+  },
+  "usage": {
+    "prompt_tokens": 238,
+    "total_tokens": 438,
+    "completion_tokens": 200,
+    "prompt_tokens_details": null
+  }
+}

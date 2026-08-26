@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_478",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ZDDA3",
+  "reference": "ZDDA3",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.339617490768433,
+  "judgment": {
+    "label": "correct",
+    "confidence": 1.0,
+    "reference_claims": [
+      "ZDDA3 demonstrates superior classification accuracy across varying noise levels in both RGB and depth testing data compared to naive fusion."
+    ],
+    "candidate_claims": [
+      "ZDDA3 demonstrates superior classification accuracy across varying noise levels in both RGB and depth testing data compared to naive fusion."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer matches the reference answer exactly in entity and factual claim. The question asks for the superior method between ZDDA3 and naive fusion based on Figure (c), and both answers correctly identify ZDDA3. No paraphrase or extra detail is present, but exact match suffices for semantic correctness."
+  },
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 363,
+    "completion_tokens": 171,
+    "prompt_tokens_details": null
+  }
+}

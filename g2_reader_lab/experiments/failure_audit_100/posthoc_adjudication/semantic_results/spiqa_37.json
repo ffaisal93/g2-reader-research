@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_37",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The QoU and IoU decoys are designed to eliminate selection bias by ensuring that the correct answer and decoys are equally likely to be selected based on either the question or the image alone, forcing the model to integrate both modalities to make correct predictions. QoU-decoys are generated from triplets with similar questions, making them linguistically plausible without relying on visual context. IoU-decoys are generated from other triplets of the same image, making them visually plausible without relying on question context. This design prevents models from exploiting shortcuts based on either modality alone, thereby requiring them to combine both image and question information for accurate answers.",
+  "reference": "The shortcuts in the Visual7W dataset can be remedied by creating alternative decoys that are more likely to be correct, based on either the image or the question alone. This forces the machine to consider all of the information together in order to select the correct answer.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 18.497131824493408,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Shortcuts in the Visual7W dataset can be remedied by creating alternative decoys that are more likely to be correct based on either the image or the question alone.",
+      "This forces the machine to consider all of the information together to select the correct answer."
+    ],
+    "candidate_claims": [
+      "QoU and IoU decoys eliminate selection bias by making correct answers and decoys equally likely to be selected based on question or image alone.",
+      "This forces the model to integrate both modalities for correct predictions.",
+      "QoU-decoys are linguistically plausible without visual context (based on similar questions).",
+      "IoU-decoys are visually plausible without question context (based on same image).",
+      "This design prevents models from exploiting shortcuts based on either modality alone, requiring integration of both image and question information."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer fully captures the core mechanism described in the reference: decoys are designed to be plausible based on either modality alone, thereby forcing the model to integrate both. It adds specific details about QoU and IoU decoy generation (which are consistent with the reference’s implied mechanism) and explicitly states the goal of eliminating selection bias and preventing shortcut exploitation. These are harmless elaborations that enhance clarity without altering the semantic meaning. No contradictions or omissions of required components are present."
+  },
+  "usage": {
+    "prompt_tokens": 376,
+    "total_tokens": 701,
+    "completion_tokens": 325,
+    "prompt_tokens_details": null
+  }
+}

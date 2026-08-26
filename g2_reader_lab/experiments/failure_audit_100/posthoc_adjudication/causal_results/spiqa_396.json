@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_396",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 25.977263689041138,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "retrieval_failure",
+    "secondary_categories": [
+      "worker_support_failure",
+      "composition_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "61e1d332-2333-40e4-854c-c7f7c7fd366a"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence — Table 7 with AUC values for 3D body keypoint prediction — was retrieved in the image node with ID '61e1d332-2333-40e4-854c-c7f7c7fd366a'. However, the Workers (n1 and n2) failed to recognize or extract the relevant data from this table, instead claiming that Table 7 was not provided. This is a retrieval_failure because the evidence was retrieved but not recognized as usable by the Workers. The Workers' responses are unsupported by the evidence, constituting worker_support_failure. The final composition attempt was also flawed, as it began to reason from the table but was truncated, indicating composition_failure. The planning was adequate, and sufficiency checks were appropriate. No raw visual review is needed because the table text is fully readable in the retrieved evidence."
+  },
+  "usage": {
+    "prompt_tokens": 4524,
+    "total_tokens": 4931,
+    "completion_tokens": 407,
+    "prompt_tokens_details": null
+  }
+}

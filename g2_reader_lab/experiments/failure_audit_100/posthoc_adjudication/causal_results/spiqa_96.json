@@ -1,0 +1,21 @@
+{
+  "question_id": "spiqa_96",
+  "status": "complete",
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "parser_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "uncertain",
+    "decisive_evidence_node_ids": [],
+    "planning_adequate": "uncertain",
+    "worker_answer_supported": "uncertain",
+    "final_composition_supported": "uncertain",
+    "sufficiency_behavior": "parse_failure",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "likely",
+    "confidence": 1.0,
+    "rationale": "Planning Graph generation exhausted all retries because every structured JSON response was malformed; Worker execution never began."
+  },
+  "usage": {}
+}

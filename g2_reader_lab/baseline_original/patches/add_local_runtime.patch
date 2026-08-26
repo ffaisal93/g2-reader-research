@@ -1,0 +1,40 @@
+diff --git a/baseline_original/G2_Reader_patched/config/local_runtime.py b/baseline_original/G2_Reader_patched/config/local_runtime.py
+new file mode 100644
+index 0000000..ea79936
+--- /dev/null
++++ b/baseline_original/G2_Reader_patched/config/local_runtime.py
+@@ -0,0 +1,34 @@
++"""Environment-driven runtime values for the corrected linked worktree."""
++
++from __future__ import annotations
++
++import os
++from pathlib import Path
++
++
++LAB_ROOT = Path(__file__).resolve().parents[3]
++VISDOM_ROOT = LAB_ROOT / "external" / "VisDoM"
++PROCESSED_ROOT = LAB_ROOT / "data" / "processed_hf"
++
++LLM_BASE_URL = os.environ["G2_LLM_BASE_URL"]
++EMBED_BASE_URL = os.environ.get("G2_EMBED_BASE_URL", LLM_BASE_URL)
++LLM_API_KEY = os.environ.get("G2_API_KEY", "local")
++EMBED_API_KEY = os.environ.get("G2_EMBED_API_KEY", LLM_API_KEY)
++MODELS = {
++    "chat": os.environ["G2_CHAT_MODEL"],
++    "embed": os.environ["G2_EMBED_MODEL"],
++    "eval": os.environ.get("G2_EVAL_MODEL", os.environ["G2_CHAT_MODEL"]),
++}
++MEMORY_SYSTEMS_DIR = os.environ.get("G2_MEMORY_DIR", str(LAB_ROOT / "results" / "cache" / "memory_systems"))
++PDF_TMP_DIR = os.environ.get("G2_PDF_TMP_DIR", str(LAB_ROOT / "results" / "cache" / "pdf_tmp"))
++MAX_CONCURRENCY = int(os.environ.get("G2_MAX_CONCURRENCY", "1"))
++PARALLEL_ANALYSIS = os.environ.get("G2_PARALLEL_ANALYSIS", "false").lower() == "true"
++
++DATASETS = {
++    "spiqa": {"csv": str(VISDOM_ROOT / "spiqa" / "spiqa.csv"), "mineru_dir": str(PROCESSED_ROOT / "spiqa"), "key": "q_id", "docs_col": "documents"},
++    "feta_tab": {"csv": str(VISDOM_ROOT / "feta_tab" / "feta_tab.csv"), "mineru_dir": str(PROCESSED_ROOT / "fetatab"), "key": "q_id", "docs_col": "documents", "encoding": "utf-8"},
++    "scgqa": {"csv": str(VISDOM_ROOT / "scigraphvqa" / "scigraphqa.csv"), "mineru_dir": str(PROCESSED_ROOT / "scgqa" / "mineru_result"), "key": "q_id", "docs_col": "documents"},
++    "paper_tab": {"csv": str(VISDOM_ROOT / "paper_tab" / "paper_tab.csv"), "mineru_dir": str(PROCESSED_ROOT / "papertab"), "key": "q_id", "docs_col": "documents"},
++    "slidevqa": {"csv": str(VISDOM_ROOT / "slidevqa" / "slidevqa.csv"), "mineru_dir": str(PROCESSED_ROOT / "slide"), "key": "q_id", "docs_col": "documents"},
++}
++

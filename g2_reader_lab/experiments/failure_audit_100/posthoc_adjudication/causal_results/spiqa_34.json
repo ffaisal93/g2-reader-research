@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_34",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 26.99969172477722,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "decomposition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "4edf4e42-5f16-4d52-8d4e-e91ae55017a9"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly attributes the increase in identity switches (IDS) to 'increased sensitivity to object movement' due to better localization. However, the reference and the retrieved evidence point to a different cause: the increased diversity of instances introduced by the detection set. The retrieved evidence (node 4edf4e42-5f16-4d52-8d4e-e91ae55017a9) explicitly states that the detection set adds 'varied examples' that may lead to more frequent identity switches. The worker's final response misinterprets the evidence, fabricating a causal link to 'sensitivity to object movement' that is not supported by the text. This is a worker_support_failure. Additionally, the planning graph failed to explicitly decompose the need to identify the *source* of the increased diversity (i.e., the detection set's contribution), which is a decomposition_failure. The sufficiency check correctly identified gaps in the reasoning, and the final answer was not supported by the evidence."
+  },
+  "usage": {
+    "prompt_tokens": 8772,
+    "total_tokens": 9195,
+    "completion_tokens": 423,
+    "prompt_tokens_details": null
+  }
+}

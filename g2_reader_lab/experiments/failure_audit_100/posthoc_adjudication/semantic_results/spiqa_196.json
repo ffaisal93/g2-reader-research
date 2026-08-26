@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_196",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The proximity of sentence embeddings reflects semantic similarity because the model learns high-level structure, causing semantically similar sentences to cluster together in the embedding space, regardless of their position in the document. The color-coding by position is a visual aid to show document structure, not semantic similarity.",
+  "reference": "Sentences that are closer together in the embedding space are more semantically similar than those that are farther apart.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 21.54025626182556,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Proximity in embedding space reflects semantic similarity.",
+      "Color-coding is by position in document, but the proximity reflects semantic similarity, not positional proximity."
+    ],
+    "candidate_claims": [
+      "Proximity reflects semantic similarity due to learned high-level structure.",
+      "Color-coding by position is a visual aid for document structure, not semantic similarity.",
+      "Semantically similar sentences cluster regardless of position."
+    ],
+    "substantive_differences": [
+      "The candidate introduces a claim that the model learns high-level structure, which is not in the reference and not required to answer the question.",
+      "The candidate implies that color-coding is irrelevant to semantic similarity, which is true, but the reference does not make this point — it focuses on the relationship between proximity and semantic similarity, not the purpose of color-coding.",
+      "Crucially, the candidate contradicts the reference by suggesting that proximity reflects semantic similarity *regardless of position*, while the reference does not make any claim about position affecting semantic similarity — it simply states that proximity reflects semantic similarity, without commenting on position’s role. The candidate’s emphasis on 'regardless of position' introduces a new, unsupported claim that may mislead the interpretation of the figure."
+    ],
+    "rationale": "The candidate answer is factually plausible but introduces an unsupported and potentially misleading claim about the model learning high-level structure and clustering sentences regardless of position. The reference answer is a direct, neutral statement about the relationship between proximity and semantic similarity. The candidate’s addition of 'regardless of their position in the document' contradicts the reference’s implicit assumption that the figure’s color-coding (by position) may reveal patterns, and it overreaches by asserting a causal mechanism not present in the reference. This constitutes a substantive difference and a contradiction in emphasis, making the answer incorrect under the given rules."
+  },
+  "usage": {
+    "prompt_tokens": 268,
+    "total_tokens": 681,
+    "completion_tokens": 413,
+    "prompt_tokens_details": null
+  }
+}

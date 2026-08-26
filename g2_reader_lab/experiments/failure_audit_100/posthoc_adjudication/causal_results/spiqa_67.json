@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_67",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 27.452730178833008,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "decomposition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "506173f4-677c-4489-9d8a-ec996742b7b2",
+      "1fe4df5b-d5f7-4f0d-8c03-d42c1d1f2442"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.9,
+    "rationale": "The candidate answer is factually correct in stating that Mean-Shift maintains robustness via density-based mode-seeking, energy minimization, and post-processing validation. However, the worker responses for nodes n1 and n2 contain unsupported claims. For example, the worker for n1 claims that 'the mode-seeking function identifies the densest regions... which are expected to correspond to the true model parameters' — but the retrieved text does not state this causal link; it only describes the algorithm's behavior. Similarly, the worker for n2 claims that energy minimization 'favors solutions that best explain the data' — a plausible interpretation, but not directly supported by the retrieved evidence. The planning graph decomposes the question into two subproblems, but the first (n1) is too vague and does not explicitly require identifying the mechanism of robustness, which leads to the worker's unsupported inference. The final answer, while fluent and correct, is built on these unsupported intermediate steps. Thus, the earliest decisive failure is a worker_support_failure, with a secondary decomposition_failure for not properly framing the subproblem to require evidence-based reasoning. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "worker_support_failure"
+  },
+  "usage": {
+    "prompt_tokens": 4393,
+    "total_tokens": 4865,
+    "completion_tokens": 472,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_378",
+  "candidate_source": "official_parser",
+  "candidate_answer": "DLA achieved the highest scores with nDCG@10 = 0.421 and ERR@10 = 0.582, representing improvements of 0.063 and 0.082 over the NoCorrect baseline, respectively.",
+  "reference": "The DNN trained with DLA achieved the best performance in terms of both nDCG@10 (0.421) and ERR@10 (0.582). Compared to not using any correction method (NoCorrect), DLA shows a significant improvement in both metrics, with nDCG@10 being higher by 0.063 and ERR@10 being higher by 0.082.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 21.31552267074585,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "DLA achieved the highest nDCG@10 (0.421) and ERR@10 (0.582) for DNN models.",
+      "DLA improved nDCG@10 by 0.063 and ERR@10 by 0.082 over NoCorrect."
+    ],
+    "candidate_claims": [
+      "DLA achieved the highest scores with nDCG@10 = 0.421 and ERR@10 = 0.582.",
+      "These represent improvements of 0.063 and 0.082 over the NoCorrect baseline, respectively."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer accurately conveys the same core facts as the reference: DLA achieved the highest nDCG@10 and ERR@10 scores (0.421 and 0.582) and improved over the NoCorrect baseline by 0.063 and 0.082, respectively. The phrasing is a concise paraphrase without introducing errors or omissions. The mention of 'DNN models' in the reference is implied in the context of the paper and Table 1, and the candidate’s omission of 'DNN' does not alter the semantic meaning, as DLA is discussed in the context of DNNs in the paper. No contradictions or factual inaccuracies are present."
+  },
+  "usage": {
+    "prompt_tokens": 353,
+    "total_tokens": 692,
+    "completion_tokens": 339,
+    "prompt_tokens_details": null
+  }
+}

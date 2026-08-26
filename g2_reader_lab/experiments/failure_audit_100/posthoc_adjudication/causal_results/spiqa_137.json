@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_137",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 29.571844816207886,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "92fd3509-9246-4975-82a2-033d79f7cb97",
+      "a503664a-a8a0-4be8-be36-9e16a6b6d14c"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer 'identity-guided conditional CycleGAN' is correct and fully supported by the retrieved evidence. The text in node '92fd3509-9246-4975-82a2-033d79f7cb97' explicitly states: 'We adopt our identity-guided conditional CycleGAN... to swap the identity by transferring the appearance of eyes, eyebrows, hairs, etc, while keeping other factors intact, e.g., head pose, shape of face and facial expression.' This directly matches the question's requirements. The planning graph correctly decomposed the task into identifying the technique in Section 4.4, and the worker correctly extracted the answer from the text. The final answer is composed correctly and the sufficiency check correctly validated it. No retrieval, decomposition, composition, or parser failure occurred. The reference mentions Light-CNN, but this is a component (source of identity features and loss function), not the primary technique for swapping. The question asks for the technique used to swap identity features, which is the CycleGAN architecture. The candidate answer is accurate and complete."
+  },
+  "usage": {
+    "prompt_tokens": 3026,
+    "total_tokens": 3495,
+    "completion_tokens": 469,
+    "prompt_tokens_details": null
+  }
+}

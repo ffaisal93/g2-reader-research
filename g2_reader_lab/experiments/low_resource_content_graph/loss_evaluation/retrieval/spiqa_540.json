@@ -1,0 +1,103 @@
+{
+  "question_id": "spiqa_540",
+  "question": "According to the figure in the Deep Merge-and-Run Networks paper, which network exhibits the shortest average path length when L = 9?",
+  "reference_answer": "DMRNet",
+  "k": 5,
+  "graphs": {
+    "teacher_32b": {
+      "node_count": 199,
+      "results": [
+        {
+          "index": 161,
+          "content_hash": "5ba688de5747c7438d4bf2172d3c926b3e82095d22b2789c6fc50c44e609a585",
+          "visual": true,
+          "score": 0.6774710527481411,
+          "summary": "Figure 3 \u2014 Comparing the distributions of the path lengths for three networks. The figure presents two histograms (left: L=9, right: L=24) showing the number of paths (#Paths) versus path length on a logarithmic scale. For both cases, ResNet (green) exhibits the longest average path length (20.0\u00b12.24 for L=9, 50.0\u00b16.93 for L=24), followed by DILNet (red, 14.0\u00b12.83 and 34.0\u00b14.62), and DMRNet (blue, 8.0\u00b12.83 and 18.0\u00b14.62) shows the shortest average path length, indicating more efficient information flow in DMRNet.",
+          "preview": "Figure 3. Comparing the distributions of the path lengths for three networks. Different networks: (avg length \u00b1 std). Left: L = 9. Right: L = 24. #Paths 10^4 10^3 10^2 10^1 10^0 Path length 0 5 10 15 20 25 30 35 40 ResNet: 20.0\u00b12.24 DILNet: 14.0\u00b12.83 DMRNet: 8.0\u00b12.83 #Paths 10^4 10^3 10^2 10^1 10^0 Path length 0 10 20 30 40 50 60 70 80 90 100 ResNet: 50.0\u00b16.93 DILNet: 34.0\u00b14.62 DMRNet: 18.0\u00b14.62"
+        },
+        {
+          "index": 6,
+          "content_hash": "de3a3d5c1086023606be1613d5675472716331c09a96695698fd130509dea2d9",
+          "visual": false,
+          "score": 0.6366671675181522,
+          "summary": "This note analyzes path lengths in ResNet, DIRNet, and DMRNet, showing that DMRNet's shorter average path lengths (B/3 L + 2) enhance training efficiency, supported by Figure 3 and Table 1, and details merge-and-run block structure with group convolutions and idempotent skip connections.",
+          "preview": "Shorter paths. All the three networks are mixtures of paths, where a path is defined as a sequence of connected residual branches, identity mappings, and possibly other layers (e.g., the first convolution layer, the FC layer) from the input to the output. Suppose each residual branch contains $B$ layers (there are 2 layers for the example shown in Figure 1), and the ResNet, DIRNet and DMRNet contain $2 L , L$ , and $L$ building blocks, the average lengths (without counting projections in short-c"
+        },
+        {
+          "index": 164,
+          "content_hash": "9131cfc99d342dfbf6fc8a2f49a3274ace09dca607d9f8bc0539c3ae5a6e1ea8",
+          "visual": true,
+          "score": 0.5567044276193993,
+          "summary": "Figure 6 shows the relationship between average path length and classification error on CIFAR-10 for residual networks with 3 and 6 blocks, revealing a U-shaped trend with optimal performance at intermediate lengths.",
+          "preview": "Figure 6. Illustrating how the testing errors of residual networks change as the average path length increases. The results are reported on CIFAR-10. classification error (%) 13 12 11 10 9 8 7 12 15 21 27 30 33 39 51 57 average length 3 residual blocks 6 residual blocks"
+        },
+        {
+          "index": 0,
+          "content_hash": "17c41938b11da3aba16658ac961594aff18c0de82a9f67c9435abd397b867b28",
+          "visual": false,
+          "score": 0.501582579385846,
+          "summary": "This note introduces deep merge-and-run neural networks with a novel merge-and-run block that assembles residual branches in parallel using a linear idempotent mapping, improving information flow, reducing path lengths, and increasing network width for easier training and competitive performance on standard datasets.",
+          "preview": "# Deep Convolutional Neural Networks with Merge-and-Run Mappings\n\nLiming Zhao1 Jingdong Wang2 Xi Li1 Zhuowen $\\mathrm { T u ^ { 3 } }$ Wenjun Zeng2 1Zhejiang University 2Microsoft Research 3UC San Diego {zhaoliming,xilizju}@zju.edu.cn {jingdw,wezeng}@microsoft.com ztu@ucsd.edu\n\n# Abstract\n\nA deep residual network, built by stacking a sequence of residual blocks, is easy to train, because identity mappings skip residual branches and thus improve information flow. To further reduce the training di"
+        },
+        {
+          "index": 1,
+          "content_hash": "a1ec593ae3fb9764e9e1820fee4aac53790e644f9ac99fe305d0f3c6dfdcabe3",
+          "visual": false,
+          "score": 0.504134022557134,
+          "summary": "This note introduces deep merge-and-run neural networks with a merge-and-run block that assembles residual branches in parallel, enabling shorter paths, improved information flow, and increased width, leading to superior performance on CIFAR-10, CIFAR-100, SVHN, and ImageNet.",
+          "preview": "In this paper, we are interested in further reducing the training difficulty and present a simple network architecture, called deep merge and run neural networks, which assemble residual branches more effectively. The key point is a novel building block, the merge-and-run block, which assembles residual branches in parallel with a merge-andrun mapping: Average the inputs of these residual branches (Merge), and add the average to the output of each residual branch as the input of the subsequent r"
+        }
+      ],
+      "teacher_text_evidence_hits": 3,
+      "teacher_text_evidence_total": 3
+    },
+    "candidate": {
+      "node_count": 203,
+      "results": [
+        {
+          "index": 165,
+          "content_hash": "5ba688de5747c7438d4bf2172d3c926b3e82095d22b2789c6fc50c44e609a585",
+          "visual": true,
+          "score": 0.69599188616079,
+          "summary": "Figure 3 compares path length distributions across ResNet, DILNet, and DMRNet at depths L=9 and L=24, showing DMRNet's shortest average path length and most concentrated distribution.",
+          "preview": "Figure 3. Comparing the distributions of the path lengths for three networks. Different networks: (avg length \u00b1 std). Left: L = 9. Right: L = 24. ResNet: 20.0\u00b14.24 ResNet: 50.0\u00b16.93 DILNet: 14.0\u00b12.83 DILNet: 34.0\u00b14.62 DMRNet: 8.0\u00b12.83 DMRNet: 18.0\u00b14.62 #Paths Path length #Paths Path length"
+        },
+        {
+          "index": 164,
+          "content_hash": "a8e4174528b0b4d70477b7ce7cfbf9d6f3fc365a125bf89dd0bb4b9c6cf5ee7a",
+          "visual": true,
+          "score": 0.4828170520923234,
+          "summary": "Table 1 \u2014 Network architectures comparing ResNets and DMRNets/DILNets. The table details layer configurations, output sizes, and block structures (e.g., conv(3\u00d73,16)) for each stage, with DMRNets/DILNets using fewer stacked blocks (L/3 vs 2L/3) and incorporating downsampling at conv2_1 and conv3_1 with stride 2. Final classifier uses average pool, FC, and softmax.",
+          "preview": "Table 1. Network architectures. Inside the brackets are the shape of the residual, inception-like and merge-and-run blocks, and outside the brackets is the number of stacked blocks on a stage. Downsampling is performed in conv2 1, and conv3 1 with stride 2. As done [7], we use 1 \u00d7 1 convolutions to replace identity mappings for ResNets and Inception-like blocks, and perform 1 \u00d7 1 convolutions before merging in merge-and-run blocks when the widths increase across stages. In each convolution, the "
+        },
+        {
+          "index": 169,
+          "content_hash": "0906828ca468ceb3bb800d87ca2033b533219c2a875f4e7172ac5cc2c79975c5",
+          "visual": true,
+          "score": 0.5231137542191102,
+          "summary": "Table 2 compares DMRNets, DILNets, and ResNets across CIFAR-10, CIFAR-100, and SVHN, showing DMRNets consistently achieve lowest classification errors.",
+          "preview": "Table 2. Empirical comparison of DILNets, DMRNets, and ResNets. The average classification error from 5 runs and the standard deviation (mean \u00b1 std.) are reported. Refer to Table 1 for network structure descriptions. Params. L CIFAR-10 CIFAR-100 SVHN ResNets DILNets DMRNets ResNets DILNets DMRNets ResNets DILNets DMRNets 0.4M 12 6.62 \u00b1 0.24 6.53 \u00b1 0.12 6.48 \u00b1 0.04 29.69 \u00b1 0.15 29.75 \u00b1 0.27 29.62 \u00b1 0.08 1.90 \u00b1 0.08 2.13 \u00b1 0.09 2.00 \u00b1 0.04 0.6M 18 5.93 \u00b1 0.17 5.83 \u00b1 0.09 5.79 \u00b1 0.13 27.90 \u00b1 0.26 2"
+        },
+        {
+          "index": 9,
+          "content_hash": "aa80d59b2e31a8cc164fb4a1e57541dac21e5492fbf4f9cab246a5948e6979b0",
+          "visual": false,
+          "score": 0.46923180020872474,
+          "summary": "Empirical comparison of DILNets, DMRNets, and ResNets on CIFAR-10, CIFAR-100, and SVHN datasets. DMRNets show lowest classification errors across all configurations.",
+          "preview": "Comparison with ResNets. We compare DILNets and DMRNets, and the baseline ResNets algorithm. They are formed with the same number of layers, and each block in a DILNet and a DMRNet corresponds to two residual blocks in a ResNet. Table 1 depicts the network structures.\n\nTable 2. Empirical comparison of DILNets, DMRNets, and ResNets. The average classification error from 5 runs and the standard deviation (mean \u00b1 std.) are reported. Refer to Table 1 for network structure descriptions.   \n\n<table><t"
+        },
+        {
+          "index": 168,
+          "content_hash": "9131cfc99d342dfbf6fc8a2f49a3274ace09dca607d9f8bc0539c3ae5a6e1ea8",
+          "visual": true,
+          "score": 0.5582650587430391,
+          "summary": "Figure 6 \u2014 Illustrating how the testing errors of residual networks change as the average path length increases. The results are reported on CIFAR-10. Two curves show error trends for networks with 3 residual blocks (red) and 6 residual blocks (blue). Both curves show that shorter average path lengths yield lower testing errors, especially for deeper networks (6 blocks), where error increases sharply as path length grows beyond 33.",
+          "preview": "Figure 6. Illustrating how the testing errors of residual networks change as the average path length increases. The results are reported on CIFAR-10. classification error (%) average length 3 residual blocks 6 residual blocks 12 15 21 27 30 33 39 51 57 7 8 9 10 11 12 13"
+        }
+      ],
+      "teacher_text_evidence_hits": 0,
+      "teacher_text_evidence_total": 3,
+      "overlap_with_teacher_32b_at_5": 2
+    }
+  }
+}

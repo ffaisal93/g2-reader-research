@@ -1,0 +1,35 @@
+{
+  "question_id": "spiqa_163",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The Hilbert curve recursively subdivides a square into four smaller squares and applies the same pattern to each, but the specific drawing rule for the path within each subdivision is not described in the text or explicitly inferable from the visual pattern alone.",
+  "reference": "The Hilbert space-filling curve is constructed recursively. The curve starts with a simple square, and then at each subsequent iteration, the curve is subdivided into four smaller squares. The curve is then drawn through each of these squares in a specific order.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 15.611657857894897,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The Hilbert space-filling curve is constructed recursively.",
+      "The curve starts with a simple square.",
+      "At each subsequent iteration, the curve is subdivided into four smaller squares.",
+      "The curve is then drawn through each of these squares in a specific order."
+    ],
+    "candidate_claims": [
+      "The Hilbert curve recursively subdivides a square into four smaller squares.",
+      "The same pattern is applied to each subdivision.",
+      "The specific drawing rule for the path within each subdivision is not described in the text or explicitly inferable from the visual pattern alone."
+    ],
+    "substantive_differences": [
+      "The reference explicitly states that the curve is drawn through each subdivision in a specific order, implying that the drawing rule is defined and known.",
+      "The candidate contradicts this by asserting that the specific drawing rule is not described or inferable, which directly contradicts the reference's claim of a defined, specific order."
+    ],
+    "rationale": "The candidate answer introduces a contradiction by claiming the drawing rule is not described or inferable, while the reference explicitly states that the curve is drawn through each subdivision in a specific order. This is a factual contradiction, not a paraphrase or harmless addition. Therefore, the candidate is semantically incorrect relative to the reference."
+  },
+  "usage": {
+    "prompt_tokens": 287,
+    "total_tokens": 584,
+    "completion_tokens": 297,
+    "prompt_tokens_details": null
+  }
+}

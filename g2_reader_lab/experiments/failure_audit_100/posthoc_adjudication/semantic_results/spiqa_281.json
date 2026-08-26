@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_281",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The curve follows Luhn's hypothesis, which states that the norm is inversely proportional to the log frequency, with mid-rank terms being most significant.",
+  "reference": "The $L_2$-norm of a word vector is inversely proportional to its frequency.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 14.89890432357788,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The L2-norm of a word vector is inversely proportional to its frequency."
+    ],
+    "candidate_claims": [
+      "The curve follows Luhn's hypothesis, which states that the norm is inversely proportional to the log frequency, with mid-rank terms being most significant."
+    ],
+    "substantive_differences": [
+      "The reference states inverse proportionality to frequency, while the candidate claims inverse proportionality to log frequency — a different mathematical relationship.",
+      "The candidate introduces Luhn's hypothesis, which is not mentioned or implied in the reference and is not the focus of the paper's observation.",
+      "The candidate adds 'mid-rank terms being most significant,' which is not part of the reference and not directly supported by the question or reference."
+    ],
+    "rationale": "The candidate misrepresents the observed relationship by substituting 'frequency' with 'log frequency' in the inverse proportionality claim. This is a substantive error in the mathematical relationship. Additionally, the candidate introduces external concepts (Luhn's hypothesis) and extra claims not present in the reference, which are not harmless details but distort the core factual meaning. The reference is clear and specific: inverse proportionality to frequency, not log frequency."
+  },
+  "usage": {
+    "prompt_tokens": 262,
+    "total_tokens": 547,
+    "completion_tokens": 285,
+    "prompt_tokens_details": null
+  }
+}

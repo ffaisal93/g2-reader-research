@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_215",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The depth-exclusive model (Fig. 1b) produces cleaner, silhouette-based filter responses in conv1, conv2, and conv3, which are more robust to appearance changes, compared to the RGB-based model (Fig. 1a) that shows complex, texture-dependent patterns sensitive to lighting and clothing.",
+  "reference": "The filter responses from the “conv1”, “conv2” and “conv3” layers for a given frame from the TUM GAID data using a framework for person re-identification from RGB are more detailed and contain more information than the filter responses from the fCNN of a framework that utilizes depth data. This is because RGB images contain more information than depth images.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 17.61031198501587,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "RGB-based re-identification framework produces more detailed and informative filter responses in conv1, conv2, and conv3 layers compared to depth-exclusive fCNN.",
+      "This difference is due to RGB images containing more information than depth images."
+    ],
+    "candidate_claims": [
+      "Depth-exclusive model produces cleaner, silhouette-based filter responses in conv1, conv2, and conv3, which are more robust to appearance changes.",
+      "RGB-based model shows complex, texture-dependent patterns sensitive to lighting and clothing."
+    ],
+    "substantive_differences": [
+      "The candidate reverses the comparison: it claims depth model responses are 'cleaner' and 'more robust', while the reference states RGB responses are 'more detailed and contain more information'.",
+      "The candidate introduces a new claim about robustness to appearance changes and sensitivity to lighting/clothing, which is not present in the reference.",
+      "The candidate references 'Fig. 1a' and 'Fig. 1b', while the question and reference refer to 'Fig. 3' — this is a factual mismatch in figure reference."
+    ],
+    "rationale": "The candidate contradicts the core factual comparison in the reference (RGB vs. depth filter response quality) and introduces unsupported claims about robustness and sensitivity. Additionally, it misidentifies the figure (Fig. 1 vs. Fig. 3), which is a critical error. These are not harmless paraphrases but substantive inaccuracies."
+  },
+  "usage": {
+    "prompt_tokens": 362,
+    "total_tokens": 698,
+    "completion_tokens": 336,
+    "prompt_tokens_details": null
+  }
+}

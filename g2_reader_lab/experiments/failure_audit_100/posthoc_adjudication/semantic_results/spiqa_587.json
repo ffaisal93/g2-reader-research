@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_587",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Car",
+  "reference": "Cars are the most common object in the dataset.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.773648977279663,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Cars are the most common object in the dataset."
+    ],
+    "candidate_claims": [
+      "Car"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Car' is a concise, unambiguous reference to the same object type as 'Cars' in the reference. The singular form does not alter the semantic meaning in this context, as the question asks for the most frequent object type, not a count or plural form. The core factual claim — that cars are the most frequent object — is preserved. No contradiction, missing component, or incorrect entity is present."
+  },
+  "usage": {
+    "prompt_tokens": 190,
+    "total_tokens": 348,
+    "completion_tokens": 158,
+    "prompt_tokens_details": null
+  }
+}

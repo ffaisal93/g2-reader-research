@@ -1,0 +1,46 @@
+diff --git a/baseline_original/G2_Reader_patched/agent_search/bm25.py b/baseline_original/G2_Reader_patched/agent_search/bm25.py
+new file mode 100644
+index 0000000..4c265ed
+--- /dev/null
++++ b/baseline_original/G2_Reader_patched/agent_search/bm25.py
+@@ -0,0 +1,40 @@
++"""Small dependency-free BM25 ranker for the corrected released baseline."""
++
++from __future__ import annotations
++
++import math
++import re
++from typing import Sequence
++
++
++def rank_bm25(
++    docs: Sequence[str],
++    query_terms: Sequence[str],
++    k: int = 5,
++    return_indices: bool = False,
++) -> list[str] | list[int]:
++    tokenized = [re.findall(r"\w+", (doc or "").lower()) for doc in docs]
++    query = [token for term in query_terms if term for token in re.findall(r"\w+", term.lower())]
++    if not query or not tokenized:
++        return []
++    average_length = sum(map(len, tokenized)) / max(len(tokenized), 1)
++    if average_length == 0:
++        return []
++    document_frequency = {term: sum(term in set(doc) for doc in tokenized) for term in set(query)}
++    k1, b = 1.5, 0.75
++    scored = []
++    for index, document in enumerate(tokenized):
++        score = 0.0
++        for term in query:
++            frequency = document.count(term)
++            if not frequency:
++                continue
++            df = document_frequency[term]
++            inverse_frequency = math.log(1.0 + (len(tokenized) - df + 0.5) / (df + 0.5))
++            denominator = frequency + k1 * (1.0 - b + b * len(document) / average_length)
++            score += inverse_frequency * frequency * (k1 + 1.0) / denominator
++        if score:
++            scored.append((index, score))
++    scored.sort(key=lambda item: (-item[1], item[0]))
++    indices = [index for index, _ in scored[:k]]
++    return indices if return_indices else [docs[index] for index in indices]

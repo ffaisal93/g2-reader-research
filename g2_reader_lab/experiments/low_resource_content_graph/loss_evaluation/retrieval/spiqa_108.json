@@ -1,0 +1,103 @@
+{
+  "question_id": "spiqa_108",
+  "question": "Based on Figure 3 in the ESMM paper, how do ESMM-NS and ESMM compare to other models in terms of AUC performance across different sampling rates for both CVR and CTCVR tasks?",
+  "reference_answer": "ESMM-NS and ESMM outperform all other models consistently across different training set sizes on both the CVR and CTCVR tasks.",
+  "k": 5,
+  "graphs": {
+    "teacher_32b": {
+      "node_count": 169,
+      "results": [
+        {
+          "index": 110,
+          "content_hash": "cd27588a754509e2954f86a576784f61342f76c6475766059f3877e75e57a5d1",
+          "visual": true,
+          "score": 0.7728480471453024,
+          "summary": "Figure 3 \u2014 Comparison of different models w.r.t. different sampling rates on Product Dataset. The figure presents two line charts side-by-side: one for the CVR Task and one for the CTCVR Task. Both charts plot AUC (Area Under the ROC Curve) on the y-axis against Train Set Size (%) on the x-axis, ranging from 1% to 100%. Multiple models are compared, including BASE, AMAN, OVERSAMPLING, UNBIAS, DIVISION, ESMM-NS, and ESMM. In both tasks, all models show increasing AUC with larger training set sizes, indicating improved performance with reduced data sparsity. ESMM and ESMM-NS consistently outperform all other models across all sampling rates, with ESMM achieving the highest AUC values. The legend is shared between both charts, using distinct line styles and markers for each model.",
+          "preview": "Figure 3: Comparison of different models w.r.t. different sampling rates on Product Dataset. CVR Task CTCVR Task AUC AUC 76 74 72 70 68 66 1 20 40 100 Train Set Size(%) 74 72 70 68 66 64 62 1 20 40 100 Train Set Size(%) BASE AMAN OVERSAMPLING UNBIAS DIVISION ESMM-NS ESMM BASE AMAN OVERSAMPLING UNBIAS DIVISION ESMM-NS ESMM"
+        },
+        {
+          "index": 109,
+          "content_hash": "f3887cae83984880c8b59290690ee1e4b74e3aa1d336969fa559ceea1772ad6b",
+          "visual": true,
+          "score": 0.7599772201021746,
+          "summary": "Table 2 \u2014 Results of different models on public dataset. The table presents AUC (mean \u00b1 std) scores for various models on two tasks: CVR prediction (on clicked impressions) and CTCVR prediction (on all impressions). Models include BASE, AMAN, OVERSAMPLING, UNBIAS, DIVISION, ESMM-NS, and ESMM. ESMM achieves the highest AUC scores on both tasks, demonstrating superior performance. ESMM-NS also outperforms BASE and DIVISION, with ESMM showing further improvement over ESMM-NS, indicating the effectiveness of embedding sharing and sequential modeling.",
+          "preview": "Table 2. Results of different models on public dataset. Model AUC(mean \u00b1 std) on CVR task AUC(mean \u00b1 std) on CTCVR task BASE 66.00 \u00b1 0.37 62.07 \u00b1 0.45 AMAN 65.21 \u00b1 0.59 63.53 \u00b1 0.57 OVERSAMPLING 67.18 \u00b1 0.32 63.05 \u00b1 0.48 UNBIAS 66.65 \u00b1 0.28 63.56 \u00b1 0.70 DIVISION 67.56 \u00b1 0.48 63.62 \u00b1 0.09 ESMM-NS 68.25 \u00b1 0.44 64.44 \u00b1 0.62 ESMM 68.56 \u00b1 0.37 65.32 \u00b1 0.49"
+        },
+        {
+          "index": 8,
+          "content_hash": "ff40f1d3132ec428453c68397dbaf9334743789af07c4d1f1e035867f48c68c8",
+          "visual": false,
+          "score": 0.7627051160211895,
+          "summary": "This note presents experimental results of various models on public and product datasets, highlighting ESMM's superior performance in CVR and CTCVR tasks with significant AUC gains, validated through Table 2 and Figure 3.",
+          "preview": "# 3.2 Results on Public Dataset\n\nTable 2 shows results of different models on public dataset. (1) Among all the three variations of BASE model, only AMAN performs a little worse on CVR task, which may be due to the sensitive of random sampling. OVERSAMPLING and UNBIAS show improvement over BASE model on both CVR and CTCVR tasks. (2) Both DIVISION and ESMM-NS estimate $\\# C V R$ over entire space and achieve remarkable promotions over BASE model. Due to the avoidance of numerical instability, ESM"
+        },
+        {
+          "index": 6,
+          "content_hash": "eafeda90f8a99c8db8862dbccf36598068630aa7c9f7b0ca68684c5a6a82a5f1",
+          "visual": false,
+          "score": 0.5536561760561209,
+          "summary": "This note details the ESMM model's loss function, feature representation transfer via shared embedding parameters, and experimental setup using Taobao's datasets, focusing on addressing data sparsity and sequential dependence in CVR modeling.",
+          "preview": "where $\\theta _ { c t r }$ and $\\theta _ { c v r }$ are the parameters of CTR and CVR networks and $l ( \\cdot )$ ct r \u03b8cvr is cross-entropy loss function. Mathematically, Eq.(3) delcomposes $y  z$ into two parts3: $y$ and $y \\& z$ , which in fact makes use of the sequential dependence of click and conversion labels.\n\nFeature representation transfer. As introduced in section 2.2, embedding layer maps large scale sparse inputs into low dimensional representation vectors. It contributes most of the"
+        },
+        {
+          "index": 5,
+          "content_hash": "2b061da5e36dd0aa2c38e677b9e484b398dc1404c7da928072f30900f01b6b31",
+          "visual": false,
+          "score": 0.6580887865250461,
+          "summary": "This note details the ESMM architecture, including its loss function, multiplication form for CTCVR estimation, and modeling over the entire input space to address sample selection bias and data sparsity.",
+          "preview": "The proposed ESMM is illustrated in Fig.2, which makes good use of the sequential pattern of user actions. Borrowing the idea from multi-task learning [9], ESMM introduces two auxiliary tasks of CTR and CTCVR and eliminates the aforementioned problems for CVR modeling simultaneously.\n\nOn the whole, ESMM simultaneously outputs $p C T R , p C V R$ as well as $\\ P C T C V R$ w.r.t. a given impression. It mainly consists of two sub-networks: CVR network illustrated in the left part of Fig.2 and CTR "
+        }
+      ],
+      "teacher_text_evidence_hits": 3,
+      "teacher_text_evidence_total": 3
+    },
+    "candidate": {
+      "node_count": 169,
+      "results": [
+        {
+          "index": 109,
+          "content_hash": "f3887cae83984880c8b59290690ee1e4b74e3aa1d336969fa559ceea1772ad6b",
+          "visual": true,
+          "score": 0.7943116260828206,
+          "summary": "Table 2 shows AUC scores for models on CVR and CTCVR tasks, with ESMM achieving highest scores: 68.56 \u00b1 0.37 on CVR and 65.32 \u00b1 0.49 on CTCVR.",
+          "preview": "Table 2. AUC(mean \u00b1 std) on CVR task AUC(mean \u00b1 std) on CTCVR task Model BASE 66.00 \u00b1 0.37 62.07 \u00b1 0.45 AMAN 65.21 \u00b1 0.59 63.53 \u00b1 0.57 OVERSAMPLING 67.18 \u00b1 0.32 63.05 \u00b1 0.48 UNBIAS 66.65 \u00b1 0.28 63.56 \u00b1 0.70 DIVISION 67.56 \u00b1 0.48 63.62 \u00b1 0.09 ESMM-NS 68.25 \u00b1 0.44 64.44 \u00b1 0.62 ESMM 68.56 \u00b1 0.37 65.32 \u00b1 0.49"
+        },
+        {
+          "index": 107,
+          "content_hash": "c3310e797aeedaaabb5f6cb33d3122ad6ee1a7d960ffc813fd4efc1fd81510bd",
+          "visual": true,
+          "score": 0.6346128914180684,
+          "summary": "ESMM architecture diagram showing shared embedding layer and separate CTR/CVR networks, with pCTCVR computed as element-wise product of pCTR and pCVR.",
+          "preview": "Figure 2: Architecture overview of ESMM for CVR modeling. In ESMM, two auxiliary tasks of CTR and CTCVR are introduced which: i) help to model CVR over entire input space, ii) provide feature representation transfer learning. ESMM mainly consists of two sub-networks: CVR network illustrated in the left part of this figure and CTR network in the right part. Embedding parameters of CTR and CVR network are shared. CTCVR takes the product of outputs from CTR and CVR network as the output. Main Task "
+        },
+        {
+          "index": 110,
+          "content_hash": "cd27588a754509e2954f86a576784f61342f76c6475766059f3877e75e57a5d1",
+          "visual": true,
+          "score": 0.7726693393389136,
+          "summary": "Figure 3 shows AUC trends for CVR and CTCVR tasks across training set sizes, highlighting ESMM's consistent superiority.",
+          "preview": "Figure 3: Comparison of different models w.r.t. different sampling rates on Product Dataset. CVR Task AUC 76 74 72 70 68 66 1 20 40 100 Train Set Size(%) BASE AMAN OVERSAMPLING UNBIAS DIVISION ESMM-NS ESMM CTCVR Task AUC 74 72 70 68 66 64 62 1 20 40 100 Train Set Size(%) BASE AMAN OVERSAMPLING UNBIAS DIVISION ESMM-NS ESMM"
+        },
+        {
+          "index": 8,
+          "content_hash": "ff40f1d3132ec428453c68397dbaf9334743789af07c4d1f1e035867f48c68c8",
+          "visual": false,
+          "score": 0.7584707616396141,
+          "summary": "ESMM model outperforms BASE and other variants on CVR and CTCVR tasks, achieving significant AUC gains across public and product datasets.",
+          "preview": "# 3.2 Results on Public Dataset\n\nTable 2 shows results of different models on public dataset. (1) Among all the three variations of BASE model, only AMAN performs a little worse on CVR task, which may be due to the sensitive of random sampling. OVERSAMPLING and UNBIAS show improvement over BASE model on both CVR and CTCVR tasks. (2) Both DIVISION and ESMM-NS estimate $\\# C V R$ over entire space and achieve remarkable promotions over BASE model. Due to the avoidance of numerical instability, ESM"
+        },
+        {
+          "index": 7,
+          "content_hash": "cdedeac6a4fc7e340259d8b280520da1e6ab701bf999ecca22bc8b12476fc8b4",
+          "visual": false,
+          "score": 0.6707341499626688,
+          "summary": "This note details CVR modeling methods, including ESMM, DIVISION, and ESMM-NS, comparing their AUC performance on CVR and CTCVR tasks using standardized network structures and hyperparameters.",
+          "preview": "The first four methods are different variations to model CVR directly based on state-of-the-art deep network. DIVISION, ESMMNS and ESMM share the same idea to model CVR over entire space which involve three networks of CVR, CTR and CTCVR. ESMM-NS and ESMM co-train the three networks and take the output from CVR network for model comparison. To be fair, all competitors including ESMM share the same network structure and hyper parameters with BASE model, which i) uses ReLU activation function, ii)"
+        }
+      ],
+      "teacher_text_evidence_hits": 1,
+      "teacher_text_evidence_total": 3,
+      "overlap_with_teacher_32b_at_5": 3
+    }
+  }
+}

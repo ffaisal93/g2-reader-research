@@ -1,0 +1,21 @@
+{
+  "question_id": "spiqa_272",
+  "status": "complete",
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "parser_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "uncertain",
+    "decisive_evidence_node_ids": [],
+    "planning_adequate": "uncertain",
+    "worker_answer_supported": "uncertain",
+    "final_composition_supported": "uncertain",
+    "sufficiency_behavior": "parse_failure",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "likely",
+    "confidence": 1.0,
+    "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+  },
+  "usage": {}
+}

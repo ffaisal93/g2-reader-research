@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_181",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 28.25999903678894,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "decomposition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "5d96dafc-da6a-4efe-92d1-dfa6b126acc8"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly identifies the inputs to the image generation network as the embedded vector E and the generated mask G_M(x). The reference states the correct inputs are the observed images (x) and a random noise vector (z). The retrieved evidence, particularly the image node with ID '5d96dafc-da6a-4efe-92d1-dfa6b126acc8', clearly shows the diagram of Figure 2, which includes the inputs 'x' (detected key parts) and 'z' (random noise vector) feeding into the 'Image generation' block. The worker at node n1 misreads the diagram, focusing only on the skip connections from the part encoding and mask prediction networks, while ignoring the direct inputs 'x' and 'z' shown in the diagram. This is a worker_support_failure. Additionally, the planning graph omits a subproblem to explicitly identify the direct inputs to the image generation block, which is a decomposition_failure. The final answer is not supported by the evidence and is incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 8905,
+    "total_tokens": 9328,
+    "completion_tokens": 423,
+    "prompt_tokens_details": null
+  }
+}

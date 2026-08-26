@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_212",
+  "candidate_source": "official_parser",
+  "candidate_answer": "In the two-level attention model, attention weights for \"rest_3_str\" and \"rating 3\" are more focused and selective, shown by darker shading in Figure 7a, compared to the one-level attention model (Figure 7b), where the weights are more diffuse and less selective, indicated by lighter shading.",
+  "reference": " The two-level attention model has higher attention weights on the relevant information in the memory, while the one-level attention model has more uniform attention weights.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.244235277175903,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The two-level attention model has higher attention weights on the relevant information in the memory.",
+      "The one-level attention model has more uniform attention weights."
+    ],
+    "candidate_claims": [
+      "In the two-level attention model, attention weights for 'rest_3_str' and 'rating 3' are more focused and selective.",
+      "In the one-level attention model, the weights are more diffuse and less selective."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly captures the core comparison: the two-level model exhibits focused/selective attention (higher weights on relevant entries), while the one-level model shows diffuse/uniform attention. The mention of 'darker shading' and 'lighter shading' in Figure 7a and 7b is a harmless, contextually appropriate detail that supports the semantic claim without altering its meaning. The candidate does not contradict the reference and accurately reflects the intended comparison in terms of focus and selectivity."
+  },
+  "usage": {
+    "prompt_tokens": 303,
+    "total_tokens": 537,
+    "completion_tokens": 234,
+    "prompt_tokens_details": null
+  }
+}

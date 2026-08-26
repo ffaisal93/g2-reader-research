@@ -1,0 +1,37 @@
+{
+  "question_id": "spiqa_4",
+  "candidate_source": "official_parser",
+  "candidate_answer": "9719",
+  "reference": "There are approximately 9,719 negative samples in the training set of the CNSE dataset.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.41307544708252,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "There are approximately 9,719 negative samples in the training set of the CNSE dataset."
+    ],
+    "candidate_claims": [
+      "9719"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer '9719' matches the numerical value in the reference answer 'approximately 9,719'. The reference uses 'approximately' to indicate rounding or estimation, but the core factual value is identical. The candidate provides the exact number without extra wording, which is semantically equivalent and sufficient to answer the question. No contradiction, wrong entity, or missing component is present. The question asks for the number of negative samples, and the candidate supplies that number directly."
+  },
+  "usage": {
+    "prompt_tokens": 225,
+    "total_tokens": 410,
+    "completion_tokens": 185,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "9719",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_4/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 85.05438590049744,
+  "eight_b_candidate": "16198",
+  "eight_b_candidate_source": "official_parser",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "worker_support_failure"
+}

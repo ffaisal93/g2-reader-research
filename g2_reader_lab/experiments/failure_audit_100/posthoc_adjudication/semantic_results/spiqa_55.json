@@ -1,0 +1,28 @@
+{
+  "question_id": "spiqa_55",
+  "candidate_source": "derived_unclosed_output_tag",
+  "candidate_answer": "Scaling the training set from 10K to 70K improves both ODS-F for lane marking (from 45.41 to 54.48) and IoU for drivable area segmentation (from 64.23 to 71.37), but the gains diminish after 20K, indicating diminishing returns.",
+  "reference": "Increasing the training set size generally leads to improved performance for both lane marking and drivable area segmentation tasks.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.806535482406616,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Increasing the training set size generally leads to improved performance for both lane marking and drivable area segmentation tasks."
+    ],
+    "candidate_claims": [
+      "Scaling the training set from 10K to 70K improves both ODS-F for lane marking (from 45.41 to 54.48) and IoU for drivable area segmentation (from 64.23 to 71.37).",
+      "The gains diminish after 20K, indicating diminishing returns."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly identifies the positive performance trend for both tasks as training set size increases, which aligns with the reference. It adds specific numerical values and a trend observation (diminishing returns after 20K), which are plausible and do not contradict the reference. The reference is general, while the candidate provides more detail — this is allowed under the rules as harmless extra detail. No factual errors or contradictions are present."
+  },
+  "usage": {
+    "prompt_tokens": 301,
+    "total_tokens": 546,
+    "completion_tokens": 245,
+    "prompt_tokens_details": null
+  }
+}

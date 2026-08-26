@@ -1,0 +1,43 @@
+{
+  "question_id": "spiqa_522",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Conv-KNRM; B↑ (significant improvement over BM25), no significant difference relative to WT10 or AOL",
+  "reference": "The Conv-KNRM model performs best when trained on the NYT dataset and evaluated on the WT14 dataset, achieving an nDCG@20 score of 0.3215. This performance is significantly better than all the baselines: BM25 (B), WT10 (W), and AOL (A).",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.536032915115356,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Conv-KNRM achieves the highest nDCG@20 on WT14 when trained on NYT (0.3215).",
+      "Conv-KNRM's performance is significantly better than BM25, WT10, and AOL."
+    ],
+    "candidate_claims": [
+      "Conv-KNRM is the best model.",
+      "Significant improvement over BM25 (B↑).",
+      "No significant difference relative to WT10 or AOL."
+    ],
+    "substantive_differences": [
+      "The candidate claims no significant difference relative to WT10 and AOL, contradicting the reference which states significant improvement over all three baselines.",
+      "The reference explicitly states Conv-KNRM is significantly better than WT10 and AOL, while the candidate denies this, which is a direct contradiction."
+    ],
+    "rationale": "The candidate incorrectly asserts no significant difference with WT10 and AOL, directly contradicting the reference's claim of significant improvement over all three baselines. This is a factual error in the comparison component, making the answer semantically incorrect despite correctly identifying the top model."
+  },
+  "usage": {
+    "prompt_tokens": 305,
+    "total_tokens": 571,
+    "completion_tokens": 266,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "Conv-KNRM; B↑ (significant improvement over BM25), no significant difference relative to WT10 or AOL",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_522/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 92.4267144203186,
+  "eight_b_candidate": null,
+  "eight_b_candidate_source": "no_candidate_answer",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "worker_support_failure"
+}

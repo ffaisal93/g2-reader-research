@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_333",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The residual connections provide a direct pathway for features to propagate from earlier layers to later layers, maintaining information flow and allowing gradients to flow more easily, which helps prevent vanishing gradients.",
+  "reference": "The residual connections add the output of the previous layer to the input of the next layer. This helps to improve the flow of information through the network and can help to prevent vanishing gradients.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 11.910309076309204,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Residual connections add the output of the previous layer to the input of the next layer.",
+      "This improves information flow through the network.",
+      "This helps prevent vanishing gradients."
+    ],
+    "candidate_claims": [
+      "Residual connections provide a direct pathway for features to propagate from earlier layers to later layers.",
+      "This maintains information flow.",
+      "This allows gradients to flow more easily, helping prevent vanishing gradients."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly captures the core function of residual connections: enabling direct feature propagation and facilitating gradient flow to mitigate vanishing gradients. While phrased differently (e.g., 'direct pathway' vs 'add output to input'), the semantic meaning is equivalent. The candidate does not introduce errors or contradictions and includes harmless elaboration ('features propagate', 'gradients flow more easily') that aligns with the reference. No required component is missing."
+  },
+  "usage": {
+    "prompt_tokens": 270,
+    "total_tokens": 497,
+    "completion_tokens": 227,
+    "prompt_tokens_details": null
+  }
+}

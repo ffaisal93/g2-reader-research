@@ -1,0 +1,378 @@
+{
+  "question_id": "spiqa_116",
+  "question": "In the right panel of your figure comparing top-1 re-identification accuracy on DPI-T, how does the proposed RGB-to-Depth transfer method's performance differ from Yosinski et al. [90] when all layers are fine-tuned (x=7)?",
+  "reference": "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned.",
+  "main_doc": "1705.09882v2.pdf",
+  "documents": [
+    "1705.09882v2.pdf",
+    "1706.04269v2.pdf",
+    "1612.02803v5.pdf",
+    "1809.03449v3.pdf",
+    "1811.07073v3.pdf",
+    "1805.01216v3.pdf",
+    "1811.02721v3.pdf",
+    "1812.10735v2.pdf"
+  ],
+  "eight_b_answer": "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario).",
+  "eight_b_answer_source": "official_parser",
+  "thirty_two_b_answer": "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points.",
+  "thirty_two_b_verdict": "correct",
+  "provisional_classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "56e52cc0-23d7-4e6a-ba34-8e6281126bf9"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer claims a 10 percentage point difference, but the reference states only a 'slightly better' performance. The retrieved evidence includes the figure caption (node_id: 56e52cc0-23d7-4e6a-ba34-8e6281126bf9) which describes the right panel and x=7 as 'all layers fine-tuned', and the visual image (node_id: b102547e-602e-4f26-9ec8-341429b49041) which shows the chart. However, the Workers consistently failed to extract the actual accuracy values from the visual data, instead reporting 'not enough information' or 'not available in text'. This indicates a worker_support_failure: the necessary visual evidence was retrieved, but the Workers misread or failed to interpret it, producing unsupported claims. The planning was adequate, decomposing the task into identifying x=7 and reading the accuracies. The sufficiency checks correctly flagged missing subproblems, but the Workers did not resolve them. The final answer is unsupported by the evidence, as the Workers never extracted the actual values from the chart. A raw visual review is required to confirm the actual accuracy values at x=7, which are not readable from the provided text alone."
+  },
+  "visual_nodes": [
+    {
+      "node_id": "56e52cc0-23d7-4e6a-ba34-8e6281126bf9",
+      "text_content": "Fig. 5. Comparison of our RGB-to-Depth transfer with Yosinski et al. [90] in terms of top-1 accuracy on DPI-T. In this ablation study the x axis represents the number of layers whose weights are frozen (left) or fine-tuned (right) starting from the bottom. Freezing (x0) RGB weights from the bottom up to (1) conv1, (2) conv2, (3) conv3, (4) inc1, (5) inc2, (6) inc3 and (7) fc7 layers, respectively Finetuning (x1) RGB weights from the bottom up to (1) conv1, (2) conv2, (3) conv3, (4) inc1, (5) inc2, (6) inc3 and (7) fc7 layers, respectively Top-1 re-identification accuracy",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In the right panel of your figure comparing top-1 re-identification accuracy on DPI-T, how does the proposed RGB-to-Depth transfer method's performance differ from Yosinski et al. [90] when all layers are fine-tuned (x=7)?",
+          "method": "initial_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the x-axis value corresponding to 'all layers fine-tuned' in the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 2,
+          "query": "Read the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 3,
+          "query": "Compare the top-1 accuracy values for 'Our transfer' and 'Yosinski et al. [90]' at x=7 to determine the performance difference.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 4,
+          "query": "Identify the x-axis value corresponding to 'all layers fine-tuned' in the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 5,
+          "query": "Read the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 6,
+          "query": "Calculate the performance difference by subtracting Yosinski et al. [90]'s accuracy from 'Our transfer's accuracy at x=7.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 8,
+          "query": "Extract the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 9,
+          "query": "State the top-1 accuracy for 'Our transfer' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 10,
+          "query": "State the top-1 accuracy for 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 11,
+          "query": "Calculate the performance difference by subtracting Yosinski et al. [90]'s accuracy from 'Our transfer's accuracy at x=7.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 12,
+          "query": "Extract the top-1 accuracy for 'Our transfer' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 13,
+          "query": "Extract the top-1 accuracy for 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/nodes/56e52cc0-23d7-4e6a-ba34-8e6281126bf9.jpg",
+      "sha256": "a5c1c6806f05269864bd8cb42bb66a811c784d8af43267fa72a1633d4c0a01f6",
+      "width": 942,
+      "height": 364,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/aeab5ff9434ba681638b1999acc89eecd4a22e88c46a975f245eabe4c6d42c68.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 13,
+      "graph_summary": "Optimal RGB-to-Depth transfer accuracy achieved by freezing bottom 3 layers and fine-tuning higher ones, shown for multi-shot and single-shot modes.",
+      "graph_text_content": "Fig. 5. Comparison of our RGB-to-Depth transfer with Yosinski et al. [90] in terms of top-1 accuracy on DPI-T. In this ablation study the x axis represents the number of layers whose weights are frozen (left) or fine-tuned (right) starting from the bottom. Freezing (x0) RGB weights from the bottom up to (1) conv1, (2) conv2, (3) conv3, (4) inc1, (5) inc2, (6) inc3 and (7) fc7 layers, respectively Finetuning (x1) RGB weights from the bottom up to (1) conv1, (2) conv2, (3) conv3, (4) inc1, (5) inc2, (6) inc3 and (7) fc7 layers, respectively Top-1 re-identification accuracy"
+    },
+    {
+      "node_id": "b102547e-602e-4f26-9ec8-341429b49041",
+      "text_content": "Fig. 4. Our split-rate RGB-to-Depth transfer compared with Yosinski et al. [90]. At the top, the two models are trained from scratch with RGB and Depth data. Next we show the “R3D” instances (i.e. the bottom 3 layers’ weights from RGB remain frozen or slowly changing) for both methods, following the notation of [90]. The color of each layer refers to the initialization and the number below is the relative learning rate (the best performing one in bold). The key differences are summarized in the text. RGB input R Depth input D Base R Base D R3D [90] Our transfer (R3D) WR.1 WR.2 WR.3 WR.4 WR.5 WR.6 WR.7 WR.8 WD.1 WD.2 WD.3 WD.4 WD.5 WD.6 WD.7 WD.8 WR.1 WR.2 WR.3 WR.4 WR.5 WR.6 WR.7 WR.8 WR.1 WR.2 WR.3 WR.4 WR.5 WR.6 WR.7 WR.8 (×0/1) (×0/1) (×0/1) (×1) (×1) (×1) (×1) (×1) (×0/1) (×0/1) (×0/1) (×10) (×10) (×10) (×10) (×10) RGB labels R Depth labels D",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In the right panel of your figure comparing top-1 re-identification accuracy on DPI-T, how does the proposed RGB-to-Depth transfer method's performance differ from Yosinski et al. [90] when all layers are fine-tuned (x=7)?",
+          "method": "initial_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the x-axis value corresponding to 'all layers fine-tuned' in the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 2,
+          "query": "Read the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 3,
+          "query": "Compare the top-1 accuracy values for 'Our transfer' and 'Yosinski et al. [90]' at x=7 to determine the performance difference.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 4,
+          "query": "Identify the x-axis value corresponding to 'all layers fine-tuned' in the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 5,
+          "query": "Read the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 6,
+          "query": "Calculate the performance difference by subtracting Yosinski et al. [90]'s accuracy from 'Our transfer's accuracy at x=7.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 8,
+          "query": "Extract the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 9,
+          "query": "State the top-1 accuracy for 'Our transfer' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 10,
+          "query": "State the top-1 accuracy for 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 11,
+          "query": "Calculate the performance difference by subtracting Yosinski et al. [90]'s accuracy from 'Our transfer's accuracy at x=7.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 12,
+          "query": "Extract the top-1 accuracy for 'Our transfer' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 13,
+          "query": "Extract the top-1 accuracy for 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/nodes/b102547e-602e-4f26-9ec8-341429b49041.jpg",
+      "sha256": "ca024c4a1930acb5cb69f7bdfad376d6bd4a54ab7e4d4067ed5985b942d799ab",
+      "width": 752,
+      "height": 370,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/e1ff5192e17a9c551566daab8461dca8d3fcedde5a5408e1b69aa3c866ddd4ea.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 8,
+      "graph_summary": "Visual comparison of four RGB-to-Depth transfer models, showing weight initialization and learning rate multipliers for each configuration.",
+      "graph_text_content": "Fig. 4. Our split-rate RGB-to-Depth transfer compared with Yosinski et al. [90]. At the top, the two models are trained from scratch with RGB and Depth data. Next we show the “R3D” instances (i.e. the bottom 3 layers’ weights from RGB remain frozen or slowly changing) for both methods, following the notation of [90]. The color of each layer refers to the initialization and the number below is the relative learning rate (the best performing one in bold). The key differences are summarized in the text. RGB input R Depth input D Base R Base D R3D [90] Our transfer (R3D) WR.1 WR.2 WR.3 WR.4 WR.5 WR.6 WR.7 WR.8 WD.1 WD.2 WD.3 WD.4 WD.5 WD.6 WD.7 WD.8 WR.1 WR.2 WR.3 WR.4 WR.5 WR.6 WR.7 WR.8 WR.1 WR.2 WR.3 WR.4 WR.5 WR.6 WR.7 WR.8 (×0/1) (×0/1) (×0/1) (×1) (×1) (×1) (×1) (×1) (×0/1) (×0/1) (×0/1) (×10) (×10) (×10) (×10) (×10) RGB labels R Depth labels D"
+    },
+    {
+      "node_id": "57e7e1e3-1c29-4c32-ac04-0da3d244a461",
+      "text_content": "Figure 3: Convolutional self-correction model learns refining the input label distributions. The subnetwork receives logits from the primary and ancillary models, then concatenates and feeds the output to a two-layer CNN. Primary Logits Ancillary Logits 3×3 Conv 3×3 Conv σ Refined Soft Labels",
+      "retrieval_occurrences": [
+        {
+          "event_index": 7,
+          "query": "Confirm that x=7 in the right panel corresponds to 'all layers fine-tuned' based on the figure caption.",
+          "method": "simple_semantic",
+          "rank": 2
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/nodes/57e7e1e3-1c29-4c32-ac04-0da3d244a461.jpg",
+      "sha256": "9132e2d319da98e9cf33e7dd4d33d1adbfeeec75e659ef10c35713fc0ff77394",
+      "width": 631,
+      "height": 219,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.07073v3/1811.07073v3/auto/images/e1343f99106a905b96d7be02e70495374d8afd65d077c3a7535b63b606977367.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 6,
+      "graph_summary": "Figure 3 — Convolutional self-correction model learns to refine input label distributions. The architecture takes logits from the primary and ancillary models, concatenates them, and feeds them through two 3×3 convolutional layers with ReLU activations, ultimately producing refined soft labels.",
+      "graph_text_content": "Figure 3: Convolutional self-correction model learns refining the input label distributions. The subnetwork receives logits from the primary and ancillary models, then concatenates and feeds the output to a two-layer CNN. Primary Logits Ancillary Logits 3×3 Conv 3×3 Conv σ Refined Soft Labels"
+    },
+    {
+      "node_id": "b085a656-be5e-49ef-ade1-4a3c8807bc2c",
+      "text_content": "Table 2. Top-1 re-identification accuracy (top-1, %) and normalized Area Under the Curve (nAUC, %) on TUM-GAID in newclothes scenario with single-shot (ss) and multi-shot (ms) evaluation Modality top-1 nAUC Body RGB (ss) [82] 41.8 74.3 Body Depth (ss) 48.0 85.0 Body Depth & RGB (ss) 48.6 81.9 Head RGB (ss) 59.4 79.5 Body Depth & Head RGB (ss) 65.4 85.2 Body RGB (ms: LSTM & RTA) 50.0 79.9 Body Depth (ms: LSTM) 56.3 87.7 Body Depth (ms: LSTM & RTA) 59.4 89.6 Head RGB (ms: LSTM & RTA) 65.6 81.0 Body Depth & Head RGB (ms: LSTM & RTA) 75.0 88.1",
+      "retrieval_occurrences": [
+        {
+          "event_index": 2,
+          "query": "Read the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 5,
+          "query": "Read the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 8,
+          "query": "Extract the top-1 accuracy for 'Our transfer' and 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 9,
+          "query": "State the top-1 accuracy for 'Our transfer' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 10,
+          "query": "State the top-1 accuracy for 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 12,
+          "query": "Extract the top-1 accuracy for 'Our transfer' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 13,
+          "query": "Extract the top-1 accuracy for 'Yosinski et al. [90]' at x=7 from the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/nodes/b085a656-be5e-49ef-ade1-4a3c8807bc2c.jpg",
+      "sha256": "d18cb0b888227db0d453cf72bd4de5d13a775bb9466fc4584b6d34bcd896e7a3",
+      "width": 481,
+      "height": 359,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/28edf23b3f65b4ff0e7d5622928f5289fc394b9fc04a300f653014153df8964a.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 13,
+      "graph_summary": "Table 2 reports top-1 accuracy and nAUC for TUM-GAID new clothes scenario, showing Body Depth & Head RGB (ms: LSTM & RTA) achieves highest performance.",
+      "graph_text_content": "Table 2. Top-1 re-identification accuracy (top-1, %) and normalized Area Under the Curve (nAUC, %) on TUM-GAID in newclothes scenario with single-shot (ss) and multi-shot (ms) evaluation Modality top-1 nAUC Body RGB (ss) [82] 41.8 74.3 Body Depth (ss) 48.0 85.0 Body Depth & RGB (ss) 48.6 81.9 Head RGB (ss) 59.4 79.5 Body Depth & Head RGB (ss) 65.4 85.2 Body RGB (ms: LSTM & RTA) 50.0 79.9 Body Depth (ms: LSTM) 56.3 87.7 Body Depth (ms: LSTM & RTA) 59.4 89.6 Head RGB (ms: LSTM & RTA) 65.6 81.0 Body Depth & Head RGB (ms: LSTM & RTA) 75.0 88.1"
+    },
+    {
+      "node_id": "d1725a54-499a-4e4d-b571-8e8a6e833752",
+      "text_content": "Figure 1: An overview of our segmentation framework consisting of three models: i) Primary segmentation model generates a semantic segmentation of objects given an image. This is the main model that is subject to the training and is used at test time. ii) Ancillary segmentation model outputs a segmentation given an image and bounding box. This model generates an initial segmentation for the weak set, which will aid training the primary model. iii) Self-correction module refines segmentations generated by the ancillary model and the current primary model for the weak set. The primary model is trained using the cross-entropy loss that matches its output to either ground-truth segmentation labels for the fully supervised examples or soft refined labels generated by the self-correction module for the weak set. Current Batch { Full-Set (F) Weak-Set (W) Image Bounding Boxes Pixelwise Prediction Cross Entropy Loss Refined Soft Labels Ground Truth Labels stop gradient",
+      "retrieval_occurrences": [
+        {
+          "event_index": 7,
+          "query": "Confirm that x=7 in the right panel corresponds to 'all layers fine-tuned' based on the figure caption.",
+          "method": "simple_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/nodes/d1725a54-499a-4e4d-b571-8e8a6e833752.jpg",
+      "sha256": "fc913100b22f259176f7d009c19ed2f851888d0919ec2520ef57b31879f7f549",
+      "width": 1175,
+      "height": 386,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.07073v3/1811.07073v3/auto/images/4de1bf1484d970518e20513c695d8b010f69553c873e7bc91cd34bb595a030a2.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 14,
+      "graph_summary": "Framework using ancillary model with bounding boxes to generate soft labels, refined via self-correction module for primary segmentation model training.",
+      "graph_text_content": "Figure 1: An overview of our segmentation framework consisting of three models: i) Primary segmentation model generates a semantic segmentation of objects given an image. This is the main model that is subject to the training and is used at test time. ii) Ancillary segmentation model outputs a segmentation given an image and bounding box. This model generates an initial segmentation for the weak set, which will aid training the primary model. iii) Self-correction module refines segmentations generated by the ancillary model and the current primary model for the weak set. The primary model is trained using the cross-entropy loss that matches its output to either ground-truth segmentation labels for the fully supervised examples or soft refined labels generated by the self-correction module for the weak set. Current Batch { Full-Set (F) Weak-Set (W) Image Bounding Boxes Pixelwise Prediction Cross Entropy Loss Refined Soft Labels Ground Truth Labels stop gradient"
+    },
+    {
+      "node_id": "f6159d6a-c352-45d0-9884-41eb5300ff62",
+      "text_content": "Fig. 2. The cropped color image (left), the grayscale depth representation $mathbf{D_p^g}$ (center) and the result after background subtraction (right) using the body index information $mathbf{B_p}$ from skeleton tracking.",
+      "retrieval_occurrences": [
+        {
+          "event_index": 1,
+          "query": "Identify the x-axis value corresponding to 'all layers fine-tuned' in the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 4,
+          "query": "Identify the x-axis value corresponding to 'all layers fine-tuned' in the right panel of the figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 7,
+          "query": "Confirm that x=7 in the right panel corresponds to 'all layers fine-tuned' based on the figure caption.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_116/nodes/f6159d6a-c352-45d0-9884-41eb5300ff62.jpg",
+      "sha256": "654b22dd03eb6ccbfcc8fd2f858944ad375d556d2f52dd07c1057cd3fe05f721",
+      "width": 539,
+      "height": 292,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/b927fd514c33ecbf15cefba5f8915c9a6e575f7e773e7c785f3e1587384c1c84.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 1,
+      "graph_summary": "Figure 2 — Visual pipeline for depth-based person representation. The figure displays three panels: a cropped color image (left), a grayscale depth representation (center), and the result after background subtraction using body index information (right). The transformation from center to right demonstrates the removal of background noise to isolate the person silhouette.",
+      "graph_text_content": "Fig. 2. The cropped color image (left), the grayscale depth representation $mathbf{D_p^g}$ (center) and the result after background subtraction (right) using the body index information $mathbf{B_p}$ from skeleton tracking."
+    }
+  ]
+}

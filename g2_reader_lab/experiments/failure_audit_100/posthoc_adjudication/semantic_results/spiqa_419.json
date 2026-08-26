@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_419",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ITN",
+  "reference": "ITN generates more accurate and realistic samples on the MNIST dataset compared to AC-GATN.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.015649795532227,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "ITN generates more accurate and realistic samples on the MNIST dataset compared to AC-GATN."
+    ],
+    "candidate_claims": [
+      "ITN"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'ITN' correctly identifies the model that produces more accurate and realistic MNIST samples by epoch 100, as stated in the reference. While the candidate omits explicit comparison language ('compared to AC-GATN') and descriptive qualifiers ('more accurate and realistic'), it directly names the correct entity, which is sufficient to convey the central factual claim. The question asks which model produces better samples, and 'ITN' is the unambiguous correct answer based on the reference. No contradiction or factual error exists."
+  },
+  "usage": {
+    "prompt_tokens": 221,
+    "total_tokens": 414,
+    "completion_tokens": 193,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_292",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 53.55510401725769,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": false,
+    "primary_category": "retrieval_failure",
+    "secondary_categories": [
+      "decomposition_failure",
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "c4c9146f-0396-4e60-9375-8fc9874ece3e"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer is incorrect because it claims insufficient information is available, while the necessary evidence is actually retrieved. The key evidence is the text from node_id 'c4c9146f-0396-4e60-9375-8fc9874ece3e', which explicitly states: 'DeepGaze II overestimates the how peaked the density is: there are too few fixations in darkest area. Vice versa, it misses some probability mass in the second to last area.' This directly answers the question about the model's accuracy in distributing probability mass across the four contour-separated areas. The retrieval failure is primary because the system failed to extract and use this critical evidence. The planning graph also failed to decompose the problem into subtasks that would have led to this evidence being properly utilized, and the worker responses incorrectly concluded that the information was missing, despite the evidence being present. The sufficiency checks appropriately flagged gaps, but the system did not resolve them by leveraging the retrieved evidence."
+  },
+  "usage": {
+    "prompt_tokens": 14767,
+    "total_tokens": 15192,
+    "completion_tokens": 425,
+    "prompt_tokens_details": null
+  }
+}

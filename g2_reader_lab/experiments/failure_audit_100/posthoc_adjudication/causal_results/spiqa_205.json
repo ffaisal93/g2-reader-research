@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_205",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 29.060344219207764,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "38545316-2a94-441d-ba7d-ff4d92af5930",
+      "f15ca1d2-4c81-4afc-a30f-e4a543f54296"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer correctly distinguishes between overlapping and error cases as described in Figure 6 of the CAN paper. The retrieved evidence includes both the textual description of the overlapping case (node 38545316-2a94-441d-ba7d-ff4d92af5930) and the visual representation of Figure 6 (node f15ca1d2-4c81-4afc-a30f-e4a543f54296), which explicitly shows the model's attention weights for both cases. The worker responses for nodes n1 and n2 correctly interpret this evidence: n1 notes the model's success in locating shared opinion words in overlapping cases, and n2 identifies the failure in error cases due to insufficient attention to negation words. The final answer synthesizes these points accurately, matching the benchmark reference's core distinction between the two case types. No retrieval, decomposition, composition, or sufficiency failures are present. The answer is fully supported by the evidence and correctly composed."
+  },
+  "usage": {
+    "prompt_tokens": 4933,
+    "total_tokens": 5393,
+    "completion_tokens": 460,
+    "prompt_tokens_details": null
+  }
+}

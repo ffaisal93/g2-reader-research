@@ -1,0 +1,116 @@
+{
+  "reviewed_cases": 12,
+  "invalid_benchmark_cases": ["spiqa_164", "spiqa_195", "spiqa_281", "spiqa_452"],
+  "results": [
+    {
+      "question_id": "spiqa_116",
+      "final_category": "worker_support_failure",
+      "answer_verdict": "incorrect",
+      "reference_status": "supported_qualitatively",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "At x=7 in the right panel, the solid green and red multi-shot curves are both near 71-72%, with the proposed method only marginally higher. The 8B claim of a 10-point gap is unsupported; the 32B replay's 75% versus 70% values are also taken from the wrong x positions."
+    },
+    {
+      "question_id": "spiqa_163",
+      "final_category": "no_failure",
+      "answer_verdict": "correct",
+      "reference_status": "supported",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "The figure visibly shows successive recursive subdivision and reuse of the connected pattern. The 8B answer states subdivision into four squares and application of the same pattern; its caveat about the absence of an explicit traversal rule does not contradict the vague reference."
+    },
+    {
+      "question_id": "spiqa_164",
+      "final_category": "dataset_failure",
+      "answer_verdict": "invalid_benchmark",
+      "reference_status": "question_reference_mismatch",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "The source caption calls the overall OpenThread topology a 5-hop topology and explicitly says Node 1 is the border router with Internet connectivity. The question instead asks for hops between Node 1 and the Internet, for which the figure shows a direct Ethernet connection. The reference 5 hops answers the topology caption, not the literal question."
+    },
+    {
+      "question_id": "spiqa_195",
+      "final_category": "dataset_failure",
+      "answer_verdict": "invalid_benchmark",
+      "reference_status": "contradicted_by_source_figure",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "For ACGAN on both MNIST and Fashion-MNIST, the orange generator curve rises with large variance while the blue discriminator curve falls/oscillates. The source text praises RWGAN and WGAN stability, not ACGAN. The benchmark claim that both ACGAN losses decrease is contradicted by the raw figure; the 32B replay is materially closer to the source."
+    },
+    {
+      "question_id": "spiqa_215",
+      "final_category": "no_failure",
+      "answer_verdict": "correct",
+      "reference_status": "supported",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "The RGB filter responses contain visibly richer texture and detail, whereas the depth responses are cleaner silhouette-like activations. The 8B answer describes this same contrast; its robustness explanation is an embellishment but does not reverse the observed difference."
+    },
+    {
+      "question_id": "spiqa_234",
+      "final_category": "no_failure",
+      "answer_verdict": "correct",
+      "reference_status": "imprecise_but_intended_trend_supported",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "The r-RNTN curves decrease as K grows and approach the fixed unrestricted-RNTN baseline near 128.8, with little gain after roughly K=100. The 8B answer captures the intended trend, although saying the fixed RNTN baseline itself varies with K is technically imprecise."
+    },
+    {
+      "question_id": "spiqa_235",
+      "final_category": "no_failure",
+      "answer_verdict": "correct",
+      "reference_status": "supported",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "All plotted error curves fall as FLOPS increase, and the small adaptive/no-final-gap ANN stays below the large non-adaptive/relative-gap ANN over the relevant budget range. The 8B answer is supported."
+    },
+    {
+      "question_id": "spiqa_281",
+      "final_category": "dataset_failure",
+      "answer_verdict": "invalid_benchmark",
+      "reference_status": "contradicted_by_source_text_and_figure",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "The norm-frequency profile is hump-shaped: both rare and frequent words are down-weighted and mid-frequency words have the largest norms. The paper explicitly invokes Luhn's mid-rank hypothesis. The reference's globally inverse relationship is false; the 8B answer contains both the same false inverse clause and the correct mid-rank observation."
+    },
+    {
+      "question_id": "spiqa_368",
+      "final_category": "worker_support_failure",
+      "secondary_categories": ["parser_failure"],
+      "answer_verdict": "incorrect",
+      "reference_status": "supported",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "The cited Figure 2 contains the MNIST iteration-attack curves needed to identify BIM/CE. Workers repeatedly claimed the values were unavailable despite receiving the figure, and the final response then exhausted its output without an answer tag. This is not a retrieval failure."
+    },
+    {
+      "question_id": "spiqa_452",
+      "final_category": "dataset_failure",
+      "answer_verdict": "invalid_benchmark",
+      "reference_status": "internally_contradictory_question",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "Figure 18 states bubble size indicates tOF, and ENet is visibly the largest bubble. However, tOF has a downward arrow, so lower/smaller is better temporal coherence; TecoGAN is small and temporally better. The question incorrectly equates the largest/highest tOF bubble with best coherence. The 8B answer is correct for literal bubble size, while the reference answers best coherence."
+    },
+    {
+      "question_id": "spiqa_578",
+      "final_category": "retrieval_failure",
+      "answer_verdict": "incorrect",
+      "reference_status": "supported",
+      "evidence_retrieved": false,
+      "evidence_readable": true,
+      "finding": "G2 retrieved Table 4 model-level NPMI results, causing the answer SCHOLAR. The requested topic strings and their coherence values occur in source Table 6; the top row is the turks/armenian topic at 0.77, but Table 6 was not retrieved."
+    },
+    {
+      "question_id": "spiqa_98",
+      "final_category": "worker_support_failure",
+      "secondary_categories": ["parser_failure", "reference_ambiguity"],
+      "answer_verdict": "incorrect",
+      "reference_status": "partially_ambiguous_visual_trend",
+      "evidence_retrieved": true,
+      "evidence_readable": true,
+      "finding": "Figure 5(a) clearly shows one-hop goodput decreasing. The segment-loss curve is tiny and not cleanly monotonic, so the reference's simple increase is an oversimplification; nevertheless, the 8B claim that segment loss decreases over the full range is unsupported. The exact figure was retrieved, and the unclosed output tag added a parser failure after the visual misreading."
+    }
+  ]
+}

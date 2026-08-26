@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_269",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The second-stage decoder $D_2$ takes the soft edge maps $x_G$ as input to reconstruct the non-key frames ($X_G$). Its purpose is to reconstruct these frames using the soft edge maps, which contain only edge information, based on its training with key frames and their corresponding soft edge maps.",
+  "reference": "The second-stage decoder $D_2$ takes soft edges $x_G$ as input and produces reconstructed frames.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.37078046798706,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The second-stage decoder $D_2$ takes soft edges $x_G$ as input.",
+      "The second-stage decoder $D_2$ produces reconstructed frames."
+    ],
+    "candidate_claims": [
+      "The second-stage decoder $D_2$ takes the soft edge maps $x_G$ as input to reconstruct the non-key frames ($X_G$).",
+      "Its purpose is to reconstruct these frames using the soft edge maps, which contain only edge information, based on its training with key frames and their corresponding soft edge maps."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate correctly identifies that $D_2$ takes $x_G$ as input and reconstructs frames. It adds context about reconstructing non-key frames and training with key frames, which is consistent with the reference and does not contradict it. The reference does not specify frame type (key/non-key), but this is a harmless elaboration. The core semantic meaning — input and output of $D_2$ — is preserved. No factual errors or contradictions are present."
+  },
+  "usage": {
+    "prompt_tokens": 276,
+    "total_tokens": 532,
+    "completion_tokens": 256,
+    "prompt_tokens_details": null
+  }
+}

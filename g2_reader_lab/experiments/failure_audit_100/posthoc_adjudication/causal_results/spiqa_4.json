@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_4",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 29.218135833740234,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "953cf21f-8c0d-4076-a83b-b7bdb27e3948"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence was retrieved: Table 1 (in image node 953cf21f-8c0d-4076-a83b-b7bdb27e3948) clearly shows that the CNSE dataset has 16198 negative samples in total, and 17438 samples in the training set. However, the question specifically asks for the number of negative samples *allocated to the training set*, not the total negative samples. The worker and final answer both report 16198, which is the total number of negative samples, not the number allocated to the training set. The 60% split is mentioned in the question, implying that the training set is 60% of the total dataset, and thus the number of negative samples in the training set should be 60% of 16198, which is approximately 9719 (as stated in the reference). The worker misread or misinterpreted the evidence by conflating total negative samples with training set negative samples, leading to an unsupported answer. This is a worker_support_failure, as the correct evidence was retrieved but misapplied."
+  },
+  "usage": {
+    "prompt_tokens": 5420,
+    "total_tokens": 5865,
+    "completion_tokens": 445,
+    "prompt_tokens_details": null
+  }
+}

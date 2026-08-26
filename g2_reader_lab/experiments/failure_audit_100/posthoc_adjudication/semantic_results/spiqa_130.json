@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_130",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The predicted mean return decreases to a minimum at θ = 0.5, and the uncertainty is highest at this point.",
+  "reference": "The predicted return decreases as θ increases, with a minimum at around θ = 0.5.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.380038738250732,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The predicted return decreases as θ increases.",
+      "There is a minimum at around θ = 0.5."
+    ],
+    "candidate_claims": [
+      "The predicted mean return decreases to a minimum at θ = 0.5.",
+      "The uncertainty is highest at this point (θ = 0.5)."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate correctly captures the core trend: the predicted mean return decreases to a minimum at θ = 0.5, which is semantically equivalent to the reference. The additional claim about uncertainty being highest at θ = 0.5 is not contradicted by the reference and is a plausible, contextually relevant observation (as uncertainty often peaks at extrema in such models). Since the reference does not explicitly deny this, and the candidate does not contradict the reference, the extra detail is harmless and does not affect semantic correctness. The central question is fully addressed with equivalent meaning."
+  },
+  "usage": {
+    "prompt_tokens": 266,
+    "total_tokens": 503,
+    "completion_tokens": 237,
+    "prompt_tokens_details": null
+  }
+}

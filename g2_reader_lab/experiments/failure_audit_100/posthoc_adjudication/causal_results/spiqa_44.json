@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_44",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 27.61501455307007,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "decomposition_failure",
+    "secondary_categories": [
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "5897f955-cc55-4708-9b2a-1df1af5606a3",
+      "266615e9-2b2f-4bd6-9758-91db3ca72083"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unknown",
+    "confidence": 0.95,
+    "rationale": "The question asks for specific differences in temporal patterns of phenotype magnitude, shape, and periodicity *between the sickle cell anemia patient and the leukemia patient*. The planning graph decomposes the task into analyzing each patient separately (n1 and n2), but it fails to include a required subproblem: *comparing* the two patients' patterns. The worker responses correctly analyze each patient's patterns across the three methods, but the final answer conflates the analysis by focusing only on the leukemia patient and misrepresenting the comparison. The candidate answer incorrectly claims 'the only correct answer' is about COPA/Helwig/SPARTan performance on leukemia, ignoring the sickle cell anemia patient entirely and thus failing to address the comparative aspect of the question. This is a decomposition failure because the plan omitted the necessary comparison subproblem. The worker responses, while detailed, are not used to form the required comparison, leading to a worker_support_failure in the final composition."
+  },
+  "usage": {
+    "prompt_tokens": 3712,
+    "total_tokens": 4154,
+    "completion_tokens": 442,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_66",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Bitmaps, encoded with semantic labels of places, are used as masks to isolate and extract features specific to each place, enabling the spatial decomposition of video representations into distinct place-based regions. This decomposition encourages the network to learn generic, layout-independent place-based features.",
+  "reference": "The LIVR framework decomposes semantic features into different places by utilizing bitmaps encoded with the semantic labels of places. This decomposition encourages the network to learn features of generic place-based motion patterns that are independent of scene layouts.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.617990970611572,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Bitmaps are encoded with semantic labels of places.",
+      "These bitmaps are used to decompose semantic features into different places.",
+      "This decomposition encourages learning of generic place-based motion patterns independent of scene layouts."
+    ],
+    "candidate_claims": [
+      "Bitmaps encoded with semantic labels of places are used as masks.",
+      "These masks isolate and extract features specific to each place.",
+      "This enables spatial decomposition into distinct place-based regions.",
+      "This decomposition encourages learning of generic, layout-independent place-based features."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer accurately rephrases the reference, preserving all key factual elements: bitmaps are encoded with place semantic labels, used as masks for spatial decomposition, and this process promotes learning of layout-independent, generic place-based features. The candidate adds minor elaboration ('isolate and extract features') which is harmless and consistent with the reference. No contradictions or omissions of required components exist. Semantic equivalence is maintained."
+  },
+  "usage": {
+    "prompt_tokens": 277,
+    "total_tokens": 516,
+    "completion_tokens": 239,
+    "prompt_tokens_details": null
+  }
+}

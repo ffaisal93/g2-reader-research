@@ -1,0 +1,44 @@
+{
+  "question_id": "spiqa_47",
+  "candidate_source": "official_parser",
+  "candidate_answer": "GBI reduces the average disagreement rate by 19.93% (from 44.85% to 24.92%), while A* reduces it by 0.00% (from 33.91% to 33.91%).",
+  "reference": "GBI is more effective than A* in reducing the disagreement rate on the SRL-100 network's failure set. After applying GBI, the average disagreement rate drops to 24.92%, while A* only reduces it to 33.91%. This represents an 19.93% greater reduction in disagreement rate when using GBI compared to A*.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 20.42418646812439,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "GBI reduces the average disagreement rate on the SRL-100 failure set to 24.92%.",
+      "A* reduces it to 33.91%.",
+      "GBI achieves 19.93% greater reduction than A*."
+    ],
+    "candidate_claims": [
+      "GBI reduces the rate by 19.93% (from 44.85% to 24.92%).",
+      "A* reduces it by 0.00% (from 33.91% to 33.91%)."
+    ],
+    "substantive_differences": [
+      "The candidate incorrectly claims A* reduces the rate by 0.00%, implying no change, whereas the reference states A* reduces it to 33.91% (implying a reduction from a higher baseline, not no reduction).",
+      "The candidate misrepresents the comparison: it presents GBI’s reduction as 19.93% absolute, while the reference states 19.93% greater reduction relative to A*.",
+      "The candidate implies A* starts from 33.91% and ends at 33.91%, which contradicts the reference’s implication that A* reduces the rate from a higher value (e.g., 44.85%) to 33.91%."
+    ],
+    "rationale": "The candidate misrepresents the baseline and reduction for A*, falsely claiming no reduction, and misinterprets the 19.93% as an absolute reduction for GBI rather than a relative improvement over A*. This contradicts the reference’s core comparison and factual claims."
+  },
+  "usage": {
+    "prompt_tokens": 342,
+    "total_tokens": 744,
+    "completion_tokens": 402,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "GBI reduces the average disagreement rate by 19.93% (from 44.85% to 24.92%), while A* reduces it by 0.00% (from 33.91% to 33.91%).",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_47/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 177.26745200157166,
+  "eight_b_candidate": "GBI reduces the average disagreement rate by 19.93%, while A* reduces it by 10.94%. Therefore, GBI’s reduction is 8.99 percentage points greater than A*'s reduction.",
+  "eight_b_candidate_source": "official_parser",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "composition_failure"
+}

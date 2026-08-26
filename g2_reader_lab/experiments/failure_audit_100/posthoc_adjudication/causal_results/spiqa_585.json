@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_585",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 37.67155146598816,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "e49957c3-f6e7-4b5b-ab10-181a114db0ff",
+      "02668288-6e90-46c5-b4c2-4c2485f7202e"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer 'MLE SeqGAN' is incorrect because the reference requires two generators: 'MLE SeqGAN and Word LSTM with temperature 1.0'. The worker correctly identified MLE SeqGAN as having the lowest accuracy (41.45%) in both LSTM and SVM columns, but failed to notice that 'Word LSTM temp 1.0' also has a very low accuracy (48.29% in LSTM, 50.31% in SVM), which is the second-lowest and still among the hardest to distinguish. The worker's reasoning in the final step only highlights MLE SeqGAN, omitting the second required generator. This is a worker_support_failure: the necessary evidence (Table 4 data) was retrieved and visible, but the worker misread or misinterpreted the full set of lowest scores, producing an incomplete answer. The retrieval was successful (Table 4 data is present in node e49957c3-f6e7-4b5b-ab10-181a114db0ff and 02668288-6e90-46c5-b4c2-4c2485f7202e), so retrieval_failure is secondary. The planning was adequate, and sufficiency check did not detect the gap, but the worker's failure to report both generators is the primary cause of the error."
+  },
+  "usage": {
+    "prompt_tokens": 7387,
+    "total_tokens": 7933,
+    "completion_tokens": 546,
+    "prompt_tokens_details": null
+  }
+}

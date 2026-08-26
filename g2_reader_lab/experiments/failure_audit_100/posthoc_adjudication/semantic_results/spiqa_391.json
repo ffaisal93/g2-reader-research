@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_391",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Bing-News",
+  "reference": "Bing-News.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.416075468063354,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.99,
+    "reference_claims": [
+      "The dataset with the highest number of 4-hop triples, exceeding six million, is Bing-News."
+    ],
+    "candidate_claims": [
+      "Bing-News is the dataset with the highest number of 4-hop triples exceeding six million."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Bing-News' directly matches the reference answer in entity and factual content. The question asks for the dataset with the highest number of 4-hop triples exceeding six million, and both answers identify 'Bing-News' as that dataset. No paraphrase or extra detail is needed — the answer is semantically equivalent and factually aligned with the reference."
+  },
+  "usage": {
+    "prompt_tokens": 187,
+    "total_tokens": 365,
+    "completion_tokens": 178,
+    "prompt_tokens_details": null
+  }
+}

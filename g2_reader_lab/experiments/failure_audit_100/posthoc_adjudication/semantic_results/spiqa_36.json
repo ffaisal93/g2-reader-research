@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_36",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The telescoping architecture implements the rank-and-prune process by sequentially applying ranking and pruning at stages L1 and L2. After documents are matched in L0, they are passed to L1 for initial ranking and pruning, and then to L2 for a subsequent re-ranking and pruning, refining the candidate set at each stage.",
+  "reference": "Documents are first matched using a pre-defined match plan. Then, they are passed through additional rank-and-prune stages, which are implemented as a cascade of machine learning models.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 15.581066370010376,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Documents are first matched using a pre-defined match plan.",
+      "They are passed through additional rank-and-prune stages, which are implemented as a cascade of machine learning models."
+    ],
+    "candidate_claims": [
+      "The telescoping architecture implements the rank-and-prune process by sequentially applying ranking and pruning at stages L1 and L2.",
+      "After documents are matched in L0, they are passed to L1 for initial ranking and pruning, and then to L2 for a subsequent re-ranking and pruning, refining the candidate set at each stage."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate accurately captures the core process: documents are matched in L0, then sequentially processed through L1 and L2 for ranking and pruning. The reference mentions a 'cascade of machine learning models' without specifying stages, while the candidate explicitly names L1 and L2, which is consistent with the question’s reference to Figure 1. The candidate’s description of 'initial ranking and pruning' followed by 'subsequent re-ranking and pruning' aligns with the cascade concept. No factual errors or contradictions are present. The candidate adds detail (e.g., 'refining the candidate set at each stage') that is harmless and consistent with the reference’s implied process."
+  },
+  "usage": {
+    "prompt_tokens": 294,
+    "total_tokens": 592,
+    "completion_tokens": 298,
+    "prompt_tokens_details": null
+  }
+}

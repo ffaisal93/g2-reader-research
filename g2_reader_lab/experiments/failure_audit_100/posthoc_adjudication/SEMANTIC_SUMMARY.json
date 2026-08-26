@@ -1,0 +1,2872 @@
+{
+  "completed_outputs": 98,
+  "counts": {
+    "correct": 51,
+    "incorrect": 47,
+    "ambiguous": 0,
+    "failed": 0
+  },
+  "results": [
+    {
+      "question_id": "spiqa_542",
+      "candidate_source": "official_parser",
+      "candidate_answer": "RCE",
+      "reference": "RCE",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.298333168029785,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.99,
+        "reference_claims": [
+          "The loss function that achieves a f2(x∗) > 0 ratio of 0.77 is RCE."
+        ],
+        "candidate_claims": [
+          "The loss function that achieves a f2(x∗) > 0 ratio of 0.77 is RCE."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'RCE' exactly matches the reference answer and directly addresses the central question: which loss function achieves the specified performance metric (f2(x∗) > 0 ratio of 0.77). There are no discrepancies in entity, value, or comparison. The answer is semantically equivalent and factually aligned with the reference."
+      },
+      "usage": {
+        "prompt_tokens": 201,
+        "total_tokens": 382,
+        "completion_tokens": 181,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_58",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The filter generation module creates context-sensitive filters by encoding the input sentence into a fixed-length vector and generating filters via a deconvolutional layer. The convolution module then uses these filters to adaptively encode the input sentence, enabling adaptation to different sentences because the filters are sample-specific and context-dependent.",
+      "reference": "The ACNN framework learns context-sensitive filters through two modules: the filter generation module and the adaptive convolution module. The filter generation module produces a set of filters conditioned on the input sentence, while the adaptive convolution module applies the generated filters to an input sentence. The two modules are jointly differentiable, and the overall architecture can be trained in an end-to-end manner.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 26.188708782196045,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The ACNN framework learns context-sensitive filters through two modules: the filter generation module and the adaptive convolution module.",
+          "The filter generation module produces a set of filters conditioned on the input sentence.",
+          "The adaptive convolution module applies the generated filters to an input sentence.",
+          "The two modules are jointly differentiable, and the overall architecture can be trained in an end-to-end manner."
+        ],
+        "candidate_claims": [
+          "The filter generation module creates context-sensitive filters by encoding the input sentence into a fixed-length vector and generating filters via a deconvolutional layer.",
+          "The convolution module then uses these filters to adaptively encode the input sentence.",
+          "The filters are sample-specific and context-dependent, enabling adaptation to different sentences."
+        ],
+        "substantive_differences": [
+          "The candidate incorrectly specifies 'deconvolutional layer' for filter generation, which is not mentioned in the reference and contradicts typical CNN architectures (where convolutional layers are used for filter generation).",
+          "The reference does not mention 'fixed-length vector' encoding as a step in filter generation — this is an added detail not supported by the reference.",
+          "The reference emphasizes joint differentiability and end-to-end training, which the candidate omits entirely — a missing required component.",
+          "The candidate uses 'convolution module' while the reference specifies 'adaptive convolution module' — a subtle but meaningful difference in terminology that may imply different functionality."
+        ],
+        "rationale": "The candidate introduces unsupported technical details (deconvolutional layer, fixed-length vector) and omits key architectural properties (joint differentiability, end-to-end training) mentioned in the reference. These are not harmless paraphrases but substantive inaccuracies that alter the factual meaning. The core mechanism described in the candidate is not semantically equivalent to the reference."
+      },
+      "usage": {
+        "prompt_tokens": 322,
+        "total_tokens": 726,
+        "completion_tokens": 404,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_540",
+      "candidate_source": "official_parser",
+      "candidate_answer": "DMRNet",
+      "reference": "DMRNet",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.514310598373413,
+      "judgment": {
+        "label": "correct",
+        "confidence": 1.0,
+        "reference_claims": [
+          "DMRNet exhibits the shortest average path length when L = 9"
+        ],
+        "candidate_claims": [
+          "DMRNet exhibits the shortest average path length when L = 9"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer exactly matches the reference answer in entity and factual claim. The question asks for the network with the shortest average path length at L=9, and both answers identify DMRNet as that network. No paraphrase or extra detail is present, but exact match suffices for semantic correctness."
+      },
+      "usage": {
+        "prompt_tokens": 179,
+        "total_tokens": 329,
+        "completion_tokens": 150,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_108",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ESMM-NS and ESMM outperform all other models at every sampling rate for both CVR and CTCVR tasks.",
+      "reference": "ESMM-NS and ESMM outperform all other models consistently across different training set sizes on both the CVR and CTCVR tasks.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 16.45218062400818,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "ESMM-NS and ESMM outperform all other models",
+          "consistently across different training set sizes",
+          "on both CVR and CTCVR tasks"
+        ],
+        "candidate_claims": [
+          "ESMM-NS and ESMM outperform all other models",
+          "at every sampling rate",
+          "for both CVR and CTCVR tasks"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer conveys the same core meaning as the reference: ESMM-NS and ESMM consistently outperform other models across varying data conditions (sampling rates/training set sizes) for both CVR and CTCVR tasks. 'Sampling rate' and 'training set size' are functionally equivalent in this context (both refer to data volume variation). The phrase 'at every sampling rate' is a direct paraphrase of 'consistently across different training set sizes' in the context of the ESMM paper's experimental setup. No factual contradiction or missing component exists."
+      },
+      "usage": {
+        "prompt_tokens": 242,
+        "total_tokens": 487,
+        "completion_tokens": 245,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_378",
+      "candidate_source": "official_parser",
+      "candidate_answer": "DLA achieved the highest scores with nDCG@10 = 0.421 and ERR@10 = 0.582, representing improvements of 0.063 and 0.082 over the NoCorrect baseline, respectively.",
+      "reference": "The DNN trained with DLA achieved the best performance in terms of both nDCG@10 (0.421) and ERR@10 (0.582). Compared to not using any correction method (NoCorrect), DLA shows a significant improvement in both metrics, with nDCG@10 being higher by 0.063 and ERR@10 being higher by 0.082.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 21.31552267074585,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "DLA achieved the highest nDCG@10 (0.421) and ERR@10 (0.582) for DNN models.",
+          "DLA improved nDCG@10 by 0.063 and ERR@10 by 0.082 over NoCorrect."
+        ],
+        "candidate_claims": [
+          "DLA achieved the highest scores with nDCG@10 = 0.421 and ERR@10 = 0.582.",
+          "These represent improvements of 0.063 and 0.082 over the NoCorrect baseline, respectively."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer accurately conveys the same core facts as the reference: DLA achieved the highest nDCG@10 and ERR@10 scores (0.421 and 0.582) and improved over the NoCorrect baseline by 0.063 and 0.082, respectively. The phrasing is a concise paraphrase without introducing errors or omissions. The mention of 'DNN models' in the reference is implied in the context of the paper and Table 1, and the candidate’s omission of 'DNN' does not alter the semantic meaning, as DLA is discussed in the context of DNNs in the paper. No contradictions or factual inaccuracies are present."
+      },
+      "usage": {
+        "prompt_tokens": 353,
+        "total_tokens": 692,
+        "completion_tokens": 339,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_479",
+      "candidate_source": "official_parser",
+      "candidate_answer": "DLA",
+      "reference": "DLA performs better than RandList in terms of mean square error.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 14.707106351852417,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "DLA performs better than RandList in terms of mean square error."
+        ],
+        "candidate_claims": [
+          "DLA"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'DLA' correctly identifies the algorithm that performs better, as stated in the reference. While the reference includes a comparative claim ('performs better than RandList in terms of mean square error'), the candidate answer is a concise, unambiguous selection of the superior algorithm, which directly answers the central question: 'which algorithm provides more accurate click propensity estimates'. The question asks for the better-performing algorithm, and 'DLA' is semantically equivalent to the reference's conclusion. No contradiction or missing component exists. The candidate omits the comparison and metric, but these are implied by the question context and are not required for semantic correctness at this stage."
+      },
+      "usage": {
+        "prompt_tokens": 192,
+        "total_tokens": 405,
+        "completion_tokens": 213,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_48",
+      "candidate_source": "official_parser",
+      "candidate_answer": "GeoCUTS performs comparably to both DMA and Grid for highly active users, as all three have identical B-metric values of 1.5.",
+      "reference": "GeoCUTS performs comparably to other clusterings for highly active users.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 17.59835696220398,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "GeoCUTS performs comparably to other clusterings for highly active users."
+        ],
+        "candidate_claims": [
+          "GeoCUTS performs comparably to both DMA and Grid for highly active users, as all three have identical B-metric values of 1.5."
+        ],
+        "substantive_differences": [
+          "The candidate introduces a specific numerical value (B-metric = 1.5) and claims identical values across all three methods, which is not supported by the reference. The reference makes a general comparative claim without specifying any metric values or asserting exact equality.",
+          "The reference does not mention DMA or Grid by name, nor does it claim identical performance — only 'comparably', which allows for small differences. The candidate's claim of 'identical B-metric values' is a factual overstatement not present in the reference."
+        ],
+        "rationale": "The candidate adds specific, unsupported numerical data and asserts exact equality, which contradicts the general, qualitative comparison in the reference. This constitutes a factual error in the comparison and introduces a value not mentioned in the reference, violating the semantic equivalence requirement."
+      },
+      "usage": {
+        "prompt_tokens": 242,
+        "total_tokens": 510,
+        "completion_tokens": 268,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_39",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "TRPO maintains a higher cosine similarity with the true gradient at low state-action pair counts, implying more stable and efficient convergence due to better alignment with the true gradient direction.",
+      "reference": "TRPO generally converges faster to the true gradient than PPO.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.948693037033081,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "TRPO generally converges faster to the true gradient than PPO."
+        ],
+        "candidate_claims": [
+          "TRPO maintains a higher cosine similarity with the true gradient at low state-action pair counts",
+          "This implies more stable and efficient convergence due to better alignment with the true gradient direction."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly identifies that TRPO outperforms PPO in estimating the true gradient with fewer state-action pairs, as evidenced by higher cosine similarity. This directly supports the reference’s claim that TRPO converges faster. The candidate adds context about 'stable and efficient convergence' and 'better alignment,' which are reasonable inferences from higher cosine similarity and do not contradict the reference. The core factual comparison (TRPO > PPO in gradient estimation at low data) is preserved."
+      },
+      "usage": {
+        "prompt_tokens": 233,
+        "total_tokens": 442,
+        "completion_tokens": 209,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_37",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The QoU and IoU decoys are designed to eliminate selection bias by ensuring that the correct answer and decoys are equally likely to be selected based on either the question or the image alone, forcing the model to integrate both modalities to make correct predictions. QoU-decoys are generated from triplets with similar questions, making them linguistically plausible without relying on visual context. IoU-decoys are generated from other triplets of the same image, making them visually plausible without relying on question context. This design prevents models from exploiting shortcuts based on either modality alone, thereby requiring them to combine both image and question information for accurate answers.",
+      "reference": "The shortcuts in the Visual7W dataset can be remedied by creating alternative decoys that are more likely to be correct, based on either the image or the question alone. This forces the machine to consider all of the information together in order to select the correct answer.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.497131824493408,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Shortcuts in the Visual7W dataset can be remedied by creating alternative decoys that are more likely to be correct based on either the image or the question alone.",
+          "This forces the machine to consider all of the information together to select the correct answer."
+        ],
+        "candidate_claims": [
+          "QoU and IoU decoys eliminate selection bias by making correct answers and decoys equally likely to be selected based on question or image alone.",
+          "This forces the model to integrate both modalities for correct predictions.",
+          "QoU-decoys are linguistically plausible without visual context (based on similar questions).",
+          "IoU-decoys are visually plausible without question context (based on same image).",
+          "This design prevents models from exploiting shortcuts based on either modality alone, requiring integration of both image and question information."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer fully captures the core mechanism described in the reference: decoys are designed to be plausible based on either modality alone, thereby forcing the model to integrate both. It adds specific details about QoU and IoU decoy generation (which are consistent with the reference’s implied mechanism) and explicitly states the goal of eliminating selection bias and preventing shortcut exploitation. These are harmless elaborations that enhance clarity without altering the semantic meaning. No contradictions or omissions of required components are present."
+      },
+      "usage": {
+        "prompt_tokens": 376,
+        "total_tokens": 701,
+        "completion_tokens": 325,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_4",
+      "candidate_source": "official_parser",
+      "candidate_answer": "16198",
+      "reference": "There are approximately 9,719 negative samples in the training set of the CNSE dataset.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.3628671169281,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The training set of the CNSE dataset contains approximately 9,719 negative samples."
+        ],
+        "candidate_claims": [
+          "The number of negative samples in the training set is 16198."
+        ],
+        "substantive_differences": [
+          "The candidate answer provides a value (16198) that is significantly higher than the reference value (9,719), indicating a factual error in the reported number of negative samples."
+        ],
+        "rationale": "The candidate answer contradicts the reference by reporting a different numerical value for the number of negative samples in the training set. The reference specifies approximately 9,719, while the candidate states 16198, which is not semantically equivalent. This discrepancy constitutes a factual error, and thus the candidate is incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 226,
+        "total_tokens": 434,
+        "completion_tokens": 208,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_234",
+      "candidate_source": "official_parser",
+      "candidate_answer": "For both r-RNTNs and RNTNs, increasing K from 1 to 10000 causes the test PPL to decrease significantly from around 150 to approximately 128.8, with minimal further improvement after K=100.",
+      "reference": "The test PPL of all the models decreases as K increases.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 17.315895080566406,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The test PPL of all the models decreases as K increases."
+        ],
+        "candidate_claims": [
+          "Increasing K from 1 to 10000 causes the test PPL to decrease significantly from around 150 to approximately 128.8.",
+          "Minimal further improvement after K=100."
+        ],
+        "substantive_differences": [
+          "The reference makes a general claim about decreasing PPL with increasing K, without specifying values or thresholds.",
+          "The candidate introduces specific numerical values (150 to 128.8) and a threshold (K=100) for minimal improvement, which are not present or implied in the reference.",
+          "The candidate implies a plateau at K=100, which contradicts the reference’s claim of continued decrease up to K=10000."
+        ],
+        "rationale": "The candidate adds specific quantitative details and a plateau claim that are not supported by the reference. The reference only states a general downward trend without specifying magnitudes or saturation points. The candidate’s claim about minimal improvement after K=100 contradicts the reference’s implication of continued improvement up to K=10000. Therefore, the candidate answer is semantically incorrect relative to the reference."
+      },
+      "usage": {
+        "prompt_tokens": 262,
+        "total_tokens": 565,
+        "completion_tokens": 303,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_110",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "As the forecasting horizon increases, the RMSE of the LSTNet-attn model increases while its correlation decreases.",
+      "reference": "The performance of LSTNet-attn generally improves as the horizon increases on the Solar-Energy dataset. This is evident from the fact that both the RMSE and correlation values improve with increasing horizon.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.797642707824707,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "LSTNet-attn performance improves as horizon increases",
+          "RMSE improves (decreases) with increasing horizon",
+          "Correlation improves (increases) with increasing horizon"
+        ],
+        "candidate_claims": [
+          "RMSE increases with increasing horizon",
+          "Correlation decreases with increasing horizon"
+        ],
+        "substantive_differences": [
+          "Candidate claims RMSE increases, while reference implies RMSE decreases (improves)",
+          "Candidate claims correlation decreases, while reference implies correlation increases (improves)",
+          "Candidate asserts performance worsens, while reference asserts performance improves"
+        ],
+        "rationale": "The candidate answer directly contradicts the reference answer on the direction of change for both RMSE and correlation. Since performance improvement in forecasting is typically defined as lower RMSE and higher correlation, the candidate's claims indicate deterioration, which is semantically opposite to the reference. This constitutes a factual contradiction, not a paraphrase or harmless detail."
+      },
+      "usage": {
+        "prompt_tokens": 254,
+        "total_tokens": 488,
+        "completion_tokens": 234,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_587",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Car",
+      "reference": "Cars are the most common object in the dataset.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.773648977279663,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Cars are the most common object in the dataset."
+        ],
+        "candidate_claims": [
+          "Car"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Car' is a concise, unambiguous reference to the same object type as 'Cars' in the reference. The singular form does not alter the semantic meaning in this context, as the question asks for the most frequent object type, not a count or plural form. The core factual claim — that cars are the most frequent object — is preserved. No contradiction, missing component, or incorrect entity is present."
+      },
+      "usage": {
+        "prompt_tokens": 190,
+        "total_tokens": 348,
+        "completion_tokens": 158,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_196",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The proximity of sentence embeddings reflects semantic similarity because the model learns high-level structure, causing semantically similar sentences to cluster together in the embedding space, regardless of their position in the document. The color-coding by position is a visual aid to show document structure, not semantic similarity.",
+      "reference": "Sentences that are closer together in the embedding space are more semantically similar than those that are farther apart.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 21.54025626182556,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Proximity in embedding space reflects semantic similarity.",
+          "Color-coding is by position in document, but the proximity reflects semantic similarity, not positional proximity."
+        ],
+        "candidate_claims": [
+          "Proximity reflects semantic similarity due to learned high-level structure.",
+          "Color-coding by position is a visual aid for document structure, not semantic similarity.",
+          "Semantically similar sentences cluster regardless of position."
+        ],
+        "substantive_differences": [
+          "The candidate introduces a claim that the model learns high-level structure, which is not in the reference and not required to answer the question.",
+          "The candidate implies that color-coding is irrelevant to semantic similarity, which is true, but the reference does not make this point — it focuses on the relationship between proximity and semantic similarity, not the purpose of color-coding.",
+          "Crucially, the candidate contradicts the reference by suggesting that proximity reflects semantic similarity *regardless of position*, while the reference does not make any claim about position affecting semantic similarity — it simply states that proximity reflects semantic similarity, without commenting on position’s role. The candidate’s emphasis on 'regardless of position' introduces a new, unsupported claim that may mislead the interpretation of the figure."
+        ],
+        "rationale": "The candidate answer is factually plausible but introduces an unsupported and potentially misleading claim about the model learning high-level structure and clustering sentences regardless of position. The reference answer is a direct, neutral statement about the relationship between proximity and semantic similarity. The candidate’s addition of 'regardless of their position in the document' contradicts the reference’s implicit assumption that the figure’s color-coding (by position) may reveal patterns, and it overreaches by asserting a causal mechanism not present in the reference. This constitutes a substantive difference and a contradiction in emphasis, making the answer incorrect under the given rules."
+      },
+      "usage": {
+        "prompt_tokens": 268,
+        "total_tokens": 681,
+        "completion_tokens": 413,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_337",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ZDDA leverages the task-irrelevant gray-RGB pairs from Fashion-MNIST by training a joint network supervised by the digit classification task in the source domain (gray scale), which learns to simulate the target-domain (RGB) representation, enabling classification in the RGB domain without access to task-relevant RGB training data.",
+      "reference": "The task-irrelevant data is used to simulate the RGB representation using the gray scale image. This allows ZDDA to learn a joint network that can be used to classify digits in both the gray scale and RGB domains.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.94733214378357,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Task-irrelevant data (gray-RGB pairs) is used to simulate RGB representation from grayscale images.",
+          "ZDDA learns a joint network capable of classifying digits in both grayscale and RGB domains."
+        ],
+        "candidate_claims": [
+          "ZDDA uses task-irrelevant gray-RGB pairs to train a joint network.",
+          "The joint network is supervised by digit classification in the source (grayscale) domain.",
+          "The network learns to simulate target-domain (RGB) representation.",
+          "This enables digit classification in RGB domain without task-relevant RGB training data."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer accurately captures the core mechanism described in the reference: using task-irrelevant gray-RGB pairs to train a joint network supervised by source-domain (grayscale) classification, which learns to simulate RGB representations for target-domain classification. The candidate adds minor clarifications (e.g., 'supervised by the digit classification task in the source domain') that are consistent with and do not contradict the reference. No factual errors or omissions are present. The semantic meaning is equivalent."
+      },
+      "usage": {
+        "prompt_tokens": 309,
+        "total_tokens": 576,
+        "completion_tokens": 267,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_338",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The temperature t scales the exponentiation of the similarity score in the unnormalized distribution by $1/t$, reducing the acceptance probability of suboptimal solutions as t decreases over time, thereby shifting the search from exploration to exploitation.",
+      "reference": "The temperature variable t controls the probability of accepting a new candidate solution y. As t decreases, the probability of accepting a worse solution decreases.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.828592538833618,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The temperature variable t controls the probability of accepting a new candidate solution y.",
+          "As t decreases, the probability of accepting a worse solution decreases."
+        ],
+        "candidate_claims": [
+          "The temperature t scales the exponentiation of the similarity score in the unnormalized distribution by 1/t.",
+          "Reducing t reduces the acceptance probability of suboptimal solutions.",
+          "This shift moves the search from exploration to exploitation."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core mechanism: as temperature t decreases, the acceptance probability of suboptimal (worse) solutions decreases. The candidate adds technical detail (scaling the exponentiation by 1/t) and the conceptual interpretation (exploration to exploitation), which are consistent with and elaborative of the reference. No contradiction or factual error exists. The reference’s general statement is fully supported by the candidate’s more specific explanation."
+      },
+      "usage": {
+        "prompt_tokens": 273,
+        "total_tokens": 499,
+        "completion_tokens": 226,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_172",
+      "candidate_source": "official_parser",
+      "candidate_answer": "YTF, 31.9%",
+      "reference": "The gRCC* algorithm achieved the largest relative improvement over the RCC algorithm on the YTF dataset, with a relative improvement of approximately 31.9%.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.758231401443481,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The gRCC* algorithm achieved the largest relative improvement over the RCC algorithm on the YTF dataset.",
+          "The relative improvement on the YTF dataset was approximately 31.9%."
+        ],
+        "candidate_claims": [
+          "YTF dataset demonstrated the highest relative improvement in AMI when using gRCC* compared to RCC.",
+          "The percentage of improvement is approximately 31.9%."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly identifies the dataset (YTF) and the approximate percentage improvement (31.9%), matching the reference answer in both key factual components. The concise format 'YTF, 31.9%' is a valid shorthand for the full statement, preserving semantic equivalence without contradiction or omission. No substantive differences in meaning are present."
+      },
+      "usage": {
+        "prompt_tokens": 229,
+        "total_tokens": 435,
+        "completion_tokens": 206,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_145",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Figure 6 demonstrates that accurate visual grounding requires perfect alignment between the selected concept, predicted common concept, and the real entity. When all concepts align (e.g., first row with \"headlight\"), the heatmap accurately localizes the entity. When alignment is poor (e.g., fourth row with \"lighter\" misaligned with \"meal\"), the heatmap is inaccurate, showing that alignment directly determines heatmap quality.",
+      "reference": "When the selected concept, predicted concept, and the real entity to be grounded are all aligned, the generated heatmap produces a good localization of the phrase.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 14.488536596298218,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "When the selected concept, predicted concept, and the real entity to be grounded are all aligned, the generated heatmap produces a good localization of the phrase."
+        ],
+        "candidate_claims": [
+          "Figure 6 demonstrates that accurate visual grounding requires perfect alignment between the selected concept, predicted common concept, and the real entity.",
+          "When all concepts align (e.g., first row with 'headlight'), the heatmap accurately localizes the entity.",
+          "When alignment is poor (e.g., fourth row with 'lighter' misaligned with 'meal'), the heatmap is inaccurate, showing that alignment directly determines heatmap quality."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core semantic point of the reference: alignment between selected concept, predicted concept, and real entity leads to accurate heatmap localization. It adds illustrative examples (first and fourth rows) and slightly strengthens the claim with 'perfect alignment' and 'directly determines', but these are consistent with and do not contradict the reference. The examples provided are plausible and support the central claim. No factual errors or contradictions are present. The candidate paraphrases the reference effectively while preserving the intended meaning."
+      },
+      "usage": {
+        "prompt_tokens": 309,
+        "total_tokens": 586,
+        "completion_tokens": 277,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_181",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The embedded vector $E$ from the part encoding network and the generated mask $G_{\\mathcal{M}}(x)$ from the mask prediction network.",
+      "reference": "The inputs to the image generation network are the observed images (x) and a random noise vector (z).",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 14.676711320877075,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The inputs to the image generation network are the observed images (x) and a random noise vector (z)."
+        ],
+        "candidate_claims": [
+          "The embedded vector $E$ from the part encoding network and the generated mask $G_{\\mathcal{M}}(x)$ from the mask prediction network."
+        ],
+        "substantive_differences": [
+          "The candidate answer identifies entirely different inputs (embedded vector E and generated mask G_M(x)) than the reference (observed images x and random noise vector z).",
+          "There is no mention of observed images or random noise in the candidate, which are explicitly stated in the reference as required inputs.",
+          "The candidate introduces components (part encoding network, mask prediction network) that are not referenced in the benchmark answer, suggesting a different architectural interpretation."
+        ],
+        "rationale": "The candidate answer does not match the reference in terms of the actual inputs to the image generation network. The reference specifies x (observed images) and z (random noise), while the candidate specifies E and G_M(x), which are not equivalent entities. This constitutes a factual mismatch in the core components of the input, violating the requirement for semantic equivalence."
+      },
+      "usage": {
+        "prompt_tokens": 227,
+        "total_tokens": 508,
+        "completion_tokens": 281,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_156",
+      "candidate_source": "official_parser",
+      "candidate_answer": "DMRNet has a lower training loss than ResNet.",
+      "reference": "The training loss of DMRNet is lower than that of ResNet on the CIFAR-10 dataset with L = 30.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.025128841400146,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The training loss of DMRNet is lower than that of ResNet on the CIFAR-10 dataset with L = 30."
+        ],
+        "candidate_claims": [
+          "DMRNet has a lower training loss than ResNet."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly conveys the core comparison: DMRNet’s training loss is lower than ResNet’s. While the candidate omits explicit mention of 'CIFAR-10' and '30 layers', these are contextually implied by the question, which specifies 'Figure (a) of the *Deep Convolutional Neural Networks with Merge-and-Run Mappings* paper' and 'networks with 30 layers'. The omission does not alter the factual meaning, and the comparison is preserved. This qualifies as a paraphrase with harmless omission of contextually redundant details."
+      },
+      "usage": {
+        "prompt_tokens": 244,
+        "total_tokens": 465,
+        "completion_tokens": 221,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_461",
+      "candidate_source": "official_parser",
+      "candidate_answer": "COPA demonstrates faster performance than Helwig on both the CHOA and CMS datasets, with Helwig failing on CMS due to memory constraints at R=40, while COPA successfully completed iterations.",
+      "reference": "COPA is faster than Helwig.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.989552736282349,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "COPA is faster than Helwig."
+        ],
+        "candidate_claims": [
+          "COPA demonstrates faster performance than Helwig on both the CHOA and CMS datasets",
+          "Helwig fails on CMS due to memory constraints at R=40",
+          "COPA successfully completed iterations"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer preserves the core factual claim that COPA is faster than Helwig, as stated in the reference. It adds contextually relevant and harmless extra details (specific dataset names, failure condition at R=40, successful completion by COPA) that are consistent with the question and do not contradict the reference. The comparison remains accurate and the central semantic meaning is preserved."
+      },
+      "usage": {
+        "prompt_tokens": 243,
+        "total_tokens": 433,
+        "completion_tokens": 190,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_381",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "VIDXL has the highest number of interactions with 69,312,698, which is 7.690 times larger than CLASS, the dataset with the fewest interactions (9,011,321).",
+      "reference": "The VIDXL dataset contains the most interactions (events) in the training set with 69,312,698 events. This is roughly 7.7 times larger than the RSC15 dataset, which has the least interactions (9,011,321) in the training set. ",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 19.559158086776733,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "VIDXL has the most interactions (69,312,698)",
+          "RSC15 has the fewest interactions (9,011,321)",
+          "VIDXL is roughly 7.7 times larger than RSC15"
+        ],
+        "candidate_claims": [
+          "VIDXL has the most interactions (69,312,698)",
+          "CLASS has the fewest interactions (9,011,321)",
+          "VIDXL is 7.690 times larger than CLASS"
+        ],
+        "substantive_differences": [
+          "Candidate incorrectly identifies CLASS as the dataset with fewest interactions, while reference identifies RSC15.",
+          "Candidate's comparison is between VIDXL and CLASS, which contradicts reference's comparison between VIDXL and RSC15."
+        ],
+        "rationale": "The candidate provides correct values for VIDXL and the smallest interaction count, but misattributes the smallest dataset as CLASS instead of RSC15. This is a factual error in entity identification, which changes the semantic meaning of the comparison. The calculation (7.690) is numerically accurate for 69,312,698 / 9,011,321, but since it's applied to the wrong dataset (CLASS), the answer is semantically incorrect. The question asks for the dataset with fewest interactions, and the reference clearly identifies RSC15, not CLASS."
+      },
+      "usage": {
+        "prompt_tokens": 312,
+        "total_tokens": 660,
+        "completion_tokens": 348,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_368",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "The most effective attack method at reducing the accuracy of the Resnet-32 model on the MNIST dataset is BIM/CE.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_0",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Figure 9 illustrates the transformation by reorganizing the original Subject-Predicate-Object structure into a pre-processed format where POI properties are inverted or restructured to link entities, facilitating better disentanglement of language and knowledge.",
+      "reference": " \n\nThe pre-processed SMD Navigate data combines all the properties (such as distance, address) of a point of interest (POI) into a single subject with the object being \"poi\". The original data had separate entries for each property. ",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.888243675231934,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The pre-processed SMD Navigate data combines all the properties (such as distance, address) of a point of interest (POI) into a single subject with the object being 'poi'.",
+          "The original data had separate entries for each property."
+        ],
+        "candidate_claims": [
+          "Figure 9 illustrates the transformation by reorganizing the original Subject-Predicate-Object structure into a pre-processed format where POI properties are inverted or restructured to link entities, facilitating better disentanglement of language and knowledge."
+        ],
+        "substantive_differences": [
+          "The candidate uses vague terms like 'inverted or restructured' and 'link entities' without specifying the actual transformation: combining multiple properties into a single subject with object 'poi'.",
+          "The candidate does not mention the key structural change — merging separate property entries into a single triple — which is central to the reference.",
+          "The candidate adds a speculative purpose ('facilitating better disentanglement') not present in the reference, which is not required for semantic correctness and may mislead."
+        ],
+        "rationale": "The candidate fails to accurately convey the core factual transformation described in the reference: the consolidation of multiple POI properties into a single subject-object triple with object 'poi'. Instead, it uses imprecise and vague language that does not capture the specific structural change. This constitutes a substantive factual deviation."
+      },
+      "usage": {
+        "prompt_tokens": 285,
+        "total_tokens": 607,
+        "completion_tokens": 322,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_119",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Yes",
+      "reference": "The PE-N=5 sampler performs better than the HMC sampler.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.44699478149414,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The PE-N=5 sampler performs better than the HMC sampler."
+        ],
+        "candidate_claims": [
+          "Yes"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Yes' directly affirms the central question: whether PE-N=5 exhibits a higher log-predictive density than HMC. The reference answer states that PE-N=5 performs better, which, in the context of log-predictive density (a higher value being better), is semantically equivalent to 'yes'. No contradiction, wrong entity, or missing component is present. The candidate is a concise, unambiguous affirmation of the reference’s claim."
+      },
+      "usage": {
+        "prompt_tokens": 201,
+        "total_tokens": 374,
+        "completion_tokens": 173,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_478",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ZDDA3",
+      "reference": "ZDDA3",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.339617490768433,
+      "judgment": {
+        "label": "correct",
+        "confidence": 1.0,
+        "reference_claims": [
+          "ZDDA3 demonstrates superior classification accuracy across varying noise levels in both RGB and depth testing data compared to naive fusion."
+        ],
+        "candidate_claims": [
+          "ZDDA3 demonstrates superior classification accuracy across varying noise levels in both RGB and depth testing data compared to naive fusion."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer matches the reference answer exactly in entity and factual claim. The question asks for the superior method between ZDDA3 and naive fusion based on Figure (c), and both answers correctly identify ZDDA3. No paraphrase or extra detail is present, but exact match suffices for semantic correctness."
+      },
+      "usage": {
+        "prompt_tokens": 192,
+        "total_tokens": 363,
+        "completion_tokens": 171,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_511",
+      "candidate_source": "official_parser",
+      "candidate_answer": "KAR",
+      "reference": "KAR",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.527782440185547,
+      "judgment": {
+        "label": "correct",
+        "confidence": 1.0,
+        "reference_claims": [
+          "KAR achieved the highest F1 score on the AddOneSent adversarial dataset as of October 18, 2018."
+        ],
+        "candidate_claims": [
+          "KAR achieved the highest F1 score on the AddOneSent adversarial dataset as of October 18, 2018."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer exactly matches the reference answer in entity and factual claim. The question asks for the model with the highest F1 score on the specified dataset and date, and both answers identify 'KAR' as that model. No paraphrase or extra detail is present, but exact match suffices for semantic correctness."
+      },
+      "usage": {
+        "prompt_tokens": 203,
+        "total_tokens": 384,
+        "completion_tokens": 181,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_192",
+      "candidate_source": "official_parser",
+      "candidate_answer": "CTR and CTCVR",
+      "reference": "The two auxiliary tasks are CTR and CTCVR.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 8.697454452514648,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The two auxiliary tasks are CTR and CTCVR."
+        ],
+        "candidate_claims": [
+          "CTR and CTCVR"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'CTR and CTCVR' directly matches the two auxiliary tasks named in the reference answer. Although the candidate omits the introductory phrase 'The two auxiliary tasks are', it still conveys the same factual content without ambiguity or error. The core entities (CTR and CTCVR) are correctly identified and presented in the same order, satisfying the semantic equivalence requirement."
+      },
+      "usage": {
+        "prompt_tokens": 196,
+        "total_tokens": 350,
+        "completion_tokens": 154,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_403",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Leukemia",
+      "reference": "The Leukemia dataset would likely benefit the most from using the Fac.-Recover approach.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.466870307922363,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The Leukemia dataset would likely benefit the most from using the Fac.-Recover approach."
+        ],
+        "candidate_claims": [
+          "Leukemia"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Leukemia' directly identifies the dataset mentioned in the reference answer as the one that would benefit the most from the Fac.-Recover approach. Although the candidate omits the full phrasing, it correctly names the entity required by the question. The question asks for the dataset with the highest number of features that benefits most, and the reference answer specifies 'Leukemia' as that dataset. The candidate’s answer is a concise, unambiguous, and semantically equivalent response to the reference."
+      },
+      "usage": {
+        "prompt_tokens": 218,
+        "total_tokens": 405,
+        "completion_tokens": 187,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_586",
+      "candidate_source": "official_parser",
+      "candidate_answer": "GroundSent-Both achieves the highest accuracy on the MRPC task, surpassing the ST-LN model by 1.3 points.",
+      "reference": "GroundSent-Cap appears to be most beneficial for the MRPC task, achieving an accuracy of 72.9/82.2 compared to the baseline model ST-LN's 69.6/81.2.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 15.230858087539673,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "GroundSent-Cap achieves the highest accuracy on MRPC (72.9/82.2).",
+          "ST-LN baseline accuracy is 69.6/81.2.",
+          "GroundSent-Cap outperforms ST-LN."
+        ],
+        "candidate_claims": [
+          "GroundSent-Both achieves the highest accuracy.",
+          "Surpasses ST-LN by 1.3 points."
+        ],
+        "substantive_differences": [
+          "Wrong model identified: candidate claims GroundSent-Both is best, but reference states GroundSent-Cap.",
+          "Incorrect performance difference: candidate claims 1.3-point gain, but reference shows 3.3/1.0 point gains (72.9-69.6=3.3, 82.2-81.2=1.0)."
+        ],
+        "rationale": "The candidate misidentifies the top-performing model (GroundSent-Both vs. GroundSent-Cap) and provides an inaccurate performance difference (1.3 vs. 3.3/1.0). These are factual errors that contradict the reference, making the answer semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 263,
+        "total_tokens": 543,
+        "completion_tokens": 280,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_245",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "The Hamilton-based PCB enables data acquisition by housing the sensors that collect raw measurements and enables data transmission by implementing TCP/CoAP protocols to send the data to a server, but it does not perform the complex processing required to calculate air velocity.",
+      "reference": "The Hamilton-based PCB is the electronic control board of the anemometer. It houses the microcontroller, sensors, and other electronic components that are necessary for the anemometer to function.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.476482152938843,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The Hamilton-based PCB is the electronic control board of the anemometer.",
+          "It houses the microcontroller, sensors, and other electronic components necessary for the anemometer to function."
+        ],
+        "candidate_claims": [
+          "The Hamilton-based PCB enables data acquisition by housing the sensors that collect raw measurements.",
+          "It enables data transmission by implementing TCP/CoAP protocols to send the data to a server.",
+          "It does not perform the complex processing required to calculate air velocity."
+        ],
+        "substantive_differences": [
+          "The reference states the PCB houses the microcontroller (implying it performs processing), while the candidate explicitly claims it does not perform complex processing (e.g., air velocity calculation). This contradicts the reference’s implication that the microcontroller is present and functional.",
+          "The candidate introduces TCP/CoAP protocols and data transmission to a server, which are not mentioned in the reference and may be speculative or outside the scope of the PCB’s role as described in the reference.",
+          "The reference emphasizes the PCB as a general control board housing essential components; the candidate narrows its role to data acquisition and transmission, omitting the broader functional context."
+        ],
+        "rationale": "The candidate introduces a contradiction by denying the PCB’s role in processing (implied by the presence of a microcontroller in the reference) and adds unsupported details about TCP/CoAP and server transmission. These deviations alter the factual meaning of the reference, making the candidate semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 267,
+        "total_tokens": 608,
+        "completion_tokens": 341,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_130",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The predicted mean return decreases to a minimum at θ = 0.5, and the uncertainty is highest at this point.",
+      "reference": "The predicted return decreases as θ increases, with a minimum at around θ = 0.5.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.380038738250732,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The predicted return decreases as θ increases.",
+          "There is a minimum at around θ = 0.5."
+        ],
+        "candidate_claims": [
+          "The predicted mean return decreases to a minimum at θ = 0.5.",
+          "The uncertainty is highest at this point (θ = 0.5)."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate correctly captures the core trend: the predicted mean return decreases to a minimum at θ = 0.5, which is semantically equivalent to the reference. The additional claim about uncertainty being highest at θ = 0.5 is not contradicted by the reference and is a plausible, contextually relevant observation (as uncertainty often peaks at extrema in such models). Since the reference does not explicitly deny this, and the candidate does not contradict the reference, the extra detail is harmless and does not affect semantic correctness. The central question is fully addressed with equivalent meaning."
+      },
+      "usage": {
+        "prompt_tokens": 266,
+        "total_tokens": 503,
+        "completion_tokens": 237,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_527",
+      "candidate_source": "official_parser",
+      "candidate_answer": "KEHNN achieves the highest scores across all four metrics (R2@1: 0.786, R10@1: 0.460, R10@2: 0.591, R10@5: 0.819), and its superiority is justified by statistically significant performance gains (p-value ≤ 0.01) and alignment with the paper's findings that LSTM-based models and models incorporating multiple channels and prior knowledge perform better.",
+      "reference": "The KEHNN model performs the best for response selection. This is evident because it achieves the highest scores across all metrics (R$2$@1, R${10}$@1, R${10}$@2, and R${10}$@5) compared to all other models in the table.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 23.840376377105713,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "KEHNN performs the best for response selection.",
+          "It achieves the highest scores across all metrics (R$2$@1, R${10}$@1, R${10}$@2, and R${10}$@5) compared to all other models in the table."
+        ],
+        "candidate_claims": [
+          "KEHNN achieves the highest scores across all four metrics with specific values: R2@1: 0.786, R10@1: 0.460, R10@2: 0.591, R10@5: 0.819.",
+          "Its superiority is justified by statistically significant performance gains (p-value ≤ 0.01) and alignment with the paper's findings about LSTM-based models and models incorporating multiple channels and prior knowledge."
+        ],
+        "substantive_differences": [
+          "The candidate introduces specific numerical values (e.g., 0.786, 0.460) that are not present or verifiable from the reference answer, which only states that KEHNN achieves the highest scores without specifying values.",
+          "The candidate adds justification based on statistical significance (p-value ≤ 0.01) and model architecture insights (LSTM, multiple channels, prior knowledge), which are not mentioned or implied in the reference answer.",
+          "The reference answer focuses solely on comparative performance across metrics; the candidate introduces external claims not required or supported by the reference."
+        ],
+        "rationale": "While the candidate correctly identifies KEHNN as the top-performing model, it introduces specific numerical values and justifications (statistical significance, architectural insights) that are not present in the reference answer. The reference does not mention any p-values or model architecture details, making these additions factually unsupported and semantically divergent. The candidate’s answer goes beyond the scope of the reference, introducing elements that are not required to answer the question as posed. Therefore, it is semantically incorrect relative to the reference."
+      },
+      "usage": {
+        "prompt_tokens": 387,
+        "total_tokens": 844,
+        "completion_tokens": 457,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_434",
+      "candidate_source": "official_parser",
+      "candidate_answer": "No method achieves 77.4% accuracy for Italian data in the provided figures.",
+      "reference": "Variational J^var (7)",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.512600183486938,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The method Variational J^var (7) achieves the highest reported accuracy of 77.4% for the Italian language data."
+        ],
+        "candidate_claims": [
+          "No method achieves 77.4% accuracy for Italian data in the provided figures."
+        ],
+        "substantive_differences": [
+          "The candidate directly contradicts the reference by denying that any method achieves 77.4% accuracy for Italian, while the reference explicitly identifies Variational J^var (7) as achieving that score.",
+          "The candidate fails to identify the correct method and instead asserts a negative claim that is factually incorrect based on the reference."
+        ],
+        "rationale": "The candidate answer is semantically incorrect because it contradicts the reference answer, which explicitly states that Variational J^var (7) achieves 77.4% accuracy for Italian. The candidate’s claim that no method achieves this accuracy is factually wrong in the context of the reference, which serves as the benchmark. This is not a paraphrase or harmless extra detail, but a direct contradiction."
+      },
+      "usage": {
+        "prompt_tokens": 210,
+        "total_tokens": 469,
+        "completion_tokens": 259,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_135",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The proposed method is more accurate in generating different hair colors when facial attributes are swapped compared to icGAN.",
+      "reference": "The proposed method is able to generate images with different hair colors more accurately than icGAN.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.23535966873169,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The proposed method generates images with different hair colors more accurately than icGAN."
+        ],
+        "candidate_claims": [
+          "The proposed method is more accurate in generating different hair colors when facial attributes are swapped compared to icGAN."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer conveys the same core comparison as the reference: the proposed method outperforms icGAN in accurately generating different hair colors during facial attribute swapping. The phrasing is a direct paraphrase with no factual deviation. The addition of 'when facial attributes are swapped' is consistent with the question context and does not alter the meaning. No contradiction, missing component, or incorrect entity is present."
+      },
+      "usage": {
+        "prompt_tokens": 210,
+        "total_tokens": 387,
+        "completion_tokens": 177,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_391",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Bing-News",
+      "reference": "Bing-News.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.416075468063354,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.99,
+        "reference_claims": [
+          "The dataset with the highest number of 4-hop triples, exceeding six million, is Bing-News."
+        ],
+        "candidate_claims": [
+          "Bing-News is the dataset with the highest number of 4-hop triples exceeding six million."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Bing-News' directly matches the reference answer in entity and factual content. The question asks for the dataset with the highest number of 4-hop triples exceeding six million, and both answers identify 'Bing-News' as that dataset. No paraphrase or extra detail is needed — the answer is semantically equivalent and factually aligned with the reference."
+      },
+      "usage": {
+        "prompt_tokens": 187,
+        "total_tokens": 365,
+        "completion_tokens": 178,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_522",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "The Conv-KNRM model performs best when trained on the NYT dataset and evaluated on the WT14 dataset, achieving an nDCG@20 score of 0.3215. This performance is significantly better than all the baselines: BM25 (B), WT10 (W), and AOL (A).",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_392",
+      "candidate_source": "official_parser",
+      "candidate_answer": "HUMBI",
+      "reference": "MPII-Gaze",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.197110414505005,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The dataset that shows the most concentrated clustering near the origin in the yaw-pitch angle space is MPII-Gaze."
+        ],
+        "candidate_claims": [
+          "The dataset that shows the most concentrated clustering near the origin in the yaw-pitch angle space is HUMBI."
+        ],
+        "substantive_differences": [
+          "The candidate answer identifies 'HUMBI' as the dataset with the most concentrated clustering near the origin, while the reference answer correctly identifies 'MPII-Gaze'. This is a direct factual mismatch in the named entity."
+        ],
+        "rationale": "The question asks for the specific dataset exhibiting the most concentrated clustering near the origin in yaw-pitch space. The reference answer names 'MPII-Gaze', while the candidate names 'HUMBI', which is a different dataset. Since the question requires a specific dataset name and the candidate provides a different one, the answer is semantically incorrect. There is no indication that 'HUMBI' is a synonym or equivalent to 'MPII-Gaze' in this context."
+      },
+      "usage": {
+        "prompt_tokens": 194,
+        "total_tokens": 445,
+        "completion_tokens": 251,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_215",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The depth-exclusive model (Fig. 1b) produces cleaner, silhouette-based filter responses in conv1, conv2, and conv3, which are more robust to appearance changes, compared to the RGB-based model (Fig. 1a) that shows complex, texture-dependent patterns sensitive to lighting and clothing.",
+      "reference": "The filter responses from the “conv1”, “conv2” and “conv3” layers for a given frame from the TUM GAID data using a framework for person re-identification from RGB are more detailed and contain more information than the filter responses from the fCNN of a framework that utilizes depth data. This is because RGB images contain more information than depth images.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 17.61031198501587,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "RGB-based re-identification framework produces more detailed and informative filter responses in conv1, conv2, and conv3 layers compared to depth-exclusive fCNN.",
+          "This difference is due to RGB images containing more information than depth images."
+        ],
+        "candidate_claims": [
+          "Depth-exclusive model produces cleaner, silhouette-based filter responses in conv1, conv2, and conv3, which are more robust to appearance changes.",
+          "RGB-based model shows complex, texture-dependent patterns sensitive to lighting and clothing."
+        ],
+        "substantive_differences": [
+          "The candidate reverses the comparison: it claims depth model responses are 'cleaner' and 'more robust', while the reference states RGB responses are 'more detailed and contain more information'.",
+          "The candidate introduces a new claim about robustness to appearance changes and sensitivity to lighting/clothing, which is not present in the reference.",
+          "The candidate references 'Fig. 1a' and 'Fig. 1b', while the question and reference refer to 'Fig. 3' — this is a factual mismatch in figure reference."
+        ],
+        "rationale": "The candidate contradicts the core factual comparison in the reference (RGB vs. depth filter response quality) and introduces unsupported claims about robustness and sensitivity. Additionally, it misidentifies the figure (Fig. 1 vs. Fig. 3), which is a critical error. These are not harmless paraphrases but substantive inaccuracies."
+      },
+      "usage": {
+        "prompt_tokens": 362,
+        "total_tokens": 698,
+        "completion_tokens": 336,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_36",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The telescoping architecture implements the rank-and-prune process by sequentially applying ranking and pruning at stages L1 and L2. After documents are matched in L0, they are passed to L1 for initial ranking and pruning, and then to L2 for a subsequent re-ranking and pruning, refining the candidate set at each stage.",
+      "reference": "Documents are first matched using a pre-defined match plan. Then, they are passed through additional rank-and-prune stages, which are implemented as a cascade of machine learning models.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 15.581066370010376,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Documents are first matched using a pre-defined match plan.",
+          "They are passed through additional rank-and-prune stages, which are implemented as a cascade of machine learning models."
+        ],
+        "candidate_claims": [
+          "The telescoping architecture implements the rank-and-prune process by sequentially applying ranking and pruning at stages L1 and L2.",
+          "After documents are matched in L0, they are passed to L1 for initial ranking and pruning, and then to L2 for a subsequent re-ranking and pruning, refining the candidate set at each stage."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate accurately captures the core process: documents are matched in L0, then sequentially processed through L1 and L2 for ranking and pruning. The reference mentions a 'cascade of machine learning models' without specifying stages, while the candidate explicitly names L1 and L2, which is consistent with the question’s reference to Figure 1. The candidate’s description of 'initial ranking and pruning' followed by 'subsequent re-ranking and pruning' aligns with the cascade concept. No factual errors or contradictions are present. The candidate adds detail (e.g., 'refining the candidate set at each stage') that is harmless and consistent with the reference’s implied process."
+      },
+      "usage": {
+        "prompt_tokens": 294,
+        "total_tokens": 592,
+        "completion_tokens": 298,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_44",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The only correct answer is that COPA correctly captures the temporal pattern with a sharp increase at the second visit, Helwig incorrectly suggests the condition was present at the first visit, and SPARTan produces a noisy, low-magnitude, non-periodic pattern that fails to capture the significant change.",
+      "reference": "The temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude. For sickle cell anemia patients, the patterns are generally smoother and more periodic, with lower overall magnitude. For leukemia patients, the patterns are more erratic and have higher overall magnitude.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.0121910572052,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude.",
+          "Sickle cell anemia patients show smoother, more periodic patterns with lower overall magnitude.",
+          "Leukemia patients show more erratic patterns with higher overall magnitude."
+        ],
+        "candidate_claims": [
+          "COPA correctly captures a sharp increase at the second visit.",
+          "Helwig incorrectly suggests condition was present at the first visit.",
+          "SPARTan produces noisy, low-magnitude, non-periodic pattern failing to capture significant change."
+        ],
+        "substantive_differences": [
+          "Candidate focuses on algorithm performance (COPA, Helwig, SPARTan) rather than patient-specific temporal patterns.",
+          "Candidate does not mention or compare sickle cell anemia vs. leukemia patient patterns.",
+          "Candidate introduces specific visit-based claims (e.g., 'second visit') not present or implied in reference.",
+          "Candidate misattributes pattern characteristics to algorithms, not to patient phenotypes."
+        ],
+        "rationale": "The candidate answer completely misaligns with the question's focus. The question asks for differences in temporal patterns between two patient groups (sickle cell anemia vs. leukemia), but the candidate discusses algorithmic outputs without referencing patient phenotypes or their comparative patterns. The reference answer describes patient-level pattern differences in magnitude, shape, and periodicity; the candidate provides algorithm-specific performance claims that are irrelevant to the question. This constitutes a fundamental misdirection and factual mismatch."
+      },
+      "usage": {
+        "prompt_tokens": 332,
+        "total_tokens": 677,
+        "completion_tokens": 345,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_396",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "HUMBI performs best when used alone for training, with an average AUC of 0.399. While this is lower than the average AUC of models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI), HUMBI still achieves the highest score among the individual datasets.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_235",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Increasing the budget in FLOPS reduces the test Top-1 error rates for both models, but the small ANN with adaptive loss weighting (AdaLoss, orange curve) consistently achieves lower error rates than the large ANN with non-adaptive weights (CONST, green curve) across all budget levels.",
+      "reference": "The test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 17.430774927139282,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies."
+        ],
+        "candidate_claims": [
+          "Increasing the budget in FLOPS reduces the test Top-1 error rates for both models",
+          "The small ANN with adaptive loss weighting (AdaLoss, orange curve) consistently achieves lower error rates than the large ANN with non-adaptive weights (CONST, green curve) across all budget levels."
+        ],
+        "substantive_differences": [
+          "The reference makes a general claim about three training strategies, while the candidate only mentions two models (implying a reduction in scope).",
+          "The candidate adds a comparative claim (AdaLoss consistently outperforms CONST) that is not present in the reference and cannot be verified as required by the question.",
+          "The reference does not mention specific model names or curve colors, which are extraneous details not required by the question or reference."
+        ],
+        "rationale": "The candidate introduces a comparative performance claim (AdaLoss vs. CONST) that is not in the reference and not required by the question. The reference focuses solely on the trend of error rate decreasing with FLOPS across all three strategies, without making any relative performance claims. The candidate’s answer, while factually plausible, diverges semantically from the reference by adding an unsupported comparison and omitting the third strategy. This constitutes a substantive difference in meaning, making it incorrect under the given rules."
+      },
+      "usage": {
+        "prompt_tokens": 271,
+        "total_tokens": 605,
+        "completion_tokens": 334,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_407",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Proposed",
+      "reference": "The proposed method performs the best on average across all noise levels tested on the Kodak dataset.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.430103302001953,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The proposed method performs the best on average across all noise levels tested on the Kodak dataset."
+        ],
+        "candidate_claims": [
+          "Proposed"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Proposed' is a concise, unambiguous reference to 'the proposed method' mentioned in the reference. The question asks which method achieves the highest average PSNR, and the reference explicitly states that the proposed method performs best on average. The candidate correctly identifies the winning method without introducing error or contradiction. While the candidate lacks explicit mention of 'average PSNR' or 'Kodak dataset', these are contextually implied by the question and do not alter the core semantic meaning. The answer is a valid, minimal paraphrase of the reference's key claim."
+      },
+      "usage": {
+        "prompt_tokens": 212,
+        "total_tokens": 411,
+        "completion_tokens": 199,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_468",
+      "candidate_source": "official_parser",
+      "candidate_answer": "82.72, 1.11",
+      "reference": "The Conv. Self-Corr. method achieved the highest performance on the PASCAL VOC 2012 test set with a score of 82.72. This is approximately 1.11 points higher than the baseline model (\"No Self-Corr.\") which achieved a score of 81.61.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 15.472657203674316,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Conv. Self-Corr. method achieved 82.72 on PASCAL VOC 2012 test set",
+          "No Self-Corr. baseline achieved 81.61",
+          "Conv. Self-Corr. outperforms baseline by 1.11 points"
+        ],
+        "candidate_claims": [
+          "Score of Conv. Self-Corr. is 82.72",
+          "Outperforms baseline by 1.11 points"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer '82.72, 1.11' directly provides the two key numerical values requested: the exact score of the Conv. Self-Corr. method (82.72) and the performance gain over the baseline (1.11 points). These values are factually correct and semantically equivalent to the reference, even though the candidate omits explicit mention of the baseline score (81.61). The difference 1.11 is consistent with 82.72 - 81.61, so no contradiction or error exists. The candidate answers the central question with the same factual meaning, and the omission of intermediate values is harmless."
+      },
+      "usage": {
+        "prompt_tokens": 284,
+        "total_tokens": 580,
+        "completion_tokens": 296,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_503",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ResNet-101",
+      "reference": "ResNet-101 from the reference paper reports top-1 validation error of 23.60 which is lower than ResNet-101 reevaluated (26.41) and DMRNet (23.66)",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.179869890213013,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "ResNet-101 from the reference paper reports top-1 validation error of 23.60",
+          "This is lower than ResNet-101 reevaluated (26.41) and DMRNet (23.66)"
+        ],
+        "candidate_claims": [
+          "ResNet-101 demonstrates the lowest Top-1 validation error"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'ResNet-101' correctly identifies the model with the lowest Top-1 validation error, as stated in the reference (23.60 vs. 26.41 and 23.66). The reference specifies that the ResNet-101 from the reference paper (23.60) is the lowest, and the candidate answer aligns with this factual claim without contradiction. The candidate omits specific values but correctly identifies the entity, which is sufficient to answer the central question. No substantive difference in meaning exists."
+      },
+      "usage": {
+        "prompt_tokens": 254,
+        "total_tokens": 505,
+        "completion_tokens": 251,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_73",
+      "candidate_source": "official_parser",
+      "candidate_answer": "US-BS-MQ achieves higher accuracy than S-MQ when more SST examples are incorporated.",
+      "reference": "The US-BS-MQ method achieves higher accuracy than the S-MQ method when adding SST examples.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.109418630599976,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "US-BS-MQ achieves higher accuracy than S-MQ",
+          "when adding SST examples"
+        ],
+        "candidate_claims": [
+          "US-BS-MQ achieves higher accuracy than S-MQ",
+          "when more SST examples are incorporated"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer conveys the same factual comparison and trend as the reference: US-BS-MQ outperforms S-MQ as more SST examples are added. 'More SST examples are incorporated' is semantically equivalent to 'adding SST examples'. No contradiction, wrong entity, or missing component exists. The phrasing is a harmless paraphrase."
+      },
+      "usage": {
+        "prompt_tokens": 227,
+        "total_tokens": 400,
+        "completion_tokens": 173,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_205",
+      "candidate_source": "official_parser",
+      "candidate_answer": "In overlapping cases, the model correctly locates shared opinion words for multiple aspects, leading to accurate classification. In error cases, the model fails to correctly identify sentiment because it does not give sufficient attention to critical negation words, resulting in misclassification.",
+      "reference": "An overlapping case is when multiple aspects share the same opinion snippet, while an error case is when the model incorrectly identifies an aspect or opinion.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 16.89165711402893,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "An overlapping case is when multiple aspects share the same opinion snippet.",
+          "An error case is when the model incorrectly identifies an aspect or opinion."
+        ],
+        "candidate_claims": [
+          "In overlapping cases, the model correctly locates shared opinion words for multiple aspects, leading to accurate classification.",
+          "In error cases, the model fails to correctly identify sentiment because it does not give sufficient attention to critical negation words, resulting in misclassification."
+        ],
+        "substantive_differences": [
+          "The candidate introduces a causal mechanism (model correctly locates shared opinion words) for overlapping cases, which is not mentioned or implied in the reference. The reference only defines overlapping cases structurally, not functionally or behaviorally.",
+          "The candidate attributes error cases to a specific failure (insufficient attention to negation words), which is not stated or implied in the reference. The reference defines error cases broadly as misidentification, without specifying the cause.",
+          "The candidate implies that overlapping cases are handled correctly by the model, while the reference makes no claim about the model’s performance—only about the nature of the cases."
+        ],
+        "rationale": "The candidate goes beyond the reference by adding performance claims and causal explanations not present in the reference. The reference is purely definitional, while the candidate introduces model behavior and error causes. This constitutes a factual mismatch in semantic content, violating the requirement for equivalent meaning."
+      },
+      "usage": {
+        "prompt_tokens": 276,
+        "total_tokens": 598,
+        "completion_tokens": 322,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_439",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Factorize-Recover (FR)",
+      "reference": "Factorize-Recover",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.136797428131104,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Factorize-Recover achieves lower normalized reconstruction error when compression factor exceeds 3."
+        ],
+        "candidate_claims": [
+          "Factorize-Recover (FR) achieves lower normalized reconstruction error when compression factor exceeds 3."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer provides the same core entity ('Factorize-Recover') as the reference, with an added abbreviation '(FR)' that is harmless and does not alter the semantic meaning. The question asks which method achieves lower error under specified conditions, and both answers correctly identify 'Factorize-Recover' as the superior method. No factual contradiction, missing component, or incorrect comparison is present."
+      },
+      "usage": {
+        "prompt_tokens": 208,
+        "total_tokens": 381,
+        "completion_tokens": 173,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_334",
+      "candidate_source": "official_parser",
+      "candidate_answer": "In RippleNet, a user's preferences are propagated iteratively through the knowledge graph via ripple sets. Starting from the user's click history (seeds), the 1-hop ripple set $S_u^1$ is generated by selecting all knowledge triples where the head entity is one of the clicked items. For each subsequent hop $k$ (up to $H$), the preference propagation is applied to the $k$-hop ripple set $S_u^k$ to generate the k-order response $\\mathbf{o}_u^k$ by computing a weighted average of tail embeddings. The final user embedding is formed by summing all order-specific responses: $\\mathbf{u} = \\mathbf{o}_u^1 + \\mathbf{o}_u^2 + \\ldots + \\mathbf{o}_u^H$. This embedding is then combined with the item embedding to predict the clicking probability.",
+      "reference": "The ripple sets are used to propagate a user's preferences from his or her click history to his or her relevant entities.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.745836734771729,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Ripple sets propagate user preferences from click history to relevant entities.",
+          "This propagation occurs through the knowledge graph."
+        ],
+        "candidate_claims": [
+          "Preferences are propagated iteratively via ripple sets through the knowledge graph.",
+          "Propagation starts from click history (seeds).",
+          "1-hop ripple set is generated from triples where head entity is a clicked item.",
+          "Subsequent hops generate k-order responses via weighted average of tail embeddings.",
+          "Final user embedding is sum of all order-specific responses.",
+          "Combined with item embedding to predict click probability."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer provides a detailed, technically accurate description of how ripple sets propagate user preferences in RippleNet, including the iterative process, hop-based generation, embedding computation, and final prediction. While the reference is more concise, the candidate fully captures the core mechanism described in the reference and adds valid, non-contradictory technical detail. The central claim — propagation of preferences from click history through the knowledge graph — is preserved and elaborated correctly. No factual errors or contradictions are present."
+      },
+      "usage": {
+        "prompt_tokens": 395,
+        "total_tokens": 658,
+        "completion_tokens": 263,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_40",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The proposed methods generate faces with significantly higher visual clarity and more detailed facial features than the baseline.",
+      "reference": "The baseline method generates faces that are blurry and unrealistic, while the other methods generate faces that are more realistic.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.696234226226807,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Baseline method → blurry and unrealistic faces",
+          "Other (proposed) methods → more realistic faces"
+        ],
+        "candidate_claims": [
+          "Proposed methods → higher visual clarity",
+          "Proposed methods → more detailed facial features",
+          "Baseline → implicitly less clear and less detailed"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core comparison: proposed methods outperform the baseline in realism, specifically in visual clarity and facial detail. This aligns with the reference’s claim that baseline faces are blurry/unrealistic while others are more realistic. The candidate uses more specific descriptors (‘visual clarity’, ‘facial features’) which are semantically equivalent to the reference’s ‘realistic’ in context. No contradiction or missing component exists. Paraphrase is acceptable."
+      },
+      "usage": {
+        "prompt_tokens": 227,
+        "total_tokens": 431,
+        "completion_tokens": 204,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_34",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The improved detection accuracy provides better localization, which enhances tracking performance (AP, MOTA, MOTP) but also increases sensitivity to object movement, leading to more frequent identity switches (IDS).",
+      "reference": "While the model trained on both MOT and detection sets shows improved performance in detection and tracking metrics (AP, MOTA, MOTP), it also exhibits a higher number of identity switches (IDS). This can be attributed to the increased diversity of instances introduced by the detection set. Although the MOT set provides a larger number of bounding boxes for training, the detection set adds varied examples that may lead to more frequent identity switches during tracking, even as it improves the model's overall performance.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 16.254806518554688,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The model trained on both MOT and detection sets shows improved performance in AP, MOTA, MOTP.",
+          "It exhibits higher identity switches (IDS).",
+          "This is due to increased diversity of instances from the detection set.",
+          "The detection set adds varied examples that may lead to more frequent identity switches, even as it improves overall performance."
+        ],
+        "candidate_claims": [
+          "Improved detection accuracy enhances tracking performance (AP, MOTA, MOTP).",
+          "Better localization increases sensitivity to object movement, leading to more identity switches (IDS)."
+        ],
+        "substantive_differences": [
+          "The reference attributes higher IDS to increased diversity of training instances from the detection set, while the candidate attributes it to increased sensitivity to object movement due to better localization.",
+          "The candidate introduces a causal mechanism (sensitivity to movement) not mentioned or implied in the reference.",
+          "The reference emphasizes the role of training data diversity, whereas the candidate focuses on inference-time behavior (localization sensitivity)."
+        ],
+        "rationale": "The candidate misattributes the cause of higher IDS. The reference points to the diversity of training instances from the detection set as the root cause, while the candidate proposes a different, unsupported mechanism involving sensitivity to movement during tracking. This is a substantive deviation in causal explanation, violating the requirement for semantic equivalence."
+      },
+      "usage": {
+        "prompt_tokens": 337,
+        "total_tokens": 648,
+        "completion_tokens": 311,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_116",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario).",
+      "reference": "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 16.537147045135498,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned."
+        ],
+        "candidate_claims": [
+          "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario)."
+        ],
+        "substantive_differences": [
+          "The reference states a 'slightly better' performance, implying a small margin of improvement, whereas the candidate claims a large, specific improvement of 'approximately 10 percentage points', which is a quantitatively and semantically significant discrepancy.",
+          "The candidate introduces a specific numerical value (10 percentage points) not present or implied in the reference, which may misrepresent the actual performance difference.",
+          "The reference does not specify any magnitude of improvement, so the candidate's claim adds a factual detail that contradicts the reference's qualitative assessment."
+        ],
+        "rationale": "The candidate answer introduces a specific, large performance gap (10 percentage points) that contradicts the reference's qualitative claim of 'slightly better'. This constitutes a factual and semantic mismatch. The reference does not support or imply such a large margin, making the candidate answer incorrect under the given rules."
+      },
+      "usage": {
+        "prompt_tokens": 279,
+        "total_tokens": 596,
+        "completion_tokens": 317,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_164",
+      "candidate_source": "official_parser",
+      "candidate_answer": "3",
+      "reference": "5 hops",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.088314056396484,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The number of hops between Node 1 (Hamilton) and the Internet in the OpenThread topology at -8 dBm is 5."
+        ],
+        "candidate_claims": [
+          "The number of hops between Node 1 (Hamilton) and the Internet in the OpenThread topology at -8 dBm is 3."
+        ],
+        "substantive_differences": [
+          "The candidate provides a different numerical value (3) for the number of hops, which contradicts the reference answer (5)."
+        ],
+        "rationale": "The question asks for a specific count of hops in a given topology and transmission power. The candidate's answer of '3' directly contradicts the reference answer of '5'. There is no indication of paraphrasing, extra detail, or ambiguity — the factual value is incorrect. Therefore, the candidate answer is semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 184,
+        "total_tokens": 396,
+        "completion_tokens": 212,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_281",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The curve follows Luhn's hypothesis, which states that the norm is inversely proportional to the log frequency, with mid-rank terms being most significant.",
+      "reference": "The $L_2$-norm of a word vector is inversely proportional to its frequency.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 14.89890432357788,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The L2-norm of a word vector is inversely proportional to its frequency."
+        ],
+        "candidate_claims": [
+          "The curve follows Luhn's hypothesis, which states that the norm is inversely proportional to the log frequency, with mid-rank terms being most significant."
+        ],
+        "substantive_differences": [
+          "The reference states inverse proportionality to frequency, while the candidate claims inverse proportionality to log frequency — a different mathematical relationship.",
+          "The candidate introduces Luhn's hypothesis, which is not mentioned or implied in the reference and is not the focus of the paper's observation.",
+          "The candidate adds 'mid-rank terms being most significant,' which is not part of the reference and not directly supported by the question or reference."
+        ],
+        "rationale": "The candidate misrepresents the observed relationship by substituting 'frequency' with 'log frequency' in the inverse proportionality claim. This is a substantive error in the mathematical relationship. Additionally, the candidate introduces external concepts (Luhn's hypothesis) and extra claims not present in the reference, which are not harmless details but distort the core factual meaning. The reference is clear and specific: inverse proportionality to frequency, not log frequency."
+      },
+      "usage": {
+        "prompt_tokens": 262,
+        "total_tokens": 547,
+        "completion_tokens": 285,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_122",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ChoiceNet",
+      "reference": "As the corruption level increases, the performance of all models decreases. However, ChoiceNet consistently outperforms both ConvNet and ConvNet+Mixup across all corruption levels, maintaining high accuracy even when almost half of the labels are incorrect. This suggests that ChoiceNet is significantly more robust to label corruption compared to the other models.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 14.41066598892212,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "As corruption increases, all models' performance decreases.",
+          "ChoiceNet outperforms ConvNet and ConvNet+Mixup at all corruption levels.",
+          "ChoiceNet maintains high accuracy even at 47% corruption.",
+          "ChoiceNet is significantly more robust to label corruption than the other models."
+        ],
+        "candidate_claims": [
+          "ChoiceNet"
+        ],
+        "substantive_differences": [
+          "The candidate answer only provides the name 'ChoiceNet' without addressing the trend of accuracy changes, model comparisons, or robustness claims.",
+          "It omits all required components: no mention of performance decrease with corruption, no comparison with ConvNet or ConvNet+Mixup, no discussion of accuracy levels or robustness.",
+          "The candidate fails to answer the full question, which asks for changes in test accuracies and which model is most robust."
+        ],
+        "rationale": "The candidate answer is incomplete and does not convey the same factual meaning as the reference. It only names one model without explaining the trend, comparisons, or robustness, which are essential parts of the question. This constitutes a missing required component and thus is semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 273,
+        "total_tokens": 549,
+        "completion_tokens": 276,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_452",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ENet",
+      "reference": "TecoGAN.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.803148984909058,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "TecoGAN is represented by the largest bubble in the figure, indicating the highest tOF score and best temporal coherence."
+        ],
+        "candidate_claims": [
+          "ENet is represented by the largest bubble in the figure, indicating the highest tOF score and best temporal coherence."
+        ],
+        "substantive_differences": [
+          "The candidate answer identifies ENet as the model with the largest bubble, while the reference explicitly states TecoGAN holds this distinction.",
+          "This is a direct factual contradiction regarding which model achieved the highest tOF score and best temporal coherence."
+        ],
+        "rationale": "The candidate answer incorrectly attributes the highest tOF score and largest bubble to ENet, whereas the reference clearly identifies TecoGAN as the correct model. This is a clear factual error in entity identification, violating the requirement for semantic equivalence."
+      },
+      "usage": {
+        "prompt_tokens": 203,
+        "total_tokens": 410,
+        "completion_tokens": 207,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_84",
+      "candidate_source": "official_parser",
+      "candidate_answer": "As average path length increases, classification error increases for both 3 and 6 residual block networks on CIFAR-10, with the 6-block network generally achieving lower error at shorter path lengths and showing a more gradual increase compared to the 3-block network.",
+      "reference": "The classification error of a residual network generally increases as the average path length increases.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.152427911758423,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The classification error of a residual network generally increases as the average path length increases."
+        ],
+        "candidate_claims": [
+          "As average path length increases, classification error increases for both 3 and 6 residual block networks on CIFAR-10",
+          "The 6-block network generally achieves lower error at shorter path lengths",
+          "The 6-block network shows a more gradual increase compared to the 3-block network"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate correctly identifies the core trend: classification error increases with average path length, which matches the reference. It adds specific, non-contradictory details about the comparison between 3- and 6-block networks (lower error at shorter paths for 6-block, more gradual increase), which are plausible and do not contradict the reference. These are harmless elaborations that enhance, rather than distort, the core semantic meaning. No factual error or contradiction is present."
+      },
+      "usage": {
+        "prompt_tokens": 250,
+        "total_tokens": 482,
+        "completion_tokens": 232,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_52",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Batching reduces both the radio duty cycle and the CPU duty cycle for TCP. Specifically, the radio duty cycle drops from 2.29% (No Batching) to 0.734% (Batching), and the CPU duty cycle drops from 0.973% (No Batching) to 0.30% (Batching).",
+      "reference": "Batching reduces both the radio duty cycle and CPU duty cycle.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.814191102981567,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Batching reduces both the radio duty cycle and CPU duty cycle."
+        ],
+        "candidate_claims": [
+          "Batching reduces both the radio duty cycle and the CPU duty cycle for TCP.",
+          "The radio duty cycle drops from 2.29% (No Batching) to 0.734% (Batching).",
+          "The CPU duty cycle drops from 0.973% (No Batching) to 0.30% (Batching)."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly identifies that batching reduces both radio and CPU duty cycles, which matches the reference. The additional specific percentages and comparison values are consistent with the question’s context (TCP experiments) and do not contradict the reference. These details are harmless extra information and do not alter the core semantic meaning. The mention of 'for TCP' is contextually appropriate and does not change the factual claim. No contradictions, missing components, or incorrect trends are present."
+      },
+      "usage": {
+        "prompt_tokens": 265,
+        "total_tokens": 510,
+        "completion_tokens": 245,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_195",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "The training curves for the ACGAN show that the generator and discriminator losses both decrease over time. This indicates that the ACGAN is able to learn to generate realistic images.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_585",
+      "candidate_source": "official_parser",
+      "candidate_answer": "MLE SeqGAN",
+      "reference": "MLE SeqGAN and Word LSTM with temperature 1.0.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.451413869857788,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The generators that produced reviews hardest for meta-adversarial evaluators to distinguish from human-written ones (achieving lowest accuracy) are MLE SeqGAN and Word LSTM with temperature 1.0."
+        ],
+        "candidate_claims": [
+          "The generator that produced reviews hardest for meta-adversarial evaluators to distinguish from human-written ones is MLE SeqGAN."
+        ],
+        "substantive_differences": [
+          "The candidate answer omits 'Word LSTM with temperature 1.0', which is explicitly mentioned in the reference as one of the two generators achieving the lowest accuracy.",
+          "The question asks for 'which specific generators' (plural), implying multiple entities are expected. The candidate provides only one, which is incomplete."
+        ],
+        "rationale": "The candidate answer is factually incomplete. While MLE SeqGAN is correct, the reference explicitly identifies two generators. Omitting one of the required components constitutes a missing required component, which per the rules marks the answer as incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 207,
+        "total_tokens": 445,
+        "completion_tokens": 238,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_578",
+      "candidate_source": "official_parser",
+      "candidate_answer": "SCHOLAR",
+      "reference": "The topic with the highest internal coherence value is \"turks armenian armenia turkish roads escape soviet muslim mountain soul\".",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.094046354293823,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The topic with the highest internal coherence value is 'turks armenian armenia turkish roads escape soviet muslim mountain soul'."
+        ],
+        "candidate_claims": [
+          "SCHOLAR"
+        ],
+        "substantive_differences": [
+          "The candidate answer 'SCHOLAR' refers to the model name, not the specific topic with the highest internal coherence.",
+          "The reference answer identifies a specific topic (a list of words) as having the highest coherence, while the candidate answer provides no such topic or value.",
+          "The candidate answer fails to address the central question about which topic ranks highest in internal coherence."
+        ],
+        "rationale": "The question asks for the topic with the highest internal coherence, not the model used. The reference answer correctly identifies the specific topic, while the candidate answer incorrectly names the model, which is irrelevant to the question's requirement. This constitutes a wrong entity and missing required component."
+      },
+      "usage": {
+        "prompt_tokens": 215,
+        "total_tokens": 446,
+        "completion_tokens": 231,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_80",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The average number of inter-word semantic connections per word increases monotonically from 0.39 at κ=0 to 5.58 at κ=5.",
+      "reference": "The average number of inter-word semantic connections per word increases as the value of κ increases.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 17.176079750061035,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The average number of inter-word semantic connections per word increases as the value of κ increases."
+        ],
+        "candidate_claims": [
+          "The average number of inter-word semantic connections per word increases monotonically from 0.39 at κ=0 to 5.58 at κ=5."
+        ],
+        "substantive_differences": [
+          "The candidate provides specific numerical values (0.39 at κ=0, 5.58 at κ=5) and claims monotonic increase, which are not present in the reference and cannot be verified as correct from the reference alone.",
+          "The reference makes a general trend claim without specifying values or monotonicity, so the candidate's addition of precise numbers and the term 'monotonically' introduces unverified factual claims.",
+          "The candidate's answer goes beyond the reference by asserting exact values and a stronger condition (monotonicity), which may not be supported by the figure or the paper's description."
+        ],
+        "rationale": "While the candidate correctly identifies the increasing trend, it adds specific numerical values and the term 'monotonically' that are not present in the reference and cannot be confirmed as factually accurate based solely on the reference. The reference only states a general increase, not a monotonic one or with specific values. Adding such details without justification constitutes a factual overreach, making the candidate answer semantically incorrect relative to the reference."
+      },
+      "usage": {
+        "prompt_tokens": 251,
+        "total_tokens": 579,
+        "completion_tokens": 328,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_212",
+      "candidate_source": "official_parser",
+      "candidate_answer": "In the two-level attention model, attention weights for \"rest_3_str\" and \"rating 3\" are more focused and selective, shown by darker shading in Figure 7a, compared to the one-level attention model (Figure 7b), where the weights are more diffuse and less selective, indicated by lighter shading.",
+      "reference": " The two-level attention model has higher attention weights on the relevant information in the memory, while the one-level attention model has more uniform attention weights.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.244235277175903,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The two-level attention model has higher attention weights on the relevant information in the memory.",
+          "The one-level attention model has more uniform attention weights."
+        ],
+        "candidate_claims": [
+          "In the two-level attention model, attention weights for 'rest_3_str' and 'rating 3' are more focused and selective.",
+          "In the one-level attention model, the weights are more diffuse and less selective."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core comparison: the two-level model exhibits focused/selective attention (higher weights on relevant entries), while the one-level model shows diffuse/uniform attention. The mention of 'darker shading' and 'lighter shading' in Figure 7a and 7b is a harmless, contextually appropriate detail that supports the semantic claim without altering its meaning. The candidate does not contradict the reference and accurately reflects the intended comparison in terms of focus and selectivity."
+      },
+      "usage": {
+        "prompt_tokens": 303,
+        "total_tokens": 537,
+        "completion_tokens": 234,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_269",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The second-stage decoder $D_2$ takes the soft edge maps $x_G$ as input to reconstruct the non-key frames ($X_G$). Its purpose is to reconstruct these frames using the soft edge maps, which contain only edge information, based on its training with key frames and their corresponding soft edge maps.",
+      "reference": "The second-stage decoder $D_2$ takes soft edges $x_G$ as input and produces reconstructed frames.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.37078046798706,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The second-stage decoder $D_2$ takes soft edges $x_G$ as input.",
+          "The second-stage decoder $D_2$ produces reconstructed frames."
+        ],
+        "candidate_claims": [
+          "The second-stage decoder $D_2$ takes the soft edge maps $x_G$ as input to reconstruct the non-key frames ($X_G$).",
+          "Its purpose is to reconstruct these frames using the soft edge maps, which contain only edge information, based on its training with key frames and their corresponding soft edge maps."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate correctly identifies that $D_2$ takes $x_G$ as input and reconstructs frames. It adds context about reconstructing non-key frames and training with key frames, which is consistent with the reference and does not contradict it. The reference does not specify frame type (key/non-key), but this is a harmless elaboration. The core semantic meaning — input and output of $D_2$ — is preserved. No factual errors or contradictions are present."
+      },
+      "usage": {
+        "prompt_tokens": 276,
+        "total_tokens": 532,
+        "completion_tokens": 256,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_272",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "Participants are asked to choose which of the two images (A or B) is perceptually closer to the reference video.",
+      "reference": "The user study is designed to test which of two images is closer to a reference video.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.077004671096802,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The user study is designed to test which of two images is closer to a reference video."
+        ],
+        "candidate_claims": [
+          "Participants are asked to choose which of the two images (A or B) is perceptually closer to the reference video."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer accurately rephrases the reference by specifying the participants' task (choosing between images A and B) and explicitly using 'perceptually closer', which aligns with the implied perceptual comparison in the reference. The core meaning — comparing two images to a reference video — is preserved. No factual errors or omissions are present."
+      },
+      "usage": {
+        "prompt_tokens": 223,
+        "total_tokens": 396,
+        "completion_tokens": 173,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_560",
+      "candidate_source": "official_parser",
+      "candidate_answer": "LST-Skip",
+      "reference": "LST-Skip seems to perform better in predicting electricity consumption.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 8.89778757095337,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "LST-Skip performs better in predicting electricity consumption"
+        ],
+        "candidate_claims": [
+          "LST-Skip"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'LST-Skip' directly identifies the model that performs better, which is the core factual claim of the reference answer. While the reference includes a qualitative judgment ('seems to perform better'), the candidate correctly names the superior model without contradiction. The question asks which model demonstrates closer alignment, and 'LST-Skip' is the correct entity. No substantive difference in meaning exists; the candidate is a concise, accurate response to the question."
+      },
+      "usage": {
+        "prompt_tokens": 213,
+        "total_tokens": 382,
+        "completion_tokens": 169,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_55",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "Scaling the training set from 10K to 70K improves both ODS-F for lane marking (from 45.41 to 54.48) and IoU for drivable area segmentation (from 64.23 to 71.37), but the gains diminish after 20K, indicating diminishing returns.",
+      "reference": "Increasing the training set size generally leads to improved performance for both lane marking and drivable area segmentation tasks.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.806535482406616,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Increasing the training set size generally leads to improved performance for both lane marking and drivable area segmentation tasks."
+        ],
+        "candidate_claims": [
+          "Scaling the training set from 10K to 70K improves both ODS-F for lane marking (from 45.41 to 54.48) and IoU for drivable area segmentation (from 64.23 to 71.37).",
+          "The gains diminish after 20K, indicating diminishing returns."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly identifies the positive performance trend for both tasks as training set size increases, which aligns with the reference. It adds specific numerical values and a trend observation (diminishing returns after 20K), which are plausible and do not contradict the reference. The reference is general, while the candidate provides more detail — this is allowed under the rules as harmless extra detail. No factual errors or contradictions are present."
+      },
+      "usage": {
+        "prompt_tokens": 301,
+        "total_tokens": 546,
+        "completion_tokens": 245,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_18",
+      "candidate_source": "official_parser",
+      "candidate_answer": "FlowNet2 (ft) achieves a lower error (3.14) than Devon (ft) (6.35) on the Sintel \"Final\" test set.",
+      "reference": "PWC-Net (ft) performs best on the Sintel \"Final\" test set with an error of 5.04. Devon (ft) has a higher error of 6.35 on the same set. ",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.58319664001465,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "PWC-Net (ft) performs best on the Sintel 'Final' test set with an error of 5.04.",
+          "Devon (ft) has a higher error of 6.35 on the same set."
+        ],
+        "candidate_claims": [
+          "FlowNet2 (ft) achieves a lower error (3.14) than Devon (ft) (6.35) on the Sintel 'Final' test set."
+        ],
+        "substantive_differences": [
+          "The candidate incorrectly identifies FlowNet2 (ft) as the best-performing method with an error of 3.14, while the reference states PWC-Net (ft) is best with 5.04.",
+          "The candidate's value of 3.14 is not supported by the reference and contradicts the stated best performance.",
+          "The candidate's claim that FlowNet2 (ft) achieves a lower error than Devon (ft) is factually incorrect in the context of the reference, which identifies PWC-Net (ft) as the best performer."
+        ],
+        "rationale": "The candidate provides a different method (FlowNet2 vs. PWC-Net) and a different error value (3.14 vs. 5.04) that contradicts the reference. The reference explicitly names PWC-Net (ft) as the best performer on the Sintel 'Final' set, which the candidate does not acknowledge. The candidate’s answer is factually inconsistent with the benchmark."
+      },
+      "usage": {
+        "prompt_tokens": 275,
+        "total_tokens": 629,
+        "completion_tokens": 354,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_559",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The 'Mixture of Classifiers' method is shown to more effectively handle outliers and accurately classify data points, as it uses a mixture weight to select between two classifiers based on the corruption probability, thereby separating clean and corrupted data points.",
+      "reference": "Mixture of classifiers.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.9096040725708,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Mixture of classifiers is shown to more effectively handle outliers and accurately classify the data points."
+        ],
+        "candidate_claims": [
+          "The 'Mixture of Classifiers' method is shown to more effectively handle outliers and accurately classify data points.",
+          "It uses a mixture weight to select between two classifiers based on the corruption probability, thereby separating clean and corrupted data points."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate correctly identifies 'Mixture of Classifiers' as the method that more effectively handles outliers and classifies data points, matching the reference. The additional explanation about mixture weights and corruption probability is a harmless elaboration that supports the core claim without contradicting or altering its meaning. The semantic intent is preserved."
+      },
+      "usage": {
+        "prompt_tokens": 233,
+        "total_tokens": 422,
+        "completion_tokens": 189,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_66",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Bitmaps, encoded with semantic labels of places, are used as masks to isolate and extract features specific to each place, enabling the spatial decomposition of video representations into distinct place-based regions. This decomposition encourages the network to learn generic, layout-independent place-based features.",
+      "reference": "The LIVR framework decomposes semantic features into different places by utilizing bitmaps encoded with the semantic labels of places. This decomposition encourages the network to learn features of generic place-based motion patterns that are independent of scene layouts.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.617990970611572,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Bitmaps are encoded with semantic labels of places.",
+          "These bitmaps are used to decompose semantic features into different places.",
+          "This decomposition encourages learning of generic place-based motion patterns independent of scene layouts."
+        ],
+        "candidate_claims": [
+          "Bitmaps encoded with semantic labels of places are used as masks.",
+          "These masks isolate and extract features specific to each place.",
+          "This enables spatial decomposition into distinct place-based regions.",
+          "This decomposition encourages learning of generic, layout-independent place-based features."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer accurately rephrases the reference, preserving all key factual elements: bitmaps are encoded with place semantic labels, used as masks for spatial decomposition, and this process promotes learning of layout-independent, generic place-based features. The candidate adds minor elaboration ('isolate and extract features') which is harmless and consistent with the reference. No contradictions or omissions of required components exist. Semantic equivalence is maintained."
+      },
+      "usage": {
+        "prompt_tokens": 277,
+        "total_tokens": 516,
+        "completion_tokens": 239,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_364",
+      "candidate_source": "official_parser",
+      "candidate_answer": "GB-KMV",
+      "reference": "GB-KMV performs better in terms of F1 score and precision when the space used is 5%.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.120297908782959,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "GB-KMV performs better in terms of F1 score and precision when the space used is 5%."
+        ],
+        "candidate_claims": [
+          "GB-KMV"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'GB-KMV' correctly identifies the algorithm that performs better in F1 score and precision at 5% space usage, as stated in the reference. While the candidate is concise and omits explicit mention of 'F1 score and precision', the context of the question makes it clear that the answer refers to the superior algorithm in those metrics. The core factual claim is preserved without contradiction or omission of required components."
+      },
+      "usage": {
+        "prompt_tokens": 232,
+        "total_tokens": 406,
+        "completion_tokens": 174,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_510",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "The Transfer + MTSA model performed best on the SNLI test set with an accuracy of 86.9%.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_98",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "Both the segment loss rate and goodput decrease as the maximum link delay increases.",
+      "reference": "As the maximum link delay increases, the segment loss rate increases and the goodput decreases.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.647082328796387,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "As the maximum link delay increases, the segment loss rate increases",
+          "As the maximum link delay increases, the goodput decreases"
+        ],
+        "candidate_claims": [
+          "Both the segment loss rate and goodput decrease as the maximum link delay increases"
+        ],
+        "substantive_differences": [
+          "The candidate incorrectly states that the segment loss rate decreases, while the reference states it increases."
+        ],
+        "rationale": "The candidate misrepresents the trend for segment loss rate — it claims it decreases with increasing delay, whereas the reference explicitly states it increases. This is a factual contradiction. Although goodput is correctly identified as decreasing, the error in segment loss rate renders the overall answer incorrect per the rules."
+      },
+      "usage": {
+        "prompt_tokens": 239,
+        "total_tokens": 422,
+        "completion_tokens": 183,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_163",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The Hilbert curve recursively subdivides a square into four smaller squares and applies the same pattern to each, but the specific drawing rule for the path within each subdivision is not described in the text or explicitly inferable from the visual pattern alone.",
+      "reference": "The Hilbert space-filling curve is constructed recursively. The curve starts with a simple square, and then at each subsequent iteration, the curve is subdivided into four smaller squares. The curve is then drawn through each of these squares in a specific order.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 15.611657857894897,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The Hilbert space-filling curve is constructed recursively.",
+          "The curve starts with a simple square.",
+          "At each subsequent iteration, the curve is subdivided into four smaller squares.",
+          "The curve is then drawn through each of these squares in a specific order."
+        ],
+        "candidate_claims": [
+          "The Hilbert curve recursively subdivides a square into four smaller squares.",
+          "The same pattern is applied to each subdivision.",
+          "The specific drawing rule for the path within each subdivision is not described in the text or explicitly inferable from the visual pattern alone."
+        ],
+        "substantive_differences": [
+          "The reference explicitly states that the curve is drawn through each subdivision in a specific order, implying that the drawing rule is defined and known.",
+          "The candidate contradicts this by asserting that the specific drawing rule is not described or inferable, which directly contradicts the reference's claim of a defined, specific order."
+        ],
+        "rationale": "The candidate answer introduces a contradiction by claiming the drawing rule is not described or inferable, while the reference explicitly states that the curve is drawn through each subdivision in a specific order. This is a factual contradiction, not a paraphrase or harmless addition. Therefore, the candidate is semantically incorrect relative to the reference."
+      },
+      "usage": {
+        "prompt_tokens": 287,
+        "total_tokens": 584,
+        "completion_tokens": 297,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_571",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "Step 4, Reason disambiguation.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_440",
+      "candidate_source": "official_parser",
+      "candidate_answer": "EDVR",
+      "reference": "DUF",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.668784856796265,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The method that achieves the highest pixel-wise accuracy (as measured by averaged PSNR on 500 up-scaled frames from the Vid4 dataset) is DUF."
+        ],
+        "candidate_claims": [
+          "The method that achieves the highest pixel-wise accuracy is EDVR."
+        ],
+        "substantive_differences": [
+          "The candidate answer identifies EDVR as the top-performing method, while the reference answer identifies DUF. This is a direct factual contradiction regarding the method achieving the highest PSNR."
+        ],
+        "rationale": "The question asks for the method with the highest pixel-wise accuracy, which is quantified by PSNR in the context. The reference answer explicitly names DUF as the top method, while the candidate names EDVR. Since these are distinct methods and the question requires a specific entity as the answer, the candidate is factually incorrect. There is no indication that EDVR outperforms DUF in the given context, and the reference is treated as the benchmark."
+      },
+      "usage": {
+        "prompt_tokens": 207,
+        "total_tokens": 448,
+        "completion_tokens": 241,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_26",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "No, adversarial examples generated with the 2-keyword constraint deviate significantly from the original syntactic structure.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_61",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "BDD100K has a larger scale (318K frames, 1,600 sequences, 131K identities) and greater diversity (in object scale and occlusion) than KITTI (8K frames, 21 sequences, 917 identities) and MOT17 (34K frames, 21 sequences, 1,638 identities), making it more suitable for robust multiple object tracking.",
+      "reference": "The BDD100K dataset is significantly larger and more complex than both the KITTI and MOT17 datasets. It contains roughly 40 times more frames, 16 times more sequences, and 13 times more identities than KITTI. Compared to MOT17, BDD100K has about 10 times more frames, 80 times more sequences, and 8 times more identities. This increase in size and complexity makes BDD100K a more challenging and comprehensive benchmark for multiple object tracking algorithms. ",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 26.44405961036682,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "BDD100K is significantly larger and more complex than KITTI and MOT17.",
+          "BDD100K has ~40x more frames, ~16x more sequences, ~13x more identities than KITTI.",
+          "BDD100K has ~10x more frames, ~80x more sequences, ~8x more identities than MOT17.",
+          "This makes BDD100K a more challenging and comprehensive benchmark for MOT."
+        ],
+        "candidate_claims": [
+          "BDD100K has 318K frames, 1,600 sequences, 131K identities.",
+          "KITTI has 8K frames, 21 sequences, 917 identities.",
+          "MOT17 has 34K frames, 21 sequences, 1,638 identities.",
+          "BDD100K has greater scale and diversity (object scale and occlusion) than KITTI and MOT17.",
+          "BDD100K is more suitable for robust multiple object tracking."
+        ],
+        "substantive_differences": [
+          "Candidate provides absolute numbers (318K, 1,600, etc.) while reference uses relative comparisons (40x, 16x, etc.).",
+          "Candidate adds 'diversity in object scale and occlusion' — not mentioned in reference, but not contradictory.",
+          "Candidate does not explicitly state the multiplicative comparisons (e.g., 40x more frames than KITTI), but the absolute numbers imply them and are consistent with reference's ratios."
+        ],
+        "rationale": "The candidate accurately conveys the scale and diversity advantages of BDD100K over KITTI and MOT17 using absolute numbers that are consistent with the reference’s relative comparisons. The addition of 'diversity in object scale and occlusion' is a harmless elaboration that does not contradict the reference. The core factual claims (larger scale, more sequences/frames/identities, better suited for MOT) are preserved. No wrong entities, values, or trends are present. The candidate answers the central question with equivalent semantic meaning."
+      },
+      "usage": {
+        "prompt_tokens": 412,
+        "total_tokens": 918,
+        "completion_tokens": 506,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_47",
+      "candidate_source": "official_parser",
+      "candidate_answer": "GBI reduces the average disagreement rate by 19.93%, while A* reduces it by 10.94%. Therefore, GBI’s reduction is 8.99 percentage points greater than A*'s reduction.",
+      "reference": "GBI is more effective than A* in reducing the disagreement rate on the SRL-100 network's failure set. After applying GBI, the average disagreement rate drops to 24.92%, while A* only reduces it to 33.91%. This represents an 19.93% greater reduction in disagreement rate when using GBI compared to A*.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 30.62456965446472,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "GBI reduces the average disagreement rate to 24.92% (from an implied baseline)",
+          "A* reduces it to 33.91%",
+          "GBI’s reduction is 19.93% greater than A*'s reduction (in relative terms or as a difference in reduction percentages)"
+        ],
+        "candidate_claims": [
+          "GBI reduces the average disagreement rate by 19.93% (absolute reduction)",
+          "A* reduces it by 10.94% (absolute reduction)",
+          "GBI’s reduction is 8.99 percentage points greater than A*'s"
+        ],
+        "substantive_differences": [
+          "The candidate misrepresents the 19.93% as an absolute reduction (i.e., from original rate) rather than as the difference in reduction effectiveness between GBI and A* (as implied in the reference).",
+          "The reference does not state absolute reduction percentages (e.g., 19.93% or 10.94%) but rather final rates (24.92% and 33.91%) and a comparative improvement of 19.93% (likely meaning 19.93 percentage points or relative improvement — context unclear, but candidate’s interpretation is inconsistent).",
+          "The candidate’s 8.99 percentage point difference (19.93 - 10.94) is mathematically correct given its own numbers, but those numbers are not supported by the reference. The reference does not provide absolute reduction percentages, only final rates and a comparative improvement figure.",
+          "The candidate’s claim of '19.93% reduction' contradicts the reference’s presentation of 24.92% as the final rate — unless the original rate is 44.85% (24.92 / (1 - 0.1993)), which is not stated or implied in the reference."
+        ],
+        "rationale": "The candidate misinterprets the reference’s 19.93% as an absolute reduction percentage, whereas the reference presents it as a comparative advantage (likely in percentage points or relative terms) derived from the difference between final rates (33.91% - 24.92% = 8.99 percentage points). The candidate’s 19.93% and 10.94% are not stated in the reference and cannot be derived from it without assuming an original rate, which is not provided. Thus, the candidate’s answer is factually inconsistent with the reference."
+      },
+      "usage": {
+        "prompt_tokens": 330,
+        "total_tokens": 918,
+        "completion_tokens": 588,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_360",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Multi-X",
+      "reference": "Multi-X is generally faster for fitting planes and cylinders compared to T-Linkage.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.276282787322998,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Multi-X is generally faster for fitting planes and cylinders compared to T-Linkage."
+        ],
+        "candidate_claims": [
+          "Multi-X"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Multi-X' correctly identifies the algorithm that is faster, as stated in the reference. While the reference includes a comparative claim ('faster than T-Linkage') and context ('for fitting planes and cylinders'), the candidate answer is a concise, unambiguous selection of the correct entity. The question asks which algorithm 'consistently demonstrates faster processing times', and 'Multi-X' directly answers that. The reference's 'generally faster' aligns with 'consistently faster' in the context of the question, which refers to all point sizes. No contradiction or missing component exists; the candidate is a valid, minimal response to the question."
+      },
+      "usage": {
+        "prompt_tokens": 213,
+        "total_tokens": 429,
+        "completion_tokens": 216,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_5",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The warped triplets leverage motion information to improve frame alignment by providing the discriminator with cues about how frames should be temporally aligned, enabling it to guide the generator to produce more accurate and temporally coherent super-resolution results.",
+      "reference": " The warped triplets provide additional information about the motion and appearance of the scene, which helps the VSR Ds,t to generate more accurate and realistic results.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 16.056721210479736,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Warped triplets provide additional information about motion and appearance.",
+          "This information helps the VSR Ds,t generate more accurate and realistic results."
+        ],
+        "candidate_claims": [
+          "Warped triplets leverage motion information to improve frame alignment.",
+          "They provide cues about temporal alignment to the discriminator.",
+          "The discriminator guides the generator to produce accurate and temporally coherent super-resolution results."
+        ],
+        "substantive_differences": [
+          "The reference attributes the benefit to the VSR model Ds,t (likely the generator or overall model), while the candidate incorrectly assigns the role of receiving motion cues to the discriminator, which is not mentioned in the reference.",
+          "The candidate introduces a generator-discriminator framework (implying GAN-based architecture) not present or implied in the reference.",
+          "The reference emphasizes motion and appearance information aiding the VSR model directly, while the candidate frames it as a discriminator-guided process, altering the mechanism."
+        ],
+        "rationale": "The candidate misattributes the role of the warped triplets to a discriminator, which is not mentioned in the reference. The reference focuses on the VSR model Ds,t directly benefiting from motion and appearance information, without involving a discriminator or generator. This introduces a structural and functional mismatch that contradicts the reference's implied model architecture and mechanism."
+      },
+      "usage": {
+        "prompt_tokens": 260,
+        "total_tokens": 568,
+        "completion_tokens": 308,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_14",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Who",
+      "reference": "ACNN performs best on \"Who\" questions.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 8.632793426513672,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "ACNN performs best on 'Who' questions."
+        ],
+        "candidate_claims": [
+          "Who"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Who' directly corresponds to the specific question type mentioned in the reference answer ('Who' questions). Although the candidate is minimal, it unambiguously identifies the correct question type, matching the factual meaning of the reference. The question asks for the specific question type within WikiQA where ACNN achieves highest accuracy, and 'Who' is the correct and complete identifier for that type. No contradiction, missing component, or incorrect value is present."
+      },
+      "usage": {
+        "prompt_tokens": 188,
+        "total_tokens": 353,
+        "completion_tokens": 165,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_249",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "UDA and MVL have T-R target-domain training data available, while ZDDA does not.",
+      "reference": "The key difference lies in the availability of target-domain training data. While UDA and MVL methods require T-R training data from the target domain, ZDDA does not. ZDDA only requires T-R training data from a single source domain.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.57563066482544,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "UDA and MVL methods require T-R training data from the target domain.",
+          "ZDDA does not require T-R training data from the target domain.",
+          "ZDDA only requires T-R training data from a single source domain."
+        ],
+        "candidate_claims": [
+          "UDA and MVL have T-R target-domain training data available.",
+          "ZDDA does not have T-R target-domain training data available."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core semantic contrast: UDA and MVL have access to target-domain T-R data, while ZDDA does not. The reference adds that ZDDA uses source-domain T-R data, which is not contradicted and is not required for the central comparison. The candidate’s phrasing is a valid paraphrase of the reference’s key point. No factual error or contradiction exists."
+      },
+      "usage": {
+        "prompt_tokens": 261,
+        "total_tokens": 482,
+        "completion_tokens": 221,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_143",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Consistency (average pairwise cosine similarity) improves with increasing state-action pairs for each method across different training iterations.",
+      "reference": "The quality of gradient estimation increases as the number of state-action pairs used in estimation increases.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 15.260738372802734,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The quality of gradient estimation increases as the number of state-action pairs used in estimation increases."
+        ],
+        "candidate_claims": [
+          "Consistency (average pairwise cosine similarity) improves with increasing state-action pairs for each method across different training iterations."
+        ],
+        "substantive_differences": [
+          "The reference answer makes a general claim about the quality of gradient estimation improving with more state-action pairs, without specifying a metric or context like 'across different training iterations'.",
+          "The candidate answer introduces a specific metric ('average pairwise cosine similarity') and adds context ('across different training iterations'), which is not mentioned in the reference and may not be supported by the question or reference.",
+          "The reference does not mention 'training iterations' or 'for each method' as explicit components of the trend, making the candidate's addition potentially misleading or unsupported."
+        ],
+        "rationale": "While the candidate captures the general trend of improvement with more state-action pairs, it introduces specific details (metric, training iterations, per-method) not present in the reference. The reference is a general statement about gradient estimation quality, while the candidate narrows and contextualizes it in ways that may not be semantically equivalent. This constitutes a substantive deviation, not a harmless paraphrase."
+      },
+      "usage": {
+        "prompt_tokens": 223,
+        "total_tokens": 515,
+        "completion_tokens": 292,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_67",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The Mean-Shift algorithm maintains robustness to 50 outliers by iteratively shifting points toward regions of higher density in the parameter space, which naturally correspond to the true parameters (red dots). This density-based mode-seeking is reinforced by an energy minimization step that only accepts new modes if they do not increase the fit energy, favoring solutions that best explain the data. Finally, a post-processing validation step removes statistically insignificant models (likely outliers) by checking if the mean distance from inlier points to the estimated model is below a threshold, ensuring the final modes are robust and correspond to the true parameters.",
+      "reference": "The Mean-Shift algorithm is robust to outliers.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 25.510281324386597,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The Mean-Shift algorithm is robust to outliers."
+        ],
+        "candidate_claims": [
+          "The Mean-Shift algorithm maintains robustness to 50 outliers by iteratively shifting points toward regions of higher density in the parameter space, which naturally correspond to the true parameters (red dots).",
+          "This density-based mode-seeking is reinforced by an energy minimization step that only accepts new modes if they do not increase the fit energy, favoring solutions that best explain the data.",
+          "Finally, a post-processing validation step removes statistically insignificant models (likely outliers) by checking if the mean distance from inlier points to the estimated model is below a threshold, ensuring the final modes are robust and correspond to the true parameters."
+        ],
+        "substantive_differences": [
+          "The reference answer is a simple, factual statement: 'The Mean-Shift algorithm is robust to outliers.' It does not specify mechanisms, steps, or thresholds.",
+          "The candidate answer introduces multiple non-standard, unsupported mechanisms: an 'energy minimization step' and a 'post-processing validation step' with a 'mean distance threshold' — these are not part of the standard Mean-Shift algorithm and are not mentioned in the reference.",
+          "The candidate adds specific details (e.g., '50 outliers', 'red dots', 'inlier points') that may be contextually plausible but are not required or implied by the reference, which is a general statement of robustness.",
+          "The candidate's explanation contradicts the simplicity of the reference by implying a complex, multi-stage process that is not part of the standard Mean-Shift algorithm as commonly understood (which is purely density-based iterative shifting without energy minimization or post-processing validation)."
+        ],
+        "rationale": "The candidate answer goes beyond the reference by introducing specific, non-standard algorithmic steps (energy minimization, post-processing validation with distance threshold) that are not part of the standard Mean-Shift algorithm and are not mentioned in the reference. While the candidate correctly identifies the core idea of density-based mode-seeking, the added mechanisms are factually incorrect or unsupported, making the overall answer semantically incorrect relative to the reference, which is a simple, general claim of robustness without elaboration."
+      },
+      "usage": {
+        "prompt_tokens": 336,
+        "total_tokens": 824,
+        "completion_tokens": 488,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_203",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The dashed projection shortcuts in residual networks (a) enable gradients to bypass intermediate layers directly, preventing vanishing gradients. In contrast, inception-like networks (b) lack such shortcuts, forcing gradients to propagate through all layers, which constrains flow and increases vanishing gradient risk.",
+      "reference": "Deep residual networks have skip connections that allow the gradient to flow directly from one layer to another, while networks built by stacking inception-like blocks do not.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.356223583221436,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Deep residual networks have skip connections that allow the gradient to flow directly from one layer to another.",
+          "Networks built by stacking inception-like blocks do not have such connections."
+        ],
+        "candidate_claims": [
+          "The dashed projection shortcuts in residual networks enable gradients to bypass intermediate layers directly, preventing vanishing gradients.",
+          "Inception-like networks lack such shortcuts, forcing gradients to propagate through all layers, which constrains flow and increases vanishing gradient risk."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer accurately captures the core comparison: residual networks use shortcuts to allow direct gradient flow, mitigating vanishing gradients, while inception-like networks lack such paths, leading to constrained gradient flow. The candidate adds context (e.g., 'preventing vanishing gradients', 'increases vanishing gradient risk') that is factually consistent and enhances clarity without contradicting the reference. The semantic meaning is equivalent, with acceptable paraphrasing and harmless elaboration."
+      },
+      "usage": {
+        "prompt_tokens": 275,
+        "total_tokens": 511,
+        "completion_tokens": 236,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_333",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The residual connections provide a direct pathway for features to propagate from earlier layers to later layers, maintaining information flow and allowing gradients to flow more easily, which helps prevent vanishing gradients.",
+      "reference": "The residual connections add the output of the previous layer to the input of the next layer. This helps to improve the flow of information through the network and can help to prevent vanishing gradients.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.910309076309204,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Residual connections add the output of the previous layer to the input of the next layer.",
+          "This improves information flow through the network.",
+          "This helps prevent vanishing gradients."
+        ],
+        "candidate_claims": [
+          "Residual connections provide a direct pathway for features to propagate from earlier layers to later layers.",
+          "This maintains information flow.",
+          "This allows gradients to flow more easily, helping prevent vanishing gradients."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core function of residual connections: enabling direct feature propagation and facilitating gradient flow to mitigate vanishing gradients. While phrased differently (e.g., 'direct pathway' vs 'add output to input'), the semantic meaning is equivalent. The candidate does not introduce errors or contradictions and includes harmless elaboration ('features propagate', 'gradients flow more easily') that aligns with the reference. No required component is missing."
+      },
+      "usage": {
+        "prompt_tokens": 270,
+        "total_tokens": 497,
+        "completion_tokens": 227,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_137",
+      "candidate_source": "official_parser",
+      "candidate_answer": "identity-guided conditional CycleGAN",
+      "reference": "The proposed method utilizes Light-CNN as both the source of the identity features and face verification loss. This allows the method to transfer the appearance of eyes, eyebrows, hairs, etc., while keeping other factors intact, e.g., head pose, shape of face, and facial expression.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.256962060928345,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The proposed method uses Light-CNN for identity features and face verification loss.",
+          "It transfers appearance of eyes, eyebrows, hairs, etc., while preserving head pose, face shape, and facial expression."
+        ],
+        "candidate_claims": [
+          "The method uses identity-guided conditional CycleGAN."
+        ],
+        "substantive_differences": [
+          "The reference specifies Light-CNN as the core technique for identity feature extraction and verification loss, while the candidate claims a different architecture (CycleGAN) as the method.",
+          "There is no mention of CycleGAN or conditional GANs in the reference, making the candidate’s claim factually inconsistent with the benchmark."
+        ],
+        "rationale": "The candidate answer introduces a different and unsupported technique (identity-guided conditional CycleGAN) that contradicts the reference’s explicit mention of Light-CNN as the core method. The semantic meaning is not equivalent, and the candidate fails to capture the correct technical approach described in the reference."
+      },
+      "usage": {
+        "prompt_tokens": 249,
+        "total_tokens": 483,
+        "completion_tokens": 234,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_347",
+      "candidate_source": "official_parser",
+      "candidate_answer": "20%",
+      "reference": "Approximately 80%",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 14.740376710891724,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Approximately 80% of occlusions last for more than 10 frames."
+        ],
+        "candidate_claims": [
+          "20% of occlusions last for more than 10 frames."
+        ],
+        "substantive_differences": [
+          "The candidate provides a value (20%) that is the complement of the reference (80%), implying a misinterpretation of the CDF. In a CDF, the value at 10 frames represents the proportion of occlusions lasting 10 frames or less; thus, the proportion lasting more than 10 frames is 100% minus that value. The candidate’s answer suggests they may have misread the CDF as the probability of lasting less than or equal to 10 frames, or misapplied the complement rule."
+        ],
+        "rationale": "The candidate’s answer contradicts the reference by providing the inverse percentage. Since the question asks for the percentage of occlusions lasting *more than* 10 frames, and the reference states ~80%, the candidate’s 20% is factually incorrect. This is not a paraphrase or harmless extra detail, but a direct numerical contradiction."
+      },
+      "usage": {
+        "prompt_tokens": 190,
+        "total_tokens": 472,
+        "completion_tokens": 282,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_29",
+      "candidate_source": "derived_unclosed_output_tag",
+      "candidate_answer": "For both black and white groups, the probability of debt repayment increases with credit score. However, at every credit score level, the probability of repayment is lower for the black group compared to the white group.",
+      "reference": "The probability of repaying a debt increases with credit score.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 11.856943607330322,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The probability of repaying a debt increases with credit score."
+        ],
+        "candidate_claims": [
+          "For both black and white groups, the probability of debt repayment increases with credit score.",
+          "At every credit score level, the probability of repayment is lower for the black group compared to the white group."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly captures the core trend stated in the reference: that debt repayment probability increases with credit score for both groups. The additional detail about the racial disparity in repayment probabilities at each credit score level is consistent with the paper’s findings (as shown in Figure 4) and does not contradict the reference. Since the reference does not explicitly deny or exclude this comparative detail, and the candidate does not misrepresent the trend, the answer is semantically correct and even more informative. The extra detail is harmless and does not alter the factual meaning of the central claim."
+      },
+      "usage": {
+        "prompt_tokens": 246,
+        "total_tokens": 472,
+        "completion_tokens": 226,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_222",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The predicted frames are more accurate than the reconstructed frames after the second training phase, as the prediction model produces \"perfectly\" accurate frames while the autoencoder generates \"slightly blurred\" frames. This is supported by both the text and the visual comparison in Image 1.",
+      "reference": "The predicted frame is generated by the prediction model, while the reconstructed frame is generated by the autoencoder. The predicted frame is typically more accurate than the reconstructed frame, as the prediction model is trained to predict the future state of the environment, while the autoencoder is only trained to reconstruct the input image.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.683876276016235,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The predicted frame is typically more accurate than the reconstructed frame.",
+          "The prediction model is trained to predict the future state of the environment.",
+          "The autoencoder is only trained to reconstruct the input image."
+        ],
+        "candidate_claims": [
+          "The predicted frames are more accurate than the reconstructed frames after the second training phase.",
+          "The prediction model produces 'perfectly' accurate frames.",
+          "The autoencoder generates 'slightly blurred' frames.",
+          "This is supported by both the text and the visual comparison in Image 1."
+        ],
+        "substantive_differences": [
+          "The candidate introduces unsupported absolute claims: 'perfectly' accurate and 'slightly blurred' — these are not present in the reference and imply a level of certainty not justified by the reference's more cautious 'typically more accurate'.",
+          "The reference does not mention 'Image 1' or any specific visual support, making the candidate's claim about visual evidence an unsupported addition.",
+          "The reference emphasizes training objectives (prediction vs. reconstruction) as the reason for accuracy difference, while the candidate focuses on subjective visual quality without grounding in the reference's rationale."
+        ],
+        "rationale": "The candidate's answer contains factual exaggerations ('perfectly' accurate) and unsupported claims (visual evidence from 'Image 1') that go beyond the reference. While the core comparison (predicted > reconstructed) is correct, the added details contradict the reference's measured tone and lack of specific visual or quantitative support. This constitutes a semantic deviation that violates the 'no contradiction' and 'no unsupported claims' rules."
+      },
+      "usage": {
+        "prompt_tokens": 319,
+        "total_tokens": 678,
+        "completion_tokens": 359,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_431",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Ours-supervised",
+      "reference": "Ours-supervised achieved the highest F1 score on the Lobby dataset with a score of 93.4.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.995848178863525,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Ours-supervised achieved the highest F1 score on the Lobby dataset",
+          "The score was 93.4"
+        ],
+        "candidate_claims": [
+          "Ours-supervised achieved the highest F1 score"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'Ours-supervised' correctly identifies the method that achieved the highest F1 score, which is the central claim of the question. While it omits the specific score (93.4), the question only asks for the method, not the score. The reference includes the score as extra detail, but the core semantic content — identifying the top-performing supervised method — is fully preserved in the candidate. No contradiction or factual error exists."
+      },
+      "usage": {
+        "prompt_tokens": 206,
+        "total_tokens": 396,
+        "completion_tokens": 190,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_223",
+      "candidate_source": "no_candidate_answer",
+      "candidate_answer": null,
+      "reference": "The representation module takes an input image and outputs a feature representation. The learning-to-learn module takes a set of features and learns how to segment the image.",
+      "status": "complete",
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 1.0,
+        "reference_claims": [],
+        "candidate_claims": [],
+        "substantive_differences": [
+          "No candidate answer was produced."
+        ],
+        "rationale": "No answer is available for semantic comparison."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_292",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Not enough information is provided to answer the question, as the actual fixation counts in panel c and the predicted probability mass in panel b are not quantified in the text or trajectory insights.",
+      "reference": "The fixation density map predicts the probability of a person fixating on a particular location in the image. The ground truth fixations are the actual locations where people fixated on the image.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 18.440603971481323,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The fixation density map (panel b) predicts the probability of fixation at each location.",
+          "The ground truth (panel c) shows actual recorded fixations.",
+          "The question asks for a comparison of how accurately the model distributes probability mass across four contour-separated areas relative to the ground truth distribution."
+        ],
+        "candidate_claims": [
+          "The actual fixation counts in panel c and predicted probability mass in panel b are not quantified in the text or trajectory insights.",
+          "Therefore, not enough information is provided to answer the question."
+        ],
+        "substantive_differences": [
+          "The reference answer provides a factual definition of the panels and implies that a comparison is possible (or expected) based on the figure, even if not quantified in text.",
+          "The candidate answer incorrectly asserts that the information is insufficient, which contradicts the premise of the question — which assumes the figure contains sufficient visual information to make a qualitative assessment of accuracy in probability mass distribution across regions.",
+          "The candidate fails to address the core question: the relationship between predicted and actual fixation distributions across the four contour-separated areas, which is the central semantic focus."
+        ],
+        "rationale": "The candidate misinterprets the task. The question asks for an interpretation of the figure, not a request for numerical data. The reference answer correctly frames the panels as predictive vs. actual, implying a visual comparison is possible. The candidate’s claim of insufficient information is factually incorrect in context, as the figure itself (as referenced) is meant to convey the relationship. Thus, the candidate answer is semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 288,
+        "total_tokens": 646,
+        "completion_tokens": 358,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_419",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ITN",
+      "reference": "ITN generates more accurate and realistic samples on the MNIST dataset compared to AC-GATN.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.015649795532227,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "ITN generates more accurate and realistic samples on the MNIST dataset compared to AC-GATN."
+        ],
+        "candidate_claims": [
+          "ITN"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'ITN' correctly identifies the model that produces more accurate and realistic MNIST samples by epoch 100, as stated in the reference. While the candidate omits explicit comparison language ('compared to AC-GATN') and descriptive qualifiers ('more accurate and realistic'), it directly names the correct entity, which is sufficient to convey the central factual claim. The question asks which model produces better samples, and 'ITN' is the unambiguous correct answer based on the reference. No contradiction or factual error exists."
+      },
+      "usage": {
+        "prompt_tokens": 221,
+        "total_tokens": 414,
+        "completion_tokens": 193,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_496",
+      "candidate_source": "official_parser",
+      "candidate_answer": "HDMF",
+      "reference": "HDMF achieved the best overall performance.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.337240219116211,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "HDMF achieved the best overall performance."
+        ],
+        "candidate_claims": [
+          "HDMF"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer 'HDMF' directly identifies the model that achieved the highest performance, as stated in the reference. While the reference includes the phrase 'best overall performance', the candidate provides the correct entity (HDMF) without extraneous detail. In the context of the question, which asks for the model that consistently achieved the highest performance across all metrics, the candidate answer is semantically equivalent and sufficient. The omission of the phrase 'achieved the best overall performance' does not alter the factual meaning, as the question explicitly asks for the model name. No contradiction, wrong entity, or missing component is present."
+      },
+      "usage": {
+        "prompt_tokens": 238,
+        "total_tokens": 438,
+        "completion_tokens": 200,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_165",
+      "candidate_source": "official_parser",
+      "candidate_answer": "22",
+      "reference": "22 iterations",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 10.17120909690857,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The greedy EM-type learning process took 22 iterations to learn the part models for the watch image."
+        ],
+        "candidate_claims": [
+          "22"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer '22' directly provides the numerical value requested in the question, which is the number of iterations. Although it lacks units or context, the question specifically asks for 'how many iterations', and the reference answer is '22 iterations'. The candidate's answer is semantically equivalent to the core factual content of the reference, as the number '22' is the key entity required. The omission of the word 'iterations' is harmless and does not alter the factual meaning in this context, as the question explicitly asks for a count of iterations."
+      },
+      "usage": {
+        "prompt_tokens": 192,
+        "total_tokens": 390,
+        "completion_tokens": 198,
+        "prompt_tokens_details": null
+      }
+    }
+  ]
+}

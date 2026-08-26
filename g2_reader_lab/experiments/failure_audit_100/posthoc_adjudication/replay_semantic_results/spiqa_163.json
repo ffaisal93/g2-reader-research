@@ -1,0 +1,43 @@
+{
+  "question_id": "spiqa_163",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level. The curve is drawn by recursively applying the same pattern within each sub-square and connecting them in a specific order (typically top-left, top-right, bottom-right, bottom-left) to form a continuous, space-filling path that preserves spatial locality.",
+  "reference": "The Hilbert space-filling curve is constructed recursively. The curve starts with a simple square, and then at each subsequent iteration, the curve is subdivided into four smaller squares. The curve is then drawn through each of these squares in a specific order.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.483190059661865,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The Hilbert space-filling curve is constructed recursively.",
+      "The curve starts with a simple square.",
+      "At each subsequent iteration, the curve is subdivided into four smaller squares.",
+      "The curve is drawn through each of these squares in a specific order."
+    ],
+    "candidate_claims": [
+      "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level.",
+      "The curve is drawn by recursively applying the same pattern within each sub-square.",
+      "The sub-squares are connected in a specific order (typically top-left, top-right, bottom-right, bottom-left).",
+      "This forms a continuous, space-filling path that preserves spatial locality."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer accurately captures the recursive subdivision into four smaller squares and the specific ordering of traversal, which aligns with the reference. The additional detail about the typical traversal order (top-left, etc.) and spatial locality is harmless and consistent with the reference’s implied meaning. No factual contradictions or omissions are present. The core semantic content is preserved."
+  },
+  "usage": {
+    "prompt_tokens": 309,
+    "total_tokens": 574,
+    "completion_tokens": 265,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level. The curve is drawn by recursively applying the same pattern within each sub-square and connecting them in a specific order (typically top-left, top-right, bottom-right, bottom-left) to form a continuous, space-filling path that preserves spatial locality.",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_163/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 110.32625436782837,
+  "eight_b_candidate": "The Hilbert curve recursively subdivides a square into four smaller squares and applies the same pattern to each, but the specific drawing rule for the path within each subdivision is not described in the text or explicitly inferable from the visual pattern alone.",
+  "eight_b_candidate_source": "official_parser",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "retrieval_failure"
+}

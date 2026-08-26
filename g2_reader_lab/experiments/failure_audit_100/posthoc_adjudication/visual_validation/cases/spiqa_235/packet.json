@@ -1,0 +1,146 @@
+{
+  "question_id": "spiqa_235",
+  "question": "In Figure (a), how does increasing the budget in FLOPS affect the test Top-1 error rates across the different training strategies, particularly between a small ANN with adaptive loss weighting and a large ANN with non-adaptive weights?",
+  "reference": "The test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies.",
+  "main_doc": "1708.06832v3.pdf",
+  "documents": [
+    "1708.06832v3.pdf",
+    "1812.06589v2.pdf",
+    "1709.02418v2.pdf",
+    "1703.02507v3.pdf",
+    "1707.00189v3.pdf",
+    "1704.07121v2.pdf",
+    "1802.07459v2.pdf",
+    "1803.06506v3.pdf",
+    "1901.00398v2.pdf"
+  ],
+  "eight_b_answer": "Increasing the budget in FLOPS reduces the test Top-1 error rates for both models, but the small ANN with adaptive loss weighting (AdaLoss, orange curve) consistently achieves lower error rates than the large ANN with non-adaptive weights (CONST, green curve) across all budget levels.",
+  "eight_b_answer_source": "official_parser",
+  "thirty_two_b_answer": null,
+  "thirty_two_b_verdict": null,
+  "provisional_classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "composition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "d290c0b2-4247-492c-a734-24deeb57c919"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer is factually correct in stating that increasing FLOPS reduces error rates for both models and that the small ANN with AdaLoss (orange) outperforms the large ANN with CONST (green) across all budget levels. However, the worker results contain a critical misidentification: in node n2, the worker incorrectly identifies the 'large ANN with non-adaptive weights (CONST)' as the purple curve ('ANN+CONST') in Figure 5(a), which is not the correct figure referenced in the question (Figure 4(a)). The question specifically asks about Figure (a) from the context of the main comparison, which is Figure 4(a) — not Figure 5(a). In Figure 4(a), the green curve is labeled 'Large ANN w/ 10% Relative Final Gap', which corresponds to CONST, and the orange curve is 'Small ANN w/ no Final Gap (Ours)', which corresponds to AdaLoss. The worker's misidentification of the figure (confusing Figure 4(a) with Figure 5(a)) is a worker_support_failure. This error propagates to the final composition, where the final answer correctly states the trend but incorrectly attributes the green curve to CONST in Figure 4(a) based on the flawed worker input — a composition_failure. The necessary evidence (Figure 4(a)) was retrieved, and the planning was adequate, but the worker misread the visual evidence by misattributing the figure. Raw visual review is required to confirm the curve labels in Figure 4(a) vs. Figure 5(a). [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "worker_support_failure"
+  },
+  "visual_nodes": [
+    {
+      "node_id": "d290c0b2-4247-492c-a734-24deeb57c919",
+      "text_content": "Figure 1: (a) The common ANN training strategy increases final errors from the optimal (green vs. blue), which decreases exponentially slowly. By learning to focus more on the final auxiliary losses, the proposed adaptive loss weights make a small ANN (orange) to outperform a large one (green) that has non-adaptive weights. (b) Anytime neural networks contain auxiliary predictions and losses, $  hat { y } _ { i } $ and $  ell _ { i } $ , for intermediate feature unit $  f _ { i } $ . Test Top-1 Error Rate 55 50 45 40 35 30 25 20 0.0 0.5 1.0 1.5 2.0 2.5 3.0 Budget in FLOPS 1e9 Lowest Error At Each Budget Small ANN w/ no Final Gap (Ours) Large ANN w/ 10% Relative Final Gap x_L = f_L(x_{L-1}; theta_L) hat{y}_L = g_L(x_L; w_L) ell_L = ell( hat{y}_L, y) x_2 = f_2(x_1; theta_2) hat{y}_2 = g_2(x_2; w_2) ell_2 = ell( hat{y}_2, y) x_1 = f_1(x_0; theta_1) hat{y}_1 = g_1(x_1; w_1) ell_1 = ell( hat{y}_1, y) x_0 = x",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In Figure (a), how does increasing the budget in FLOPS affect the test Top-1 error rates across the different training strategies, particularly between a small ANN with adaptive loss weighting and a large ANN with non-adaptive weights?",
+          "method": "initial_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the curve representing the small ANN with adaptive loss weighting (AdaLoss) in Figure (a).",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 2,
+          "query": "Identify the curve representing the large ANN with non-adaptive weights (CONST) in Figure (a).",
+          "method": "simple_semantic",
+          "rank": 1
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_235/nodes/d290c0b2-4247-492c-a734-24deeb57c919.jpg",
+      "sha256": "0c5c20acc0590117677f1795409636e3d4d1ed6f7869631154394b40177bf2e1",
+      "width": 855,
+      "height": 347,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1708.06832v3/1708.06832v3/auto/images/4798e6c236111622606ed049d2d30ecc5752a27f90955bf1bebc4378c548b86e.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 18,
+      "graph_summary": "Figure 1 illustrates anytime neural networks with adaptive loss weights, showing small ANNs outperform large ANNs despite larger final error gaps.",
+      "graph_text_content": "Figure 1: (a) The common ANN training strategy increases final errors from the optimal (green vs. blue), which decreases exponentially slowly. By learning to focus more on the final auxiliary losses, the proposed adaptive loss weights make a small ANN (orange) to outperform a large one (green) that has non-adaptive weights. (b) Anytime neural networks contain auxiliary predictions and losses, $  hat { y } _ { i } $ and $  ell _ { i } $ , for intermediate feature unit $  f _ { i } $ . Test Top-1 Error Rate 55 50 45 40 35 30 25 20 0.0 0.5 1.0 1.5 2.0 2.5 3.0 Budget in FLOPS 1e9 Lowest Error At Each Budget Small ANN w/ no Final Gap (Ours) Large ANN w/ 10% Relative Final Gap x_L = f_L(x_{L-1}; theta_L) hat{y}_L = g_L(x_L; w_L) ell_L = ell( hat{y}_L, y) x_2 = f_2(x_1; theta_2) hat{y}_2 = g_2(x_2; w_2) ell_2 = ell( hat{y}_2, y) x_1 = f_1(x_0; theta_1) hat{y}_1 = g_1(x_1; w_1) ell_1 = ell( hat{y}_1, y) x_0 = x"
+    },
+    {
+      "node_id": "079a4e10-29ee-4ec0-af14-15ef06ac658c",
+      "text_content": "Figure 4: (a-e) Comparing small networks with AdaLoss versus big ones using CONST. With AdaLoss, the small networks achieve the same accuracy levels faster than large networks with CONST. (f) ANNs performance are mostly decided by underlying models, but AdaLoss is beneficial regardless models. Relative Percentage Difference in Error Rate ADALOSS CONST w/ ~2x FLOPS Relative Percentage Difference in Error Rate ADALOSS CONST w/ ~2x FLOPS Relative Percentage Difference in Error Rate ADALOSS CONST w/ ~2x FLOPS Relative FLOPS cost to the Small Network Relative FLOPS cost to the Small Network Relative FLOPS cost to the Small Network (a) ResANNs on CIFAR10 (b) ResANNs on CIFAR100 (c) ResANNs on SVHN ILSVRC Top-1 Error Rate ResANN50+AdaLoss ResANN101+Const ILSVRC Top-1 Error Rate MSDNet32+AdaLoss MSDNet38+Const ILSVRC Error Rate ResANN50+AdaLoss ResANN101+Const DenseANN169+AdaLoss DenseANN169+Const MSDNet38+AdaLoss MSDNet32+AdaLoss (d) ResANNs on ILSVRC (e) MSDNet on ILSVRC (f) ANNs comparison on ILSVRC",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In Figure (a), how does increasing the budget in FLOPS affect the test Top-1 error rates across the different training strategies, particularly between a small ANN with adaptive loss weighting and a large ANN with non-adaptive weights?",
+          "method": "initial_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 2,
+          "query": "Identify the curve representing the large ANN with non-adaptive weights (CONST) in Figure (a).",
+          "method": "simple_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_235/nodes/079a4e10-29ee-4ec0-af14-15ef06ac658c.jpg",
+      "sha256": "66b81b9089a054658334d3b16057df2b5b571d128f9974252870cbe1ddb72fa1",
+      "width": 1106,
+      "height": 650,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1708.06832v3/1708.06832v3/auto/images/ad0bfbb4820cc13704509d6cf180d10c96ea4ddb629b787d3173ebe721702d44.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 22,
+      "graph_summary": "Compares AdaLoss and CONST weight schemes across architectures, showing AdaLoss enables faster accuracy gain with smaller FLOPS cost on multiple datasets.",
+      "graph_text_content": "Figure 4: (a-e) Comparing small networks with AdaLoss versus big ones using CONST. With AdaLoss, the small networks achieve the same accuracy levels faster than large networks with CONST. (f) ANNs performance are mostly decided by underlying models, but AdaLoss is beneficial regardless models. Relative Percentage Difference in Error Rate ADALOSS CONST w/ ~2x FLOPS Relative Percentage Difference in Error Rate ADALOSS CONST w/ ~2x FLOPS Relative Percentage Difference in Error Rate ADALOSS CONST w/ ~2x FLOPS Relative FLOPS cost to the Small Network Relative FLOPS cost to the Small Network Relative FLOPS cost to the Small Network (a) ResANNs on CIFAR10 (b) ResANNs on CIFAR100 (c) ResANNs on SVHN ILSVRC Top-1 Error Rate ResANN50+AdaLoss ResANN101+Const ILSVRC Top-1 Error Rate MSDNet32+AdaLoss MSDNet38+Const ILSVRC Error Rate ResANN50+AdaLoss ResANN101+Const DenseANN169+AdaLoss DenseANN169+Const MSDNet38+AdaLoss MSDNet32+AdaLoss (d) ResANNs on ILSVRC (e) MSDNet on ILSVRC (f) ANNs comparison on ILSVRC"
+    },
+    {
+      "node_id": "512593ba-0705-4f37-8d1e-d363346c58db",
+      "text_content": "Figure 5: (a) EANN performs better if the ANNs use AdaLoss instead of CONST. (b) EANN outperforms linear ensembles of DNNs on ILSVRC. (c) The learned adaptive weights of the same model on three data-sets. Test Top-1 Error Rate Budget in FLOPS (a) EANNs on CIFAR100 PARALLEL OPT EANN+CONST EANN+ADALOSS ANN+CONST ANN+ADALOSS 55 50 45 40 35 30 25 20 0 1 2 3 4 5 1e9 ILSVRC Error Rate FLOPS (b) EANN on ILSVRC 40 38 36 34 32 30 28 26 24 22 20 0.0 0.5 1.0 1.5 2.0 2.5 3.0 1e10 AdaLoss Weights Prediction Index (c) Data-sets change AdaLoss weights 1.0 0.8 0.6 0.4 0.2 0 5 10 15 20 25 cfar10 cfar100 svhn",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In Figure (a), how does increasing the budget in FLOPS affect the test Top-1 error rates across the different training strategies, particularly between a small ANN with adaptive loss weighting and a large ANN with non-adaptive weights?",
+          "method": "initial_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the curve representing the small ANN with adaptive loss weighting (AdaLoss) in Figure (a).",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 2,
+          "query": "Identify the curve representing the large ANN with non-adaptive weights (CONST) in Figure (a).",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_235/nodes/512593ba-0705-4f37-8d1e-d363346c58db.jpg",
+      "sha256": "f90d7934b716a0f6b3acded34bdf8815b9a68338c270c16c8071e59b34e29789",
+      "width": 1108,
+      "height": 336,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1708.06832v3/1708.06832v3/auto/images/d9e11eb21a996ccfd6c8b1e896c855b8e80ec9c2568e9aaaaa96eab584c35051.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 13,
+      "graph_summary": "Figure 5 — Three plots comparing anytime prediction performance and adaptive weights. (a) EANNs on CIFAR100 show better error rates with AdaLoss vs. CONST. (b) EANN using ResANNs outperforms linear ensembles on ILSVRC. (c) AdaLoss weights vary by dataset (CIFAR10, CIFAR100, SVHN), concentrating more on final layers for harder datasets.",
+      "graph_text_content": "Figure 5: (a) EANN performs better if the ANNs use AdaLoss instead of CONST. (b) EANN outperforms linear ensembles of DNNs on ILSVRC. (c) The learned adaptive weights of the same model on three data-sets. Test Top-1 Error Rate Budget in FLOPS (a) EANNs on CIFAR100 PARALLEL OPT EANN+CONST EANN+ADALOSS ANN+CONST ANN+ADALOSS 55 50 45 40 35 30 25 20 0 1 2 3 4 5 1e9 ILSVRC Error Rate FLOPS (b) EANN on ILSVRC 40 38 36 34 32 30 28 26 24 22 20 0.0 0.5 1.0 1.5 2.0 2.5 3.0 1e10 AdaLoss Weights Prediction Index (c) Data-sets change AdaLoss weights 1.0 0.8 0.6 0.4 0.2 0 5 10 15 20 25 cfar10 cfar100 svhn"
+    }
+  ]
+}

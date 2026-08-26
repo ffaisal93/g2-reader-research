@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_403",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Leukemia",
+  "reference": "The Leukemia dataset would likely benefit the most from using the Fac.-Recover approach.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.466870307922363,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The Leukemia dataset would likely benefit the most from using the Fac.-Recover approach."
+    ],
+    "candidate_claims": [
+      "Leukemia"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Leukemia' directly identifies the dataset mentioned in the reference answer as the one that would benefit the most from the Fac.-Recover approach. Although the candidate omits the full phrasing, it correctly names the entity required by the question. The question asks for the dataset with the highest number of features that benefits most, and the reference answer specifies 'Leukemia' as that dataset. The candidate’s answer is a concise, unambiguous, and semantically equivalent response to the reference."
+  },
+  "usage": {
+    "prompt_tokens": 218,
+    "total_tokens": 405,
+    "completion_tokens": 187,
+    "prompt_tokens_details": null
+  }
+}

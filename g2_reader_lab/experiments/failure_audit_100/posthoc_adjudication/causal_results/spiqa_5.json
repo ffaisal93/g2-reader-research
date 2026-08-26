@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_5",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 35.28383541107178,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "3add75d9-c9be-442e-bd38-175918cc6f78",
+      "b4449ad3-4827-473d-b9e5-329948962050",
+      "904b590a-79c0-44f9-b44c-657221f032af"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer correctly explains that warped triplets leverage motion information to improve frame alignment by providing the discriminator with temporal alignment cues, enabling it to guide the generator toward more accurate and temporally coherent super-resolution results. This is fully supported by the retrieved evidence: node 3add75d9-c9be-442e-bd38-175918cc6f78 explicitly states that the discriminator 'profits from the warped frames to classify realistic and unnatural temporal changes' and that it compares generated warped triplets (I_wg) with ground-truth warped triplets (I_wb) to ensure temporal consistency. Node b4449ad3-4827-473d-b9e5-329948962050 defines the warped triplets and their construction via motion estimation, while node 904b590a-79c0-44f9-b44c-657221f032af (Fig. 4b) visually confirms the discriminator's input structure. The planning graph decomposed the question appropriately into subproblems about the role of I_wg and the comparison mechanism, and the worker responses correctly synthesized the evidence. The final answer is a fluent, accurate summary of the mechanism without unsupported claims. The sufficiency check correctly identified no gaps. No retrieval, parsing, or composition failures occurred."
+  },
+  "usage": {
+    "prompt_tokens": 5595,
+    "total_tokens": 6169,
+    "completion_tokens": 574,
+    "prompt_tokens_details": null
+  }
+}

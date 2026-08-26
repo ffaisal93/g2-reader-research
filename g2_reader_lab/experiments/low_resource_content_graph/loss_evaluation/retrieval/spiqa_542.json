@@ -1,0 +1,103 @@
+{
+  "question_id": "spiqa_542",
+  "question": "Based on the figure comparing Resnet-32's performance under the C&W-wb attack on the MNIST dataset, which loss function achieves a f2(x\u2217) > 0 ratio of 0.77, significantly surpassing the alternative?",
+  "reference_answer": "RCE",
+  "k": 5,
+  "graphs": {
+    "teacher_32b": {
+      "node_count": 179,
+      "results": [
+        {
+          "index": 111,
+          "content_hash": "ca06084c9be276f9bc44b4b16e18fd55b479f67b5ff097cd2e391110e8bb4a55",
+          "visual": true,
+          "score": 0.6769765648888306,
+          "summary": "Table 3 presents ratios of f\u2082(x*) > 0 and minimal distortions for adversarial examples crafted by C&W-wb on Resnet-32 under CE and RCE objectives, for MNIST and CIFAR-10. RCE shows higher ratios and larger distortions, indicating improved robustness against the attack.",
+          "preview": "Table 3: The ratios of f\u2082(x*) > 0 and minimal distortions of the adversarial examples crafted by C&W-wb. Model is Resnet-32. Obj. MNIST CIFAR-10 Ratio Distortion Ratio Distortion CE 0.01 17.12 0.00 1.26 RCE 0.77 31.59 0.12 3.89"
+        },
+        {
+          "index": 14,
+          "content_hash": "a6ae1ee27321f343bbbea062154131cd401fa92461a9524a8bae91d6062f1415",
+          "visual": false,
+          "score": 0.673721628496563,
+          "summary": "This note presents Table 3 and Table 4, showing ratios of f\u2082(x*) > 0 and minimal distortions for adversarial examples crafted by C&W-wb on Resnet-32, and AUC-scores for black-box attacks on CIFAR-10 with Resnet-32 as substitute and Resnet-56 as target model.",
+          "preview": "Table 3: The ratios of $f _ { 2 } ( x ^ { * } ) > 0$ and minimal distortions of the adversarial examples crafted by C&W-wb. Model is Resnet-32.\n\nTable 4: AUC-scores $( 1 0 ^ { - 2 } )$ on CIFAR-10. Resnet-32 is the substitute model and Resnet-56 is the target model.   \n\n<table><tr><td rowspan=1 colspan=1></td><td rowspan=1 colspan=1>Res.-32 (CE)</td><td rowspan=1 colspan=1>Res.-32 (RCE)</td></tr><tr><td rowspan=1 colspan=1>Res.-56 (CE)</td><td rowspan=1 colspan=1>75.0</td><td rowspan=1 colspan=1"
+        },
+        {
+          "index": 25,
+          "content_hash": "6f3e67f1ae13cb3b7138070c008f49eef601479d32e6398c0d411d168a89a2dd",
+          "visual": false,
+          "score": 0.6334320857857404,
+          "summary": "This note analyzes the limitation of the C&W-wb attack in simultaneously fooling both confidence and K-density metrics, introducing a high-confidence variant with \u03ba=5, and presents experimental results showing 100% of adversarial examples fail to satisfy f\u2082(x*) \u2264 0 on MNIST and CIFAR-10.",
+          "preview": "# B.4 The Limitation of C&W-wb\n\nWhen we apply the C&W-wb attack, the parameter $\\kappa$ is set to be 0. This makes C&W-wb succeed to fool the K-density detector but fail to fool the confidence metric. Thus we construct a high-confidence version of C&W-wb, where we set $\\kappa$ be 5. However, none of the crafted adversarial examples can have $f _ { 2 } ( x ^ { * } ) \\leq 0$ , as shown in Table 6. This means that it is difficult for C&W-wb to simultaneously fool both the confidence and the K-densi"
+        },
+        {
+          "index": 13,
+          "content_hash": "6758c43140ffde1202485ffee116b85f88f77ed2a4e9f3afce69b45860bfa847",
+          "visual": false,
+          "score": 0.5285242174541996,
+          "summary": "This note details the evaluation of C&W and C&W-hc attacks on models trained with CE and RCE, reporting minimal distortions and AUC-scores for K-density, confidence, and non-ME metrics, with results shown in Table 2 and Figure 2b.",
+          "preview": "As for optimization-based methods like the C&W attack and its variants, we apply the same way as in [3] to report robustness. Specifically, we do a binary search for the parameter $c$ , in order to find the minimal distortions that can successfully attack the classifier. The distortion is defined in [33] as\u221a $\\| x - x ^ { * } \\| _ { 2 } / \\sqrt { d }$ , where $x ^ { * }$ is the generated adversarial example and each pixel feature is rescaled to be in the interval [0, 255]. We set the step size i"
+        },
+        {
+          "index": 15,
+          "content_hash": "5bb07193ad418d1670ff2d20d8fa42cbf8ae195124731e0106ecb4bc6a56361b",
+          "visual": false,
+          "score": 0.6226506614088245,
+          "summary": "This note evaluates black-box attack robustness using Resnet-56 as target and Resnet-32 as substitute models, showing poor transferability of C&W-wb adversarial examples with low misclassification rates on MNIST and CIFAR-10, and high AUC-scores indicating strong detection performance.",
+          "preview": "# 4.5 Performance under the black-box attack\n\nFor complete analysis, we investigate the robustness under the black-box attack. The success of the black-box attack is based on the transferability of adversarial examples among different models [12]. We set the trained Resnet-56 networks as the target models. Adversaries intend to attack them but do not have access to their parameters. Thus we set the trained Resnet-32 networks to be the substitute models that adversaries actually attack on and the"
+        }
+      ],
+      "teacher_text_evidence_hits": 4,
+      "teacher_text_evidence_total": 4
+    },
+    "candidate": {
+      "node_count": 179,
+      "results": [
+        {
+          "index": 111,
+          "content_hash": "ca06084c9be276f9bc44b4b16e18fd55b479f67b5ff097cd2e391110e8bb4a55",
+          "visual": true,
+          "score": 0.6747543910427527,
+          "summary": "Quantitative comparison of adversarial attack performance on MNIST and CIFAR-10, showing RCE's superior robustness via higher f\u2082(x*) ratio and larger minimal distortion.",
+          "preview": "Figure 3: The normal test images are termed as Normal, and adversarial examples generated on Resnet-32 (CE) and Resnet-32 (RCE) are separately termed as CE / RCE. Adversarial examples are generated by C&W-wb with minimal distortions. Table 3: The ratios of f\u2082(x*) > 0 and minimal distortions of the adversarial examples crafted by C&W-wb. Model is Resnet-32. Obj. MNIST CIFAR-10 Ratio Distortion Ratio Distortion CE 0.01 17.12 0.00 1.26 RCE 0.77 31.59 0.12 3.89"
+        },
+        {
+          "index": 109,
+          "content_hash": "e33c069b646b1081412a4e728c96e40557386a6da6c78bf5074941bc8a8ad806",
+          "visual": true,
+          "score": 0.620462883730335,
+          "summary": "Figure 2 shows RCE outperforms CE in robustness on MNIST and CIFAR-10, with higher accuracy and lower minimal distortion under multiple adversarial attacks.",
+          "preview": "Figure 2: Robustness with the thresholding test strategy disabled. The model of target networks is Resnet-32. Attack Obj. Confidence non-ME K-density Confidence non-ME K-density FGSM CE 79.7 66.8 98.8 (-) 71.5 66.9 99.7 (-) RCE 98.8 98.6 99.4 (*) 92.6 91.4 98.0 (*) BIM CE 88.9 70.5 90.0 (-) 0.0 64.6 100.0 (-) RCE 91.7 90.6 91.8 (*) 0.7 70.2 100.0 (*) ILCM CE 98.4 50.4 96.2 (-) 16.4 37.1 84.2 (-) RCE 100.0 97.0 98.6 (*) 64.1 77.8 93.9 (*) JSMA CE 98.6 60.1 97.7 (-) 99.2 27.3 85.8 (-) RCE 100.0 99"
+        },
+        {
+          "index": 110,
+          "content_hash": "6968b206bdf271f1eac6eb832ea502ac43745249c90964cf5a9027a286ff1fbd",
+          "visual": true,
+          "score": 0.4350102949139476,
+          "summary": "Visual comparison of normal, CE, and RCE adversarial examples on MNIST and CIFAR-10, highlighting RCE's more detectable distortions.",
+          "preview": "Normal 0 1 2 3 4 5 6 7 8 9 CE 0 1 2 3 4 5 6 7 8 9 RCE 0 1 2 3 4 5 6 7 8 9"
+        },
+        {
+          "index": 25,
+          "content_hash": "6f3e67f1ae13cb3b7138070c008f49eef601479d32e6398c0d411d168a89a2dd",
+          "visual": false,
+          "score": 0.6674978725022618,
+          "summary": "C&W-wb attack struggles to fool both K-density and confidence metrics; high-\u03ba version fails to satisfy f\u2082(x*) \u2264 0 on MNIST/CIFAR-10 with Resnet-32.",
+          "preview": "# B.4 The Limitation of C&W-wb\n\nWhen we apply the C&W-wb attack, the parameter $\\kappa$ is set to be 0. This makes C&W-wb succeed to fool the K-density detector but fail to fool the confidence metric. Thus we construct a high-confidence version of C&W-wb, where we set $\\kappa$ be 5. However, none of the crafted adversarial examples can have $f _ { 2 } ( x ^ { * } ) \\leq 0$ , as shown in Table 6. This means that it is difficult for C&W-wb to simultaneously fool both the confidence and the K-densi"
+        },
+        {
+          "index": 13,
+          "content_hash": "6758c43140ffde1202485ffee116b85f88f77ed2a4e9f3afce69b45860bfa847",
+          "visual": false,
+          "score": 0.5589237767580997,
+          "summary": "Details C&W attack optimization, distortion metrics, and K-density/non-ME detector AUC scores for RCE vs CE training on MNIST/CIFAR-10.",
+          "preview": "As for optimization-based methods like the C&W attack and its variants, we apply the same way as in [3] to report robustness. Specifically, we do a binary search for the parameter $c$ , in order to find the minimal distortions that can successfully attack the classifier. The distortion is defined in [33] as\u221a $\\| x - x ^ { * } \\| _ { 2 } / \\sqrt { d }$ , where $x ^ { * }$ is the generated adversarial example and each pixel feature is rescaled to be in the interval [0, 255]. We set the step size i"
+        }
+      ],
+      "teacher_text_evidence_hits": 2,
+      "teacher_text_evidence_total": 4,
+      "overlap_with_teacher_32b_at_5": 3
+    }
+  }
+}

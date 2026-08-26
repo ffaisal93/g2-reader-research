@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_392",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 41.58558440208435,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "8baf35bd-5733-4e1a-80e2-410967b91d56",
+      "2fe0752d-39ca-4dc9-9050-0d0ee2a7a087"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer 'HUMBI' is incorrect; the correct answer is 'MPII-Gaze' as per the reference. The necessary evidence was retrieved: Figure 6 (visual heatmaps) and Table 2 (quantitative bias/variance) were both retrieved. However, the Worker misinterpreted the evidence. In round 0, node n1 incorrectly identified UTMV as having the smallest bias (7.43) based on a misreading of Table 2, while the actual smallest average bias is 5.98° for HUMBI. In round 1, node n2 correctly identified HUMBI's smallest average bias (5.98°) from Table 2, but the final answer was still 'HUMBI', which is wrong. The visual evidence in Figure 6 shows that MPII-Gaze has the most concentrated cluster around the origin — its heatmap is the brightest and most tightly clustered at (0,0) — which is not reflected in the Worker's reasoning. The Worker failed to correctly interpret the visual evidence, relying too heavily on the quantitative bias, which does not fully capture the visual concentration. The planning was adequate, and sufficiency checks were appropriate. The failure is primarily a worker_support_failure due to misreading and misinterpreting the visual and quantitative evidence, with a secondary retrieval_failure because the visual evidence was retrieved but not properly analyzed."
+  },
+  "usage": {
+    "prompt_tokens": 6791,
+    "total_tokens": 7325,
+    "completion_tokens": 534,
+    "prompt_tokens_details": null
+  }
+}

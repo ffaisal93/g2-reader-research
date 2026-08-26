@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_172",
+  "candidate_source": "official_parser",
+  "candidate_answer": "YTF, 31.9%",
+  "reference": "The gRCC* algorithm achieved the largest relative improvement over the RCC algorithm on the YTF dataset, with a relative improvement of approximately 31.9%.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.758231401443481,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The gRCC* algorithm achieved the largest relative improvement over the RCC algorithm on the YTF dataset.",
+      "The relative improvement on the YTF dataset was approximately 31.9%."
+    ],
+    "candidate_claims": [
+      "YTF dataset demonstrated the highest relative improvement in AMI when using gRCC* compared to RCC.",
+      "The percentage of improvement is approximately 31.9%."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly identifies the dataset (YTF) and the approximate percentage improvement (31.9%), matching the reference answer in both key factual components. The concise format 'YTF, 31.9%' is a valid shorthand for the full statement, preserving semantic equivalence without contradiction or omission. No substantive differences in meaning are present."
+  },
+  "usage": {
+    "prompt_tokens": 229,
+    "total_tokens": 435,
+    "completion_tokens": 206,
+    "prompt_tokens_details": null
+  }
+}

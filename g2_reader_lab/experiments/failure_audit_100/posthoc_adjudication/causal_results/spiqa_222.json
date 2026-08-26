@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_222",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 58.720311641693115,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "2cec12d8-9d61-4693-816c-204685d5f3f0"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer claims the prediction model produces 'perfectly' accurate frames, while the autoencoder generates 'slightly blurred' frames, citing both text and Image 1. However, the retrieved text (node_id: 2cec12d8-9d61-4693-816c-204685d5f3f0) states only that the prediction model 'could perfectly produce frame output' — a subjective claim not quantified or directly compared to the autoencoder's output. The autoencoder's output is described as 'slightly blurred, but still able to reflect essential features' — a qualitative assessment, not a direct comparison of accuracy. The candidate misrepresents the evidence by asserting 'perfectly' accurate frames for the prediction model and a direct, unsupported comparison of 'more accurate' without citing a metric or explicit comparison. The retrieved evidence does not support the claim of 'perfect' accuracy or a direct accuracy comparison; it only describes visual qualities. The worker misread or overinterpreted the evidence, leading to an unsupported answer. While Figure 3 (the correct visual comparison) was not retrieved, the worker's failure to correctly interpret the available evidence is the primary cause. The sufficiency checks correctly identified gaps, but the worker proceeded to generate an unsupported answer."
+  },
+  "usage": {
+    "prompt_tokens": 9721,
+    "total_tokens": 10207,
+    "completion_tokens": 486,
+    "prompt_tokens_details": null
+  }
+}

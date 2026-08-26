@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_347",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 36.221986532211304,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "decomposition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "e119bc25-9f06-4929-be72-5e99426bdb7f"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence — the right-side figure (Image 1) showing the CDF of occlusion durations — was retrieved. The CDF curve clearly shows that at 10 frames (10^1 on the x-axis), the y-axis value is approximately 80%, meaning 80% of occlusions last 10 frames or less. Therefore, the percentage lasting *more than* 10 frames is 20%. The candidate answer '20%' is numerically correct, but the reasoning path is flawed.\n\nHowever, the worker responses for nodes n2 and n3 in rounds 0–2 repeatedly claim 'Not enough information' or 'Not answerable', despite the evidence being present. This is a worker_support_failure: the worker misread or failed to interpret the visual evidence, even though it was retrieved. The worker only correctly interpreted the evidence in round 3, node n3, which produced the correct 20% answer.\n\nAdditionally, the planning graph omitted a critical subproblem: interpreting the CDF to compute the complement (i.e., 100% - CDF_value). The plan only asked to 'read the percentage value' at 10 frames, not to compute the percentage *above* that threshold. This is a decomposition_failure. The final answer was correct, but it was produced after multiple rounds of incorrect worker reasoning and only after the plan was expanded to include the necessary interpretation step.\n\nThus, the earliest decisive failure is worker_support_failure (misreading the evidence), with decomposition_failure as a secondary cause."
+  },
+  "usage": {
+    "prompt_tokens": 11116,
+    "total_tokens": 11655,
+    "completion_tokens": 539,
+    "prompt_tokens_details": null
+  }
+}

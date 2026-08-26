@@ -1,0 +1,18 @@
+{
+  "question_id": "spiqa_396",
+  "candidate_source": "no_candidate_answer",
+  "candidate_answer": null,
+  "reference": "HUMBI performs best when used alone for training, with an average AUC of 0.399. While this is lower than the average AUC of models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI), HUMBI still achieves the highest score among the individual datasets.",
+  "status": "complete",
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 1.0,
+    "reference_claims": [],
+    "candidate_claims": [],
+    "substantive_differences": [
+      "No candidate answer was produced."
+    ],
+    "rationale": "No answer is available for semantic comparison."
+  },
+  "usage": {}
+}

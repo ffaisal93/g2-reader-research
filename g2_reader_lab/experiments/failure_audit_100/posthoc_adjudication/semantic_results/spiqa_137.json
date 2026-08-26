@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_137",
+  "candidate_source": "official_parser",
+  "candidate_answer": "identity-guided conditional CycleGAN",
+  "reference": "The proposed method utilizes Light-CNN as both the source of the identity features and face verification loss. This allows the method to transfer the appearance of eyes, eyebrows, hairs, etc., while keeping other factors intact, e.g., head pose, shape of face, and facial expression.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.256962060928345,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The proposed method uses Light-CNN for identity features and face verification loss.",
+      "It transfers appearance of eyes, eyebrows, hairs, etc., while preserving head pose, face shape, and facial expression."
+    ],
+    "candidate_claims": [
+      "The method uses identity-guided conditional CycleGAN."
+    ],
+    "substantive_differences": [
+      "The reference specifies Light-CNN as the core technique for identity feature extraction and verification loss, while the candidate claims a different architecture (CycleGAN) as the method.",
+      "There is no mention of CycleGAN or conditional GANs in the reference, making the candidate’s claim factually inconsistent with the benchmark."
+    ],
+    "rationale": "The candidate answer introduces a different and unsupported technique (identity-guided conditional CycleGAN) that contradicts the reference’s explicit mention of Light-CNN as the core method. The semantic meaning is not equivalent, and the candidate fails to capture the correct technical approach described in the reference."
+  },
+  "usage": {
+    "prompt_tokens": 249,
+    "total_tokens": 483,
+    "completion_tokens": 234,
+    "prompt_tokens_details": null
+  }
+}

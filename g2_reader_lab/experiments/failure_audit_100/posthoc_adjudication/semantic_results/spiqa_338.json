@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_338",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The temperature t scales the exponentiation of the similarity score in the unnormalized distribution by $1/t$, reducing the acceptance probability of suboptimal solutions as t decreases over time, thereby shifting the search from exploration to exploitation.",
+  "reference": "The temperature variable t controls the probability of accepting a new candidate solution y. As t decreases, the probability of accepting a worse solution decreases.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 11.828592538833618,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The temperature variable t controls the probability of accepting a new candidate solution y.",
+      "As t decreases, the probability of accepting a worse solution decreases."
+    ],
+    "candidate_claims": [
+      "The temperature t scales the exponentiation of the similarity score in the unnormalized distribution by 1/t.",
+      "Reducing t reduces the acceptance probability of suboptimal solutions.",
+      "This shift moves the search from exploration to exploitation."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly captures the core mechanism: as temperature t decreases, the acceptance probability of suboptimal (worse) solutions decreases. The candidate adds technical detail (scaling the exponentiation by 1/t) and the conceptual interpretation (exploration to exploitation), which are consistent with and elaborative of the reference. No contradiction or factual error exists. The reference’s general statement is fully supported by the candidate’s more specific explanation."
+  },
+  "usage": {
+    "prompt_tokens": 273,
+    "total_tokens": 499,
+    "completion_tokens": 226,
+    "prompt_tokens_details": null
+  }
+}

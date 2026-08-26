@@ -1,0 +1,18 @@
+{
+  "question_id": "spiqa_223",
+  "candidate_source": "no_candidate_answer",
+  "candidate_answer": null,
+  "reference": "The representation module takes an input image and outputs a feature representation. The learning-to-learn module takes a set of features and learns how to segment the image.",
+  "status": "complete",
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 1.0,
+    "reference_claims": [],
+    "candidate_claims": [],
+    "substantive_differences": [
+      "No candidate answer was produced."
+    ],
+    "rationale": "No answer is available for semantic comparison."
+  },
+  "usage": {}
+}

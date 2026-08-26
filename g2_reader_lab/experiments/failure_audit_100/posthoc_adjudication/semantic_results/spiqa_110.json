@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_110",
+  "candidate_source": "derived_unclosed_output_tag",
+  "candidate_answer": "As the forecasting horizon increases, the RMSE of the LSTNet-attn model increases while its correlation decreases.",
+  "reference": "The performance of LSTNet-attn generally improves as the horizon increases on the Solar-Energy dataset. This is evident from the fact that both the RMSE and correlation values improve with increasing horizon.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.797642707824707,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "LSTNet-attn performance improves as horizon increases",
+      "RMSE improves (decreases) with increasing horizon",
+      "Correlation improves (increases) with increasing horizon"
+    ],
+    "candidate_claims": [
+      "RMSE increases with increasing horizon",
+      "Correlation decreases with increasing horizon"
+    ],
+    "substantive_differences": [
+      "Candidate claims RMSE increases, while reference implies RMSE decreases (improves)",
+      "Candidate claims correlation decreases, while reference implies correlation increases (improves)",
+      "Candidate asserts performance worsens, while reference asserts performance improves"
+    ],
+    "rationale": "The candidate answer directly contradicts the reference answer on the direction of change for both RMSE and correlation. Since performance improvement in forecasting is typically defined as lower RMSE and higher correlation, the candidate's claims indicate deterioration, which is semantically opposite to the reference. This constitutes a factual contradiction, not a paraphrase or harmless detail."
+  },
+  "usage": {
+    "prompt_tokens": 254,
+    "total_tokens": 488,
+    "completion_tokens": 234,
+    "prompt_tokens_details": null
+  }
+}

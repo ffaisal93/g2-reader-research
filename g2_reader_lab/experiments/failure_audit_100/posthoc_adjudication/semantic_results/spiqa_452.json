@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_452",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ENet",
+  "reference": "TecoGAN.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.803148984909058,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "TecoGAN is represented by the largest bubble in the figure, indicating the highest tOF score and best temporal coherence."
+    ],
+    "candidate_claims": [
+      "ENet is represented by the largest bubble in the figure, indicating the highest tOF score and best temporal coherence."
+    ],
+    "substantive_differences": [
+      "The candidate answer identifies ENet as the model with the largest bubble, while the reference explicitly states TecoGAN holds this distinction.",
+      "This is a direct factual contradiction regarding which model achieved the highest tOF score and best temporal coherence."
+    ],
+    "rationale": "The candidate answer incorrectly attributes the highest tOF score and largest bubble to ENet, whereas the reference clearly identifies TecoGAN as the correct model. This is a clear factual error in entity identification, violating the requirement for semantic equivalence."
+  },
+  "usage": {
+    "prompt_tokens": 203,
+    "total_tokens": 410,
+    "completion_tokens": 207,
+    "prompt_tokens_details": null
+  }
+}

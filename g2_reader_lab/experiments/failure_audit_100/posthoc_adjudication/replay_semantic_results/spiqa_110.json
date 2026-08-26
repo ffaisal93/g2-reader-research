@@ -1,0 +1,44 @@
+{
+  "question_id": "spiqa_110",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The performance of the LSTNet-attn model on the Solar-Energy dataset degrades as the forecasting horizon increases, with RSE increasing from 0.1816 at horizon 3 to 0.4403 at horizon 24, and correlation decreasing from 0.9848 at horizon 3 to 0.8995 at horizon 24.",
+  "reference": "The performance of LSTNet-attn generally improves as the horizon increases on the Solar-Energy dataset. This is evident from the fact that both the RMSE and correlation values improve with increasing horizon.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.937928199768066,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Performance of LSTNet-attn improves as forecasting horizon increases.",
+      "Both RMSE and correlation values improve with increasing horizon."
+    ],
+    "candidate_claims": [
+      "Performance degrades as horizon increases.",
+      "RSE increases from 0.1816 to 0.4403 (implying worse performance).",
+      "Correlation decreases from 0.9848 to 0.8995 (implying worse performance)."
+    ],
+    "substantive_differences": [
+      "Opposite trend: reference says performance improves; candidate says it degrades.",
+      "Candidate uses RSE (Relative Squared Error) instead of RMSE as referenced.",
+      "Candidate's values (RSE, correlation) contradict the reference's claim of improvement."
+    ],
+    "rationale": "The candidate answer presents a direct contradiction to the reference answer in terms of performance trend (degrades vs. improves) and uses a different metric (RSE instead of RMSE). The stated values for correlation and RSE also indicate deterioration, which contradicts the reference's claim of improvement. This is a factual and semantic mismatch."
+  },
+  "usage": {
+    "prompt_tokens": 314,
+    "total_tokens": 588,
+    "completion_tokens": 274,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "The performance of the LSTNet-attn model on the Solar-Energy dataset degrades as the forecasting horizon increases, with RSE increasing from 0.1816 at horizon 3 to 0.4403 at horizon 24, and correlation decreasing from 0.9848 at horizon 3 to 0.8995 at horizon 24.",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_110/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 113.60988664627075,
+  "eight_b_candidate": "As the forecasting horizon increases, the RMSE of the LSTNet-attn model increases while its correlation decreases.",
+  "eight_b_candidate_source": "derived_unclosed_output_tag",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "worker_support_failure"
+}

@@ -1,0 +1,37 @@
+diff --git a/baseline_original/G2_Reader_patched/agent_search/response_parsing.py b/baseline_original/G2_Reader_patched/agent_search/response_parsing.py
+new file mode 100644
+index 0000000..b8488fd
+--- /dev/null
++++ b/baseline_original/G2_Reader_patched/agent_search/response_parsing.py
+@@ -0,0 +1,31 @@
++"""Compatibility parsers for tagged and plain local-model structured output."""
++
++from __future__ import annotations
++
++import json
++import re
++from typing import Any
++
++
++def extract_json(text: str, tag: str | None = None) -> tuple[dict[str, Any], str]:
++    candidates = []
++    if tag:
++        tagged = re.search(fr"<{re.escape(tag)}>(.*?)</{re.escape(tag)}>", text, re.DOTALL | re.IGNORECASE)
++        if tagged:
++            candidates.append(tagged.group(1).strip())
++    fenced = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", text, re.IGNORECASE)
++    if fenced:
++        candidates.append(fenced.group(1))
++    candidates.append(text.strip())
++    braced = re.search(r"\{[\s\S]*\}", text)
++    if braced:
++        candidates.append(braced.group(0))
++    errors = []
++    for candidate in candidates:
++        try:
++            value = json.loads(candidate, strict=False)
++            if isinstance(value, dict):
++                return value, candidate
++        except json.JSONDecodeError as exc:
++            errors.append(str(exc))
++    raise json.JSONDecodeError("; ".join(errors) or "no JSON object", text, 0)

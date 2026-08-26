@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_4",
+  "candidate_source": "official_parser",
+  "candidate_answer": "16198",
+  "reference": "There are approximately 9,719 negative samples in the training set of the CNSE dataset.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.3628671169281,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The training set of the CNSE dataset contains approximately 9,719 negative samples."
+    ],
+    "candidate_claims": [
+      "The number of negative samples in the training set is 16198."
+    ],
+    "substantive_differences": [
+      "The candidate answer provides a value (16198) that is significantly higher than the reference value (9,719), indicating a factual error in the reported number of negative samples."
+    ],
+    "rationale": "The candidate answer contradicts the reference by reporting a different numerical value for the number of negative samples in the training set. The reference specifies approximately 9,719, while the candidate states 16198, which is not semantically equivalent. This discrepancy constitutes a factual error, and thus the candidate is incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 226,
+    "total_tokens": 434,
+    "completion_tokens": 208,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "question_id": "spiqa_571",
+  "candidate_source": "official_parser",
+  "candidate_answer": "No single step resulted in the reduction from 5,119 to 1,955; the reduction occurred across Steps 3 and 4.",
+  "reference": "Step 4, Reason disambiguation.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 15.27662992477417,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The most significant reduction occurred in Step 4.",
+      "The reduction from 5,119 to 1,955 happened specifically in Step 4.",
+      "Step 4 is the step where the input instances dropped by over 60%."
+    ],
+    "candidate_claims": [
+      "The reduction from 5,119 to 1,955 did not occur in a single step.",
+      "The reduction occurred across Steps 3 and 4."
+    ],
+    "substantive_differences": [
+      "The candidate contradicts the reference by denying that Step 4 alone caused the reduction, instead attributing it to Steps 3 and 4 collectively.",
+      "The reference identifies Step 4 as the specific step with the most significant reduction; the candidate denies this specificity, which is central to the question."
+    ],
+    "rationale": "The question asks for the specific step that resulted in the most significant reduction from 5,119 to 1,955. The reference identifies Step 4 as that step. The candidate explicitly denies that any single step caused this reduction, instead attributing it to two steps. This directly contradicts the reference and fails to answer the question as posed. Therefore, the candidate is semantically incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 243,
+    "total_tokens": 544,
+    "completion_tokens": 301,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "No single step resulted in the reduction from 5,119 to 1,955; the reduction occurred across Steps 3 and 4.",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_571/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 452.44780230522156,
+  "eight_b_candidate": null,
+  "eight_b_candidate_source": "no_candidate_answer",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "decomposition_failure"
+}

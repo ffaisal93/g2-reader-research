@@ -1,0 +1,574 @@
+{
+  "question_id": "spiqa_195",
+  "question": "Based on the figure showing the training curves of the ACGAN for MNIST and Fashion-MNIST from the \"Relaxed Wasserstein with Applications to GANs\" paper, what insights can be drawn from the trends in both the generator (orange) and discriminator (blue) losses over time regarding their learning behavior?",
+  "reference": "The training curves for the ACGAN show that the generator and discriminator losses both decrease over time. This indicates that the ACGAN is able to learn to generate realistic images.",
+  "main_doc": "1705.07164v8.pdf",
+  "documents": [
+    "1705.07164v8.pdf",
+    "1804.07931v2.pdf",
+    "1809.02731v3.pdf",
+    "1611.03780v2.pdf",
+    "1805.06431v4.pdf",
+    "1803.03467v4.pdf",
+    "1805.06447v3.pdf",
+    "1703.04887v4.pdf",
+    "1811.02553v4.pdf"
+  ],
+  "eight_b_answer": null,
+  "eight_b_answer_source": "no_candidate_answer",
+  "thirty_two_b_answer": "ACGAN exhibits unstable training behavior with high variance in both generator (orange) and discriminator (blue) losses, showing erratic fluctuations and no clear convergence, indicative of poor learning dynamics and likely mode collapse.",
+  "thirty_two_b_verdict": "incorrect",
+  "provisional_classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "retrieval_failure",
+    "secondary_categories": [
+      "decomposition_failure",
+      "sufficiency_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "0ed36740-f181-435a-8e9b-f7e8cba46975",
+      "17be494a-e2b3-4952-991d-3d23cfbde045"
+    ],
+    "planning_adequate": "no",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "unnecessary_refinement",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer is null, indicating a failure to produce any response. The primary cause is a retrieval failure: the necessary visual evidence (the training curves for ACGAN on MNIST and Fashion-MNIST) was retrieved (nodes 0ed36740-f181-435a-8e9b-f7e8cba46975 and 17be494a-e2b3-4952-991d-3d23cfbde045), but the system failed to extract the required information from them. The text evidence does not contain the needed loss trends for ACGAN, and the visual evidence, while present, was not properly interpreted. The planning graph decomposed the task appropriately, but the sufficiency checks repeatedly flagged missing subproblems, indicating a failure to recognize that the visual evidence contained the necessary information. The system engaged in unnecessary refinement (e.g., repeatedly checking for text-based descriptions that did not exist) instead of leveraging the retrieved visual data. A raw visual review is required to confirm the trends in the ACGAN loss curves, which are not described in the text. The reference states that both losses decrease over time, indicating learning, but the retrieved visual evidence shows a different trend (generator loss increases, discriminator loss decreases), which would require a different interpretation. The system failed to extract this visual information, leading to the null answer."
+  },
+  "visual_nodes": [
+    {
+      "node_id": "0ed36740-f181-435a-8e9b-f7e8cba46975",
+      "text_content": "Fig. 1: Training curves by running all approaches. Generator and discriminator losses are plotted in orange and blue lines. mnist fashion-mnist RWGAN WGAN CGAN InfoGAN GAN ACGAN RWGAN WGAN CGAN InfoGAN GAN ACGAN",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "Based on the figure showing the training curves of the ACGAN for MNIST and Fashion-MNIST from the \"Relaxed Wasserstein with Applications to GANs\" paper, what insights can be drawn from the trends in both the generator (orange) and discriminator (blue) losses over time regarding their learning behavior?",
+          "method": "initial_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the specific training curves for ACGAN on MNIST and Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 2,
+          "query": "Analyze the trends in the generator (orange) and discriminator (blue) losses for the ACGAN on both datasets to infer their learning behavior.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 3,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 4,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 5,
+          "query": "Locate the ACGAN training curves for MNIST and Fashion-MNIST within the provided figures.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 6,
+          "query": "Analyze the generator (orange) and discriminator (blue) loss trends for ACGAN on both datasets to infer learning behavior.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 7,
+          "query": "Identify the specific training curve plot for ACGAN on MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 8,
+          "query": "Identify the specific training curve plot for ACGAN on Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 9,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 10,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 11,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 12,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 13,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 14,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 15,
+          "query": "Extract the generator (orange) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 16,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 17,
+          "query": "Extract the generator (orange) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 18,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_195/nodes/0ed36740-f181-435a-8e9b-f7e8cba46975.jpg",
+      "sha256": "0949bb179eb59f40373c5d0b96a099ea3ed95ac0fc6d4ec67665d4a7376541fb",
+      "width": 1659,
+      "height": 136,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.07164v8/1705.07164v8/auto/images/587373079431f0e4f42d6aa87acac95a981244be1a7fdb341e7445343c36796e.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 40,
+      "graph_summary": "Training curves show RWGAN and WGAN have most stable generator and discriminator losses on MNIST and Fashion-MNIST datasets.",
+      "graph_text_content": "Fig. 1: Training curves by running all approaches. Generator and discriminator losses are plotted in orange and blue lines. mnist fashion-mnist RWGAN WGAN CGAN InfoGAN GAN ACGAN RWGAN WGAN CGAN InfoGAN GAN ACGAN"
+    },
+    {
+      "node_id": "17be494a-e2b3-4952-991d-3d23cfbde045",
+      "text_content": "RWGAN WGAN CGAN InfoGAN GAN ACGAN RWGAN WGAN CGAN InfoGAN GAN ACGAN",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "Based on the figure showing the training curves of the ACGAN for MNIST and Fashion-MNIST from the \"Relaxed Wasserstein with Applications to GANs\" paper, what insights can be drawn from the trends in both the generator (orange) and discriminator (blue) losses over time regarding their learning behavior?",
+          "method": "initial_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the specific training curves for ACGAN on MNIST and Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 2,
+          "query": "Analyze the trends in the generator (orange) and discriminator (blue) losses for the ACGAN on both datasets to infer their learning behavior.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 3,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 4,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 5,
+          "query": "Locate the ACGAN training curves for MNIST and Fashion-MNIST within the provided figures.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 6,
+          "query": "Analyze the generator (orange) and discriminator (blue) loss trends for ACGAN on both datasets to infer learning behavior.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 7,
+          "query": "Identify the specific training curve plot for ACGAN on MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 8,
+          "query": "Identify the specific training curve plot for ACGAN on Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 9,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 10,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 11,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 12,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 13,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 14,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 15,
+          "query": "Extract the generator (orange) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 16,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 17,
+          "query": "Extract the generator (orange) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 18,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 1
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_195/nodes/17be494a-e2b3-4952-991d-3d23cfbde045.jpg",
+      "sha256": "e3346b1ef81a2e2ded59edf8a1d12e5cac4ce676b9e5cd577b4e82be7c89360e",
+      "width": 1675,
+      "height": 470,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.07164v8/1705.07164v8/auto/images/3c726ed9fd26e1d7e56715982cc23a30130c5fe41fe6f58ebf19adca5a807971.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 3,
+      "graph_summary": "Figure 1 compares generated images from GAN models (RWGAN, WGAN, CGAN, InfoGAN, GAN, ACGAN) on MNIST and Fashion-MNIST, highlighting visual quality and interpretability.",
+      "graph_text_content": "RWGAN WGAN CGAN InfoGAN GAN ACGAN RWGAN WGAN CGAN InfoGAN GAN ACGAN"
+    },
+    {
+      "node_id": "3007e983-81d1-474e-af24-83c9ec02739d",
+      "text_content": "Fig. 3: Training curves by running all approaches. Generator and discriminator losses are plotted in orange and blue lines. cifar10 imagenet  Fig. 4: Sample images generated by running all approaches for 1, 100 (cifar10) or 25 (imagenet) epochs. DCGAN MLP DCGAN MLP RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g)",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "Based on the figure showing the training curves of the ACGAN for MNIST and Fashion-MNIST from the \"Relaxed Wasserstein with Applications to GANs\" paper, what insights can be drawn from the trends in both the generator (orange) and discriminator (blue) losses over time regarding their learning behavior?",
+          "method": "initial_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the specific training curves for ACGAN on MNIST and Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 2,
+          "query": "Analyze the trends in the generator (orange) and discriminator (blue) losses for the ACGAN on both datasets to infer their learning behavior.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 3,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 4,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 5,
+          "query": "Locate the ACGAN training curves for MNIST and Fashion-MNIST within the provided figures.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 6,
+          "query": "Analyze the generator (orange) and discriminator (blue) loss trends for ACGAN on both datasets to infer learning behavior.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 7,
+          "query": "Identify the specific training curve plot for ACGAN on MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 8,
+          "query": "Identify the specific training curve plot for ACGAN on Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 9,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 10,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 11,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 12,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 13,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 14,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 15,
+          "query": "Extract the generator (orange) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 16,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 17,
+          "query": "Extract the generator (orange) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 18,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 2
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_195/nodes/3007e983-81d1-474e-af24-83c9ec02739d.jpg",
+      "sha256": "19ef2ad15beeb099260acd91edff66a66d4083ca992fa70bc3553db790dded52",
+      "width": 1681,
+      "height": 284,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.07164v8/1705.07164v8/auto/images/dd2157b3d19dc572e23347b426528cbe1f5d1f0cdbba9603b94cb0ff7ed2cd3b.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 8,
+      "graph_summary": "Sample images generated by GAN variants (DCGAN, MLP) on CIFAR-10 and ImageNet, showing quality and diversity after 1, 100 (CIFAR-10) or 25 (ImageNet) epochs.",
+      "graph_text_content": "Fig. 3: Training curves by running all approaches. Generator and discriminator losses are plotted in orange and blue lines. cifar10 imagenet  Fig. 4: Sample images generated by running all approaches for 1, 100 (cifar10) or 25 (imagenet) epochs. DCGAN MLP DCGAN MLP RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g)"
+    },
+    {
+      "node_id": "303c380c-b0e3-47fb-8c3b-d1db96be2c86",
+      "text_content": "Fig. 2: Sample images generated by running all approaches for 1, 10, 25, 100 epochs. cifar10 imagenet RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) CIFAR10 IMAGE NET DCGAN MLP DCGAN MLP",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "Based on the figure showing the training curves of the ACGAN for MNIST and Fashion-MNIST from the \"Relaxed Wasserstein with Applications to GANs\" paper, what insights can be drawn from the trends in both the generator (orange) and discriminator (blue) losses over time regarding their learning behavior?",
+          "method": "initial_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the specific training curves for ACGAN on MNIST and Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 2,
+          "query": "Analyze the trends in the generator (orange) and discriminator (blue) losses for the ACGAN on both datasets to infer their learning behavior.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 3,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 4,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 5,
+          "query": "Locate the ACGAN training curves for MNIST and Fashion-MNIST within the provided figures.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 6,
+          "query": "Analyze the generator (orange) and discriminator (blue) loss trends for ACGAN on both datasets to infer learning behavior.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 7,
+          "query": "Identify the specific training curve plot for ACGAN on MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 8,
+          "query": "Identify the specific training curve plot for ACGAN on Fashion-MNIST from the provided figures.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 9,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 10,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 11,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 12,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on Fashion-MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 13,
+          "query": "Analyze the trend in the generator (orange) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 14,
+          "query": "Analyze the trend in the discriminator (blue) loss for ACGAN on MNIST.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 15,
+          "query": "Extract the generator (orange) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 16,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on Fashion-MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 17,
+          "query": "Extract the generator (orange) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 18,
+          "query": "Extract the discriminator (blue) loss trend for ACGAN on MNIST from the provided visual evidence.",
+          "method": "simple_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_195/nodes/303c380c-b0e3-47fb-8c3b-d1db96be2c86.jpg",
+      "sha256": "e089368dd25a786e9e4d9a3645002b6e69ab8a81958fc64c4e574201514cac66",
+      "width": 1686,
+      "height": 180,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.07164v8/1705.07164v8/auto/images/8fe37b62a33e4012341d13bee1c82ab378e2235d3bfc5353ec018e3f6dfa3a3d.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 21,
+      "graph_summary": "Visual comparison of GAN-generated images across epochs for CIFAR10 and ImageNet datasets using various architectures.",
+      "graph_text_content": "Fig. 2: Sample images generated by running all approaches for 1, 10, 25, 100 epochs. cifar10 imagenet RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) RWGAN WGAN WGAN(g) CIFAR10 IMAGE NET DCGAN MLP DCGAN MLP"
+    }
+  ]
+}

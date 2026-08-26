@@ -1,0 +1,83 @@
+{
+  "captured_at": "2026-08-17",
+  "sources": [
+    {
+      "name": "G2_Reader",
+      "repository_url": "https://github.com/DorothyDUUU/G2_Reader.git",
+      "resolved_revision": "e4d047a756ef9136ea7f0c4dd8ba36eb1b08ec27",
+      "retrieval_date": "2026-08-17",
+      "license": {
+        "declared": "Apache-2.0",
+        "evidence": "README badge and license section",
+        "limitation": "The pinned checkout links to LICENSE, but no LICENSE file is present at this revision."
+      },
+      "local_path": "external/G2_Reader",
+      "status": "complete pristine checkout"
+    },
+    {
+      "name": "VisDoM",
+      "repository_url": "https://github.com/MananSuri27/VisDoM.git",
+      "resolved_revision": "2d809ac87360d54b0765e9be1cab75808d37642a",
+      "retrieval_date": "2026-08-17",
+      "license": {
+        "declared": null,
+        "evidence": null,
+        "limitation": "No repository-level license declaration was found in the pinned checkout. Individual upstream benchmarks may have separate terms."
+      },
+      "local_path": "external/VisDoM",
+      "status": "complete pristine checkout including raw PDFs"
+    },
+    {
+      "name": "G2-Reader processed dataset",
+      "repository_url": "https://huggingface.co/datasets/LittleWhite1031/G2-Reader",
+      "resolved_revision": "57d76a6ab4872592dfe47dbf4fae6cd77bcf184b",
+      "retrieval_date": "2026-08-17",
+      "license": {
+        "declared": null,
+        "evidence": null,
+        "limitation": "No dataset card or repository-level license file appears at the pinned revision; underlying benchmark licenses may differ."
+      },
+      "local_path": "data/manifests/G2-Reader-metadata.git",
+      "status": "metadata-only no-checkout clone plus 109 selectively downloaded smoke documents; offline validation passed",
+      "unavailable_or_auth_required": []
+    }
+  ],
+  "processed_metadata": [
+    {
+      "path": "data/metadata/processed_feta_tab.jsonl",
+      "source_path": "external/G2_Reader/data/all_dataset/processed_feta_tab.jsonl",
+      "sha256": "ccfd133f76ffbdf406a6fac31d3e2f7952b7961539dd4045b2d72d343e6d7d71"
+    },
+    {
+      "path": "data/metadata/processed_paper_tab.jsonl",
+      "source_path": "external/G2_Reader/data/all_dataset/processed_paper_tab.jsonl",
+      "sha256": "0640ab20f668e43ac517711c89e3e664b047058fb80a6abe5bbec5761cb676ac"
+    },
+    {
+      "path": "data/metadata/processed_scigraphvqa.jsonl",
+      "source_path": "external/G2_Reader/data/all_dataset/processed_scigraphvqa.jsonl",
+      "sha256": "880926f11522f32886b1cc29f3aedc1ceef48ccb0c056fa518f56a82310a9158"
+    },
+    {
+      "path": "data/metadata/processed_slidevqa.jsonl",
+      "source_path": "external/G2_Reader/data/all_dataset/processed_slidevqa.jsonl",
+      "sha256": "f358a9632bcf54b7f0314c86dfd4caeb9b6697bd7d818b3930622ee45d396a91"
+    },
+    {
+      "path": "data/metadata/processed_spiqa.jsonl",
+      "source_path": "external/G2_Reader/data/all_dataset/processed_spiqa.jsonl",
+      "sha256": "40bdb7e21bc27ebd9336116e756826aba192c70cda259eeba2d1610883cc4ab6"
+    }
+  ],
+  "size_gates": {
+    "smoke_raw_pdf_bytes": 140672377,
+    "smoke_processed_hf_bytes": 764654068,
+    "smoke_processed_document_count": 109,
+    "free_bytes_before_processed_download": 13796147200,
+    "estimate_path": "data/manifests/smoke_hf_size_estimate.json",
+    "validation_path": "data/manifests/smoke_processed_validation.json",
+    "validated_processed_bytes": 764654068,
+    "validated_processed_documents": 109,
+    "validation_failures": 0
+  }
+}

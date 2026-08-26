@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_122",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 39.88643765449524,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "a07644a1-fbda-485c-9f0c-b6e87c1915ce"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The question explicitly asks for data from 'Table 12'. The retrieved text references only Table 10 and Table 11, and does not mention Table 12. Although the retrieved images contain a table with the requested corruption levels (25%, 40%, 45%, 47%) and models (ConvNet, ConvNet+Mixup, ChoiceNet), the text does not identify this table as 'Table 12'. The worker for node n1 correctly identifies this discrepancy and concludes that Table 12 is not present in the text. However, the final answer 'ChoiceNet' is correct based on the data in the image labeled 'Table 12' (node_id: a07644a1-fbda-485c-9f0c-b6e87c1915ce), which was retrieved but not recognized as the requested table by the text-based worker. The worker for node n2 then analyzes data from a different table (Table 11) and makes an incorrect comparison, referencing 'ConvNet+CN' instead of 'ConvNet+Mixup', indicating a worker_support_failure. The final answer is correct, but it was derived from evidence that was not properly recognized as 'Table 12' in the text, making the primary failure retrieval_failure — the necessary evidence (Table 12 as referenced in the question) was not retrieved in a form that the system could identify as such. The worker then used a different table, leading to a secondary worker_support_failure. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "retrieval_failure"
+  },
+  "usage": {
+    "prompt_tokens": 4771,
+    "total_tokens": 5304,
+    "completion_tokens": 533,
+    "prompt_tokens_details": null
+  }
+}

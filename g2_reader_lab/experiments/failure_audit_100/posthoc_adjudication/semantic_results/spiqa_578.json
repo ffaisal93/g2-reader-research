@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_578",
+  "candidate_source": "official_parser",
+  "candidate_answer": "SCHOLAR",
+  "reference": "The topic with the highest internal coherence value is \"turks armenian armenia turkish roads escape soviet muslim mountain soul\".",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.094046354293823,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The topic with the highest internal coherence value is 'turks armenian armenia turkish roads escape soviet muslim mountain soul'."
+    ],
+    "candidate_claims": [
+      "SCHOLAR"
+    ],
+    "substantive_differences": [
+      "The candidate answer 'SCHOLAR' refers to the model name, not the specific topic with the highest internal coherence.",
+      "The reference answer identifies a specific topic (a list of words) as having the highest coherence, while the candidate answer provides no such topic or value.",
+      "The candidate answer fails to address the central question about which topic ranks highest in internal coherence."
+    ],
+    "rationale": "The question asks for the topic with the highest internal coherence, not the model used. The reference answer correctly identifies the specific topic, while the candidate answer incorrectly names the model, which is irrelevant to the question's requirement. This constitutes a wrong entity and missing required component."
+  },
+  "usage": {
+    "prompt_tokens": 215,
+    "total_tokens": 446,
+    "completion_tokens": 231,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_5",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The warped triplets leverage motion information to improve frame alignment by providing the discriminator with cues about how frames should be temporally aligned, enabling it to guide the generator to produce more accurate and temporally coherent super-resolution results.",
+  "reference": " The warped triplets provide additional information about the motion and appearance of the scene, which helps the VSR Ds,t to generate more accurate and realistic results.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 16.056721210479736,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Warped triplets provide additional information about motion and appearance.",
+      "This information helps the VSR Ds,t generate more accurate and realistic results."
+    ],
+    "candidate_claims": [
+      "Warped triplets leverage motion information to improve frame alignment.",
+      "They provide cues about temporal alignment to the discriminator.",
+      "The discriminator guides the generator to produce accurate and temporally coherent super-resolution results."
+    ],
+    "substantive_differences": [
+      "The reference attributes the benefit to the VSR model Ds,t (likely the generator or overall model), while the candidate incorrectly assigns the role of receiving motion cues to the discriminator, which is not mentioned in the reference.",
+      "The candidate introduces a generator-discriminator framework (implying GAN-based architecture) not present or implied in the reference.",
+      "The reference emphasizes motion and appearance information aiding the VSR model directly, while the candidate frames it as a discriminator-guided process, altering the mechanism."
+    ],
+    "rationale": "The candidate misattributes the role of the warped triplets to a discriminator, which is not mentioned in the reference. The reference focuses on the VSR model Ds,t directly benefiting from motion and appearance information, without involving a discriminator or generator. This introduces a structural and functional mismatch that contradicts the reference's implied model architecture and mechanism."
+  },
+  "usage": {
+    "prompt_tokens": 260,
+    "total_tokens": 568,
+    "completion_tokens": 308,
+    "prompt_tokens_details": null
+  }
+}

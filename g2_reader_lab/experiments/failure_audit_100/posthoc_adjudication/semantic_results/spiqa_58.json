@@ -1,0 +1,37 @@
+{
+  "question_id": "spiqa_58",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The filter generation module creates context-sensitive filters by encoding the input sentence into a fixed-length vector and generating filters via a deconvolutional layer. The convolution module then uses these filters to adaptively encode the input sentence, enabling adaptation to different sentences because the filters are sample-specific and context-dependent.",
+  "reference": "The ACNN framework learns context-sensitive filters through two modules: the filter generation module and the adaptive convolution module. The filter generation module produces a set of filters conditioned on the input sentence, while the adaptive convolution module applies the generated filters to an input sentence. The two modules are jointly differentiable, and the overall architecture can be trained in an end-to-end manner.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 26.188708782196045,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The ACNN framework learns context-sensitive filters through two modules: the filter generation module and the adaptive convolution module.",
+      "The filter generation module produces a set of filters conditioned on the input sentence.",
+      "The adaptive convolution module applies the generated filters to an input sentence.",
+      "The two modules are jointly differentiable, and the overall architecture can be trained in an end-to-end manner."
+    ],
+    "candidate_claims": [
+      "The filter generation module creates context-sensitive filters by encoding the input sentence into a fixed-length vector and generating filters via a deconvolutional layer.",
+      "The convolution module then uses these filters to adaptively encode the input sentence.",
+      "The filters are sample-specific and context-dependent, enabling adaptation to different sentences."
+    ],
+    "substantive_differences": [
+      "The candidate incorrectly specifies 'deconvolutional layer' for filter generation, which is not mentioned in the reference and contradicts typical CNN architectures (where convolutional layers are used for filter generation).",
+      "The reference does not mention 'fixed-length vector' encoding as a step in filter generation — this is an added detail not supported by the reference.",
+      "The reference emphasizes joint differentiability and end-to-end training, which the candidate omits entirely — a missing required component.",
+      "The candidate uses 'convolution module' while the reference specifies 'adaptive convolution module' — a subtle but meaningful difference in terminology that may imply different functionality."
+    ],
+    "rationale": "The candidate introduces unsupported technical details (deconvolutional layer, fixed-length vector) and omits key architectural properties (joint differentiability, end-to-end training) mentioned in the reference. These are not harmless paraphrases but substantive inaccuracies that alter the factual meaning. The core mechanism described in the candidate is not semantically equivalent to the reference."
+  },
+  "usage": {
+    "prompt_tokens": 322,
+    "total_tokens": 726,
+    "completion_tokens": 404,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_586",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 31.688626050949097,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "001ed744-412a-4d3f-8f50-e1ae9a15a600",
+      "69239fdf-6f4f-4649-9921-d722d77676f7"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly identifies GroundSent-Both as the highest-performing model on MRPC, while the reference and retrieved evidence show GroundSent-Cap (72.9/82.2) surpasses GroundSent-Both (72.7/82.5) in both values. The worker for node n1 correctly identifies the MRPC values for all models, but the final answer misinterprets the data by selecting the highest second value (82.5) without comparing the first values (72.9 vs 72.7), which are more relevant for MRPC accuracy as per the context. The worker for n2 incorrectly claims Table 1 is not retrieved, but the image node '69239fdf-6f4f-4649-9921-d722d77676f7' contains the correct Table 2 data, which is the intended source. The final worker misreads the evidence, making this a worker_support_failure. The retrieval of Table 2 is sufficient, but the worker's misinterpretation is the primary cause. The sufficiency check incorrectly marked the answer as sufficient, but this is a secondary effect."
+  },
+  "usage": {
+    "prompt_tokens": 5111,
+    "total_tokens": 5609,
+    "completion_tokens": 498,
+    "prompt_tokens_details": null
+  }
+}

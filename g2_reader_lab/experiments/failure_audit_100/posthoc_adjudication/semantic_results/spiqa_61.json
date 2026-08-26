@@ -1,0 +1,38 @@
+{
+  "question_id": "spiqa_61",
+  "candidate_source": "derived_unclosed_output_tag",
+  "candidate_answer": "BDD100K has a larger scale (318K frames, 1,600 sequences, 131K identities) and greater diversity (in object scale and occlusion) than KITTI (8K frames, 21 sequences, 917 identities) and MOT17 (34K frames, 21 sequences, 1,638 identities), making it more suitable for robust multiple object tracking.",
+  "reference": "The BDD100K dataset is significantly larger and more complex than both the KITTI and MOT17 datasets. It contains roughly 40 times more frames, 16 times more sequences, and 13 times more identities than KITTI. Compared to MOT17, BDD100K has about 10 times more frames, 80 times more sequences, and 8 times more identities. This increase in size and complexity makes BDD100K a more challenging and comprehensive benchmark for multiple object tracking algorithms. ",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 26.44405961036682,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "BDD100K is significantly larger and more complex than KITTI and MOT17.",
+      "BDD100K has ~40x more frames, ~16x more sequences, ~13x more identities than KITTI.",
+      "BDD100K has ~10x more frames, ~80x more sequences, ~8x more identities than MOT17.",
+      "This makes BDD100K a more challenging and comprehensive benchmark for MOT."
+    ],
+    "candidate_claims": [
+      "BDD100K has 318K frames, 1,600 sequences, 131K identities.",
+      "KITTI has 8K frames, 21 sequences, 917 identities.",
+      "MOT17 has 34K frames, 21 sequences, 1,638 identities.",
+      "BDD100K has greater scale and diversity (object scale and occlusion) than KITTI and MOT17.",
+      "BDD100K is more suitable for robust multiple object tracking."
+    ],
+    "substantive_differences": [
+      "Candidate provides absolute numbers (318K, 1,600, etc.) while reference uses relative comparisons (40x, 16x, etc.).",
+      "Candidate adds 'diversity in object scale and occlusion' — not mentioned in reference, but not contradictory.",
+      "Candidate does not explicitly state the multiplicative comparisons (e.g., 40x more frames than KITTI), but the absolute numbers imply them and are consistent with reference's ratios."
+    ],
+    "rationale": "The candidate accurately conveys the scale and diversity advantages of BDD100K over KITTI and MOT17 using absolute numbers that are consistent with the reference’s relative comparisons. The addition of 'diversity in object scale and occlusion' is a harmless elaboration that does not contradict the reference. The core factual claims (larger scale, more sequences/frames/identities, better suited for MOT) are preserved. No wrong entities, values, or trends are present. The candidate answers the central question with equivalent semantic meaning."
+  },
+  "usage": {
+    "prompt_tokens": 412,
+    "total_tokens": 918,
+    "completion_tokens": 506,
+    "prompt_tokens_details": null
+  }
+}

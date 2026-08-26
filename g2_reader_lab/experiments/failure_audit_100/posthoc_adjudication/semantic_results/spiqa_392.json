@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_392",
+  "candidate_source": "official_parser",
+  "candidate_answer": "HUMBI",
+  "reference": "MPII-Gaze",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.197110414505005,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The dataset that shows the most concentrated clustering near the origin in the yaw-pitch angle space is MPII-Gaze."
+    ],
+    "candidate_claims": [
+      "The dataset that shows the most concentrated clustering near the origin in the yaw-pitch angle space is HUMBI."
+    ],
+    "substantive_differences": [
+      "The candidate answer identifies 'HUMBI' as the dataset with the most concentrated clustering near the origin, while the reference answer correctly identifies 'MPII-Gaze'. This is a direct factual mismatch in the named entity."
+    ],
+    "rationale": "The question asks for the specific dataset exhibiting the most concentrated clustering near the origin in yaw-pitch space. The reference answer names 'MPII-Gaze', while the candidate names 'HUMBI', which is a different dataset. Since the question requires a specific dataset name and the candidate provides a different one, the answer is semantically incorrect. There is no indication that 'HUMBI' is a synonym or equivalent to 'MPII-Gaze' in this context."
+  },
+  "usage": {
+    "prompt_tokens": 194,
+    "total_tokens": 445,
+    "completion_tokens": 251,
+    "prompt_tokens_details": null
+  }
+}

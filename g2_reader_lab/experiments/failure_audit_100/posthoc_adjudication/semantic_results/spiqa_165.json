@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_165",
+  "candidate_source": "official_parser",
+  "candidate_answer": "22",
+  "reference": "22 iterations",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.17120909690857,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The greedy EM-type learning process took 22 iterations to learn the part models for the watch image."
+    ],
+    "candidate_claims": [
+      "22"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer '22' directly provides the numerical value requested in the question, which is the number of iterations. Although it lacks units or context, the question specifically asks for 'how many iterations', and the reference answer is '22 iterations'. The candidate's answer is semantically equivalent to the core factual content of the reference, as the number '22' is the key entity required. The omission of the word 'iterations' is harmless and does not alter the factual meaning in this context, as the question explicitly asks for a count of iterations."
+  },
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 390,
+    "completion_tokens": 198,
+    "prompt_tokens_details": null
+  }
+}

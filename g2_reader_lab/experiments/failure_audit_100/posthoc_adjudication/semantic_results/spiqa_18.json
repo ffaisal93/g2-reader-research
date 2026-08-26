@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_18",
+  "candidate_source": "official_parser",
+  "candidate_answer": "FlowNet2 (ft) achieves a lower error (3.14) than Devon (ft) (6.35) on the Sintel \"Final\" test set.",
+  "reference": "PWC-Net (ft) performs best on the Sintel \"Final\" test set with an error of 5.04. Devon (ft) has a higher error of 6.35 on the same set. ",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 18.58319664001465,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "PWC-Net (ft) performs best on the Sintel 'Final' test set with an error of 5.04.",
+      "Devon (ft) has a higher error of 6.35 on the same set."
+    ],
+    "candidate_claims": [
+      "FlowNet2 (ft) achieves a lower error (3.14) than Devon (ft) (6.35) on the Sintel 'Final' test set."
+    ],
+    "substantive_differences": [
+      "The candidate incorrectly identifies FlowNet2 (ft) as the best-performing method with an error of 3.14, while the reference states PWC-Net (ft) is best with 5.04.",
+      "The candidate's value of 3.14 is not supported by the reference and contradicts the stated best performance.",
+      "The candidate's claim that FlowNet2 (ft) achieves a lower error than Devon (ft) is factually incorrect in the context of the reference, which identifies PWC-Net (ft) as the best performer."
+    ],
+    "rationale": "The candidate provides a different method (FlowNet2 vs. PWC-Net) and a different error value (3.14 vs. 5.04) that contradicts the reference. The reference explicitly names PWC-Net (ft) as the best performer on the Sintel 'Final' set, which the candidate does not acknowledge. The candidate’s answer is factually inconsistent with the benchmark."
+  },
+  "usage": {
+    "prompt_tokens": 275,
+    "total_tokens": 629,
+    "completion_tokens": 354,
+    "prompt_tokens_details": null
+  }
+}

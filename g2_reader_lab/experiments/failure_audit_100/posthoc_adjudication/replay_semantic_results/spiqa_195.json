@@ -1,0 +1,45 @@
+{
+  "question_id": "spiqa_195",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ACGAN exhibits unstable training behavior with high variance in both generator (orange) and discriminator (blue) losses, showing erratic fluctuations and no clear convergence, indicative of poor learning dynamics and likely mode collapse.",
+  "reference": "The training curves for the ACGAN show that the generator and discriminator losses both decrease over time. This indicates that the ACGAN is able to learn to generate realistic images.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.159081220626831,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Generator and discriminator losses both decrease over time.",
+      "This indicates the ACGAN is able to learn to generate realistic images."
+    ],
+    "candidate_claims": [
+      "ACGAN exhibits unstable training behavior.",
+      "High variance and erratic fluctuations in both losses.",
+      "No clear convergence.",
+      "Indicative of poor learning dynamics and likely mode collapse."
+    ],
+    "substantive_differences": [
+      "The reference states losses decrease steadily, implying convergence and successful learning; the candidate claims erratic fluctuations and no convergence, implying failure.",
+      "The candidate introduces negative claims (instability, mode collapse) not supported by the reference, which is positive about learning success.",
+      "The candidate contradicts the core trend described in the reference: decreasing losses vs. erratic fluctuations."
+    ],
+    "rationale": "The candidate answer directly contradicts the reference's key claims about the training behavior. The reference describes a successful, convergent learning process, while the candidate describes instability and failure. This is a substantive contradiction in the interpretation of the training curves, making the candidate semantically incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 284,
+    "total_tokens": 543,
+    "completion_tokens": 259,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "ACGAN exhibits unstable training behavior with high variance in both generator (orange) and discriminator (blue) losses, showing erratic fluctuations and no clear convergence, indicative of poor learning dynamics and likely mode collapse.",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_195/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 90.66105079650879,
+  "eight_b_candidate": null,
+  "eight_b_candidate_source": "no_candidate_answer",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "retrieval_failure"
+}

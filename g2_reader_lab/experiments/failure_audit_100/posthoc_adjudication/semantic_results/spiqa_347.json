@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_347",
+  "candidate_source": "official_parser",
+  "candidate_answer": "20%",
+  "reference": "Approximately 80%",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 14.740376710891724,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Approximately 80% of occlusions last for more than 10 frames."
+    ],
+    "candidate_claims": [
+      "20% of occlusions last for more than 10 frames."
+    ],
+    "substantive_differences": [
+      "The candidate provides a value (20%) that is the complement of the reference (80%), implying a misinterpretation of the CDF. In a CDF, the value at 10 frames represents the proportion of occlusions lasting 10 frames or less; thus, the proportion lasting more than 10 frames is 100% minus that value. The candidate’s answer suggests they may have misread the CDF as the probability of lasting less than or equal to 10 frames, or misapplied the complement rule."
+    ],
+    "rationale": "The candidate’s answer contradicts the reference by providing the inverse percentage. Since the question asks for the percentage of occlusions lasting *more than* 10 frames, and the reference states ~80%, the candidate’s 20% is factually incorrect. This is not a paraphrase or harmless extra detail, but a direct numerical contradiction."
+  },
+  "usage": {
+    "prompt_tokens": 190,
+    "total_tokens": 472,
+    "completion_tokens": 282,
+    "prompt_tokens_details": null
+  }
+}

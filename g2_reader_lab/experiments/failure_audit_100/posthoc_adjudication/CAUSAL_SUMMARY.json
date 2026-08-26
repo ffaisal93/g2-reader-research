@@ -1,0 +1,1706 @@
+{
+  "classified_cases": 55,
+  "request_failures": 0,
+  "primary_counts": {
+    "dataset_failure": 1,
+    "parser_failure": 10,
+    "no_failure": 12,
+    "worker_support_failure": 22,
+    "retrieval_failure": 7,
+    "decomposition_failure": 2,
+    "composition_failure": 1
+  },
+  "results": [
+    {
+      "question_id": "spiqa_79",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "ambiguous",
+        "reference_mismatch_material": true,
+        "primary_category": "dataset_failure",
+        "secondary_categories": [
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "uncertain",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unknown",
+        "confidence": 1.0,
+        "rationale": "The benchmark question is literally 'New question:' while the reference describes alpha and recommendation accuracy. This malformed row is excluded from valid G2 failure and accuracy denominators."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_96",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "Planning Graph generation exhausted all retries because every structured JSON response was malformed; Worker execution never began."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_58",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 26.71026301383972,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "2886c7e9-1a43-4c54-8e03-404084428af5",
+          "d242e94c-d3d8-4d53-bb29-527a24788dc9"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer correctly describes the interaction between the filter generation and convolution modules in the ACNN framework. The retrieved evidence (nodes 2886c7e9-1a43-4c54-8e03-404084428af5 and d242e94c-d3d8-4d53-bb29-527a24788dc9) explicitly supports the key claims: the filter generation module encodes the input into a fixed-length vector and generates sample-specific filters via a deconvolutional layer, and the adaptive convolution module applies these filters to the input sentence. The worker responses for n1 and n2 accurately extract and summarize this information. The final answer correctly composes these components, explaining how the process enables adaptation to different sentences due to sample-specific filters. The sufficiency check confirms no gaps. The answer matches the reference in substance, though it adds technical detail (deconvolutional layer) not in the reference — which is acceptable as the reference is a summary. No retrieval, decomposition, composition, or worker support failures are present. The parser output is valid and complete."
+      },
+      "usage": {
+        "prompt_tokens": 4251,
+        "total_tokens": 4743,
+        "completion_tokens": 492,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_48",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 35.895403146743774,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "fc2efcdb-1f86-4bd8-ac1f-c1e591342019"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer is factually correct: GeoCUTS, DMA, and Grid all have B-metric values of 1.5 for US Highly Active users, as shown in Table 2 (node_id: fc2efcdb-1f86-4bd8-ac1f-c1e591342019), which is explicitly labeled as reporting B-metrics with a multiplicative constant of 100. However, this critical evidence was not retrieved in the initial retrieval phase for the subtasks. The retrieved evidence includes Table 5 (node_id: 817b22a6-20e8-40f8-ba18-406144694200) and other tables, but none of the retrieved nodes contain the direct comparison of GeoCUTS, DMA, and Grid for US Highly Active users. The worker for node n1 incorrectly extracted a B-metric value of 0.06 from Table 5, which is for a different normalization and not for the clustering methods. The worker for node n2 correctly identified the absence of B-metric data for DMA and Grid in the provided text, but the necessary evidence (Table 2) was not retrieved. The final answer was generated based on a later, correct interpretation of Table 2, which was not part of the retrieved evidence for the subtasks. Therefore, the primary failure is retrieval_failure, as the necessary evidence was not retrieved in the initial phase. The worker_support_failure is secondary, as the workers misinterpreted or failed to find the correct values due to the missing evidence. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+        "grounding_warning_category": "retrieval_failure"
+      },
+      "usage": {
+        "prompt_tokens": 4739,
+        "total_tokens": 5287,
+        "completion_tokens": 548,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_39",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_4",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 29.218135833740234,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "953cf21f-8c0d-4076-a83b-b7bdb27e3948"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence was retrieved: Table 1 (in image node 953cf21f-8c0d-4076-a83b-b7bdb27e3948) clearly shows that the CNSE dataset has 16198 negative samples in total, and 17438 samples in the training set. However, the question specifically asks for the number of negative samples *allocated to the training set*, not the total negative samples. The worker and final answer both report 16198, which is the total number of negative samples, not the number allocated to the training set. The 60% split is mentioned in the question, implying that the training set is 60% of the total dataset, and thus the number of negative samples in the training set should be 60% of 16198, which is approximately 9719 (as stated in the reference). The worker misread or misinterpreted the evidence by conflating total negative samples with training set negative samples, leading to an unsupported answer. This is a worker_support_failure, as the correct evidence was retrieved but misapplied."
+      },
+      "usage": {
+        "prompt_tokens": 5420,
+        "total_tokens": 5865,
+        "completion_tokens": 445,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_234",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 45.70584964752197,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "a2c40805-58d1-4cae-b56e-97514c2619f8"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.9,
+        "rationale": "The candidate answer is factually correct: it accurately describes the trend shown in Figure 1 — test PPL decreases as K increases, stabilizing near 128.8 for both models, with minimal gain after K=100. The reference is a general statement that is fully supported by the candidate.\n\nHowever, the primary causal failure is a retrieval_failure: the necessary visual evidence (Figure 1) was retrieved (node_id: a2c40805-58d1-4cae-b56e-97514c2619f8), but the system did not extract the required data points from it. The worker responses for nodes n1 and n2 in round 0 explicitly state that the exact numerical values for PPL at K=100 and K=10000 are not available in the provided text, and the image is not accessible for direct reading. The workers correctly identify the need for the figure but cannot extract the values without visual analysis.\n\nIn round 1, the workers attempt to extract values from the figure, and the final answer is generated based on the visual interpretation of the chart (e.g., 'around 150' for initial PPL, 'approximately 128.8' for final PPL). This indicates that the system eventually used the visual evidence, but the initial retrieval and parsing of the figure's data was insufficient. The worker responses in round 1 show that they are attempting to interpret the visual data, which suggests that the visual node was retrieved but not properly parsed or utilized in the early stages.\n\nThe sufficiency check in round 0 correctly identifies gaps, and the check in round 1 marks sufficient, indicating that the system eventually resolved the gaps through visual interpretation. However, the earliest decisive failure is that the necessary evidence (the visual data from Figure 1) was not properly extracted or utilized in the initial steps — a retrieval_failure. The worker_support_failure is secondary, as the workers correctly identified the need for the figure but were unable to extract the data without visual access.\n\nThe final composition is supported because the answer is consistent with the visual evidence and the reference. The sufficiency behavior is appropriate, as the system drove refinement to resolve the gaps. Raw visual review is required to confirm the exact values, but the candidate answer is consistent with the visual trend. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+        "grounding_warning_category": "retrieval_failure"
+      },
+      "usage": {
+        "prompt_tokens": 7190,
+        "total_tokens": 7898,
+        "completion_tokens": 708,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_110",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 61.202045917510986,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "7dc4ed59-178d-49ae-9a73-c8f761195b16",
+          "61013606-d895-489a-962c-aa3b43808da3"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly states that RMSE increases and correlation decreases as the forecasting horizon increases for the LSTNet-attn model on the Solar-Energy dataset. However, the retrieved evidence (node_id: 7dc4ed59-178d-49ae-9a73-c8f761195b16) contains a table with precise values: for LSTNet-attn, RMSE is 0.1816 (horizon 3), 0.2538 (6), 0.3466 (12), 0.4403 (24) — which is an increase — and CORR is 0.9848 (3), 0.9690 (6), 0.9390 (12), 0.8995 (24) — which is a decrease. The worker's response for node n2 misreads the correlation values, claiming they are approximately 0.984, 0.969, 0.939, 0.90, which is correct numerically, but the final composition in the 'final' step misinterprets the trend as decreasing, which is accurate. However, the reference states that performance 'generally improves' with increasing horizon, meaning both RMSE and correlation should improve — but RMSE is a lower-is-better metric, so an increase in RMSE is a degradation, and a decrease in correlation is also a degradation. The reference is incorrect in its claim that performance improves — it should state that performance degrades. But the benchmark reference is provided as ground truth, so we must judge the candidate against it. The candidate's answer matches the data (RMSE increases, correlation decreases), which is correct per the evidence, but contradicts the reference. However, the reference is factually wrong — performance degrades as horizon increases. Since the benchmark reference is the authority, and the candidate contradicts it, the candidate is marked incorrect. The worker's extraction of values is correct, but the final composition misrepresents the trend as 'decreases' for correlation, which is correct, but the reference says 'improves', so the answer is wrong. The primary failure is that the worker misread the evidence — specifically, in the final composition, it incorrectly states the trend for correlation as 'decreases' when the reference says 'improves', but the evidence shows a decrease. The worker's misreading is in interpreting the trend relative to the reference's claim. However, the worker's extraction of values is accurate. The real issue is that the final answer is factually correct per the evidence but contradicts the reference. Since the reference is the benchmark, the answer is incorrect. The primary failure is worker_support_failure because the worker misinterpreted the trend direction relative to the reference's claim, even though the values were correctly extracted. The evidence was retrieved, and the planning was adequate. The sufficiency check passed, but the final answer is wrong. The worker's response for n2 correctly extracted the correlation values, but the final composition mischaracterized the trend as 'decreases' when the reference says 'improves', which is a misreading of the required interpretation. Therefore, the primary cause is worker_support_failure."
+      },
+      "usage": {
+        "prompt_tokens": 5203,
+        "total_tokens": 6136,
+        "completion_tokens": 933,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_196",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 28.299845218658447,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "2d270739-e5af-43e6-829d-70298483da82"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly claims that proximity reflects semantic similarity 'regardless of their position in the document' and that color-coding is 'not semantic similarity'. However, the retrieved text explicitly states: 'Fig. 2 shows t-SNE embeddings of sentence representations learned by our sentence encoder. These are sentences from test sets, color coded by their positions in the source abstract. This shows that our model learns high-level structure in the documents, generalizing well to unseen text.' The key point is that the color-coding is by position, and the clustering reflects document structure (which is tied to position), not independent semantic similarity. The model learns structure, meaning sentences that are close in position (and thus color) are likely to be semantically similar due to document coherence. The candidate misinterprets the evidence by asserting that position is irrelevant to semantic similarity, which contradicts the paper's own interpretation. The worker's response correctly identifies the color-coding scheme, but the final answer misrepresents the relationship between proximity and semantic similarity, failing to support the correct inference from the evidence. This is a worker_support_failure: necessary evidence was retrieved, but the worker misread or misinterpreted it to produce an unsupported answer."
+      },
+      "usage": {
+        "prompt_tokens": 3754,
+        "total_tokens": 4204,
+        "completion_tokens": 450,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_181",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 28.25999903678894,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "decomposition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "5d96dafc-da6a-4efe-92d1-dfa6b126acc8"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly identifies the inputs to the image generation network as the embedded vector E and the generated mask G_M(x). The reference states the correct inputs are the observed images (x) and a random noise vector (z). The retrieved evidence, particularly the image node with ID '5d96dafc-da6a-4efe-92d1-dfa6b126acc8', clearly shows the diagram of Figure 2, which includes the inputs 'x' (detected key parts) and 'z' (random noise vector) feeding into the 'Image generation' block. The worker at node n1 misreads the diagram, focusing only on the skip connections from the part encoding and mask prediction networks, while ignoring the direct inputs 'x' and 'z' shown in the diagram. This is a worker_support_failure. Additionally, the planning graph omits a subproblem to explicitly identify the direct inputs to the image generation block, which is a decomposition_failure. The final answer is not supported by the evidence and is incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 8905,
+        "total_tokens": 9328,
+        "completion_tokens": 423,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_381",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 35.05189061164856,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "composition_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "4cedf60e-4b37-4346-b8c3-701c426bc84f"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly identifies CLASS as the dataset with the fewest interactions, when the reference and retrieved evidence (Table 1) clearly show that RSC15 has 31,637,239 events and CLASS has 9,011,321 events — making CLASS the correct minimum. However, the worker at node n6 (calculating the ratio) incorrectly used VIDEO (10,214,429) as the minimum, leading to a wrong ratio of 6.787. This is a worker_support_failure because the necessary evidence (Table 1) was retrieved and visible, but the worker misread or misapplied it. The final answer then incorrectly reports CLASS as the minimum, which is unsupported by the worker's own calculation (which used VIDEO). This is a composition_failure because the final answer combines the correct maximum (VIDXL) with an incorrect minimum (CLASS) and an incorrect ratio (7.690, which is actually the correct ratio of VIDXL to CLASS, but the worker did not compute it — they computed VIDXL to VIDEO). The final answer's ratio of 7.690 is numerically correct for VIDXL/CLASS, but the reasoning is flawed because the worker did not identify CLASS as the minimum. The sufficiency check passed because it did not detect the logical inconsistency in the worker's calculation. The primary failure is worker_support_failure at node n6, which cascaded into the final composition."
+      },
+      "usage": {
+        "prompt_tokens": 7216,
+        "total_tokens": 7735,
+        "completion_tokens": 519,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_368",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 32.14632177352905,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "worker_support_failure",
+          "composition_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "b47df0eb-ad2e-41cf-84e1-b904931af05d"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence to answer the question — the classification accuracy values for each adversarial attack method on the Resnet-32 model on MNIST with thresholding disabled — is present in the retrieved image node b47df0eb-ad2e-41cf-84e1-b904931af05d (Figure 2a). However, the text extracted from this node is incomplete and does not include the full table or the specific accuracy values needed to compute the reduction. The worker attempted to extract accuracy reduction values but failed because the required data was not fully available in the text. The planning graph was adequate, decomposing the task into identifying attacks, extracting accuracy reductions, and comparing them. However, the worker's response for node n2 incorrectly states that the data is missing, when in fact the visual evidence contains the required data. This is a retrieval failure because the system failed to retrieve the full, usable evidence (the complete table) from the visual node. The worker then produced an unsupported answer, and the final composition could not be completed due to the missing data. The sufficiency checks appropriately flagged the gaps, but the system did not resolve them by accessing the full visual content. Raw visual review is required to confirm the exact values in the table."
+      },
+      "usage": {
+        "prompt_tokens": 8809,
+        "total_tokens": 9289,
+        "completion_tokens": 480,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_0",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 33.63065838813782,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "composition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "e128c908-1337-49dd-8631-8fcad82a350f",
+          "8889a588-2435-4ccd-ad67-729c75d84cfc"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence was retrieved: Figure 9's two panels (original and pre-processed) are present in the retrieved images (node_ids e128c908... and 8889a588...). The original dataset shows separate triples for each POI property (e.g., 'the_westin distance 2_miles'), while the pre-processed dataset combines all properties into a single triple with 'poi' as the object (e.g., '2_miles moderate_traffic rest_stop poi the_westin'). This directly matches the reference.\n\nHowever, the Worker responses for n1 and n2 misread the evidence. For n1, the Worker correctly identifies the original structure as Subject-Predicate-Object but fails to note that each POI has multiple separate triples. For n2, the Worker incorrectly claims the pre-processed structure is 'consistent' with the original and misinterprets the transformation as 'inverting subject-object relationships' rather than combining properties into a single subject with 'poi' as the object.\n\nThe final answer composes these misread intermediate results, leading to an incorrect claim about 'inversion or restructured to link entities' instead of the actual transformation: combining all properties into a single subject with 'poi' as the object. This is a worker_support_failure (misreading evidence) that cascades into a composition_failure (incorrect synthesis)."
+      },
+      "usage": {
+        "prompt_tokens": 4266,
+        "total_tokens": 4804,
+        "completion_tokens": 538,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_586",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 31.688626050949097,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "001ed744-412a-4d3f-8f50-e1ae9a15a600",
+          "69239fdf-6f4f-4649-9921-d722d77676f7"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly identifies GroundSent-Both as the highest-performing model on MRPC, while the reference and retrieved evidence show GroundSent-Cap (72.9/82.2) surpasses GroundSent-Both (72.7/82.5) in both values. The worker for node n1 correctly identifies the MRPC values for all models, but the final answer misinterprets the data by selecting the highest second value (82.5) without comparing the first values (72.9 vs 72.7), which are more relevant for MRPC accuracy as per the context. The worker for n2 incorrectly claims Table 1 is not retrieved, but the image node '69239fdf-6f4f-4649-9921-d722d77676f7' contains the correct Table 2 data, which is the intended source. The final worker misreads the evidence, making this a worker_support_failure. The retrieval of Table 2 is sufficient, but the worker's misinterpretation is the primary cause. The sufficiency check incorrectly marked the answer as sufficient, but this is a secondary effect."
+      },
+      "usage": {
+        "prompt_tokens": 5111,
+        "total_tokens": 5609,
+        "completion_tokens": 498,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_245",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 30.315499305725098,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "decomposition_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "74c705ec-8c30-4f1f-b9b5-96a97df8e746",
+          "f7e463ef-d221-4b10-a81d-2a980ccd4574"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly claims the Hamilton-based PCB 'enables data acquisition by housing the sensors' and 'enables data transmission by implementing TCP/CoAP protocols'. While the retrieved text confirms the PCB is the core electronic component and that data is transmitted via TCP/CoAP, it does not state that the PCB houses the sensors or implements the protocols. The text explicitly states the PCB is 'Hamilton-based' and that the anemometer is 'Hamilton-based', but does not describe the PCB's internal components or its role in housing sensors. The retrieved text also does not mention the PCB implementing TCP/CoAP; it only states that the application uses these protocols. The worker's response for node n4 incorrectly infers that the PCB houses the sensors and implements the protocols, which is not supported by the evidence. The planning graph decomposed the task into identifying the figure and explaining the PCB's role, but the subproblem 'Detail how the PCB enables data acquisition, processing, and transmission' was not adequately addressed, leading to unsupported claims in the final answer. The sufficiency check correctly identified gaps in the initial round, but the worker's response in round 1 still produced an unsupported answer, indicating a worker_support_failure as the primary cause."
+      },
+      "usage": {
+        "prompt_tokens": 5689,
+        "total_tokens": 6189,
+        "completion_tokens": 500,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_527",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 40.821643114089966,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "664aadcc-afbe-4d6d-8c15-9d33bc68c49f"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer correctly identifies KEHNN as the top-performing model across all four metrics and provides accurate scores (R2@1: 0.786, R10@1: 0.460, R10@2: 0.591, R10@5: 0.819), which are verifiable in the retrieved image node '664aadcc-afbe-4d6d-8c15-9d33bc68c49f'. The justification about statistical significance (p-value ≤ 0.01) and alignment with LSTM-based models and prior knowledge is also supported by the text in node '5e236dd5-eec5-4f28-81df-20eb763971c8'. However, the primary causal failure is a retrieval_failure: the system did not retrieve the correct table labeled 'Table 1' as requested in the question. Instead, it retrieved 'Table 4' (which is the correct data) and 'Table 3' (which is for answer selection, not response selection). The question specifically asks for 'Table 1', and the retrieved evidence does not contain a node explicitly labeled 'Table 1'. The worker correctly inferred that 'Table 4' is the relevant table, but the retrieval system failed to surface the table explicitly named 'Table 1' as requested. This is a retrieval failure because the necessary evidence (the table labeled 'Table 1') was not retrieved, even though the correct data was available in 'Table 4'. The worker then produced a correct answer based on the retrieved data, which constitutes a worker_support_failure as a secondary effect. The planning was adequate, and sufficiency checks were appropriate. No raw visual review is needed as the image node clearly shows the required data. The confidence is high because the answer is factually correct, but the retrieval failure is decisive. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+        "grounding_warning_category": "retrieval_failure"
+      },
+      "usage": {
+        "prompt_tokens": 5800,
+        "total_tokens": 6423,
+        "completion_tokens": 623,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_434",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 37.96775269508362,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "9f2756ab-66fe-4fd3-b2d2-259741029829"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence was retrieved: Table 3 (node_id: 9f2756ab-66fe-4fd3-b2d2-259741029829) explicitly shows that for Italian (it), the Variational J^var (7) method achieves 67.4% accuracy, not 77.4%. The worker correctly extracted 67.4% in round 2 and round 3 (node n4), but then incorrectly concluded that 77.4% is not present, and the final answer falsely claims no method achieves 77.4%. This is a worker_support_failure: the worker misread or misinterpreted the evidence (67.4% vs 77.4%) and produced an unsupported answer. The planning was adequate, as it correctly decomposed the task into locating the table, extracting the value, and comparing it to 77.4%. The sufficiency checks appropriately flagged the gap, but the worker failed to use the retrieved evidence correctly. A retrieval_failure is secondary because the correct table was retrieved, but the worker failed to use it properly."
+      },
+      "usage": {
+        "prompt_tokens": 14355,
+        "total_tokens": 14806,
+        "completion_tokens": 451,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_522",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 62.02108383178711,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "sufficiency_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "33916f23-1688-4bc1-8b4d-be43beb4da0f"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "premature_stop",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence (Table 1) was retrieved, including the visual node with the full table data. The planning graph correctly decomposed the question into subtasks: identifying the top model (n1) and extracting its statistical comparisons (n2). Worker n1 correctly identified Conv-KNRM as the top model with nDCG@20=0.3215 on WT14 when trained on NYT. However, Worker n2 failed to correctly extract the statistical comparisons for Conv-KNRM against BM25, WT10, and AOL. The worker's response is ambiguous and incomplete, discussing multiple models without focusing on the identified top model (Conv-KNRM). The sufficiency check in round 0 correctly flagged missing comparisons, but the system did not drive appropriate refinement to resolve this gap. In round 1, the worker still did not provide a focused answer for Conv-KNRM. The final answer is null, indicating a parser or composition failure, but the root cause is the worker's failure to support the required comparison for the correct model. This is a worker_support_failure, with sufficiency_failure as a secondary cause due to premature stopping on an unresolved gap."
+      },
+      "usage": {
+        "prompt_tokens": 8087,
+        "total_tokens": 8545,
+        "completion_tokens": 458,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_392",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 41.58558440208435,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "8baf35bd-5733-4e1a-80e2-410967b91d56",
+          "2fe0752d-39ca-4dc9-9050-0d0ee2a7a087"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer 'HUMBI' is incorrect; the correct answer is 'MPII-Gaze' as per the reference. The necessary evidence was retrieved: Figure 6 (visual heatmaps) and Table 2 (quantitative bias/variance) were both retrieved. However, the Worker misinterpreted the evidence. In round 0, node n1 incorrectly identified UTMV as having the smallest bias (7.43) based on a misreading of Table 2, while the actual smallest average bias is 5.98° for HUMBI. In round 1, node n2 correctly identified HUMBI's smallest average bias (5.98°) from Table 2, but the final answer was still 'HUMBI', which is wrong. The visual evidence in Figure 6 shows that MPII-Gaze has the most concentrated cluster around the origin — its heatmap is the brightest and most tightly clustered at (0,0) — which is not reflected in the Worker's reasoning. The Worker failed to correctly interpret the visual evidence, relying too heavily on the quantitative bias, which does not fully capture the visual concentration. The planning was adequate, and sufficiency checks were appropriate. The failure is primarily a worker_support_failure due to misreading and misinterpreting the visual and quantitative evidence, with a secondary retrieval_failure because the visual evidence was retrieved but not properly analyzed."
+      },
+      "usage": {
+        "prompt_tokens": 6791,
+        "total_tokens": 7325,
+        "completion_tokens": 534,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_215",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 34.44766116142273,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "fe8fb641-c001-41b3-9157-27120d5d6ca1"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly claims that the depth-exclusive model produces 'cleaner, silhouette-based filter responses' that are 'more robust to appearance changes', while the RGB model shows 'complex, texture-dependent patterns sensitive to lighting and clothing'. This is the opposite of the reference, which states that the RGB-based model's filter responses are 'more detailed and contain more information' than the depth-exclusive model's, because RGB images contain more information. The retrieved evidence includes the figure caption (node_id: fe8fb641-c001-41b3-9157-27120d5d6ca1) which correctly identifies the content of Figure 1(a) and (b), but the worker misinterpreted the visual content. The worker's response in round 0 for node n2 correctly identifies Figure 1(b) as the depth-exclusive model and locates the filter responses, but fails to extract the actual visual differences. The worker's final answer is unsupported by the evidence and contradicts the reference. The retrieval of the figure caption is sufficient to know what is shown, but the worker misread the visual implications. Therefore, the primary failure is a worker_support_failure, with a secondary retrieval_failure because the actual visual content of the filter responses (which would be needed to support the answer) was not retrieved or described in the text."
+      },
+      "usage": {
+        "prompt_tokens": 8327,
+        "total_tokens": 8820,
+        "completion_tokens": 493,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_44",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 27.61501455307007,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "decomposition_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "5897f955-cc55-4708-9b2a-1df1af5606a3",
+          "266615e9-2b2f-4bd6-9758-91db3ca72083"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unknown",
+        "confidence": 0.95,
+        "rationale": "The question asks for specific differences in temporal patterns of phenotype magnitude, shape, and periodicity *between the sickle cell anemia patient and the leukemia patient*. The planning graph decomposes the task into analyzing each patient separately (n1 and n2), but it fails to include a required subproblem: *comparing* the two patients' patterns. The worker responses correctly analyze each patient's patterns across the three methods, but the final answer conflates the analysis by focusing only on the leukemia patient and misrepresenting the comparison. The candidate answer incorrectly claims 'the only correct answer' is about COPA/Helwig/SPARTan performance on leukemia, ignoring the sickle cell anemia patient entirely and thus failing to address the comparative aspect of the question. This is a decomposition failure because the plan omitted the necessary comparison subproblem. The worker responses, while detailed, are not used to form the required comparison, leading to a worker_support_failure in the final composition."
+      },
+      "usage": {
+        "prompt_tokens": 3712,
+        "total_tokens": 4154,
+        "completion_tokens": 442,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_396",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 25.977263689041138,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "worker_support_failure",
+          "composition_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "61e1d332-2333-40e4-854c-c7f7c7fd366a"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence — Table 7 with AUC values for 3D body keypoint prediction — was retrieved in the image node with ID '61e1d332-2333-40e4-854c-c7f7c7fd366a'. However, the Workers (n1 and n2) failed to recognize or extract the relevant data from this table, instead claiming that Table 7 was not provided. This is a retrieval_failure because the evidence was retrieved but not recognized as usable by the Workers. The Workers' responses are unsupported by the evidence, constituting worker_support_failure. The final composition attempt was also flawed, as it began to reason from the table but was truncated, indicating composition_failure. The planning was adequate, and sufficiency checks were appropriate. No raw visual review is needed because the table text is fully readable in the retrieved evidence."
+      },
+      "usage": {
+        "prompt_tokens": 4524,
+        "total_tokens": 4931,
+        "completion_tokens": 407,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_235",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 34.631930351257324,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [
+          "composition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "d290c0b2-4247-492c-a734-24deeb57c919"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer is factually correct in stating that increasing FLOPS reduces error rates for both models and that the small ANN with AdaLoss (orange) outperforms the large ANN with CONST (green) across all budget levels. However, the worker results contain a critical misidentification: in node n2, the worker incorrectly identifies the 'large ANN with non-adaptive weights (CONST)' as the purple curve ('ANN+CONST') in Figure 5(a), which is not the correct figure referenced in the question (Figure 4(a)). The question specifically asks about Figure (a) from the context of the main comparison, which is Figure 4(a) — not Figure 5(a). In Figure 4(a), the green curve is labeled 'Large ANN w/ 10% Relative Final Gap', which corresponds to CONST, and the orange curve is 'Small ANN w/ no Final Gap (Ours)', which corresponds to AdaLoss. The worker's misidentification of the figure (confusing Figure 4(a) with Figure 5(a)) is a worker_support_failure. This error propagates to the final composition, where the final answer correctly states the trend but incorrectly attributes the green curve to CONST in Figure 4(a) based on the flawed worker input — a composition_failure. The necessary evidence (Figure 4(a)) was retrieved, and the planning was adequate, but the worker misread the visual evidence by misattributing the figure. Raw visual review is required to confirm the curve labels in Figure 4(a) vs. Figure 5(a). [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+        "grounding_warning_category": "worker_support_failure"
+      },
+      "usage": {
+        "prompt_tokens": 5612,
+        "total_tokens": 6149,
+        "completion_tokens": 537,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_205",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 29.060344219207764,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "38545316-2a94-441d-ba7d-ff4d92af5930",
+          "f15ca1d2-4c81-4afc-a30f-e4a543f54296"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer correctly distinguishes between overlapping and error cases as described in Figure 6 of the CAN paper. The retrieved evidence includes both the textual description of the overlapping case (node 38545316-2a94-441d-ba7d-ff4d92af5930) and the visual representation of Figure 6 (node f15ca1d2-4c81-4afc-a30f-e4a543f54296), which explicitly shows the model's attention weights for both cases. The worker responses for nodes n1 and n2 correctly interpret this evidence: n1 notes the model's success in locating shared opinion words in overlapping cases, and n2 identifies the failure in error cases due to insufficient attention to negation words. The final answer synthesizes these points accurately, matching the benchmark reference's core distinction between the two case types. No retrieval, decomposition, composition, or sufficiency failures are present. The answer is fully supported by the evidence and correctly composed."
+      },
+      "usage": {
+        "prompt_tokens": 4933,
+        "total_tokens": 5393,
+        "completion_tokens": 460,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_34",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 26.99969172477722,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "decomposition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "4edf4e42-5f16-4d52-8d4e-e91ae55017a9"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly attributes the increase in identity switches (IDS) to 'increased sensitivity to object movement' due to better localization. However, the reference and the retrieved evidence point to a different cause: the increased diversity of instances introduced by the detection set. The retrieved evidence (node 4edf4e42-5f16-4d52-8d4e-e91ae55017a9) explicitly states that the detection set adds 'varied examples' that may lead to more frequent identity switches. The worker's final response misinterprets the evidence, fabricating a causal link to 'sensitivity to object movement' that is not supported by the text. This is a worker_support_failure. Additionally, the planning graph failed to explicitly decompose the need to identify the *source* of the increased diversity (i.e., the detection set's contribution), which is a decomposition_failure. The sufficiency check correctly identified gaps in the reasoning, and the final answer was not supported by the evidence."
+      },
+      "usage": {
+        "prompt_tokens": 8772,
+        "total_tokens": 9195,
+        "completion_tokens": 423,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_116",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 49.86325693130493,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "56e52cc0-23d7-4e6a-ba34-8e6281126bf9"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer claims a 10 percentage point difference, but the reference states only a 'slightly better' performance. The retrieved evidence includes the figure caption (node_id: 56e52cc0-23d7-4e6a-ba34-8e6281126bf9) which describes the right panel and x=7 as 'all layers fine-tuned', and the visual image (node_id: b102547e-602e-4f26-9ec8-341429b49041) which shows the chart. However, the Workers consistently failed to extract the actual accuracy values from the visual data, instead reporting 'not enough information' or 'not available in text'. This indicates a worker_support_failure: the necessary visual evidence was retrieved, but the Workers misread or failed to interpret it, producing unsupported claims. The planning was adequate, decomposing the task into identifying x=7 and reading the accuracies. The sufficiency checks correctly flagged missing subproblems, but the Workers did not resolve them. The final answer is unsupported by the evidence, as the Workers never extracted the actual values from the chart. A raw visual review is required to confirm the actual accuracy values at x=7, which are not readable from the provided text alone."
+      },
+      "usage": {
+        "prompt_tokens": 12979,
+        "total_tokens": 13473,
+        "completion_tokens": 494,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_164",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 32.47180485725403,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "bac6c72e-9a90-4331-b5ac-5fd9dc4a7060"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer '3' is incorrect; the reference answer is '5 hops'. The retrieved evidence includes the image node (ID: bac6c72e-9a90-4331-b5ac-5fd9dc4a7060) which explicitly states 'Figure 1: Snapshot of uplink routes in OpenThread topology at transmission power of -8 dBm (5 hops)'. This is direct, unambiguous evidence that the correct answer is 5. However, the Worker at node n2 misreads the visual evidence, counting only 3 wireless hops (Node 2→3, 3→4, 4→5) while ignoring the full path shown in the figure. The Worker's analysis incorrectly omits the hops beyond Node 5, which are part of the 5-hop path as stated in the figure caption. The Worker's response is unsupported by the evidence, even though the necessary evidence was retrieved. The planning graph is adequate, and the sufficiency check incorrectly declares the answer sufficient, but this is a downstream effect of the Worker's error. The primary failure is a worker_support_failure: the Worker misread the visual evidence despite its presence. A raw visual review of the image is required to confirm the full 5-hop path, as the Worker's description does not reflect the actual figure."
+      },
+      "usage": {
+        "prompt_tokens": 4463,
+        "total_tokens": 4949,
+        "completion_tokens": 486,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_281",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 64.49526000022888,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "9acd61a3-2238-4e9a-ae27-ae3be0e1af83"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The benchmark answer states that the $L_2$-norm of a word vector is inversely proportional to its frequency. The candidate answer incorrectly states that the norm is inversely proportional to the log frequency, which is a material mismatch. The necessary evidence to resolve this is the left figure in Figure 1 of the paper, which is not fully retrievable in the trace. The retrieved image node (9acd61a3-2238-4e9a-ae27-ae3be0e1af83) contains a visual of the left figure, but its text is clipped and does not provide the full description or mathematical form. The text in the retrieved nodes does not explicitly state the relationship between the norm and frequency or log frequency. The workers correctly identify the lack of Figure 1 in the text, but they do not have access to the full visual evidence to determine the precise relationship. The planning graph is adequate, but the retrieval failure prevents the workers from producing a correct answer. The final answer is unsupported by the retrieved evidence, and the sufficiency checks appropriately identify gaps. A raw visual review of the left figure in Figure 1 is required to determine the exact relationship."
+      },
+      "usage": {
+        "prompt_tokens": 11643,
+        "total_tokens": 12100,
+        "completion_tokens": 457,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_122",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 39.88643765449524,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "a07644a1-fbda-485c-9f0c-b6e87c1915ce"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The question explicitly asks for data from 'Table 12'. The retrieved text references only Table 10 and Table 11, and does not mention Table 12. Although the retrieved images contain a table with the requested corruption levels (25%, 40%, 45%, 47%) and models (ConvNet, ConvNet+Mixup, ChoiceNet), the text does not identify this table as 'Table 12'. The worker for node n1 correctly identifies this discrepancy and concludes that Table 12 is not present in the text. However, the final answer 'ChoiceNet' is correct based on the data in the image labeled 'Table 12' (node_id: a07644a1-fbda-485c-9f0c-b6e87c1915ce), which was retrieved but not recognized as the requested table by the text-based worker. The worker for node n2 then analyzes data from a different table (Table 11) and makes an incorrect comparison, referencing 'ConvNet+CN' instead of 'ConvNet+Mixup', indicating a worker_support_failure. The final answer is correct, but it was derived from evidence that was not properly recognized as 'Table 12' in the text, making the primary failure retrieval_failure — the necessary evidence (Table 12 as referenced in the question) was not retrieved in a form that the system could identify as such. The worker then used a different table, leading to a secondary worker_support_failure. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+        "grounding_warning_category": "retrieval_failure"
+      },
+      "usage": {
+        "prompt_tokens": 4771,
+        "total_tokens": 5304,
+        "completion_tokens": 533,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_452",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 38.85504078865051,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary visual evidence (Figure 18, node_id: 9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad) was retrieved and contains the bubble chart comparing ENet, FRVSR, DUF, and TecoGAN with bubble size indicating tOF score. The text in the image explicitly states 'Bubble size indicates the tOF score' and lists the models with their corresponding tOF values. The tOF values are: ENet=0.194, FRVSR=0.023, DUF=0.028, TecoGAN=0.021. The smallest tOF value (best temporal coherence) is TecoGAN (0.021), which should correspond to the largest bubble (since smaller tOF is better, and bubble size indicates tOF score). However, the final answer incorrectly states 'ENet' as the largest bubble. The worker's initial response correctly noted the lack of figure description in text and the need for visual analysis, but the final answer misinterprets the visual evidence, claiming ENet has the largest bubble despite its tOF value being the largest (worst). This is a worker_support_failure: the evidence was retrieved, but the worker misread or misinterpreted it. The retrieval_failure is secondary because the necessary visual node was retrieved, but the worker failed to correctly interpret it. Raw visual review is required to confirm the bubble sizes, as the text in the image provides the tOF values which contradict the worker's visual interpretation."
+      },
+      "usage": {
+        "prompt_tokens": 6211,
+        "total_tokens": 6747,
+        "completion_tokens": 536,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_195",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 36.74886775016785,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "decomposition_failure",
+          "sufficiency_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "0ed36740-f181-435a-8e9b-f7e8cba46975",
+          "17be494a-e2b3-4952-991d-3d23cfbde045"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "unnecessary_refinement",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer is null, indicating a failure to produce any response. The primary cause is a retrieval failure: the necessary visual evidence (the training curves for ACGAN on MNIST and Fashion-MNIST) was retrieved (nodes 0ed36740-f181-435a-8e9b-f7e8cba46975 and 17be494a-e2b3-4952-991d-3d23cfbde045), but the system failed to extract the required information from them. The text evidence does not contain the needed loss trends for ACGAN, and the visual evidence, while present, was not properly interpreted. The planning graph decomposed the task appropriately, but the sufficiency checks repeatedly flagged missing subproblems, indicating a failure to recognize that the visual evidence contained the necessary information. The system engaged in unnecessary refinement (e.g., repeatedly checking for text-based descriptions that did not exist) instead of leveraging the retrieved visual data. A raw visual review is required to confirm the trends in the ACGAN loss curves, which are not described in the text. The reference states that both losses decrease over time, indicating learning, but the retrieved visual evidence shows a different trend (generator loss increases, discriminator loss decreases), which would require a different interpretation. The system failed to extract this visual information, leading to the null answer."
+      },
+      "usage": {
+        "prompt_tokens": 8250,
+        "total_tokens": 8807,
+        "completion_tokens": 557,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_585",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 37.67155146598816,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "e49957c3-f6e7-4b5b-ab10-181a114db0ff",
+          "02668288-6e90-46c5-b4c2-4c2485f7202e"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer 'MLE SeqGAN' is incorrect because the reference requires two generators: 'MLE SeqGAN and Word LSTM with temperature 1.0'. The worker correctly identified MLE SeqGAN as having the lowest accuracy (41.45%) in both LSTM and SVM columns, but failed to notice that 'Word LSTM temp 1.0' also has a very low accuracy (48.29% in LSTM, 50.31% in SVM), which is the second-lowest and still among the hardest to distinguish. The worker's reasoning in the final step only highlights MLE SeqGAN, omitting the second required generator. This is a worker_support_failure: the necessary evidence (Table 4 data) was retrieved and visible, but the worker misread or misinterpreted the full set of lowest scores, producing an incomplete answer. The retrieval was successful (Table 4 data is present in node e49957c3-f6e7-4b5b-ab10-181a114db0ff and 02668288-6e90-46c5-b4c2-4c2485f7202e), so retrieval_failure is secondary. The planning was adequate, and sufficiency check did not detect the gap, but the worker's failure to report both generators is the primary cause of the error."
+      },
+      "usage": {
+        "prompt_tokens": 7387,
+        "total_tokens": 7933,
+        "completion_tokens": 546,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_578",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 31.299338579177856,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "64ea7b76-bb84-4140-b586-3d63e31c6e38"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer 'SCHOLAR' is incorrect because the question asks for the *topic* (i.e., the set of words) that has the highest internal coherence, not the model name. The reference explicitly identifies the topic as \"turks armenian armenia turkish roads escape soviet muslim mountain soul\". The retrieved evidence includes Table 4 (node_id: 64ea7b76-bb84-4140-b586-3d63e31c6e38), which shows that the SCHOLAR model has the highest NPMI(int.) value (0.35) on the 20 newsgroups dataset. However, the worker and final answer incorrectly interpret this as the answer to the question, conflating the model name with the topic. The worker's response correctly extracts the NPMI values but fails to recognize that the question asks for the topic, not the model. The final answer is therefore unsupported by the evidence in terms of the required output format. This is a worker_support_failure because the necessary evidence (the table) was retrieved, but the worker misinterpreted the question and produced an answer that does not match the required entity (topic vs. model). The retrieval_failure is secondary because the table with the needed values was retrieved, but the worker failed to use it correctly. Raw visual review of the image is required to confirm the exact topic words associated with the highest coherence, as the text extraction may not capture them."
+      },
+      "usage": {
+        "prompt_tokens": 3704,
+        "total_tokens": 4228,
+        "completion_tokens": 524,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_80",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 26.176217555999756,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "43e2a063-590a-4d3c-9348-13b72b298ead"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer correctly states that the average number of inter-word semantic connections per word increases monotonically from 0.39 at κ=0 to 5.58 at κ=5. This is fully supported by Table 3, which was retrieved as visual evidence (node_id: 43e2a063-590a-4d3c-9348-13b72b298ead). The planning graph correctly decomposed the task into extracting values from Table 3. The worker accurately extracted the values, and the final answer correctly composed them into a monotonic trend. The sufficiency check correctly identified no gaps. All necessary evidence was retrieved, and no model or parser failures occurred. The answer is factually correct and fully supported by the evidence."
+      },
+      "usage": {
+        "prompt_tokens": 3478,
+        "total_tokens": 3855,
+        "completion_tokens": 377,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_272",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_55",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_18",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 31.30246114730835,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "44e55ee7-0ffd-45b2-b53c-2acbcaf614b9"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer incorrectly identifies FlowNet2 (ft) as achieving the lowest error (3.14) on the Sintel 'Final' test set, while the reference states that PWC-Net (ft) achieves the lowest error (5.04). The retrieved evidence includes a clear image of Table 2 (node_id: 44e55ee7-0ffd-45b2-b53c-2acbcaf614b9), which shows that PWC-Net (ft) has an error of 5.04 in the 'Final' test set column, and FlowNet2 (ft) has an error of 5.74. The worker for node n1 incorrectly identifies FlowNet2 as the best method, misreading the table. This is a worker_support_failure. Additionally, the worker for node n2 fails to retrieve or use the correct error values from Table 2, relying on text that does not contain the necessary data, which is a retrieval_failure. The final answer is composed from these incorrect intermediate results, but the primary cause is the worker's misreading of the evidence."
+      },
+      "usage": {
+        "prompt_tokens": 7128,
+        "total_tokens": 7573,
+        "completion_tokens": 445,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_510",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 33.302632331848145,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "worker_support_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "62098156-fd55-4db1-bc25-2c234b15c785"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The benchmark answer identifies the 'Transfer + MTSA' model as achieving 86.9% accuracy on the SNLI test set, which is the highest. However, the retrieved evidence does not include the full Table 2, which contains this result. The retrieved evidence includes Table 1 (with max 86.3%) and a partial Table 2 (node_id: 62098156-fd55-4db1-bc25-2c234b15c785), but the text is clipped and does not show the full row for 'Transfer + MTSA' with its 86.9% accuracy. The worker incorrectly identifies 86.3% as the highest, based on Table 1, and fails to recognize that Table 2 contains higher values. The worker also misreads the text in node 62098156-fd55-4db1-bc25-2c234b15c785, which mentions 'Transfer + MTSA' achieving 86.9, but does not extract the value correctly. Since the decisive evidence (the full Table 2 row) was not retrieved, this is a retrieval_failure. The worker's misreading of the partial text is a secondary worker_support_failure."
+      },
+      "usage": {
+        "prompt_tokens": 5608,
+        "total_tokens": 6102,
+        "completion_tokens": 494,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_98",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 35.14020872116089,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [
+          "worker_support_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "6461e0ca-cef4-44ad-99d7-3ffc82431669"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unknown",
+        "confidence": 0.9,
+        "rationale": "The candidate answer is factually correct: both segment loss rate and goodput decrease as maximum link delay increases, as shown in Figure 5a (chart (a)). However, the retrieval system failed to provide the necessary visual evidence (the actual chart) in a usable form for the Worker to extract the trend. The retrieved evidence includes an image node (node_id: 6461e0ca-cef4-44ad-99d7-3ffc82431669) with a text description of Figure 5, which correctly identifies chart (a) as 'TCP goodput, one hop' and lists the axes. But the Worker's response in round 0 for node n2 incorrectly claims that goodput remains constant, based on text that only compares two specific delay points (5ms and 40ms) and does not describe a general trend. This indicates the Worker misread or misinterpreted the evidence, likely because the actual visual chart was not available for direct analysis. The Worker's later response in round 1 for node n3 correctly identifies the downward trend in goodput from the visual chart, but this was only possible after the system retrieved the image and the Worker was able to interpret it. The sufficiency check in round 0 correctly flagged missing sub-problems, but the system did not resolve them until round 1. The primary failure is retrieval: the necessary visual chart was retrieved but not properly exposed to the Worker for accurate interpretation. The Worker's initial misstatement constitutes a secondary worker_support_failure. The final answer is correct, but the system's failure to provide usable evidence for the Worker's task is the root cause. [Audit normalization: the answer is correct; official-parser status determines whether this is no primary answer failure or a parser failure. Any grounding concern is retained separately.]",
+        "grounding_warning_category": "retrieval_failure"
+      },
+      "usage": {
+        "prompt_tokens": 7121,
+        "total_tokens": 7674,
+        "completion_tokens": 553,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_163",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 37.05238389968872,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "624dbb86-a37e-420b-9d7d-8b06439b6931"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": true,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The question requires describing both the recursive subdivision process and the specific drawing rule for the Hilbert curve through each subdivision, based on the figure in the paper. The retrieved evidence includes the image (node_id: 624dbb86-a37e-420b-9d7d-8b06439b6931) which visually depicts the first three steps of the Hilbert curve construction. However, the text retrieved does not contain the explicit description of the drawing rule (e.g., the order of visiting sub-squares or the path within each). The Workers correctly identify that the text lacks this information and state that the drawing rule is not explicitly inferable from the visual pattern alone. The final answer reflects this limitation, but the reference answer states that the curve is drawn 'in a specific order' without specifying what that order is. Since the visual evidence (the image) is present but the necessary textual description of the drawing rule is not retrieved, and the Workers correctly acknowledge this gap, the primary failure is retrieval_failure: the evidence necessary for the benchmark answer (the specific drawing rule) was not retrieved. The Workers' responses are accurate given the retrieved evidence, so worker_support_failure is a secondary effect. The Planning Graph correctly decomposed the question into subproblems, and sufficiency checks appropriately flagged the gaps. Raw visual review of the image is required to confirm whether the drawing rule is visually explicit (e.g., if the order of traversal is clear from the figure), but the text does not describe it, and the Workers correctly note this."
+      },
+      "usage": {
+        "prompt_tokens": 8480,
+        "total_tokens": 9020,
+        "completion_tokens": 540,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_571",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 66.80387020111084,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "decomposition_failure",
+        "secondary_categories": [
+          "worker_support_failure",
+          "parser_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "7e8cc5c8-595d-4f54-b802-081c16e56e8a",
+          "77cbe4b6-0865-4ae8-bf82-911c059d6be3"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The question asks for the step where input instances decreased from 5,119 to 1,955. The retrieved evidence (nodes 7e8cc5c8-595d-4f54-b802-081c16e56e8a and 77cbe4b6-0865-4ae8-bf82-911c059d6be3) clearly shows that Step 3 (Reason gist summarization) has input 5,119 and output 4,294, while Step 4 (Reason disambiguation) has input 4,235 and output 1,955. No single step has input 5,119 and output 1,955. However, the reference answer is 'Step 4, Reason disambiguation', which is correct in the context of the overall reduction from 5,119 to 1,955 being attributable to Step 4, as it is the step that produces the 1,955 output and is the final step in the reduction chain. The planning graph fails to decompose the problem correctly by not recognizing that the question is asking for the step responsible for the final output of 1,955, not a direct input-to-output reduction from 5,119 to 1,955. The workers correctly identify Step 4 as the step with output 1,955, but the planning graph's initial decomposition (n3) incorrectly assumes a direct reduction from 5,119 to 1,955 must occur in one step, leading to a misinterpretation. The final answer is null, indicating a failure to produce a response, which is consistent with the decomposition failure. The sufficiency checks correctly identify the gap in the evidence for a direct reduction, but the planning failure prevents the system from correctly interpreting the question's intent."
+      },
+      "usage": {
+        "prompt_tokens": 10384,
+        "total_tokens": 11052,
+        "completion_tokens": 668,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_440",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 32.17551279067993,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "composition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "37f6852b-a000-45aa-acf2-eec153781f25"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence was retrieved: Table 4 (node_id: 37f6852b-a000-45aa-acf2-eec153781f25) contains the 'average' PSNR values for all methods on the Vid4 dataset. The highest value is 27.38 for DUF, not 27.34 for EDVR. The worker at node n2 incorrectly identified EDVR as having the highest average PSNR (35.02), but this value is from Table 5, which is for the ToS dataset, not Vid4. The worker misread the evidence by conflating datasets. The final answer 'EDVR' is unsupported by the Vid4 evidence. The planning was adequate (correctly decomposed to find the average PSNR in the Vid4 chart/table). The composition failure occurs because the final answer combines the incorrect intermediate result (EDVR from ToS) with the correct question context (Vid4), leading to a wrong final answer. The sufficiency check did not detect this because it only checked for gaps, not for misattribution of data. No raw visual review is needed—the text evidence is sufficient to identify the error."
+      },
+      "usage": {
+        "prompt_tokens": 5598,
+        "total_tokens": 6060,
+        "completion_tokens": 462,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_26",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 30.587372303009033,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "7fa0569b-33b6-4bd7-b069-ee42441a6ce8",
+          "f208e7a6-830e-448f-b5a5-c1cba9459d14"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence was retrieved: Table 6 is present in multiple nodes (including text and image formats) with clear perplexity scores for 'Original' (102.02, 121.09) and '2-keyword' (352.12, 384.80). The planning graph correctly decomposed the task into extracting both scores. Worker responses correctly extracted the values. The final thought process correctly interprets the data: the 2-keyword adversarial examples have much higher perplexity, indicating deviation from the original syntactic structure. However, the candidate_answer is null, and the final prediction is null. The sufficiency check passed, indicating no gaps were detected. This implies the system failed to output a final answer despite having all necessary information and a correct reasoning chain. This is a parser_failure — the system generated a valid reasoning trace but failed to produce a usable final answer (e.g., due to output truncation, JSON parsing error, or failure to emit the answer field). The reference answer is 'No, adversarial examples... deviate significantly...', which aligns with the high perplexity scores, so the correct answer was inferred, but not output. The earliest decisive failure is the parser failure preventing the answer from being emitted."
+      },
+      "usage": {
+        "prompt_tokens": 4348,
+        "total_tokens": 4844,
+        "completion_tokens": 496,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_61",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_47",
+      "status": "complete",
+      "attempt": 2,
+      "latency_seconds": 34.01818323135376,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "composition_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "7514f431-06ba-45b4-9913-c58aa47185cb",
+          "895d334c-6653-4244-aa48-ccfad56cd449"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence was retrieved and correctly interpreted by the Workers: the 'before' disagreement rate is 44.85%, after GBI is 24.92%, and after A* is 33.91%. These values are explicitly present in the retrieved table (node_id: 7514f431-06ba-45b4-9913-c58aa47185cb) and confirmed by the Worker responses. However, the final answer incorrectly states that GBI reduces the rate by 19.93% and A* by 10.94%, which are correct reductions. The error lies in the comparison: the final answer claims GBI’s reduction is 8.99 percentage points greater than A*'s, which is mathematically correct (19.93 - 10.94 = 8.99). However, the reference states that GBI’s reduction is 19.93% greater than A*'s — meaning a relative percentage increase, not an absolute difference. The candidate answer misrepresents the comparison as an absolute difference in percentage points, while the reference requires a relative percentage increase. This is a composition failure: the system correctly computed the individual reductions but incorrectly composed the comparison, failing to match the reference’s required interpretation of 'greater reduction' as a relative percentage increase. The planning and retrieval were adequate, and the Workers provided correct intermediate values, so the failure is in the final composition step."
+      },
+      "usage": {
+        "prompt_tokens": 5129,
+        "total_tokens": 5684,
+        "completion_tokens": 555,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_5",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 35.28383541107178,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "3add75d9-c9be-442e-bd38-175918cc6f78",
+          "b4449ad3-4827-473d-b9e5-329948962050",
+          "904b590a-79c0-44f9-b44c-657221f032af"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer correctly explains that warped triplets leverage motion information to improve frame alignment by providing the discriminator with temporal alignment cues, enabling it to guide the generator toward more accurate and temporally coherent super-resolution results. This is fully supported by the retrieved evidence: node 3add75d9-c9be-442e-bd38-175918cc6f78 explicitly states that the discriminator 'profits from the warped frames to classify realistic and unnatural temporal changes' and that it compares generated warped triplets (I_wg) with ground-truth warped triplets (I_wb) to ensure temporal consistency. Node b4449ad3-4827-473d-b9e5-329948962050 defines the warped triplets and their construction via motion estimation, while node 904b590a-79c0-44f9-b44c-657221f032af (Fig. 4b) visually confirms the discriminator's input structure. The planning graph decomposed the question appropriately into subproblems about the role of I_wg and the comparison mechanism, and the worker responses correctly synthesized the evidence. The final answer is a fluent, accurate summary of the mechanism without unsupported claims. The sufficiency check correctly identified no gaps. No retrieval, parsing, or composition failures occurred."
+      },
+      "usage": {
+        "prompt_tokens": 5595,
+        "total_tokens": 6169,
+        "completion_tokens": 574,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_249",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_143",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 23.232032537460327,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "d7e877e3-bef9-438e-b2c2-4cc91f69a7d1",
+          "56983b89-0cc9-45fb-9230-79d9c4017011"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer correctly states that consistency (average pairwise cosine similarity) improves with increasing state-action pairs for each method across different training iterations. This is directly supported by the retrieved visual evidence (images with 'Avg. pairwise cos sim' vs '# State-Action Pairs' plots) and confirmed by the worker analysis. The planning graph correctly decomposed the task into identifying the relevant figure and analyzing the trend. The retrieved evidence includes the necessary visual plots (Figure 1 and Figure 9 equivalents) showing the upward trend for both TRPO and PPO across iterations. The final answer is a faithful summary of the visual trend, and the sufficiency check correctly identified no gaps. No retrieval, parsing, decomposition, composition, or worker support failures occurred. The answer is correct and fully supported."
+      },
+      "usage": {
+        "prompt_tokens": 4096,
+        "total_tokens": 4499,
+        "completion_tokens": 403,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_67",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 27.452730178833008,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [
+          "decomposition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "506173f4-677c-4489-9d8a-ec996742b7b2",
+          "1fe4df5b-d5f7-4f0d-8c03-d42c1d1f2442"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.9,
+        "rationale": "The candidate answer is factually correct in stating that Mean-Shift maintains robustness via density-based mode-seeking, energy minimization, and post-processing validation. However, the worker responses for nodes n1 and n2 contain unsupported claims. For example, the worker for n1 claims that 'the mode-seeking function identifies the densest regions... which are expected to correspond to the true model parameters' — but the retrieved text does not state this causal link; it only describes the algorithm's behavior. Similarly, the worker for n2 claims that energy minimization 'favors solutions that best explain the data' — a plausible interpretation, but not directly supported by the retrieved evidence. The planning graph decomposes the question into two subproblems, but the first (n1) is too vague and does not explicitly require identifying the mechanism of robustness, which leads to the worker's unsupported inference. The final answer, while fluent and correct, is built on these unsupported intermediate steps. Thus, the earliest decisive failure is a worker_support_failure, with a secondary decomposition_failure for not properly framing the subproblem to require evidence-based reasoning. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+        "grounding_warning_category": "worker_support_failure"
+      },
+      "usage": {
+        "prompt_tokens": 4393,
+        "total_tokens": 4865,
+        "completion_tokens": 472,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_137",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 29.571844816207886,
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "no_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "92fd3509-9246-4975-82a2-033d79f7cb97",
+          "a503664a-a8a0-4be8-be36-9e16a6b6d14c"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer 'identity-guided conditional CycleGAN' is correct and fully supported by the retrieved evidence. The text in node '92fd3509-9246-4975-82a2-033d79f7cb97' explicitly states: 'We adopt our identity-guided conditional CycleGAN... to swap the identity by transferring the appearance of eyes, eyebrows, hairs, etc, while keeping other factors intact, e.g., head pose, shape of face and facial expression.' This directly matches the question's requirements. The planning graph correctly decomposed the task into identifying the technique in Section 4.4, and the worker correctly extracted the answer from the text. The final answer is composed correctly and the sufficiency check correctly validated it. No retrieval, decomposition, composition, or parser failure occurred. The reference mentions Light-CNN, but this is a component (source of identity features and loss function), not the primary technique for swapping. The question asks for the technique used to swap identity features, which is the CycleGAN architecture. The candidate answer is accurate and complete."
+      },
+      "usage": {
+        "prompt_tokens": 3026,
+        "total_tokens": 3495,
+        "completion_tokens": 469,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_347",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 36.221986532211304,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "decomposition_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "e119bc25-9f06-4929-be72-5e99426bdb7f"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The necessary evidence — the right-side figure (Image 1) showing the CDF of occlusion durations — was retrieved. The CDF curve clearly shows that at 10 frames (10^1 on the x-axis), the y-axis value is approximately 80%, meaning 80% of occlusions last 10 frames or less. Therefore, the percentage lasting *more than* 10 frames is 20%. The candidate answer '20%' is numerically correct, but the reasoning path is flawed.\n\nHowever, the worker responses for nodes n2 and n3 in rounds 0–2 repeatedly claim 'Not enough information' or 'Not answerable', despite the evidence being present. This is a worker_support_failure: the worker misread or failed to interpret the visual evidence, even though it was retrieved. The worker only correctly interpreted the evidence in round 3, node n3, which produced the correct 20% answer.\n\nAdditionally, the planning graph omitted a critical subproblem: interpreting the CDF to compute the complement (i.e., 100% - CDF_value). The plan only asked to 'read the percentage value' at 10 frames, not to compute the percentage *above* that threshold. This is a decomposition_failure. The final answer was correct, but it was produced after multiple rounds of incorrect worker reasoning and only after the plan was expanded to include the necessary interpretation step.\n\nThus, the earliest decisive failure is worker_support_failure (misreading the evidence), with decomposition_failure as a secondary cause."
+      },
+      "usage": {
+        "prompt_tokens": 11116,
+        "total_tokens": 11655,
+        "completion_tokens": 539,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_29",
+      "status": "complete",
+      "classification": {
+        "answer_verdict": "correct",
+        "reference_mismatch_material": false,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "uncertain",
+        "decisive_evidence_node_ids": [],
+        "planning_adequate": "uncertain",
+        "worker_answer_supported": "uncertain",
+        "final_composition_supported": "uncertain",
+        "sufficiency_behavior": "parse_failure",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "likely",
+        "confidence": 1.0,
+        "rationale": "The raw answer is semantically correct, but the explicit <output> tag lacks </output>, so the official parser returned null."
+      },
+      "usage": {}
+    },
+    {
+      "question_id": "spiqa_222",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 58.720311641693115,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "worker_support_failure",
+        "secondary_categories": [
+          "retrieval_failure"
+        ],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "2cec12d8-9d61-4693-816c-204685d5f3f0"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer claims the prediction model produces 'perfectly' accurate frames, while the autoencoder generates 'slightly blurred' frames, citing both text and Image 1. However, the retrieved text (node_id: 2cec12d8-9d61-4693-816c-204685d5f3f0) states only that the prediction model 'could perfectly produce frame output' — a subjective claim not quantified or directly compared to the autoencoder's output. The autoencoder's output is described as 'slightly blurred, but still able to reflect essential features' — a qualitative assessment, not a direct comparison of accuracy. The candidate misrepresents the evidence by asserting 'perfectly' accurate frames for the prediction model and a direct, unsupported comparison of 'more accurate' without citing a metric or explicit comparison. The retrieved evidence does not support the claim of 'perfect' accuracy or a direct accuracy comparison; it only describes visual qualities. The worker misread or overinterpreted the evidence, leading to an unsupported answer. While Figure 3 (the correct visual comparison) was not retrieved, the worker's failure to correctly interpret the available evidence is the primary cause. The sufficiency checks correctly identified gaps, but the worker proceeded to generate an unsupported answer."
+      },
+      "usage": {
+        "prompt_tokens": 9721,
+        "total_tokens": 10207,
+        "completion_tokens": 486,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_223",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 29.237367630004883,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": true,
+        "primary_category": "parser_failure",
+        "secondary_categories": [],
+        "necessary_evidence_retrieved": "yes",
+        "decisive_evidence_node_ids": [
+          "133cd61f-b19c-4be5-8288-bbae5e4aa30d",
+          "26305e59-f0b6-42dc-8c0f-08278d4ff84c"
+        ],
+        "planning_adequate": "yes",
+        "worker_answer_supported": "yes",
+        "final_composition_supported": "yes",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer is null, and the final response is truncated mid-sentence ('...dynamically learns and a [...clipped]'). The sufficiency check passed, and the worker responses for both subproblems (n1 and n2) are fluent and supported by retrieved evidence, including the visual depiction of Figure 4 (node_id: 133cd61f-b19c-4be5-8288-bbae5e4aa30d) and textual descriptions of the modules' roles. The planning graph correctly decomposed the question into two subproblems. The final composition was underway and logically sound, but the output was truncated before completion. This is a parser_failure: the system failed to generate a complete, usable answer despite having all necessary components. The evidence was retrieved, the reasoning was correct, and the sufficiency check passed — the failure occurred at the output generation/parsing stage."
+      },
+      "usage": {
+        "prompt_tokens": 5785,
+        "total_tokens": 6206,
+        "completion_tokens": 421,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "question_id": "spiqa_292",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 53.55510401725769,
+      "classification": {
+        "answer_verdict": "incorrect",
+        "reference_mismatch_material": false,
+        "primary_category": "retrieval_failure",
+        "secondary_categories": [
+          "decomposition_failure",
+          "worker_support_failure"
+        ],
+        "necessary_evidence_retrieved": "no",
+        "decisive_evidence_node_ids": [
+          "c4c9146f-0396-4e60-9375-8fc9874ece3e"
+        ],
+        "planning_adequate": "no",
+        "worker_answer_supported": "no",
+        "final_composition_supported": "no",
+        "sufficiency_behavior": "appropriate",
+        "requires_raw_visual_review": false,
+        "low_resource_confound": "unlikely",
+        "confidence": 0.95,
+        "rationale": "The candidate answer is incorrect because it claims insufficient information is available, while the necessary evidence is actually retrieved. The key evidence is the text from node_id 'c4c9146f-0396-4e60-9375-8fc9874ece3e', which explicitly states: 'DeepGaze II overestimates the how peaked the density is: there are too few fixations in darkest area. Vice versa, it misses some probability mass in the second to last area.' This directly answers the question about the model's accuracy in distributing probability mass across the four contour-separated areas. The retrieval failure is primary because the system failed to extract and use this critical evidence. The planning graph also failed to decompose the problem into subtasks that would have led to this evidence being properly utilized, and the worker responses incorrectly concluded that the information was missing, despite the evidence being present. The sufficiency checks appropriately flagged gaps, but the system did not resolve them by leveraging the retrieved evidence."
+      },
+      "usage": {
+        "prompt_tokens": 14767,
+        "total_tokens": 15192,
+        "completion_tokens": 425,
+        "prompt_tokens_details": null
+      }
+    }
+  ]
+}

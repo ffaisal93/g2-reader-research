@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_18",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 31.30246114730835,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "44e55ee7-0ffd-45b2-b53c-2acbcaf614b9"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly identifies FlowNet2 (ft) as achieving the lowest error (3.14) on the Sintel 'Final' test set, while the reference states that PWC-Net (ft) achieves the lowest error (5.04). The retrieved evidence includes a clear image of Table 2 (node_id: 44e55ee7-0ffd-45b2-b53c-2acbcaf614b9), which shows that PWC-Net (ft) has an error of 5.04 in the 'Final' test set column, and FlowNet2 (ft) has an error of 5.74. The worker for node n1 incorrectly identifies FlowNet2 as the best method, misreading the table. This is a worker_support_failure. Additionally, the worker for node n2 fails to retrieve or use the correct error values from Table 2, relying on text that does not contain the necessary data, which is a retrieval_failure. The final answer is composed from these incorrect intermediate results, but the primary cause is the worker's misreading of the evidence."
+  },
+  "usage": {
+    "prompt_tokens": 7128,
+    "total_tokens": 7573,
+    "completion_tokens": 445,
+    "prompt_tokens_details": null
+  }
+}

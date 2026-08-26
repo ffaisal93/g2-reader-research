@@ -1,0 +1,18 @@
+{
+  "question_id": "spiqa_522",
+  "candidate_source": "no_candidate_answer",
+  "candidate_answer": null,
+  "reference": "The Conv-KNRM model performs best when trained on the NYT dataset and evaluated on the WT14 dataset, achieving an nDCG@20 score of 0.3215. This performance is significantly better than all the baselines: BM25 (B), WT10 (W), and AOL (A).",
+  "status": "complete",
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 1.0,
+    "reference_claims": [],
+    "candidate_claims": [],
+    "substantive_differences": [
+      "No candidate answer was produced."
+    ],
+    "rationale": "No answer is available for semantic comparison."
+  },
+  "usage": {}
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_145",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Figure 6 demonstrates that accurate visual grounding requires perfect alignment between the selected concept, predicted common concept, and the real entity. When all concepts align (e.g., first row with \"headlight\"), the heatmap accurately localizes the entity. When alignment is poor (e.g., fourth row with \"lighter\" misaligned with \"meal\"), the heatmap is inaccurate, showing that alignment directly determines heatmap quality.",
+  "reference": "When the selected concept, predicted concept, and the real entity to be grounded are all aligned, the generated heatmap produces a good localization of the phrase.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 14.488536596298218,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "When the selected concept, predicted concept, and the real entity to be grounded are all aligned, the generated heatmap produces a good localization of the phrase."
+    ],
+    "candidate_claims": [
+      "Figure 6 demonstrates that accurate visual grounding requires perfect alignment between the selected concept, predicted common concept, and the real entity.",
+      "When all concepts align (e.g., first row with 'headlight'), the heatmap accurately localizes the entity.",
+      "When alignment is poor (e.g., fourth row with 'lighter' misaligned with 'meal'), the heatmap is inaccurate, showing that alignment directly determines heatmap quality."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly captures the core semantic point of the reference: alignment between selected concept, predicted concept, and real entity leads to accurate heatmap localization. It adds illustrative examples (first and fourth rows) and slightly strengthens the claim with 'perfect alignment' and 'directly determines', but these are consistent with and do not contradict the reference. The examples provided are plausible and support the central claim. No factual errors or contradictions are present. The candidate paraphrases the reference effectively while preserving the intended meaning."
+  },
+  "usage": {
+    "prompt_tokens": 309,
+    "total_tokens": 586,
+    "completion_tokens": 277,
+    "prompt_tokens_details": null
+  }
+}

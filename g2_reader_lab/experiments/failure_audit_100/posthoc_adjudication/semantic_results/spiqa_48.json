@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_48",
+  "candidate_source": "official_parser",
+  "candidate_answer": "GeoCUTS performs comparably to both DMA and Grid for highly active users, as all three have identical B-metric values of 1.5.",
+  "reference": "GeoCUTS performs comparably to other clusterings for highly active users.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 17.59835696220398,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "GeoCUTS performs comparably to other clusterings for highly active users."
+    ],
+    "candidate_claims": [
+      "GeoCUTS performs comparably to both DMA and Grid for highly active users, as all three have identical B-metric values of 1.5."
+    ],
+    "substantive_differences": [
+      "The candidate introduces a specific numerical value (B-metric = 1.5) and claims identical values across all three methods, which is not supported by the reference. The reference makes a general comparative claim without specifying any metric values or asserting exact equality.",
+      "The reference does not mention DMA or Grid by name, nor does it claim identical performance — only 'comparably', which allows for small differences. The candidate's claim of 'identical B-metric values' is a factual overstatement not present in the reference."
+    ],
+    "rationale": "The candidate adds specific, unsupported numerical data and asserts exact equality, which contradicts the general, qualitative comparison in the reference. This constitutes a factual error in the comparison and introduces a value not mentioned in the reference, violating the semantic equivalence requirement."
+  },
+  "usage": {
+    "prompt_tokens": 242,
+    "total_tokens": 510,
+    "completion_tokens": 268,
+    "prompt_tokens_details": null
+  }
+}

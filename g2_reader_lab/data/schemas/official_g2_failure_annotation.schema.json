@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "official_g2_failure_annotation.schema.json",
+  "title": "Official G2 Reader failure annotation",
+  "type": "object",
+  "required": [
+    "question_id",
+    "run_id",
+    "pipeline_status",
+    "final_correct",
+    "root_failure",
+    "secondary_failures",
+    "nodes",
+    "evidence_paths"
+  ],
+  "properties": {
+    "question_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "pipeline_status": {
+      "enum": ["complete", "runtime_failure", "planning_parse_failure", "timeout"]
+    },
+    "final_correct": {"type": ["boolean", "null"]},
+    "root_failure": {
+      "enum": [
+        "none",
+        "retrieval_failure",
+        "worker_support_failure",
+        "decomposition_failure",
+        "composition_failure",
+        "unverifiable",
+        "runtime_or_parsing_failure"
+      ]
+    },
+    "secondary_failures": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "worker_support_failure",
+          "composition_failure",
+          "sufficiency_failure",
+          "replanning_failure",
+          "final_synthesis_failure"
+        ]
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "round",
+          "node_id",
+          "task",
+          "modality",
+          "retrieved_node_ids",
+          "necessary_evidence_present",
+          "support_status",
+          "propagated_to",
+          "checker_accepted"
+        ],
+        "properties": {
+          "round": {"type": "integer", "minimum": 0},
+          "node_id": {"type": "string"},
+          "task": {"type": "string"},
+          "modality": {
+            "enum": ["text", "table", "figure", "text+table", "text+figure", "unknown"]
+          },
+          "answer_form": {"enum": ["numerical", "comparative", "descriptive", "other"]},
+          "retrieved_node_ids": {"type": "array", "items": {"type": "string"}},
+          "necessary_evidence_present": {"type": ["boolean", "null"]},
+          "support_status": {"enum": ["supported", "unsupported", "partial", "unverifiable"]},
+          "error_subtype": {
+            "enum": [
+              "none",
+              "value_misread",
+              "label_misread",
+              "unit_misread",
+              "relationship_misread",
+              "calculation_error",
+              "unsupported_inference",
+              "other"
+            ]
+          },
+          "propagated_to": {"type": "array", "items": {"type": "string"}},
+          "checker_accepted": {"type": ["boolean", "null"]},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence_paths": {"type": "array", "items": {"type": "string"}},
+    "annotator": {"type": "string"},
+    "adjudication_notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

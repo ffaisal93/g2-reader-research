@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_26",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 30.587372303009033,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "parser_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "7fa0569b-33b6-4bd7-b069-ee42441a6ce8",
+      "f208e7a6-830e-448f-b5a5-c1cba9459d14"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence was retrieved: Table 6 is present in multiple nodes (including text and image formats) with clear perplexity scores for 'Original' (102.02, 121.09) and '2-keyword' (352.12, 384.80). The planning graph correctly decomposed the task into extracting both scores. Worker responses correctly extracted the values. The final thought process correctly interprets the data: the 2-keyword adversarial examples have much higher perplexity, indicating deviation from the original syntactic structure. However, the candidate_answer is null, and the final prediction is null. The sufficiency check passed, indicating no gaps were detected. This implies the system failed to output a final answer despite having all necessary information and a correct reasoning chain. This is a parser_failure — the system generated a valid reasoning trace but failed to produce a usable final answer (e.g., due to output truncation, JSON parsing error, or failure to emit the answer field). The reference answer is 'No, adversarial examples... deviate significantly...', which aligns with the high perplexity scores, so the correct answer was inferred, but not output. The earliest decisive failure is the parser failure preventing the answer from being emitted."
+  },
+  "usage": {
+    "prompt_tokens": 4348,
+    "total_tokens": 4844,
+    "completion_tokens": 496,
+    "prompt_tokens_details": null
+  }
+}

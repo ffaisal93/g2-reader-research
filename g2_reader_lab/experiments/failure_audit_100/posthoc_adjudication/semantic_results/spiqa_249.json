@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_249",
+  "candidate_source": "derived_unclosed_output_tag",
+  "candidate_answer": "UDA and MVL have T-R target-domain training data available, while ZDDA does not.",
+  "reference": "The key difference lies in the availability of target-domain training data. While UDA and MVL methods require T-R training data from the target domain, ZDDA does not. ZDDA only requires T-R training data from a single source domain.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 11.57563066482544,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "UDA and MVL methods require T-R training data from the target domain.",
+      "ZDDA does not require T-R training data from the target domain.",
+      "ZDDA only requires T-R training data from a single source domain."
+    ],
+    "candidate_claims": [
+      "UDA and MVL have T-R target-domain training data available.",
+      "ZDDA does not have T-R target-domain training data available."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly captures the core semantic contrast: UDA and MVL have access to target-domain T-R data, while ZDDA does not. The reference adds that ZDDA uses source-domain T-R data, which is not contradicted and is not required for the central comparison. The candidate’s phrasing is a valid paraphrase of the reference’s key point. No factual error or contradiction exists."
+  },
+  "usage": {
+    "prompt_tokens": 261,
+    "total_tokens": 482,
+    "completion_tokens": 221,
+    "prompt_tokens_details": null
+  }
+}

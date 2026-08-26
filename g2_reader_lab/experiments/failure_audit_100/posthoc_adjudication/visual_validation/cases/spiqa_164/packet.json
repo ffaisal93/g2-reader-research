@@ -1,0 +1,153 @@
+{
+  "question_id": "spiqa_164",
+  "question": "How many hops are shown between Node 1 (Hamilton) and the Internet in the OpenThread topology at a transmission power of -8 dBm, as depicted in the figure?",
+  "reference": "5 hops",
+  "main_doc": "1811.02721v3.pdf",
+  "documents": [
+    "1811.02721v3.pdf",
+    "1606.07384v2.pdf",
+    "1809.02731v3.pdf",
+    "1809.03550v3.pdf",
+    "1809.03449v3.pdf",
+    "1809.01246v1.pdf",
+    "1804.07707v2.pdf",
+    "1805.04609v3.pdf",
+    "1809.00263v5.pdf",
+    "1804.05995v2.pdf",
+    "1805.00912v4.pdf"
+  ],
+  "eight_b_answer": "3",
+  "eight_b_answer_source": "official_parser",
+  "thirty_two_b_answer": null,
+  "thirty_two_b_verdict": null,
+  "provisional_classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "bac6c72e-9a90-4331-b5ac-5fd9dc4a7060"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer '3' is incorrect; the reference answer is '5 hops'. The retrieved evidence includes the image node (ID: bac6c72e-9a90-4331-b5ac-5fd9dc4a7060) which explicitly states 'Figure 1: Snapshot of uplink routes in OpenThread topology at transmission power of -8 dBm (5 hops)'. This is direct, unambiguous evidence that the correct answer is 5. However, the Worker at node n2 misreads the visual evidence, counting only 3 wireless hops (Node 2→3, 3→4, 4→5) while ignoring the full path shown in the figure. The Worker's analysis incorrectly omits the hops beyond Node 5, which are part of the 5-hop path as stated in the figure caption. The Worker's response is unsupported by the evidence, even though the necessary evidence was retrieved. The planning graph is adequate, and the sufficiency check incorrectly declares the answer sufficient, but this is a downstream effect of the Worker's error. The primary failure is a worker_support_failure: the Worker misread the visual evidence despite its presence. A raw visual review of the image is required to confirm the full 5-hop path, as the Worker's description does not reflect the actual figure."
+  },
+  "visual_nodes": [
+    {
+      "node_id": "bac6c72e-9a90-4331-b5ac-5fd9dc4a7060",
+      "text_content": "Figure 1: Snapshot of uplink routes in OpenThread topology at transmission power of -8 dBm (5 hops). Node 1 is the border router with Internet connectivity. Linux TCP endpoint amazon web services EC2 Internet 15 Hamiltons IEEE 802.15.4 wireless links Scale: 20 ft (6 m)",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "How many hops are shown between Node 1 (Hamilton) and the Internet in the OpenThread topology at a transmission power of -8 dBm, as depicted in the figure?",
+          "method": "initial_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the path from Node 1 to the Internet, as shown in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 2,
+          "query": "Count the number of wireless hops along the identified path from Node 1 to the Internet.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_164/nodes/bac6c72e-9a90-4331-b5ac-5fd9dc4a7060.jpg",
+      "sha256": "e00933e44d031712d5f365b4ede5d4c5ad1d0050013feb93b540f6fd5f3ecb0e",
+      "width": 672,
+      "height": 250,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.02721v3/1811.02721v3/auto/images/ebe7c8c2484a38a8fbdaeaf60c64b0bf838991528ae61af565ed65c039ea56fb.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 17,
+      "graph_summary": "Diagram shows 15 Hamilton nodes in OpenThread multihop network with 5-hop uplink routes, connected via border router to Linux TCP endpoint on Amazon EC2.",
+      "graph_text_content": "Figure 1: Snapshot of uplink routes in OpenThread topology at transmission power of -8 dBm (5 hops). Node 1 is the border router with Internet connectivity. Linux TCP endpoint amazon web services EC2 Internet 15 Hamiltons IEEE 802.15.4 wireless links Scale: 20 ft (6 m)"
+    },
+    {
+      "node_id": "45087d29-13c0-422a-acfb-87f68b9c396a",
+      "text_content": "Figure 3: TCP goodput over one IEEE 802.15.4 hop. TCP Goodput (kb/s) 80 60 40 20 0 1 2 3 4 5 6 7 8 9 Maximum Segment Size (No. Frames) (a) Effect of varying MSS uplink downlink TCP Goodput (kb/s) 80 60 40 20 0 1 2 3 4 5 6 7 8 Buffer Size (No. Segments) (b) Effect of varying buffer size uplink downlink",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "How many hops are shown between Node 1 (Hamilton) and the Internet in the OpenThread topology at a transmission power of -8 dBm, as depicted in the figure?",
+          "method": "initial_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the path from Node 1 to the Internet, as shown in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 2,
+          "query": "Count the number of wireless hops along the identified path from Node 1 to the Internet.",
+          "method": "simple_semantic",
+          "rank": 2
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_164/nodes/45087d29-13c0-422a-acfb-87f68b9c396a.jpg",
+      "sha256": "8bfdb55326107147fa947fc72697e8b0f13a01f5ae576a8dd098473df95015ed",
+      "width": 672,
+      "height": 272,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.02721v3/1811.02721v3/auto/images/54c406306b8993944d3f4b4ac8b868707f59c9be6c5e99752662a14853817d21.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 9,
+      "graph_summary": "Figure 3 — TCP goodput over one IEEE 802.15.4 hop. The figure contains two subplots: (a) shows TCP goodput vs. Maximum Segment Size (in number of frames), with uplink (blue) and downlink (orange) curves; (b) shows TCP goodput vs. Buffer Size (in number of segments), again with uplink and downlink curves. Both plots indicate performance peaks and saturation points, with uplink generally outperforming downlink.",
+      "graph_text_content": "Figure 3: TCP goodput over one IEEE 802.15.4 hop. TCP Goodput (kb/s) 80 60 40 20 0 1 2 3 4 5 6 7 8 9 Maximum Segment Size (No. Frames) (a) Effect of varying MSS uplink downlink TCP Goodput (kb/s) 80 60 40 20 0 1 2 3 4 5 6 7 8 Buffer Size (No. Segments) (b) Effect of varying buffer size uplink downlink"
+    },
+    {
+      "node_id": "b3088278-6c0b-47cb-a2a9-083a1bfa613c",
+      "text_content": "Table 6: Comparison of TCPlp to existing TCP implementations used in network studies over IEEE 802.15.4 networks.7 Goodput figures obtained by reading graphs in the original paper (rather than stated numbers) are marked with the ≈ symbol. TCP Stack [144] [22] [67] [86] [69,70] This Paper (Hamilton Platform) Max. Seg Size 1 Frame 1 Frame 4 Frames 1 Frame 1024 bytes 5 Frames Window Size 1 Seg. 1 Seg. 1 Seg. 1 Seg. 1 Seg. 1848 bytes (4 Seg.) Goodput (One Hop) 1.5 kb/s ≈ 13 kb/s ≈ 12 kb/s ≈ 4.8 kb/s 15 kb/s 75 kb/s Goodput (Multi-Hop) ≈ 0.55 kb/s ≈ 6.4 kb/s ≈ 12 kb/s ≈ 2.4 kb/s 9.6 kb/s 20 kb/s",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "How many hops are shown between Node 1 (Hamilton) and the Internet in the OpenThread topology at a transmission power of -8 dBm, as depicted in the figure?",
+          "method": "initial_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the path from Node 1 to the Internet, as shown in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 2,
+          "query": "Count the number of wireless hops along the identified path from Node 1 to the Internet.",
+          "method": "simple_semantic",
+          "rank": 1
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_164/nodes/b3088278-6c0b-47cb-a2a9-083a1bfa613c.jpg",
+      "sha256": "f69a41db7baec229aa207469614028e008f2390db5d66e82be3118c35140cef6",
+      "width": 1400,
+      "height": 216,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.02721v3/1811.02721v3/auto/images/d227bcf4988e085f9f598157193c99aa7e430e9290a2e11789270743d5e402d5.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 17,
+      "graph_summary": "TCPlp outperforms existing TCP stacks in IEEE 802.15.4 networks, achieving 75 kb/s (One Hop) and 20 kb/s (Multi-Hop) goodput with optimized Max. Seg Size and Window Size.",
+      "graph_text_content": "Table 6: Comparison of TCPlp to existing TCP implementations used in network studies over IEEE 802.15.4 networks.7 Goodput figures obtained by reading graphs in the original paper (rather than stated numbers) are marked with the ≈ symbol. TCP Stack [144] [22] [67] [86] [69,70] This Paper (Hamilton Platform) Max. Seg Size 1 Frame 1 Frame 4 Frames 1 Frame 1024 bytes 5 Frames Window Size 1 Seg. 1 Seg. 1 Seg. 1 Seg. 1 Seg. 1848 bytes (4 Seg.) Goodput (One Hop) 1.5 kb/s ≈ 13 kb/s ≈ 12 kb/s ≈ 4.8 kb/s 15 kb/s 75 kb/s Goodput (Multi-Hop) ≈ 0.55 kb/s ≈ 6.4 kb/s ≈ 12 kb/s ≈ 2.4 kb/s 9.6 kb/s 20 kb/s"
+    }
+  ]
+}

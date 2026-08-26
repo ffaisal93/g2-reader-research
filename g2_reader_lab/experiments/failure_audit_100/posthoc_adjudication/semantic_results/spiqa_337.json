@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_337",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ZDDA leverages the task-irrelevant gray-RGB pairs from Fashion-MNIST by training a joint network supervised by the digit classification task in the source domain (gray scale), which learns to simulate the target-domain (RGB) representation, enabling classification in the RGB domain without access to task-relevant RGB training data.",
+  "reference": "The task-irrelevant data is used to simulate the RGB representation using the gray scale image. This allows ZDDA to learn a joint network that can be used to classify digits in both the gray scale and RGB domains.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.94733214378357,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Task-irrelevant data (gray-RGB pairs) is used to simulate RGB representation from grayscale images.",
+      "ZDDA learns a joint network capable of classifying digits in both grayscale and RGB domains."
+    ],
+    "candidate_claims": [
+      "ZDDA uses task-irrelevant gray-RGB pairs to train a joint network.",
+      "The joint network is supervised by digit classification in the source (grayscale) domain.",
+      "The network learns to simulate target-domain (RGB) representation.",
+      "This enables digit classification in RGB domain without task-relevant RGB training data."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer accurately captures the core mechanism described in the reference: using task-irrelevant gray-RGB pairs to train a joint network supervised by source-domain (grayscale) classification, which learns to simulate RGB representations for target-domain classification. The candidate adds minor clarifications (e.g., 'supervised by the digit classification task in the source domain') that are consistent with and do not contradict the reference. No factual errors or omissions are present. The semantic meaning is equivalent."
+  },
+  "usage": {
+    "prompt_tokens": 309,
+    "total_tokens": 576,
+    "completion_tokens": 267,
+    "prompt_tokens_details": null
+  }
+}

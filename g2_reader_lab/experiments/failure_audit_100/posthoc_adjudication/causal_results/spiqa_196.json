@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_196",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 28.299845218658447,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "2d270739-e5af-43e6-829d-70298483da82"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly claims that proximity reflects semantic similarity 'regardless of their position in the document' and that color-coding is 'not semantic similarity'. However, the retrieved text explicitly states: 'Fig. 2 shows t-SNE embeddings of sentence representations learned by our sentence encoder. These are sentences from test sets, color coded by their positions in the source abstract. This shows that our model learns high-level structure in the documents, generalizing well to unseen text.' The key point is that the color-coding is by position, and the clustering reflects document structure (which is tied to position), not independent semantic similarity. The model learns structure, meaning sentences that are close in position (and thus color) are likely to be semantically similar due to document coherence. The candidate misinterprets the evidence by asserting that position is irrelevant to semantic similarity, which contradicts the paper's own interpretation. The worker's response correctly identifies the color-coding scheme, but the final answer misrepresents the relationship between proximity and semantic similarity, failing to support the correct inference from the evidence. This is a worker_support_failure: necessary evidence was retrieved, but the worker misread or misinterpreted it to produce an unsupported answer."
+  },
+  "usage": {
+    "prompt_tokens": 3754,
+    "total_tokens": 4204,
+    "completion_tokens": 450,
+    "prompt_tokens_details": null
+  }
+}

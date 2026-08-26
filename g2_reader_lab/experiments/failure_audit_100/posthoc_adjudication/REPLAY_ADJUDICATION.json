@@ -1,0 +1,472 @@
+{
+  "target_count": 11,
+  "completed_adjudications": 11,
+  "official_parser_successes": 11,
+  "semantic_correct": 5,
+  "semantic_repairs_over_8b": 4,
+  "semantic_regressions_from_8b": 0,
+  "results": [
+    {
+      "question_id": "spiqa_39",
+      "candidate_source": "official_parser",
+      "candidate_answer": "TRPO consistently achieves higher cosine similarity with the true gradient than PPO at lower sample counts (e.g., 10² to 10³ state-action pairs) across all training iterations and environments, indicating superior gradient estimation. This implies that TRPO’s updates are more aligned with the true gradient, leading to more stable and reliable convergence, whereas PPO’s lower alignment, especially in later training stages, suggests less consistent optimization and potentially less stable convergence behavior.",
+      "reference": "TRPO generally converges faster to the true gradient than PPO.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.679991722106934,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "TRPO generally converges faster to the true gradient than PPO."
+        ],
+        "candidate_claims": [
+          "TRPO consistently achieves higher cosine similarity with the true gradient than PPO at lower sample counts (e.g., 10² to 10³ state-action pairs) across all training iterations and environments, indicating superior gradient estimation.",
+          "This implies that TRPO’s updates are more aligned with the true gradient, leading to more stable and reliable convergence, whereas PPO’s lower alignment, especially in later training stages, suggests less consistent optimization and potentially less stable convergence behavior."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer correctly identifies that TRPO outperforms PPO in gradient estimation (via higher cosine similarity) with fewer state-action pairs, which directly supports the reference’s claim that TRPO converges faster to the true gradient. The candidate adds context about sample counts, training iterations, and environments, which are harmless elaborations. The implication about convergence behavior (more stable and reliable for TRPO) is consistent with the reference’s core claim. No factual contradiction or missing component is present."
+      },
+      "usage": {
+        "prompt_tokens": 293,
+        "total_tokens": 562,
+        "completion_tokens": 269,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "TRPO consistently achieves higher cosine similarity with the true gradient than PPO at lower sample counts (e.g., 10² to 10³ state-action pairs) across all training iterations and environments, indicating superior gradient estimation. This implies that TRPO’s updates are more aligned with the true gradient, leading to more stable and reliable convergence, whereas PPO’s lower alignment, especially in later training stages, suggests less consistent optimization and potentially less stable convergence behavior.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_39/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 277.181138753891,
+      "eight_b_candidate": "TRPO maintains a higher cosine similarity with the true gradient at low state-action pair counts, implying more stable and efficient convergence due to better alignment with the true gradient direction.",
+      "eight_b_candidate_source": "derived_unclosed_output_tag",
+      "eight_b_answer_verdict": "correct",
+      "eight_b_primary_category": "parser_failure"
+    },
+    {
+      "question_id": "spiqa_4",
+      "candidate_source": "official_parser",
+      "candidate_answer": "9719",
+      "reference": "There are approximately 9,719 negative samples in the training set of the CNSE dataset.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 9.41307544708252,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "There are approximately 9,719 negative samples in the training set of the CNSE dataset."
+        ],
+        "candidate_claims": [
+          "9719"
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer '9719' matches the numerical value in the reference answer 'approximately 9,719'. The reference uses 'approximately' to indicate rounding or estimation, but the core factual value is identical. The candidate provides the exact number without extra wording, which is semantically equivalent and sufficient to answer the question. No contradiction, wrong entity, or missing component is present. The question asks for the number of negative samples, and the candidate supplies that number directly."
+      },
+      "usage": {
+        "prompt_tokens": 225,
+        "total_tokens": 410,
+        "completion_tokens": 185,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "9719",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_4/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 85.05438590049744,
+      "eight_b_candidate": "16198",
+      "eight_b_candidate_source": "official_parser",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "worker_support_failure"
+    },
+    {
+      "question_id": "spiqa_110",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The performance of the LSTNet-attn model on the Solar-Energy dataset degrades as the forecasting horizon increases, with RSE increasing from 0.1816 at horizon 3 to 0.4403 at horizon 24, and correlation decreasing from 0.9848 at horizon 3 to 0.8995 at horizon 24.",
+      "reference": "The performance of LSTNet-attn generally improves as the horizon increases on the Solar-Energy dataset. This is evident from the fact that both the RMSE and correlation values improve with increasing horizon.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.937928199768066,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Performance of LSTNet-attn improves as forecasting horizon increases.",
+          "Both RMSE and correlation values improve with increasing horizon."
+        ],
+        "candidate_claims": [
+          "Performance degrades as horizon increases.",
+          "RSE increases from 0.1816 to 0.4403 (implying worse performance).",
+          "Correlation decreases from 0.9848 to 0.8995 (implying worse performance)."
+        ],
+        "substantive_differences": [
+          "Opposite trend: reference says performance improves; candidate says it degrades.",
+          "Candidate uses RSE (Relative Squared Error) instead of RMSE as referenced.",
+          "Candidate's values (RSE, correlation) contradict the reference's claim of improvement."
+        ],
+        "rationale": "The candidate answer presents a direct contradiction to the reference answer in terms of performance trend (degrades vs. improves) and uses a different metric (RSE instead of RMSE). The stated values for correlation and RSE also indicate deterioration, which contradicts the reference's claim of improvement. This is a factual and semantic mismatch."
+      },
+      "usage": {
+        "prompt_tokens": 314,
+        "total_tokens": 588,
+        "completion_tokens": 274,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "The performance of the LSTNet-attn model on the Solar-Energy dataset degrades as the forecasting horizon increases, with RSE increasing from 0.1816 at horizon 3 to 0.4403 at horizon 24, and correlation decreasing from 0.9848 at horizon 3 to 0.8995 at horizon 24.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_110/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 113.60988664627075,
+      "eight_b_candidate": "As the forecasting horizon increases, the RMSE of the LSTNet-attn model increases while its correlation decreases.",
+      "eight_b_candidate_source": "derived_unclosed_output_tag",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "worker_support_failure"
+    },
+    {
+      "question_id": "spiqa_116",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points.",
+      "reference": "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 12.776729345321655,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned."
+        ],
+        "candidate_claims": [
+          "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate provides specific numerical values (75% vs 70%) that support the qualitative claim in the reference ('slightly better'). The comparison is consistent: the proposed method outperforms Yosinski et al. [90]. The candidate adds precise data points and a percentage-point difference, which are harmless extra details and do not contradict the reference. The core semantic meaning — that the proposed method performs better — is preserved."
+      },
+      "usage": {
+        "prompt_tokens": 301,
+        "total_tokens": 552,
+        "completion_tokens": 251,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_116/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 96.07219386100769,
+      "eight_b_candidate": "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario).",
+      "eight_b_candidate_source": "official_parser",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "worker_support_failure"
+    },
+    {
+      "question_id": "spiqa_522",
+      "candidate_source": "official_parser",
+      "candidate_answer": "Conv-KNRM; B↑ (significant improvement over BM25), no significant difference relative to WT10 or AOL",
+      "reference": "The Conv-KNRM model performs best when trained on the NYT dataset and evaluated on the WT14 dataset, achieving an nDCG@20 score of 0.3215. This performance is significantly better than all the baselines: BM25 (B), WT10 (W), and AOL (A).",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.536032915115356,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Conv-KNRM achieves the highest nDCG@20 on WT14 when trained on NYT (0.3215).",
+          "Conv-KNRM's performance is significantly better than BM25, WT10, and AOL."
+        ],
+        "candidate_claims": [
+          "Conv-KNRM is the best model.",
+          "Significant improvement over BM25 (B↑).",
+          "No significant difference relative to WT10 or AOL."
+        ],
+        "substantive_differences": [
+          "The candidate claims no significant difference relative to WT10 and AOL, contradicting the reference which states significant improvement over all three baselines.",
+          "The reference explicitly states Conv-KNRM is significantly better than WT10 and AOL, while the candidate denies this, which is a direct contradiction."
+        ],
+        "rationale": "The candidate incorrectly asserts no significant difference with WT10 and AOL, directly contradicting the reference's claim of significant improvement over all three baselines. This is a factual error in the comparison component, making the answer semantically incorrect despite correctly identifying the top model."
+      },
+      "usage": {
+        "prompt_tokens": 305,
+        "total_tokens": 571,
+        "completion_tokens": 266,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "Conv-KNRM; B↑ (significant improvement over BM25), no significant difference relative to WT10 or AOL",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_522/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 92.4267144203186,
+      "eight_b_candidate": null,
+      "eight_b_candidate_source": "no_candidate_answer",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "worker_support_failure"
+    },
+    {
+      "question_id": "spiqa_163",
+      "candidate_source": "official_parser",
+      "candidate_answer": "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level. The curve is drawn by recursively applying the same pattern within each sub-square and connecting them in a specific order (typically top-left, top-right, bottom-right, bottom-left) to form a continuous, space-filling path that preserves spatial locality.",
+      "reference": "The Hilbert space-filling curve is constructed recursively. The curve starts with a simple square, and then at each subsequent iteration, the curve is subdivided into four smaller squares. The curve is then drawn through each of these squares in a specific order.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.483190059661865,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The Hilbert space-filling curve is constructed recursively.",
+          "The curve starts with a simple square.",
+          "At each subsequent iteration, the curve is subdivided into four smaller squares.",
+          "The curve is drawn through each of these squares in a specific order."
+        ],
+        "candidate_claims": [
+          "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level.",
+          "The curve is drawn by recursively applying the same pattern within each sub-square.",
+          "The sub-squares are connected in a specific order (typically top-left, top-right, bottom-right, bottom-left).",
+          "This forms a continuous, space-filling path that preserves spatial locality."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate answer accurately captures the recursive subdivision into four smaller squares and the specific ordering of traversal, which aligns with the reference. The additional detail about the typical traversal order (top-left, etc.) and spatial locality is harmless and consistent with the reference’s implied meaning. No factual contradictions or omissions are present. The core semantic content is preserved."
+      },
+      "usage": {
+        "prompt_tokens": 309,
+        "total_tokens": 574,
+        "completion_tokens": 265,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "The Hilbert space-filling curve recursively subdivides the square into 4 smaller squares at each level. The curve is drawn by recursively applying the same pattern within each sub-square and connecting them in a specific order (typically top-left, top-right, bottom-right, bottom-left) to form a continuous, space-filling path that preserves spatial locality.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_163/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 110.32625436782837,
+      "eight_b_candidate": "The Hilbert curve recursively subdivides a square into four smaller squares and applies the same pattern to each, but the specific drawing rule for the path within each subdivision is not described in the text or explicitly inferable from the visual pattern alone.",
+      "eight_b_candidate_source": "official_parser",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "retrieval_failure"
+    },
+    {
+      "question_id": "spiqa_195",
+      "candidate_source": "official_parser",
+      "candidate_answer": "ACGAN exhibits unstable training behavior with high variance in both generator (orange) and discriminator (blue) losses, showing erratic fluctuations and no clear convergence, indicative of poor learning dynamics and likely mode collapse.",
+      "reference": "The training curves for the ACGAN show that the generator and discriminator losses both decrease over time. This indicates that the ACGAN is able to learn to generate realistic images.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 13.159081220626831,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Generator and discriminator losses both decrease over time.",
+          "This indicates the ACGAN is able to learn to generate realistic images."
+        ],
+        "candidate_claims": [
+          "ACGAN exhibits unstable training behavior.",
+          "High variance and erratic fluctuations in both losses.",
+          "No clear convergence.",
+          "Indicative of poor learning dynamics and likely mode collapse."
+        ],
+        "substantive_differences": [
+          "The reference states losses decrease steadily, implying convergence and successful learning; the candidate claims erratic fluctuations and no convergence, implying failure.",
+          "The candidate introduces negative claims (instability, mode collapse) not supported by the reference, which is positive about learning success.",
+          "The candidate contradicts the core trend described in the reference: decreasing losses vs. erratic fluctuations."
+        ],
+        "rationale": "The candidate answer directly contradicts the reference's key claims about the training behavior. The reference describes a successful, convergent learning process, while the candidate describes instability and failure. This is a substantive contradiction in the interpretation of the training curves, making the candidate semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 284,
+        "total_tokens": 543,
+        "completion_tokens": 259,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "ACGAN exhibits unstable training behavior with high variance in both generator (orange) and discriminator (blue) losses, showing erratic fluctuations and no clear convergence, indicative of poor learning dynamics and likely mode collapse.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_195/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 90.66105079650879,
+      "eight_b_candidate": null,
+      "eight_b_candidate_source": "no_candidate_answer",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "retrieval_failure"
+    },
+    {
+      "question_id": "spiqa_396",
+      "candidate_source": "official_parser",
+      "candidate_answer": "HUMBI achieves the highest AUC among individual datasets (0.399), but both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it, with H36M+HUMBI achieving the highest overall AUC.",
+      "reference": "HUMBI performs best when used alone for training, with an average AUC of 0.399. While this is lower than the average AUC of models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI), HUMBI still achieves the highest score among the individual datasets.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 16.33160901069641,
+      "judgment": {
+        "label": "correct",
+        "confidence": 0.95,
+        "reference_claims": [
+          "HUMBI performs best when used alone for training, with an average AUC of 0.399.",
+          "HUMBI still achieves the highest score among the individual datasets.",
+          "Models trained on combined datasets (0.433 for H36M+HUMBI and 0.413 for MI3D+HUMBI) outperform HUMBI when used alone."
+        ],
+        "candidate_claims": [
+          "HUMBI achieves the highest AUC among individual datasets (0.399).",
+          "Both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it.",
+          "H36M+HUMBI achieves the highest overall AUC."
+        ],
+        "substantive_differences": [],
+        "rationale": "The candidate correctly identifies HUMBI as the top-performing individual dataset (AUC 0.399) and accurately reports that both combined datasets outperform it, with H36M+HUMBI achieving the highest overall AUC (0.433). The comparison and values match the reference. The candidate adds a minor clarification ('highest overall AUC') that is consistent with the reference and does not contradict it. No factual errors or omissions are present."
+      },
+      "usage": {
+        "prompt_tokens": 362,
+        "total_tokens": 683,
+        "completion_tokens": 321,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "HUMBI achieves the highest AUC among individual datasets (0.399), but both combined datasets (H36M+HUMBI with 0.433 and MI3D+HUMBI with 0.413) outperform it, with H36M+HUMBI achieving the highest overall AUC.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_396/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 120.06985807418823,
+      "eight_b_candidate": null,
+      "eight_b_candidate_source": "no_candidate_answer",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "retrieval_failure"
+    },
+    {
+      "question_id": "spiqa_44",
+      "candidate_source": "official_parser",
+      "candidate_answer": "For the sickle cell anemia patient, COPA (a) shows a smooth, large peak around day 5000 reflecting a gradual increase in medical activity due to a large visit gap, while Helwig (b) produces a step-like drop and recovery, assuming visits are close in time, and SPARTan (c) exhibits jagged, noisy spikes due to treating time categorically. For the leukemia patient, COPA (d) displays a smooth, gradual increase and decrease in magnitude, accurately modeling the clinical progression, whereas Helwig (e) shows a sharp, unrealistic spike suggesting early disease presence, and SPARTan (f) presents erratic, noisy fluctuations. None of the methods show clear periodicity, but COPA’s smooth patterns are most clinically meaningful.",
+      "reference": "The temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude. For sickle cell anemia patients, the patterns are generally smoother and more periodic, with lower overall magnitude. For leukemia patients, the patterns are more erratic and have higher overall magnitude.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 21.029276609420776,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "Temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude.",
+          "Sickle cell anemia patients: smoother, more periodic, lower overall magnitude.",
+          "Leukemia patients: more erratic, higher overall magnitude."
+        ],
+        "candidate_claims": [
+          "Sickle cell anemia: COPA shows smooth large peak around day 5000; Helwig step-like drop/recovery; SPARTan jagged noisy spikes.",
+          "Leukemia: COPA smooth gradual increase/decrease; Helwig sharp unrealistic spike; SPARTan erratic noisy fluctuations.",
+          "None show clear periodicity; COPA’s smooth patterns most clinically meaningful."
+        ],
+        "substantive_differences": [
+          "Candidate focuses on method-specific outputs (COPA, Helwig, SPARTan) rather than comparing patient groups as asked.",
+          "Candidate introduces specific time points (day 5000) and methodological interpretations (e.g., 'treating time categorically') not in reference.",
+          "Reference emphasizes patient-level differences in shape, magnitude, and periodicity; candidate conflates method performance with patient phenotype patterns.",
+          "Candidate claims 'no periodicity' for both patients, contradicting reference’s claim of 'more periodic' for sickle cell anemia.",
+          "Candidate adds clinical interpretation ('medical activity', 'clinical progression') not present in reference."
+        ],
+        "rationale": "The candidate misinterprets the question by describing method-specific outputs rather than comparing the temporal patterns of phenotype magnitude, shape, and periodicity between the two patient groups. It introduces non-referenced details, contradicts the reference on periodicity, and fails to capture the core comparison requested. The focus on algorithmic behavior rather than patient-level phenotypic differences renders the answer semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 432,
+        "total_tokens": 845,
+        "completion_tokens": 413,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "For the sickle cell anemia patient, COPA (a) shows a smooth, large peak around day 5000 reflecting a gradual increase in medical activity due to a large visit gap, while Helwig (b) produces a step-like drop and recovery, assuming visits are close in time, and SPARTan (c) exhibits jagged, noisy spikes due to treating time categorically. For the leukemia patient, COPA (d) displays a smooth, gradual increase and decrease in magnitude, accurately modeling the clinical progression, whereas Helwig (e) shows a sharp, unrealistic spike suggesting early disease presence, and SPARTan (f) presents erratic, noisy fluctuations. None of the methods show clear periodicity, but COPA’s smooth patterns are most clinically meaningful.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_44/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 168.8158552646637,
+      "eight_b_candidate": "The only correct answer is that COPA correctly captures the temporal pattern with a sharp increase at the second visit, Helwig incorrectly suggests the condition was present at the first visit, and SPARTan produces a noisy, low-magnitude, non-periodic pattern that fails to capture the significant change.",
+      "eight_b_candidate_source": "official_parser",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "decomposition_failure"
+    },
+    {
+      "question_id": "spiqa_571",
+      "candidate_source": "official_parser",
+      "candidate_answer": "No single step resulted in the reduction from 5,119 to 1,955; the reduction occurred across Steps 3 and 4.",
+      "reference": "Step 4, Reason disambiguation.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 15.27662992477417,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "The most significant reduction occurred in Step 4.",
+          "The reduction from 5,119 to 1,955 happened specifically in Step 4.",
+          "Step 4 is the step where the input instances dropped by over 60%."
+        ],
+        "candidate_claims": [
+          "The reduction from 5,119 to 1,955 did not occur in a single step.",
+          "The reduction occurred across Steps 3 and 4."
+        ],
+        "substantive_differences": [
+          "The candidate contradicts the reference by denying that Step 4 alone caused the reduction, instead attributing it to Steps 3 and 4 collectively.",
+          "The reference identifies Step 4 as the specific step with the most significant reduction; the candidate denies this specificity, which is central to the question."
+        ],
+        "rationale": "The question asks for the specific step that resulted in the most significant reduction from 5,119 to 1,955. The reference identifies Step 4 as that step. The candidate explicitly denies that any single step caused this reduction, instead attributing it to two steps. This directly contradicts the reference and fails to answer the question as posed. Therefore, the candidate is semantically incorrect."
+      },
+      "usage": {
+        "prompt_tokens": 243,
+        "total_tokens": 544,
+        "completion_tokens": 301,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "No single step resulted in the reduction from 5,119 to 1,955; the reduction occurred across Steps 3 and 4.",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_571/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 452.44780230522156,
+      "eight_b_candidate": null,
+      "eight_b_candidate_source": "no_candidate_answer",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "decomposition_failure"
+    },
+    {
+      "question_id": "spiqa_47",
+      "candidate_source": "official_parser",
+      "candidate_answer": "GBI reduces the average disagreement rate by 19.93% (from 44.85% to 24.92%), while A* reduces it by 0.00% (from 33.91% to 33.91%).",
+      "reference": "GBI is more effective than A* in reducing the disagreement rate on the SRL-100 network's failure set. After applying GBI, the average disagreement rate drops to 24.92%, while A* only reduces it to 33.91%. This represents an 19.93% greater reduction in disagreement rate when using GBI compared to A*.",
+      "status": "complete",
+      "attempt": 1,
+      "latency_seconds": 20.42418646812439,
+      "judgment": {
+        "label": "incorrect",
+        "confidence": 0.95,
+        "reference_claims": [
+          "GBI reduces the average disagreement rate on the SRL-100 failure set to 24.92%.",
+          "A* reduces it to 33.91%.",
+          "GBI achieves 19.93% greater reduction than A*."
+        ],
+        "candidate_claims": [
+          "GBI reduces the rate by 19.93% (from 44.85% to 24.92%).",
+          "A* reduces it by 0.00% (from 33.91% to 33.91%)."
+        ],
+        "substantive_differences": [
+          "The candidate incorrectly claims A* reduces the rate by 0.00%, implying no change, whereas the reference states A* reduces it to 33.91% (implying a reduction from a higher baseline, not no reduction).",
+          "The candidate misrepresents the comparison: it presents GBI’s reduction as 19.93% absolute, while the reference states 19.93% greater reduction relative to A*.",
+          "The candidate implies A* starts from 33.91% and ends at 33.91%, which contradicts the reference’s implication that A* reduces the rate from a higher value (e.g., 44.85%) to 33.91%."
+        ],
+        "rationale": "The candidate misrepresents the baseline and reduction for A*, falsely claiming no reduction, and misinterprets the 19.93% as an absolute reduction for GBI rather than a relative improvement over A*. This contradicts the reference’s core comparison and factual claims."
+      },
+      "usage": {
+        "prompt_tokens": 342,
+        "total_tokens": 744,
+        "completion_tokens": 402,
+        "prompt_tokens_details": null
+      },
+      "official_prediction": "GBI reduces the average disagreement rate by 19.93% (from 44.85% to 24.92%), while A* reduces it by 0.00% (from 33.91% to 33.91%).",
+      "official_parser_success": true,
+      "has_open_output_tag": true,
+      "has_close_output_tag": true,
+      "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_47/local-qwen-vl_dag_rag_1.jsonl",
+      "process_time": 177.26745200157166,
+      "eight_b_candidate": "GBI reduces the average disagreement rate by 19.93%, while A* reduces it by 10.94%. Therefore, GBI’s reduction is 8.99 percentage points greater than A*'s reduction.",
+      "eight_b_candidate_source": "official_parser",
+      "eight_b_answer_verdict": "incorrect",
+      "eight_b_primary_category": "composition_failure"
+    }
+  ]
+}

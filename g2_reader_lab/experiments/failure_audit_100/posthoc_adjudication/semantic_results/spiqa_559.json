@@ -1,0 +1,28 @@
+{
+  "question_id": "spiqa_559",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The 'Mixture of Classifiers' method is shown to more effectively handle outliers and accurately classify data points, as it uses a mixture weight to select between two classifiers based on the corruption probability, thereby separating clean and corrupted data points.",
+  "reference": "Mixture of classifiers.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.9096040725708,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Mixture of classifiers is shown to more effectively handle outliers and accurately classify the data points."
+    ],
+    "candidate_claims": [
+      "The 'Mixture of Classifiers' method is shown to more effectively handle outliers and accurately classify data points.",
+      "It uses a mixture weight to select between two classifiers based on the corruption probability, thereby separating clean and corrupted data points."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate correctly identifies 'Mixture of Classifiers' as the method that more effectively handles outliers and classifies data points, matching the reference. The additional explanation about mixture weights and corruption probability is a harmless elaboration that supports the core claim without contradicting or altering its meaning. The semantic intent is preserved."
+  },
+  "usage": {
+    "prompt_tokens": 233,
+    "total_tokens": 422,
+    "completion_tokens": 189,
+    "prompt_tokens_details": null
+  }
+}

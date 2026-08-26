@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_407",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Proposed",
+  "reference": "The proposed method performs the best on average across all noise levels tested on the Kodak dataset.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.430103302001953,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The proposed method performs the best on average across all noise levels tested on the Kodak dataset."
+    ],
+    "candidate_claims": [
+      "Proposed"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Proposed' is a concise, unambiguous reference to 'the proposed method' mentioned in the reference. The question asks which method achieves the highest average PSNR, and the reference explicitly states that the proposed method performs best on average. The candidate correctly identifies the winning method without introducing error or contradiction. While the candidate lacks explicit mention of 'average PSNR' or 'Kodak dataset', these are contextually implied by the question and do not alter the core semantic meaning. The answer is a valid, minimal paraphrase of the reference's key claim."
+  },
+  "usage": {
+    "prompt_tokens": 212,
+    "total_tokens": 411,
+    "completion_tokens": 199,
+    "prompt_tokens_details": null
+  }
+}

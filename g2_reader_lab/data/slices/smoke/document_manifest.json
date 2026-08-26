@@ -1,0 +1,877 @@
+{
+  "document_count": 109,
+  "documents": [
+    {
+      "dataset": "feta_tab",
+      "document": "Ashley Williams (actress).pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Ashley Williams (actress).pdf",
+      "size_bytes": 383604,
+      "sha256": "5629b35289bc39e8c72a01db354963facaf33eae38d55267dfa9050526a224a8",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Grayson Russell.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Grayson Russell.pdf",
+      "size_bytes": 254402,
+      "sha256": "dbdc6d506c19740f2f6b060e2a5eb2fff69e23756fb257d92c8246ce249acb1f",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Jacob Rees-Mogg.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Jacob Rees-Mogg.pdf",
+      "size_bytes": 2206482,
+      "sha256": "b90a4b1ddd7e34e4864e2b16d7fc9569c4620931bbd00d8d6818193434ff0bc7",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Jaime Pressly.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Jaime Pressly.pdf",
+      "size_bytes": 607555,
+      "sha256": "50b81cbdc47a379d7fa696d6cb63540479343f8f15b4e4d3fd9451c6efe8e31a",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "John Rhys-Davies.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/John Rhys-Davies.pdf",
+      "size_bytes": 794829,
+      "sha256": "4257235caaeb235a17f7d7f861e72bbce8eeebf355ffae8abf5865cfb2c9af92",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Kathryn Beaumont.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Kathryn Beaumont.pdf",
+      "size_bytes": 191629,
+      "sha256": "1d886251fc83ab94a2851ec54db3b53c71f2f06f6cf781e91c3843a8ead34b3c",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "List of districts of Nepal.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/List of districts of Nepal.pdf",
+      "size_bytes": 1012937,
+      "sha256": "8bad61bcfb2c31b786680801a83f0cb11b7a44ea397eeb5be336c81b39afd1e0",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Local governance in Kerala.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Local governance in Kerala.pdf",
+      "size_bytes": 260649,
+      "sha256": "b3d5c3941c4a229ec75e80c0d0005e8c05a9f3d83751d4d6a9a2997498a9637e",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "London Calling (song).pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/London Calling (song).pdf",
+      "size_bytes": 458783,
+      "sha256": "deaad7383896c7cc7c5e87501af341174b3feff7b8dd5459c5bba65109287bdd",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Mazda BT-50.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Mazda BT-50.pdf",
+      "size_bytes": 465249,
+      "sha256": "14869ddd09abfc1fc902961c474d8be2ac0af7ebadeefdf8f4c6433433734792",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Mercury Grand Marquis.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Mercury Grand Marquis.pdf",
+      "size_bytes": 1153691,
+      "sha256": "a39ecc67ac4574563c8653306b35d8759e481ee08a6ac3ea046ce401010b97bf",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Momordica charantia.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Momordica charantia.pdf",
+      "size_bytes": 873110,
+      "sha256": "485ef07a6a097fe6dda5e12c838c62ea01afdbddd12d0b0f67e0283a55c840ab",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "NHL outdoor games.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/NHL outdoor games.pdf",
+      "size_bytes": 974179,
+      "sha256": "9a2b55049652ece8f44878b4edcc552d45e8a5eb4e2eb253459ecc539d8cfc15",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Need You Now (Lady Antebellum song).pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Need You Now (Lady Antebellum song).pdf",
+      "size_bytes": 956656,
+      "sha256": "18da042c05df20248e2bf743b7cbcd618da69026996af74e47e9ae05bf4d223f",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Paraguay at the FIFA World Cup.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Paraguay at the FIFA World Cup.pdf",
+      "size_bytes": 3472492,
+      "sha256": "6c214bf6491d71870c3257a2060c3490b0baa10d6eef4e2326b706019f973137",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Purdue Boilermakers football.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Purdue Boilermakers football.pdf",
+      "size_bytes": 2765274,
+      "sha256": "239d553796924046cc8a7649320356ce295c8c48e8662b8c850ebebc48dbc89c",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Russell Wilson.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Russell Wilson.pdf",
+      "size_bytes": 1779247,
+      "sha256": "4e3ae06649ac07e0811ccce89da4cd1abde5b65909d5f3c84ffa2e0aa9701e2c",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Samsung Galaxy Note II.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Samsung Galaxy Note II.pdf",
+      "size_bytes": 778123,
+      "sha256": "99944aaf324a44c1da00c51adfcb046ce152f85c15817547fa5848b893f43607",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Sarah Wayne Callies.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Sarah Wayne Callies.pdf",
+      "size_bytes": 465298,
+      "sha256": "0995800a5b9c77d64f1e5c17531a822e2b0676b14ee18d1815549390f62b8074",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Taissa Farmiga.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Taissa Farmiga.pdf",
+      "size_bytes": 581019,
+      "sha256": "5431f4f7c06ad0b2921ca255d9f9e8ee826f97b970d6e904ebce1357063cd8bf",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Thomas F. Wilson.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Thomas F. Wilson.pdf",
+      "size_bytes": 609916,
+      "sha256": "8ac01c1976ca9a44b951e7aff3bc97667af721cc3e37622123ac610e9ab29048",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "feta_tab",
+      "document": "Yvonne Strahovski.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/feta_tab/docs/Yvonne Strahovski.pdf",
+      "size_bytes": 598540,
+      "sha256": "bcec81c7665678812a9d72334e32554f49d16fc97db52276a84b66d824106275",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1603.00968.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1603.00968.pdf",
+      "size_bytes": 258774,
+      "sha256": "42fecd66ec200ba2983401e7f6634f38156473de623100cce0df61256088db3a",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1603.04513.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1603.04513.pdf",
+      "size_bytes": 398049,
+      "sha256": "e8c1aa98fab8b9d02d1f1b46570c4abf135abe9ee0025b4ac16a56d9b126db20",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1605.07333.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1605.07333.pdf",
+      "size_bytes": 256730,
+      "sha256": "ca68709a69f4acdeaa65261ec2b3260568419661342be33b5b0717687f12b495",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1606.05320.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1606.05320.pdf",
+      "size_bytes": 272760,
+      "sha256": "67befa895223dadf94ddb382e76a1ec09e2c3dcfeccd9593a77a8b3167fab72c",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1701.00185.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1701.00185.pdf",
+      "size_bytes": 1062499,
+      "sha256": "71393a946a50bb1f33e947c450b9b4d23bca9307aa22b1a5f87a2cad7191d1b0",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1707.08559.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1707.08559.pdf",
+      "size_bytes": 874756,
+      "sha256": "9ee5533e84a722d20decdf8d4690e9ec70f30fa9092c84d2aae20855c6d12414",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1711.00106.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1711.00106.pdf",
+      "size_bytes": 519254,
+      "sha256": "059e0666130f8adf33953e7363b18351167df6c067dd2f99f8e06f1ca64ad295",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1711.02013.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1711.02013.pdf",
+      "size_bytes": 1121610,
+      "sha256": "cd9b55ef0e9ad25a73fc46822905dc92c11f9983295ec93ed74a04412d88b822",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1801.05147.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1801.05147.pdf",
+      "size_bytes": 488237,
+      "sha256": "f5448ff1e7088e7d60528035684c1fe7e39cebac7cfff16d3d29f41aaba2c170",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1806.11432.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1806.11432.pdf",
+      "size_bytes": 376326,
+      "sha256": "3a353115a7ab2091d661aee6bcbf3716448375761df12f0e44a956e36e08bac3",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1809.06537.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1809.06537.pdf",
+      "size_bytes": 1719523,
+      "sha256": "154eafaa3ec7cd7b6eda882e398ff3d97a27052f7054c191c80d3e09f7e6050e",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1810.12085.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1810.12085.pdf",
+      "size_bytes": 1224437,
+      "sha256": "caf2ed3148f35a7867506e2f8633706be86cf7abf139d7bad97700b98cf8eb2c",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1901.05280.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1901.05280.pdf",
+      "size_bytes": 593354,
+      "sha256": "76652fc62c4cc27a4ddd512fd9541c4e38e70378e6db76f6a21d6a7ffc160c55",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1902.09314.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1902.09314.pdf",
+      "size_bytes": 468463,
+      "sha256": "02b1151085fae9883f82815c62e44a228609a7bd3cd44afd78f9dbeff0a1d7fe",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1902.09393.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1902.09393.pdf",
+      "size_bytes": 417052,
+      "sha256": "e98bb4c51df6d7e6845e17da1ad11bf33c3c0fbb4c6c5564ed0203911b403bb1",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1903.09722.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1903.09722.pdf",
+      "size_bytes": 122298,
+      "sha256": "187bed073d8a8f978f963b9c98783f2316b9432aafec283322424cc79332db9b",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1906.10551.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1906.10551.pdf",
+      "size_bytes": 1346739,
+      "sha256": "e1b808effa7f5ec9749d5eb79231a01ea1ab6ee1416f3f32d0b0ad9ec28bc043",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1907.09369.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1907.09369.pdf",
+      "size_bytes": 278308,
+      "sha256": "2157ddb05869075d094d5a46bf2a3e2cb300c5063cae558ba7db58fa834209bf",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1908.06379.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1908.06379.pdf",
+      "size_bytes": 3051042,
+      "sha256": "fe5e1b52b285e72bef37c16bc33a5962eadd574f5b4c66c0bdfa676b4fb32cae",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1908.07816.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1908.07816.pdf",
+      "size_bytes": 2175026,
+      "sha256": "d13b43ead8fa50c3488e4896e15c0c6a053a610cf45a55a1ed462f9b4e793414",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1909.05855.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1909.05855.pdf",
+      "size_bytes": 1270518,
+      "sha256": "d22c001c63fc5757304aad3c82018ea960103da1ca4b0f9bf312f4c7421f5752",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1910.06592.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1910.06592.pdf",
+      "size_bytes": 913305,
+      "sha256": "6dad4326bdb5319b0a611efbd5261747630c7109445176a3ec3883a7984ca282",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1910.12129.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1910.12129.pdf",
+      "size_bytes": 205984,
+      "sha256": "1b56933dcf97d6bba7054a2ac7180973d37a00594e9a9dd670ccb63fd17b0e44",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "1911.02821.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/1911.02821.pdf",
+      "size_bytes": 425956,
+      "sha256": "c25743a41530c15630aaa5ad89935e13c78c61b3e39dbbcddd8283bbebad85b7",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "2001.05493.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/2001.05493.pdf",
+      "size_bytes": 1143261,
+      "sha256": "65c31f5f861235e912f61a87339f87a9391c96abe86a6b38bf78ca7379860570",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "2002.01664.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/2002.01664.pdf",
+      "size_bytes": 1073640,
+      "sha256": "52d04fdd493ec62d95c6c292c13e7f7d55ebe7d3110c4bbb4589fd87644c490d",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "2002.11402.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/2002.11402.pdf",
+      "size_bytes": 152982,
+      "sha256": "afe48596fbea75b387b21c6c4a047ee0f378679e303e3c963e66c0fb370bf4c2",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "2003.03106.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/2003.03106.pdf",
+      "size_bytes": 300931,
+      "sha256": "c0b495ea20d259d52a4a7d4e6fbb4bdc683b25504b401be2a62fd7b167d9b0d2",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "paper_tab",
+      "document": "2003.12738.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/paper_tab/docs/2003.12738.pdf",
+      "size_bytes": 506117,
+      "sha256": "65567f01aabc4e5c6645d6d2a7759cc7728712ad449821670b99403c03ea0500",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1209.3394v5.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1209.3394v5.pdf",
+      "size_bytes": 279502,
+      "sha256": "b677811313bec890abcb725bd573c83dd71aaf380d0574c4fba50a6e07204d32",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1301.5201v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1301.5201v1.pdf",
+      "size_bytes": 2010919,
+      "sha256": "4e11c8b4cb7b83c097336a227531a2292dea266bffd74068a1bae8170a30b030",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1311.1567v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1311.1567v3.pdf",
+      "size_bytes": 686865,
+      "sha256": "18e217b2ca6a935373c7e0aec86b58f1ec4c6f39ad7db7cc11f86e2b872ae140",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1612.01450v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1612.01450v1.pdf",
+      "size_bytes": 725286,
+      "sha256": "1cfbcb580d2d6cd15b35e16d213711604f5e16dae8992216bb32943da6441497",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1701.00365v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1701.00365v2.pdf",
+      "size_bytes": 1431211,
+      "sha256": "b90b79c0cd6acd374bf7ee07561ae8ca234dab36808559cc4926f5fff93903fb",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1704.04828v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1704.04828v1.pdf",
+      "size_bytes": 687727,
+      "sha256": "9ddbc05e4a9cbba291c0d1d94760f93ac4f983a3f8b5318ff9174ffc08cb8018",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1710.10733v4.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1710.10733v4.pdf",
+      "size_bytes": 1227563,
+      "sha256": "53ca520efb0fab476680bbd7dc33bceab36d29be7345b7e38fa1888086c03608",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1801.08825v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1801.08825v1.pdf",
+      "size_bytes": 572484,
+      "sha256": "1be134ddb9a660672121fa6eacec1b83afabe21cd3ffc9cfb61ebd980f9b582e",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1803.11512v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1803.11512v1.pdf",
+      "size_bytes": 1264194,
+      "sha256": "783d988a05cfdfd1c68384ba50dd191a82fe14fd830dbe8098023b8a61cbf71d",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1902.03993v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1902.03993v2.pdf",
+      "size_bytes": 7735657,
+      "sha256": "dd97693ab17c482925e026bb0898ffe2e700071a0d3b46dca9cd3533127bb852",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1902.05312v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1902.05312v2.pdf",
+      "size_bytes": 1641386,
+      "sha256": "045ee48f52bb73985ba144e4c8ca6a1a32c18234ae8ed6a533bc86de968787e8",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1910.00110v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1910.00110v2.pdf",
+      "size_bytes": 305376,
+      "sha256": "1e3e2ad0e7d79e907606d1e498df6f8d7b7a49d8b7f022a97f155a4db52453f8",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1910.09823v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1910.09823v3.pdf",
+      "size_bytes": 711230,
+      "sha256": "508d7921edf18e547bc9430cc52e17d1aab8a83e85c2bc46c1feda4875965afc",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "1910.11127v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/1910.11127v1.pdf",
+      "size_bytes": 1106411,
+      "sha256": "95070372ccb1f2b76708b8688080ee157306b80859d0cdcd6a6c3933518d4ad1",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "2003.06259v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/2003.06259v1.pdf",
+      "size_bytes": 924415,
+      "sha256": "ab994980cd24edb6e86cb7ef1f388b5dc535b56c34a96d285893691724a64cf2",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "2003.14319v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/2003.14319v2.pdf",
+      "size_bytes": 2860790,
+      "sha256": "d0834f3e49a5524ef6f441c44ed132eee38bac10be29a8d216afb7aa880b0cce",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "scigraphqa",
+      "document": "2005.13300v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/scigraphvqa/docs/2005.13300v1.pdf",
+      "size_bytes": 276399,
+      "sha256": "d56f14ab6b1092c8b6165831671d3e070ac6cb23987a40dd61bc69bd380995fe",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "analytics1-151203211051-lva1-app6892_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/analytics1-151203211051-lva1-app6892_95.pdf",
+      "size_bytes": 913300,
+      "sha256": "48020a18a1eec5d7d1a7d6ab32f8612258927ea8f3d24c90225036aa91252362",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "antibiotics-141109111447-conversion-gate02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/antibiotics-141109111447-conversion-gate02_95.pdf",
+      "size_bytes": 1746380,
+      "sha256": "8beeed37bb2066359ba852e099c533a78006678a1aead3555e9c572057f91f71",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "b2b-social-testing-lopez-141009140744-conversion-gate02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/b2b-social-testing-lopez-141009140744-conversion-gate02_95.pdf",
+      "size_bytes": 1678154,
+      "sha256": "d362b4a761ce959b32324ea527a2484d1d8d34388ca90e7c1f0e35ff89d76b19",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "blueoceanstrategypresentation-130214083415-phpapp02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/blueoceanstrategypresentation-130214083415-phpapp02_95.pdf",
+      "size_bytes": 2223331,
+      "sha256": "72be90242fece7a2215bf1edced6deea6f3a8bbc8935ca62284c99d6841407f2",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "brazilstartupreport-140629211253-phpapp02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/brazilstartupreport-140629211253-phpapp02_95.pdf",
+      "size_bytes": 1829421,
+      "sha256": "d4058c7d0ea487c8c5fe917ebadd3caac1b92d51fc355f0ed1dd524dab5e0a06",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "chapter-3-seawater-160218031855_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/chapter-3-seawater-160218031855_95.pdf",
+      "size_bytes": 1897760,
+      "sha256": "b7ca7ca36837f4984358752a7d6239086915e92dd956dbc45a5bb2f928e42cf2",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "cobaltpresentation-110513172526-phpapp02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/cobaltpresentation-110513172526-phpapp02_95.pdf",
+      "size_bytes": 2426894,
+      "sha256": "d5459968567a147fa467e7ad0bfae23efc8d94b3cbd438cea8d7fe550b1aeb3e",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "earthlinkweb-150213112111-conversion-gate02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/earthlinkweb-150213112111-conversion-gate02_95.pdf",
+      "size_bytes": 1139239,
+      "sha256": "949c3c74468ac8d687b1f17dc972ebdf8f2e86d10bc2f177019c8e184e9b7212",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "finalppt-140630033917-phpapp02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/finalppt-140630033917-phpapp02_95.pdf",
+      "size_bytes": 1536492,
+      "sha256": "e76f5de5f89fb79b3a14873e7ae1d1745a7eba78138db6148a7d69302e8fe172",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "fogel-eklips-ceo-online-visibility-survey-121122044702-phpapp02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/fogel-eklips-ceo-online-visibility-survey-121122044702-phpapp02_95.pdf",
+      "size_bytes": 827786,
+      "sha256": "ba8f47d4b5cbcd89e891c952ce0fdd6a4de6b669c359abd6ad618d9e930a976f",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "landslides-150301232437-conversion-gate02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/landslides-150301232437-conversion-gate02_95.pdf",
+      "size_bytes": 1403928,
+      "sha256": "10ff7beebd36c7475801e167a58b740a0b19a8efca2e812fe301c34b695fd67f",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "linkedinsalesdeck-140604040835-phpapp02_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/linkedinsalesdeck-140604040835-phpapp02_95.pdf",
+      "size_bytes": 1529468,
+      "sha256": "2889dd3e06f9f453a1e7941e74a5d85ea904b223b72b2f5641ada3d877cf7a9a",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "mewa16z-150619153942-lva1-app6892_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/mewa16z-150619153942-lva1-app6892_95.pdf",
+      "size_bytes": 933619,
+      "sha256": "8a225fd9ef58f33a6ab77214da8c822ae2270d1d089504fffb541e5b9fff5370",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "ngosocialcontractingenundpfinal-160224122114_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/ngosocialcontractingenundpfinal-160224122114_95.pdf",
+      "size_bytes": 1718422,
+      "sha256": "e4903fec353509ccec1dfbf8d949c3a8865ec7ab31a9738d20c32215575a47ae",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "research2guidancemhealthappdevelopereconomicsslideshare-140522052520-phpapp01_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/research2guidancemhealthappdevelopereconomicsslideshare-140522052520-phpapp01_95.pdf",
+      "size_bytes": 1535100,
+      "sha256": "0be39b7906afbf35ea2bf564cf3dcc0f4b73d056426fc72f2d4c60b5fffa8d50",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "searchenginemarketshareqtr12015-150514071542-lva1-app6891_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/searchenginemarketshareqtr12015-150514071542-lva1-app6891_95.pdf",
+      "size_bytes": 1137915,
+      "sha256": "694eea38959878c6ccd3159e00f98ef27551957fa94fd8ba9f16b09055c52e94",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "shrmsurveyfindings-strategic-benefits-wellness-initiatives-151014165419-lva1-app6892_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/shrmsurveyfindings-strategic-benefits-wellness-initiatives-151014165419-lva1-app6892_95.pdf",
+      "size_bytes": 1754731,
+      "sha256": "40f3ff80a1c1cd941aa6c1305b802eee5af840118bab11562d898422843ceca4",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "slidevqa",
+      "document": "shrmsurveyfindingsstrategic-benefits-health-care-151014192447-lva1-app6891_95.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/slidevqa/docs/shrmsurveyfindingsstrategic-benefits-health-care-151014192447-lva1-app6891_95.pdf",
+      "size_bytes": 1908278,
+      "sha256": "da8dd97436e3879648c2a7e4257e3892893d06861d1dbc89f53768eb27a7c140",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1603.03833v4.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1603.03833v4.pdf",
+      "size_bytes": 4366844,
+      "sha256": "adbcd5837d74c60e3f555e457387a4b19c8851ce677419532e048f6c3cfd7596",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1606.07384v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1606.07384v2.pdf",
+      "size_bytes": 446328,
+      "sha256": "fa2a8ece3b32a7ff34abe65b6793688057fddb94dde1b7ef5a6c1beabe84fc88",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.04363v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1611.04363v2.pdf",
+      "size_bytes": 529032,
+      "sha256": "ee81d800205326980faf97b6b7be09e2a30c60d962ca2e9e91c1deeb5184ee55",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1611.07718v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1611.07718v2.pdf",
+      "size_bytes": 1888801,
+      "sha256": "061c41f009569561f98d527485029a7e2bec1e5345ef0cce9a35199ca11bbf7b",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1612.02803v5.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1612.02803v5.pdf",
+      "size_bytes": 511895,
+      "sha256": "07de040ccf13d72f7c441a6730e06428aeb286a3890d0fe2dab88e0da8c854d5",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1701.06171v4.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1701.06171v4.pdf",
+      "size_bytes": 1670896,
+      "sha256": "d052c43f086d6aa17e2b2370ca8a6074a33dcff2fe8541453bb9be867613c0fd",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1703.00060v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1703.00060v2.pdf",
+      "size_bytes": 150560,
+      "sha256": "239dd1b72995ea64154125dc45fad8595b7c15b91c7f141591dfcaaf0b0fd719",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1704.07121v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1704.07121v2.pdf",
+      "size_bytes": 1420832,
+      "sha256": "6aa6d20219efa4e871aaf41cd8a93e8a5dd5a3f9412aa331befd2d2a3afccca3",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.02946v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1705.02946v3.pdf",
+      "size_bytes": 801225,
+      "sha256": "649ce62c76525b7970d68d0db408d571d60eaa88502e0fb494e4b499f5df64c9",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09296v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1705.09296v2.pdf",
+      "size_bytes": 454414,
+      "sha256": "e15472083eb971eca6a814f2c063d069bffffe2e936f30d6aaaaffd04eadc053",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1705.09882v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1705.09882v2.pdf",
+      "size_bytes": 1253307,
+      "sha256": "2abe0ab6c446153d13697fdb436549979b83ec5058c8fb1e49690261e4c19979",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.00160v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1708.00160v2.pdf",
+      "size_bytes": 237551,
+      "sha256": "7702d13820887ec2e93e5ca7be26f6f5752aa5baaa102a3c576eb3eb239eb679",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.01425v4.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1708.01425v4.pdf",
+      "size_bytes": 587006,
+      "sha256": "cf98d38b9503b18d22b07f54efcfb0da98faac83061d0cbc2e6713f36e35171a",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1708.05239v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1708.05239v3.pdf",
+      "size_bytes": 1788834,
+      "sha256": "a488d044562fa736110bcb4399d6e9e10c7dc29dc3efad85701e3fb82954f349",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1709.02755v5.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1709.02755v5.pdf",
+      "size_bytes": 1003722,
+      "sha256": "1c0c4014c63ea8cb9724e96e63bd06a3c137b5111b15cc56d214640957cf5fb3",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1710.05654v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1710.05654v2.pdf",
+      "size_bytes": 2882229,
+      "sha256": "725e8d7f74cf93651ea688b7fe4f2cddbe2df3ae1ff89d4c1fb9913e8500d91d",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.01128v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1803.01128v3.pdf",
+      "size_bytes": 177355,
+      "sha256": "9b7107f23caba844f4a67703dd6fb1dba3b55166aee4e6ecedf760108c98454f",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.04572v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1803.04572v2.pdf",
+      "size_bytes": 1598838,
+      "sha256": "bcfb7450ba2d55952e70df66dcda5fb610f6ad9882d6360c0b70c23e7ca16ae0",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1803.06506v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1803.06506v3.pdf",
+      "size_bytes": 11024689,
+      "sha256": "983f87af475d14bc5c9358ff1569fa51018bf42001d6377c71670d24337014cd",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1804.04786v3.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1804.04786v3.pdf",
+      "size_bytes": 6967086,
+      "sha256": "2b48617cafaa19d7790ad4bbbbb740eda48d62bd35b1ac1f4bd81d750a22b197",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1805.02349v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1805.02349v2.pdf",
+      "size_bytes": 524522,
+      "sha256": "12d23f8f924a12c9529d805f08d5e03011d548bd7d41bb2584248564a4374e36",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1809.00458v1.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1809.00458v1.pdf",
+      "size_bytes": 465527,
+      "sha256": "21c2e58a92944d6ff44bb0e40075de4c9b0ff6dc66b954dab5a75225231730cd",
+      "validated_with": "PyPDF2 first-page mediabox"
+    },
+    {
+      "dataset": "spiqa",
+      "document": "1812.06589v2.pdf",
+      "path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/external/VisDoM/spiqa/docs/1812.06589v2.pdf",
+      "size_bytes": 2671656,
+      "sha256": "30a581e5d7c9f859468ea39e8b2bb8931c4ca815d228a8bb41700f4f1fce60db",
+      "validated_with": "PyPDF2 first-page mediabox"
+    }
+  ]
+}

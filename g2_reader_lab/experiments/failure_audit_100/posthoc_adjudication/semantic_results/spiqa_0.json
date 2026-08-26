@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_0",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Figure 9 illustrates the transformation by reorganizing the original Subject-Predicate-Object structure into a pre-processed format where POI properties are inverted or restructured to link entities, facilitating better disentanglement of language and knowledge.",
+  "reference": " \n\nThe pre-processed SMD Navigate data combines all the properties (such as distance, address) of a point of interest (POI) into a single subject with the object being \"poi\". The original data had separate entries for each property. ",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 18.888243675231934,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The pre-processed SMD Navigate data combines all the properties (such as distance, address) of a point of interest (POI) into a single subject with the object being 'poi'.",
+      "The original data had separate entries for each property."
+    ],
+    "candidate_claims": [
+      "Figure 9 illustrates the transformation by reorganizing the original Subject-Predicate-Object structure into a pre-processed format where POI properties are inverted or restructured to link entities, facilitating better disentanglement of language and knowledge."
+    ],
+    "substantive_differences": [
+      "The candidate uses vague terms like 'inverted or restructured' and 'link entities' without specifying the actual transformation: combining multiple properties into a single subject with object 'poi'.",
+      "The candidate does not mention the key structural change — merging separate property entries into a single triple — which is central to the reference.",
+      "The candidate adds a speculative purpose ('facilitating better disentanglement') not present in the reference, which is not required for semantic correctness and may mislead."
+    ],
+    "rationale": "The candidate fails to accurately convey the core factual transformation described in the reference: the consolidation of multiple POI properties into a single subject-object triple with object 'poi'. Instead, it uses imprecise and vague language that does not capture the specific structural change. This constitutes a substantive factual deviation."
+  },
+  "usage": {
+    "prompt_tokens": 285,
+    "total_tokens": 607,
+    "completion_tokens": 322,
+    "prompt_tokens_details": null
+  }
+}

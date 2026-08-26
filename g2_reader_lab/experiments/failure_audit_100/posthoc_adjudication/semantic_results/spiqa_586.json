@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_586",
+  "candidate_source": "official_parser",
+  "candidate_answer": "GroundSent-Both achieves the highest accuracy on the MRPC task, surpassing the ST-LN model by 1.3 points.",
+  "reference": "GroundSent-Cap appears to be most beneficial for the MRPC task, achieving an accuracy of 72.9/82.2 compared to the baseline model ST-LN's 69.6/81.2.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 15.230858087539673,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "GroundSent-Cap achieves the highest accuracy on MRPC (72.9/82.2).",
+      "ST-LN baseline accuracy is 69.6/81.2.",
+      "GroundSent-Cap outperforms ST-LN."
+    ],
+    "candidate_claims": [
+      "GroundSent-Both achieves the highest accuracy.",
+      "Surpasses ST-LN by 1.3 points."
+    ],
+    "substantive_differences": [
+      "Wrong model identified: candidate claims GroundSent-Both is best, but reference states GroundSent-Cap.",
+      "Incorrect performance difference: candidate claims 1.3-point gain, but reference shows 3.3/1.0 point gains (72.9-69.6=3.3, 82.2-81.2=1.0)."
+    ],
+    "rationale": "The candidate misidentifies the top-performing model (GroundSent-Both vs. GroundSent-Cap) and provides an inaccurate performance difference (1.3 vs. 3.3/1.0). These are factual errors that contradict the reference, making the answer semantically incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 263,
+    "total_tokens": 543,
+    "completion_tokens": 280,
+    "prompt_tokens_details": null
+  }
+}

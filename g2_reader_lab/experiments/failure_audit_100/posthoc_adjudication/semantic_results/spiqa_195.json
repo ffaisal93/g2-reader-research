@@ -1,0 +1,18 @@
+{
+  "question_id": "spiqa_195",
+  "candidate_source": "no_candidate_answer",
+  "candidate_answer": null,
+  "reference": "The training curves for the ACGAN show that the generator and discriminator losses both decrease over time. This indicates that the ACGAN is able to learn to generate realistic images.",
+  "status": "complete",
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 1.0,
+    "reference_claims": [],
+    "candidate_claims": [],
+    "substantive_differences": [
+      "No candidate answer was produced."
+    ],
+    "rationale": "No answer is available for semantic comparison."
+  },
+  "usage": {}
+}

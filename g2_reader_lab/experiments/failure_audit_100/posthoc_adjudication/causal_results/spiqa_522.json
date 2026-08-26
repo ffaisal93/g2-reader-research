@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_522",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 62.02108383178711,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "sufficiency_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "33916f23-1688-4bc1-8b4d-be43beb4da0f"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "premature_stop",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence (Table 1) was retrieved, including the visual node with the full table data. The planning graph correctly decomposed the question into subtasks: identifying the top model (n1) and extracting its statistical comparisons (n2). Worker n1 correctly identified Conv-KNRM as the top model with nDCG@20=0.3215 on WT14 when trained on NYT. However, Worker n2 failed to correctly extract the statistical comparisons for Conv-KNRM against BM25, WT10, and AOL. The worker's response is ambiguous and incomplete, discussing multiple models without focusing on the identified top model (Conv-KNRM). The sufficiency check in round 0 correctly flagged missing comparisons, but the system did not drive appropriate refinement to resolve this gap. In round 1, the worker still did not provide a focused answer for Conv-KNRM. The final answer is null, indicating a parser or composition failure, but the root cause is the worker's failure to support the required comparison for the correct model. This is a worker_support_failure, with sufficiency_failure as a secondary cause due to premature stopping on an unresolved gap."
+  },
+  "usage": {
+    "prompt_tokens": 8087,
+    "total_tokens": 8545,
+    "completion_tokens": 458,
+    "prompt_tokens_details": null
+  }
+}

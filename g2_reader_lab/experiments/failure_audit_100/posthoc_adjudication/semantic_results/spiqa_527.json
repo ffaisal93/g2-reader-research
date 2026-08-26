@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_527",
+  "candidate_source": "official_parser",
+  "candidate_answer": "KEHNN achieves the highest scores across all four metrics (R2@1: 0.786, R10@1: 0.460, R10@2: 0.591, R10@5: 0.819), and its superiority is justified by statistically significant performance gains (p-value ≤ 0.01) and alignment with the paper's findings that LSTM-based models and models incorporating multiple channels and prior knowledge perform better.",
+  "reference": "The KEHNN model performs the best for response selection. This is evident because it achieves the highest scores across all metrics (R$2$@1, R${10}$@1, R${10}$@2, and R${10}$@5) compared to all other models in the table.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 23.840376377105713,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "KEHNN performs the best for response selection.",
+      "It achieves the highest scores across all metrics (R$2$@1, R${10}$@1, R${10}$@2, and R${10}$@5) compared to all other models in the table."
+    ],
+    "candidate_claims": [
+      "KEHNN achieves the highest scores across all four metrics with specific values: R2@1: 0.786, R10@1: 0.460, R10@2: 0.591, R10@5: 0.819.",
+      "Its superiority is justified by statistically significant performance gains (p-value ≤ 0.01) and alignment with the paper's findings about LSTM-based models and models incorporating multiple channels and prior knowledge."
+    ],
+    "substantive_differences": [
+      "The candidate introduces specific numerical values (e.g., 0.786, 0.460) that are not present or verifiable from the reference answer, which only states that KEHNN achieves the highest scores without specifying values.",
+      "The candidate adds justification based on statistical significance (p-value ≤ 0.01) and model architecture insights (LSTM, multiple channels, prior knowledge), which are not mentioned or implied in the reference answer.",
+      "The reference answer focuses solely on comparative performance across metrics; the candidate introduces external claims not required or supported by the reference."
+    ],
+    "rationale": "While the candidate correctly identifies KEHNN as the top-performing model, it introduces specific numerical values and justifications (statistical significance, architectural insights) that are not present in the reference answer. The reference does not mention any p-values or model architecture details, making these additions factually unsupported and semantically divergent. The candidate’s answer goes beyond the scope of the reference, introducing elements that are not required to answer the question as posed. Therefore, it is semantically incorrect relative to the reference."
+  },
+  "usage": {
+    "prompt_tokens": 387,
+    "total_tokens": 844,
+    "completion_tokens": 457,
+    "prompt_tokens_details": null
+  }
+}

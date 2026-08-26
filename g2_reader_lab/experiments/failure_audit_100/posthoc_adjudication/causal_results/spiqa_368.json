@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_368",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 32.14632177352905,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "retrieval_failure",
+    "secondary_categories": [
+      "worker_support_failure",
+      "composition_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "b47df0eb-ad2e-41cf-84e1-b904931af05d"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence to answer the question — the classification accuracy values for each adversarial attack method on the Resnet-32 model on MNIST with thresholding disabled — is present in the retrieved image node b47df0eb-ad2e-41cf-84e1-b904931af05d (Figure 2a). However, the text extracted from this node is incomplete and does not include the full table or the specific accuracy values needed to compute the reduction. The worker attempted to extract accuracy reduction values but failed because the required data was not fully available in the text. The planning graph was adequate, decomposing the task into identifying attacks, extracting accuracy reductions, and comparing them. However, the worker's response for node n2 incorrectly states that the data is missing, when in fact the visual evidence contains the required data. This is a retrieval failure because the system failed to retrieve the full, usable evidence (the complete table) from the visual node. The worker then produced an unsupported answer, and the final composition could not be completed due to the missing data. The sufficiency checks appropriately flagged the gaps, but the system did not resolve them by accessing the full visual content. Raw visual review is required to confirm the exact values in the table."
+  },
+  "usage": {
+    "prompt_tokens": 8809,
+    "total_tokens": 9289,
+    "completion_tokens": 480,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_122",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ChoiceNet",
+  "reference": "As the corruption level increases, the performance of all models decreases. However, ChoiceNet consistently outperforms both ConvNet and ConvNet+Mixup across all corruption levels, maintaining high accuracy even when almost half of the labels are incorrect. This suggests that ChoiceNet is significantly more robust to label corruption compared to the other models.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 14.41066598892212,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "As corruption increases, all models' performance decreases.",
+      "ChoiceNet outperforms ConvNet and ConvNet+Mixup at all corruption levels.",
+      "ChoiceNet maintains high accuracy even at 47% corruption.",
+      "ChoiceNet is significantly more robust to label corruption than the other models."
+    ],
+    "candidate_claims": [
+      "ChoiceNet"
+    ],
+    "substantive_differences": [
+      "The candidate answer only provides the name 'ChoiceNet' without addressing the trend of accuracy changes, model comparisons, or robustness claims.",
+      "It omits all required components: no mention of performance decrease with corruption, no comparison with ConvNet or ConvNet+Mixup, no discussion of accuracy levels or robustness.",
+      "The candidate fails to answer the full question, which asks for changes in test accuracies and which model is most robust."
+    ],
+    "rationale": "The candidate answer is incomplete and does not convey the same factual meaning as the reference. It only names one model without explaining the trend, comparisons, or robustness, which are essential parts of the question. This constitutes a missing required component and thus is semantically incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 273,
+    "total_tokens": 549,
+    "completion_tokens": 276,
+    "prompt_tokens_details": null
+  }
+}

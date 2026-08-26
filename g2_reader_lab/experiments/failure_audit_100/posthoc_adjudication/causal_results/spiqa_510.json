@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_510",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 33.302632331848145,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "retrieval_failure",
+    "secondary_categories": [
+      "worker_support_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "62098156-fd55-4db1-bc25-2c234b15c785"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The benchmark answer identifies the 'Transfer + MTSA' model as achieving 86.9% accuracy on the SNLI test set, which is the highest. However, the retrieved evidence does not include the full Table 2, which contains this result. The retrieved evidence includes Table 1 (with max 86.3%) and a partial Table 2 (node_id: 62098156-fd55-4db1-bc25-2c234b15c785), but the text is clipped and does not show the full row for 'Transfer + MTSA' with its 86.9% accuracy. The worker incorrectly identifies 86.3% as the highest, based on Table 1, and fails to recognize that Table 2 contains higher values. The worker also misreads the text in node 62098156-fd55-4db1-bc25-2c234b15c785, which mentions 'Transfer + MTSA' achieving 86.9, but does not extract the value correctly. Since the decisive evidence (the full Table 2 row) was not retrieved, this is a retrieval_failure. The worker's misreading of the partial text is a secondary worker_support_failure."
+  },
+  "usage": {
+    "prompt_tokens": 5608,
+    "total_tokens": 6102,
+    "completion_tokens": 494,
+    "prompt_tokens_details": null
+  }
+}

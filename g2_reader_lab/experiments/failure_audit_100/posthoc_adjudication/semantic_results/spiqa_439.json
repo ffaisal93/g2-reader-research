@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_439",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Factorize-Recover (FR)",
+  "reference": "Factorize-Recover",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.136797428131104,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Factorize-Recover achieves lower normalized reconstruction error when compression factor exceeds 3."
+    ],
+    "candidate_claims": [
+      "Factorize-Recover (FR) achieves lower normalized reconstruction error when compression factor exceeds 3."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer provides the same core entity ('Factorize-Recover') as the reference, with an added abbreviation '(FR)' that is harmless and does not alter the semantic meaning. The question asks which method achieves lower error under specified conditions, and both answers correctly identify 'Factorize-Recover' as the superior method. No factual contradiction, missing component, or incorrect comparison is present."
+  },
+  "usage": {
+    "prompt_tokens": 208,
+    "total_tokens": 381,
+    "completion_tokens": 173,
+    "prompt_tokens_details": null
+  }
+}

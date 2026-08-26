@@ -1,0 +1,28 @@
+{
+  "question_id": "spiqa_431",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Ours-supervised",
+  "reference": "Ours-supervised achieved the highest F1 score on the Lobby dataset with a score of 93.4.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.995848178863525,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Ours-supervised achieved the highest F1 score on the Lobby dataset",
+      "The score was 93.4"
+    ],
+    "candidate_claims": [
+      "Ours-supervised achieved the highest F1 score"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Ours-supervised' correctly identifies the method that achieved the highest F1 score, which is the central claim of the question. While it omits the specific score (93.4), the question only asks for the method, not the score. The reference includes the score as extra detail, but the core semantic content — identifying the top-performing supervised method — is fully preserved in the candidate. No contradiction or factual error exists."
+  },
+  "usage": {
+    "prompt_tokens": 206,
+    "total_tokens": 396,
+    "completion_tokens": 190,
+    "prompt_tokens_details": null
+  }
+}

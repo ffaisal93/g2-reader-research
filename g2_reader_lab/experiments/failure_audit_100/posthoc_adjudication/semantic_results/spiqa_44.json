@@ -1,0 +1,36 @@
+{
+  "question_id": "spiqa_44",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The only correct answer is that COPA correctly captures the temporal pattern with a sharp increase at the second visit, Helwig incorrectly suggests the condition was present at the first visit, and SPARTan produces a noisy, low-magnitude, non-periodic pattern that fails to capture the significant change.",
+  "reference": "The temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude. For sickle cell anemia patients, the patterns are generally smoother and more periodic, with lower overall magnitude. For leukemia patients, the patterns are more erratic and have higher overall magnitude.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 18.0121910572052,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Temporal patterns of phenotype magnitude differ between sickle cell anemia and leukemia patients in terms of both shape and magnitude.",
+      "Sickle cell anemia patients show smoother, more periodic patterns with lower overall magnitude.",
+      "Leukemia patients show more erratic patterns with higher overall magnitude."
+    ],
+    "candidate_claims": [
+      "COPA correctly captures a sharp increase at the second visit.",
+      "Helwig incorrectly suggests condition was present at the first visit.",
+      "SPARTan produces noisy, low-magnitude, non-periodic pattern failing to capture significant change."
+    ],
+    "substantive_differences": [
+      "Candidate focuses on algorithm performance (COPA, Helwig, SPARTan) rather than patient-specific temporal patterns.",
+      "Candidate does not mention or compare sickle cell anemia vs. leukemia patient patterns.",
+      "Candidate introduces specific visit-based claims (e.g., 'second visit') not present or implied in reference.",
+      "Candidate misattributes pattern characteristics to algorithms, not to patient phenotypes."
+    ],
+    "rationale": "The candidate answer completely misaligns with the question's focus. The question asks for differences in temporal patterns between two patient groups (sickle cell anemia vs. leukemia), but the candidate discusses algorithmic outputs without referencing patient phenotypes or their comparative patterns. The reference answer describes patient-level pattern differences in magnitude, shape, and periodicity; the candidate provides algorithm-specific performance claims that are irrelevant to the question. This constitutes a fundamental misdirection and factual mismatch."
+  },
+  "usage": {
+    "prompt_tokens": 332,
+    "total_tokens": 677,
+    "completion_tokens": 345,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "question_id": "spiqa_215",
+  "question": "What differences in filter responses across the “conv1”, “conv2”, and “conv3” layers for a TUM GAID dataset frame are highlighted in the figure of *Reinforced Temporal Attention and Split-Rate Transfer for Depth-Based Person Re-Identification*, when comparing an RGB-based re-identification framework [82] to the depth-exclusive fCNN model in Fig. 3?",
+  "reference": "The filter responses from the “conv1”, “conv2” and “conv3” layers for a given frame from the TUM GAID data using a framework for person re-identification from RGB are more detailed and contain more information than the filter responses from the fCNN of a framework that utilizes depth data. This is because RGB images contain more information than depth images.",
+  "main_doc": "1705.09882v2.pdf",
+  "documents": [
+    "1705.09882v2.pdf",
+    "1804.05995v2.pdf",
+    "1706.00827v2.pdf",
+    "1606.07384v2.pdf",
+    "1901.00056v2.pdf",
+    "1809.00458v1.pdf",
+    "1706.00633v4.pdf",
+    "1709.08294v3.pdf",
+    "1803.01128v3.pdf",
+    "1611.02654v2.pdf",
+    "1811.10673v1.pdf"
+  ],
+  "eight_b_answer": "The depth-exclusive model (Fig. 1b) produces cleaner, silhouette-based filter responses in conv1, conv2, and conv3, which are more robust to appearance changes, compared to the RGB-based model (Fig. 1a) that shows complex, texture-dependent patterns sensitive to lighting and clothing.",
+  "eight_b_answer_source": "official_parser",
+  "thirty_two_b_answer": null,
+  "thirty_two_b_verdict": null,
+  "provisional_classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "fe8fb641-c001-41b3-9157-27120d5d6ca1"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly claims that the depth-exclusive model produces 'cleaner, silhouette-based filter responses' that are 'more robust to appearance changes', while the RGB model shows 'complex, texture-dependent patterns sensitive to lighting and clothing'. This is the opposite of the reference, which states that the RGB-based model's filter responses are 'more detailed and contain more information' than the depth-exclusive model's, because RGB images contain more information. The retrieved evidence includes the figure caption (node_id: fe8fb641-c001-41b3-9157-27120d5d6ca1) which correctly identifies the content of Figure 1(a) and (b), but the worker misinterpreted the visual content. The worker's response in round 0 for node n2 correctly identifies Figure 1(b) as the depth-exclusive model and locates the filter responses, but fails to extract the actual visual differences. The worker's final answer is unsupported by the evidence and contradicts the reference. The retrieval of the figure caption is sufficient to know what is shown, but the worker misread the visual implications. Therefore, the primary failure is a worker_support_failure, with a secondary retrieval_failure because the actual visual content of the filter responses (which would be needed to support the answer) was not retrieved or described in the text."
+  },
+  "visual_nodes": [
+    {
+      "node_id": "fe8fb641-c001-41b3-9157-27120d5d6ca1",
+      "text_content": "Fig. 1. Filter responses from “conv1” (upper right), “conv2” (bottom left) and “conv3” (bottom right) layers for a given frame from the TUM GAID data using (a) a framework for person re-identification from RGB [82] and (b) the feature embedding $f _ { C N N }$ of our framework, which is drawn in Fig. 3 and exclusively utilizes depth data. (a) Person ReID from RGB [82] (b) Person ReID from Depth",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "What differences in filter responses across the “conv1”, “conv2”, and “conv3” layers for a TUM GAID dataset frame are highlighted in the figure of *Reinforced Temporal Attention and Split-Rate Transfer for Depth-Based Person Re-Identification*, when comparing an RGB-based re-identification framework [82] to the depth-exclusive fCNN model in Fig. 3?",
+          "method": "initial_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the visual representation in Figure 1 (a) for the RGB-based re-identification framework [82] and extract the filter responses for “conv1”, “conv2”, and “conv3” layers.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 2,
+          "query": "Identify the visual representation in Figure 1 (b) for the depth-exclusive fCNN model and extract the filter responses for “conv1”, “conv2”, and “conv3” layers.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 4,
+          "query": "Locate and describe the filter responses for 'conv1', 'conv2', and 'conv3' layers in Figure 1(b) based on the provided text.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 5,
+          "query": "Confirm that Figure 1(b) is the feature embedding $f_{CNN}$ of the depth-exclusive model.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 6,
+          "query": "State the locations of the 'conv1', 'conv2', and 'conv3' filter responses within Figure 1(b): upper right, bottom left, and bottom right, respectively.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_215/nodes/fe8fb641-c001-41b3-9157-27120d5d6ca1.jpg",
+      "sha256": "ce0e8dc8387fdce6b307a5b65fa8eeb7fa43cfae0ea00507befe5b4c1877c748",
+      "width": 950,
+      "height": 406,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/4c9889f1ef3f03a092500828b6f2ef682727018650d0ee7673ef47f06e431685.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 5,
+      "graph_summary": "Figure 1 — Filter responses from CNN layers 'conv1', 'conv2', and 'conv3' for a given frame from the TUM GAID dataset, comparing (a) RGB-based person re-identification and (b) depth-based re-identification using the proposed feature embedding. The visualizations show how each layer extracts progressively more abstract features, with depth-based features (b) forming coherent silhouettes and motion patterns despite lacking color information.",
+      "graph_text_content": "Fig. 1. Filter responses from “conv1” (upper right), “conv2” (bottom left) and “conv3” (bottom right) layers for a given frame from the TUM GAID data using (a) a framework for person re-identification from RGB [82] and (b) the feature embedding $f _ { C N N }$ of our framework, which is drawn in Fig. 3 and exclusively utilizes depth data. (a) Person ReID from RGB [82] (b) Person ReID from Depth"
+    },
+    {
+      "node_id": "386e7586-b165-4a79-8af4-e521a33d5d7a",
+      "text_content": "Figure 1: Multi-class multi-instance fitting examples. Results on simultaneous plane and cylinder (top left), line and circle fitting (top right), motion (bottom left) and plane segmentation (bottom right).",
+      "retrieval_occurrences": [
+        {
+          "event_index": 6,
+          "query": "State the locations of the 'conv1', 'conv2', and 'conv3' filter responses within Figure 1(b): upper right, bottom left, and bottom right, respectively.",
+          "method": "simple_semantic",
+          "rank": 4
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_215/nodes/386e7586-b165-4a79-8af4-e521a33d5d7a.jpg",
+      "sha256": "22bfcecf05f21889545c923a9f495e4d509276d0f8d551f121d460779bfe2348",
+      "width": 569,
+      "height": 434,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1706.00827v2/1706.00827v2/auto/images/4de66baecd3a86ba86971c2eb831c3071fca2a4f87df9e9c5e3feec1962d230b.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 8,
+      "graph_summary": "Figure 1 — Multi-class multi-instance fitting examples. The figure displays four visual cases: simultaneous plane and cylinder fitting (top left), line and circle fitting (top right), motion detection (bottom left), and plane segmentation (bottom right). Each panel shows input data points overlaid with colored fitted models, illustrating the algorithm’s ability to detect multiple instances of different geometric classes.",
+      "graph_text_content": "Figure 1: Multi-class multi-instance fitting examples. Results on simultaneous plane and cylinder (top left), line and circle fitting (top right), motion (bottom left) and plane segmentation (bottom right)."
+    },
+    {
+      "node_id": "65ea547b-5045-4b13-b1c5-b24aa43b3ef6",
+      "text_content": "Fig. 2. The cropped color image (left), the grayscale depth representation $mathbf{D_p^g}$ (center) and the result after background subtraction (right) using the body index information $mathbf{B_p}$ from skeleton tracking.",
+      "retrieval_occurrences": [
+        {
+          "event_index": 3,
+          "query": "Identify the visual representation in Figure 1(b) corresponding to the depth-exclusive model.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_215/nodes/65ea547b-5045-4b13-b1c5-b24aa43b3ef6.jpg",
+      "sha256": "654b22dd03eb6ccbfcc8fd2f858944ad375d556d2f52dd07c1057cd3fe05f721",
+      "width": 539,
+      "height": 292,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/b927fd514c33ecbf15cefba5f8915c9a6e575f7e773e7c785f3e1587384c1c84.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 1,
+      "graph_summary": "Pipeline shows depth-based person silhouette extraction via background subtraction using body index.",
+      "graph_text_content": "Fig. 2. The cropped color image (left), the grayscale depth representation $mathbf{D_p^g}$ (center) and the result after background subtraction (right) using the body index information $mathbf{B_p}$ from skeleton tracking."
+    },
+    {
+      "node_id": "724ca7d5-10f8-4de7-a8c1-4b2313e1a4dc",
+      "text_content": "Figure 5: Precision and recall as a function of the number of recommended sections k, for all methods we evaluate. (a) Topic modeling (Sec. 3.1) (b) Category-section counts (Sec. 4.1) (c) Generalizing counts via CF (Sec. 4.2) (d) Human evaluation (Sec. 7.4) precision recall precision (upper bound) recall (upper bound) precision recall precision (L2R) recall (L2R) precision (upper bound) recall (upper bound) precision recall precision (upper bound) recall (upper bound) editors (count-based) editors (collaborative filtering) crowd (count-based) crowd (collaborative filtering) upper bound from automatic evaluation",
+      "retrieval_occurrences": [
+        {
+          "event_index": 4,
+          "query": "Locate and describe the filter responses for 'conv1', 'conv2', and 'conv3' layers in Figure 1(b) based on the provided text.",
+          "method": "simple_semantic",
+          "rank": 4
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_215/nodes/724ca7d5-10f8-4de7-a8c1-4b2313e1a4dc.jpg",
+      "sha256": "959e368e6c8039d97f88214866757e4c346003a1085e43e909e7841948d2ec89",
+      "width": 1386,
+      "height": 402,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1804.05995v2/1804.05995v2/auto/images/3aa40177af2f895632279c6ffe0c9d5e25b8ec0ef36f2e3101e5f91fb7d34a09.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 23,
+      "graph_summary": "Figure 5 plots precision and recall vs. k for four methods: topic modeling, category-section counts, collaborative filtering, and human evaluation, including L2R-enhanced versions and upper bounds.",
+      "graph_text_content": "Figure 5: Precision and recall as a function of the number of recommended sections k, for all methods we evaluate. (a) Topic modeling (Sec. 3.1) (b) Category-section counts (Sec. 4.1) (c) Generalizing counts via CF (Sec. 4.2) (d) Human evaluation (Sec. 7.4) precision recall precision (upper bound) recall (upper bound) precision recall precision (L2R) recall (L2R) precision (upper bound) recall (upper bound) precision recall precision (upper bound) recall (upper bound) editors (count-based) editors (collaborative filtering) crowd (count-based) crowd (collaborative filtering) upper bound from automatic evaluation"
+    },
+    {
+      "node_id": "a1efbe6e-679c-40ce-a1d3-0788ef117b49",
+      "text_content": "Fig. 3. Our model architecture consists of a frame-level feature embedding f_CNN(θ_g), which provides input to both a recurrent layer f_LSTM(θ_h) and the Reinforced Temporal Attention (RTA) unit f_w(θ_w) (highlighted in red). The classifier is attached to the hidden state h_t and its video prediction is the weighted sum of single-frame predictions, where the weights w_t for each frame t are predicted by the RTA unit. I_t f_CNN(θ_g) g_t f_LSTM(θ_h) f_w(θ_w) f_c(θ_c) c_t h_{t-1} w_t I_{t+1} f_CNN(θ_g) g_{t+1} f_LSTM(θ_h) f_w(θ_w) f_c(θ_c) c_{t+1} h_t w_{t+1} h_{t+1}",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "What differences in filter responses across the “conv1”, “conv2”, and “conv3” layers for a TUM GAID dataset frame are highlighted in the figure of *Reinforced Temporal Attention and Split-Rate Transfer for Depth-Based Person Re-Identification*, when comparing an RGB-based re-identification framework [82] to the depth-exclusive fCNN model in Fig. 3?",
+          "method": "initial_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the visual representation in Figure 1 (a) for the RGB-based re-identification framework [82] and extract the filter responses for “conv1”, “conv2”, and “conv3” layers.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 2,
+          "query": "Identify the visual representation in Figure 1 (b) for the depth-exclusive fCNN model and extract the filter responses for “conv1”, “conv2”, and “conv3” layers.",
+          "method": "simple_semantic",
+          "rank": 4
+        },
+        {
+          "event_index": 3,
+          "query": "Identify the visual representation in Figure 1(b) corresponding to the depth-exclusive model.",
+          "method": "simple_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 5,
+          "query": "Confirm that Figure 1(b) is the feature embedding $f_{CNN}$ of the depth-exclusive model.",
+          "method": "simple_semantic",
+          "rank": 4
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_215/nodes/a1efbe6e-679c-40ce-a1d3-0788ef117b49.jpg",
+      "sha256": "a406b6a270caa89f439d6db82fcc72bf9c170444114a53db82d5356449eddb1f",
+      "width": 595,
+      "height": 434,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.09882v2/1705.09882v2/auto/images/c67abbe0b6eaa3840f9ba0397b800bbf4a0f1de96db6fa972014a17114389e68.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 9,
+      "graph_summary": "Figure 3 — Model architecture for depth-based person re-identification. The diagram shows a sequential processing pipeline where input frames I_t and I_{t+1} are processed through frame-level feature embedding f_CNN(θ_g) to generate g_t and g_{t+1}. These features feed into a recurrent LSTM module f_LSTM(θ_h) and a Reinforced Temporal Attention (RTA) unit f_w(θ_w), which outputs frame weights w_t and w_{t+1}. The LSTM state h_t and h_{t+1} are passed to a classifier f_c(θ_c) to produce class predictions c_t and c_{t+1}. The RTA unit is highlighted in red.",
+      "graph_text_content": "Fig. 3. Our model architecture consists of a frame-level feature embedding f_CNN(θ_g), which provides input to both a recurrent layer f_LSTM(θ_h) and the Reinforced Temporal Attention (RTA) unit f_w(θ_w) (highlighted in red). The classifier is attached to the hidden state h_t and its video prediction is the weighted sum of single-frame predictions, where the weights w_t for each frame t are predicted by the RTA unit. I_t f_CNN(θ_g) g_t f_LSTM(θ_h) f_w(θ_w) f_c(θ_c) c_t h_{t-1} w_t I_{t+1} f_CNN(θ_g) g_{t+1} f_LSTM(θ_h) f_w(θ_w) f_c(θ_c) c_{t+1} h_t w_{t+1} h_{t+1}"
+    }
+  ]
+}

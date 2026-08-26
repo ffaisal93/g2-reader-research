@@ -1,0 +1,279 @@
+{
+  "protocol": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/EVALUATION_PROTOCOL.md",
+  "sample_size": 5,
+  "questions": [
+    {
+      "question_id": "spiqa_58",
+      "question": "Based on Figure 1 and Section 3.3, how does the interaction between the filter generation module and the convolution module allow the ACNN framework to produce context-sensitive filters, and how does this process adapt to different input sentences?",
+      "reference_answer": "The ACNN framework learns context-sensitive filters through two modules: the filter generation module and the adaptive convolution module. The filter generation module produces a set of filters conditioned on the input sentence, while the adaptive convolution module applies the generated filters to an input sentence. The two modules are jointly differentiable, and the overall architecture can be trained in an end-to-end manner.",
+      "construction": {
+        "teacher_32b": {
+          "seconds": 3227.841338634491,
+          "measurement": "instrumented stage-duration sum"
+        },
+        "candidate_8b": {
+          "seconds": 156.46692514419556,
+          "nodes": 182,
+          "chat_calls": 364,
+          "vlm_tokens": 1050360,
+          "embedding_calls": 23,
+          "embedding_tokens": 25008
+        },
+        "speedup": 20.62954413950298
+      },
+      "retrieval": {
+        "k": 5,
+        "teacher_nodes": 182,
+        "candidate_nodes": 182,
+        "raw_overlap_at_5": 4,
+        "teacher_traced_text_hits": 3,
+        "teacher_traced_text_total": 4,
+        "decisive_evidence_in_candidate_top5": true
+      },
+      "matched_online_reader": {
+        "model": "Qwen3-VL-8B-Instruct-FP8",
+        "seed": 42,
+        "teacher_graph": {
+          "prediction": "The filter generation module produces context-sensitive filters by first encoding the input sentence into a fixed-length vector and then applying a deconvolutional layer. The convolution module uses these sample-specific filters to adaptively encode the input sentence via a basic CNN architecture, allowing the framework to adapt to different sentences.",
+          "seconds": 36.78846096992493,
+          "correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/teacher_graph/spiqa_58/local-qwen-vl_dag_rag_1.jsonl"
+        },
+        "candidate_graph": {
+          "prediction": "The filter generation module creates context-sensitive filters by encoding the input sentence into a fixed-length vector and generating filters via a deconvolutional layer. The convolution module then uses these filters to adaptively encode the input sentence, enabling adaptation to different sentences because the filters are sample-specific and context-dependent.",
+          "raw_response": "<thought>\n1. The question asks how the interaction between the filter generation module and the convolution module allows the ACNN framework to produce context-sensitive filters and adapt to different input sentences. The context (Related Memory [0], [1], [2]) and Figure 1 describe this process: the filter generation module first encodes the input sentence into a fixed-length vector (z) using a basic CNN, then uses a deconvolutional layer to generate a unique set of context-sensitive filters (f) for that specific input. These filters are then passed to the adaptive convolution module, which applies them via standard CNN convolution and pooling to the input sentence (which may be the same or different, as noted in Section 3.3). This interaction enables context-sensitivity because the filters are generated based on the input sentence's context.\n\n2. The adaptive convolution module uses these filters to perform adaptive encoding of the input sentence, which is sample-specific. This allows the model to adapt to different input sentences because each sentence generates its own unique set of filters, making the feature extraction process context-aware. The trajectory insights (Node n1 and n2) confirm this: the filter generation module produces context-sensitive filters conditioned on the input, and the convolution module uses these filters to adaptively encode the input. Figure 1 visually confirms this architecture, showing the input sentence feeding into the filter generation module, which produces context-aware filters for the convolution module.\n\n3. The process adapts to different input sentences because the filters are generated specifically for each input sentence. As stated in the text, \"Since the generated filters are sample-specific,\" the model can handle variable-length inputs and produce different filters for different sentences, enhancing its predictive power. The extension to text sequence matching (Section 3.3) further demonstrates this adaptability, as shown in Figure 2, where different sentences (question and answer) can each generate their own context-aware filters.\n\n4. The final answer must be concise and directly supported by the evidence. The key points are: the filter generation module creates context-sensitive filters from the input sentence, and the convolution module uses these filters to adaptively encode the input, enabling adaptation to different sentences.\n</thought>\n\n<output>The filter generation module creates context-sensitive filters by encoding the input sentence into a fixed-length vector and generating filters via a deconvolutional layer. The convolution module then uses these filters to adaptively encode the input sentence, enabling adaptation to different sentences because the filters are sample-specific and context-dependent.</output>",
+          "seconds": 40.9430193901062,
+          "parsed_correct": true,
+          "raw_semantically_correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/candidate_graph/spiqa_58/local-qwen-vl_dag_rag_1.jsonl"
+        }
+      },
+      "assessment": {
+        "primary_observation": "No material loss; paired answers are substantively equivalent.",
+        "failure_category": null
+      }
+    },
+    {
+      "question_id": "spiqa_108",
+      "question": "Based on Figure 3 in the ESMM paper, how do ESMM-NS and ESMM compare to other models in terms of AUC performance across different sampling rates for both CVR and CTCVR tasks?",
+      "reference_answer": "ESMM-NS and ESMM outperform all other models consistently across different training set sizes on both the CVR and CTCVR tasks.",
+      "construction": {
+        "teacher_32b": {
+          "seconds": 2392.512250185013,
+          "measurement": "instrumented stage-duration sum"
+        },
+        "candidate_8b": {
+          "seconds": 134.7488658428192,
+          "nodes": 169,
+          "chat_calls": 338,
+          "vlm_tokens": 984507,
+          "embedding_calls": 20,
+          "embedding_tokens": 25442
+        },
+        "speedup": 17.75534239357392
+      },
+      "retrieval": {
+        "k": 5,
+        "teacher_nodes": 169,
+        "candidate_nodes": 169,
+        "raw_overlap_at_5": 3,
+        "teacher_traced_text_hits": 1,
+        "teacher_traced_text_total": 3,
+        "decisive_evidence_in_candidate_top5": true
+      },
+      "matched_online_reader": {
+        "model": "Qwen3-VL-8B-Instruct-FP8",
+        "seed": 42,
+        "teacher_graph": {
+          "prediction": "ESMM-NS and ESMM consistently outperform all other models across all sampling rates for both CVR and CTCVR tasks. ESMM performs better than ESMM-NS in both tasks. At 100% sampling rate, ESMM-NS achieves 68.25 AUC on CVR and 64.44 AUC on CTCVR, while ESMM achieves 68.56 AUC on CVR and 65.32 AUC on CTCVR.",
+          "seconds": 110.13428354263306,
+          "correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/teacher_graph/spiqa_108/local-qwen-vl_dag_rag_1.jsonl"
+        },
+        "candidate_graph": {
+          "prediction": null,
+          "raw_response": "<thought>\n1. The question asks for a comparison of ESMM-NS and ESMM against other models in terms of AUC performance across different sampling rates for both CVR and CTCVR tasks, based on Figure 3 in the ESMM paper. The provided context and images include Figure 3 (two line charts for CVR and CTCVR tasks) and Table 2 (AUC values on a public dataset).\n\n2. Figure 3 shows performance trends across sampling rates (1%, 20%, 40%, 100%) for both tasks. The x-axis is \"Train Set Size(%)\" and the y-axis is \"AUC\". The line for ESMM-NS is marked with diamonds (\u2666) and the line for ESMM is marked with squares (\u25a1).\n\n3. In the CVR Task chart (left), at 1% sampling rate, ESMM-NS (diamonds) is at approximately 68.2, and ESMM (squares) is at approximately 68.5, both significantly higher than all other models (BASE, AMAN, OVERSAMPLING, UNBIAS, DIVISION). At 100% sampling rate, ESMM-NS is at ~70.0 and ESMM is at ~70.5, maintaining their lead.\n\n4. In the CTCVR Task chart (right), at 1% sampling rate, ESMM-NS (diamonds) is at approximately 64.4, and ESMM (squares) is at approximately 65.3, again outperforming all competitors. At 100% sampling rate, ESMM-NS is at ~65.0 and ESMM is at ~65.5, maintaining their lead.\n\n5. The text in Section 3.3 confirms that \"ESMM-NS and ESMM outperform all competitors consistently w.r.t. different sampling rates\" and \"ESMM maintains a large margin of AUC promotion over all competitors on both CVR and CTCVR tasks.\"\n\n6. The values in Table 2 (68.25 \u00b1 0.44 for ESMM-NS on CVR and 64.44 \u00b1 0.62 for ESMM-NS on CTCVR) are consistent with the trends shown in Figure 3, especially at 100% sampling rate, but the question specifically asks for performance across different sampling rates as shown in Figure 3.\n\n7. Therefore, based on the visual evidence in Figure 3, ESMM-NS and ESMM consistently outperform all other models across all sampling rates for both CVR and CTCVR tasks, with ESMM generally showing a slightly higher AUC than ESMM-NS.\n\n</thought>\n\n<output>ESMM-NS and ESMM consistently outperform all other models across all sampling rates for both CVR and CTCVR tasks, with ESMM generally showing a slightly higher AUC than ESMM-NS.",
+          "seconds": 253.50638508796692,
+          "parsed_correct": false,
+          "raw_semantically_correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/candidate_graph/spiqa_108/local-qwen-vl_dag_rag_1.jsonl"
+        }
+      },
+      "assessment": {
+        "primary_observation": "Correct raw conclusion, but four refinement rounds and missing closing output tag produced a null parsed prediction.",
+        "failure_category": "sufficiency_and_parser_failure"
+      }
+    },
+    {
+      "question_id": "spiqa_378",
+      "question": "Based on Table 1 of the \"Unbiased Learning to Rank with Unbiased Propensity Estimation\" paper, which correction method achieved the highest nDCG@10 and ERR@10 scores for DNN models, and what was the exact improvement over the NoCorrect baseline in these metrics?",
+      "reference_answer": "The DNN trained with DLA achieved the best performance in terms of both nDCG@10 (0.421) and ERR@10 (0.582). Compared to not using any correction method (NoCorrect), DLA shows a significant improvement in both metrics, with nDCG@10 being higher by 0.063 and ERR@10 being higher by 0.082.",
+      "construction": {
+        "teacher_32b": {
+          "seconds": 2347.0,
+          "measurement": "console timestamp estimate",
+          "approximate": true
+        },
+        "candidate_8b": {
+          "seconds": 106.80993509292603,
+          "nodes": 165,
+          "chat_calls": 330,
+          "vlm_tokens": 843172,
+          "embedding_calls": 20,
+          "embedding_tokens": 22397
+        },
+        "speedup": 21.973611330800637
+      },
+      "retrieval": {
+        "k": 5,
+        "teacher_nodes": 164,
+        "candidate_nodes": 165,
+        "raw_overlap_at_5": 4,
+        "teacher_traced_text_hits": 3,
+        "teacher_traced_text_total": 3,
+        "decisive_evidence_in_candidate_top5": true
+      },
+      "matched_online_reader": {
+        "model": "Qwen3-VL-8B-Instruct-FP8",
+        "seed": 42,
+        "teacher_graph": {
+          "prediction": "DLA achieved the highest scores with nDCG@10 = 0.421 and ERR@10 = 0.582, showing improvements of 0.063 and 0.082 over the NoCorrect baseline, respectively.",
+          "seconds": 40.297171115875244,
+          "correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/teacher_graph/spiqa_378/local-qwen-vl_dag_rag_1.jsonl"
+        },
+        "candidate_graph": {
+          "prediction": "DLA achieved the highest scores with nDCG@10 = 0.421 (improvement of 0.063 over NoCorrect) and ERR@10 = 0.582 (improvement of 0.082 over NoCorrect).",
+          "raw_response": "<thought>\n1. The question asks for the correction method that achieved the highest nDCG@10 and ERR@10 scores for DNN models, and the exact improvement over the NoCorrect baseline in these metrics. The provided context includes a table (labeled as Table 4 in Related Memory [0] and also appearing in the image) that presents performance metrics for different correction methods (DLA, DBN, UBM, NoCorrect) for DNN models.\n2. From the table, the DLA method has the highest nDCG@10 score (0.421) and the highest ERR@10 score (0.582) among all methods. The NoCorrect baseline has nDCG@10 = 0.358 and ERR@10 = 0.500.\n3. The exact improvement for nDCG@10 is calculated as 0.421 - 0.358 = 0.063. The exact improvement for ERR@10 is calculated as 0.582 - 0.500 = 0.082.\n4. The trajectory insights (nodes n5, n6, n1, n2, n3, n4) confirm these values and establish that DLA is the best-performing method for both metrics.\n5. The image provided is consistent with the text, showing DLA outperforming NoCorrect in both nDCG@10 and ERR@10.\n</thought>\n\n<output>DLA achieved the highest scores with nDCG@10 = 0.421 (improvement of 0.063 over NoCorrect) and ERR@10 = 0.582 (improvement of 0.082 over NoCorrect).</output>",
+          "seconds": 155.51563143730164,
+          "parsed_correct": true,
+          "raw_semantically_correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/candidate_graph/spiqa_378/local-qwen-vl_dag_rag_1.jsonl"
+        }
+      },
+      "assessment": {
+        "primary_observation": "Candidate Worker initially misread the NoCorrect row; global refinement recovered the exact answer at 3.86x teacher latency.",
+        "failure_category": "worker_support_failure_repaired_by_refinement"
+      }
+    },
+    {
+      "question_id": "spiqa_540",
+      "question": "According to the figure in the Deep Merge-and-Run Networks paper, which network exhibits the shortest average path length when L = 9?",
+      "reference_answer": "DMRNet",
+      "construction": {
+        "teacher_32b": {
+          "seconds": 4225.99508190155,
+          "measurement": "instrumented stage-duration sum"
+        },
+        "candidate_8b": {
+          "seconds": 169.10214805603027,
+          "nodes": 203,
+          "chat_calls": 406,
+          "vlm_tokens": 1174366,
+          "embedding_calls": 25,
+          "embedding_tokens": 28869
+        },
+        "speedup": 24.99078297042868
+      },
+      "retrieval": {
+        "k": 5,
+        "teacher_nodes": 199,
+        "candidate_nodes": 203,
+        "raw_overlap_at_5": 2,
+        "teacher_traced_text_hits": 0,
+        "teacher_traced_text_total": 3,
+        "decisive_evidence_in_candidate_top5": true
+      },
+      "matched_online_reader": {
+        "model": "Qwen3-VL-8B-Instruct-FP8",
+        "seed": 42,
+        "teacher_graph": {
+          "prediction": "DMRNet",
+          "seconds": 28.036486864089966,
+          "correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/teacher_graph/spiqa_540/local-qwen-vl_dag_rag_1.jsonl"
+        },
+        "candidate_graph": {
+          "prediction": "Not available in the provided materials.",
+          "raw_response": "<thought>\n1. The question asks for the network with the shortest average path length when L = 9. The provided context includes a table (Table 2) showing performance metrics for different network architectures (ResNets, DILNets, DMRNets) at various L values, but it does not contain any information about path lengths. The relevant images include two plots showing the distribution of path lengths for different L values. The left plot corresponds to L=12, and the right plot corresponds to L=96, as indicated by the legend values (e.g., \"ResNet: 20.0\u00b14.24\" for L=12 and \"ResNet: 50.0\u00b16.93\" for L=96). However, neither plot corresponds to L=9.\n\n2. The trajectory insights (Node n1 and n2) confirm that no figure for L=9 is available in the provided materials. The text and images do not contain the required data for L=9. The question asks for the \"only correct answer,\" but based on the provided information, no such answer can be determined.\n\n3. Conclusion: Since no figure or data for L=9 is provided in the context or images, it is impossible to determine which network exhibits the shortest average path length for L=9. The information is not available in the provided materials.\n\n</thought>\n\n<output>Not available in the provided materials.</output>",
+          "seconds": 31.86600089073181,
+          "parsed_correct": false,
+          "raw_semantically_correct": false,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/candidate_graph/spiqa_540/local-qwen-vl_dag_rag_1.jsonl"
+        }
+      },
+      "assessment": {
+        "primary_observation": "Confirmed accuracy loss: correct Figure 3 ranked first and OCR said Left L=9, but the Worker misread the panels and answered that information was unavailable.",
+        "failure_category": "worker_support_failure_from_weaker_visual_summary"
+      }
+    },
+    {
+      "question_id": "spiqa_542",
+      "question": "Based on the figure comparing Resnet-32's performance under the C&W-wb attack on the MNIST dataset, which loss function achieves a f2(x\u2217) > 0 ratio of 0.77, significantly surpassing the alternative?",
+      "reference_answer": "RCE",
+      "construction": {
+        "teacher_32b": {
+          "seconds": 2706.366603374481,
+          "measurement": "instrumented stage-duration sum"
+        },
+        "candidate_8b": {
+          "seconds": 138.55179643630981,
+          "nodes": 179,
+          "chat_calls": 358,
+          "vlm_tokens": 1039929,
+          "embedding_calls": 21,
+          "embedding_tokens": 24331
+        },
+        "speedup": 19.533248019765356
+      },
+      "retrieval": {
+        "k": 5,
+        "teacher_nodes": 179,
+        "candidate_nodes": 179,
+        "raw_overlap_at_5": 3,
+        "teacher_traced_text_hits": 2,
+        "teacher_traced_text_total": 4,
+        "decisive_evidence_in_candidate_top5": true
+      },
+      "matched_online_reader": {
+        "model": "Qwen3-VL-8B-Instruct-FP8",
+        "seed": 42,
+        "teacher_graph": {
+          "prediction": "RCE",
+          "seconds": 21.08459496498108,
+          "correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/teacher_graph/spiqa_542/local-qwen-vl_dag_rag_1.jsonl"
+        },
+        "candidate_graph": {
+          "prediction": "RCE",
+          "raw_response": "<thought>\n1. The question asks which loss function achieves a f2(x*) > 0 ratio of 0.77 under the C&W-wb attack on the MNIST dataset using Resnet-32.\n2. The provided context includes a table (from Related Memory [2]) that reports the ratio of f2(x*) > 0 for the C&W-wb attack on Resnet-32 for MNIST. This table shows a value of 0.77 for the RCE objective and 0.01 for the CE objective.\n3. The trajectory insights confirm that the correct source for this data is Table 3 in Related Memory [2], which explicitly lists the ratio for both CE and RCE on MNIST.\n4. The value 0.77 is directly associated with the RCE loss function, which significantly surpasses the 0.01 ratio achieved by the CE loss function.\n5. Therefore, the loss function that achieves the 0.77 ratio is RCE.\n</thought>\n\n<output>RCE</output>",
+          "seconds": 86.01512861251831,
+          "parsed_correct": true,
+          "raw_semantically_correct": true,
+          "artifact": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/low_resource_content_graph/loss_evaluation/matched_qa/candidate_graph/spiqa_542/local-qwen-vl_dag_rag_1.jsonl"
+        }
+      },
+      "assessment": {
+        "primary_observation": "Correct answer, but unnecessary refinement raised query latency from 21.08 to 86.02 seconds.",
+        "failure_category": "sufficiency_inefficiency"
+      }
+    }
+  ],
+  "summary": {
+    "teacher_graph_matched_reader_correct": 5,
+    "candidate_graph_parsed_correct": 3,
+    "candidate_graph_raw_semantically_correct": 4,
+    "candidate_decisive_evidence_present_at_5": 5,
+    "raw_top5_overlap_total": 16,
+    "raw_top5_overlap_possible": 25,
+    "raw_top5_overlap_rate": 0.64,
+    "mean_teacher_build_seconds": 2979.943054819107,
+    "mean_candidate_build_seconds": 141.13593411445618,
+    "mean_construction_speedup": 21.11399250315997,
+    "max_candidate_build_seconds": 169.10214805603027,
+    "mean_teacher_graph_query_seconds": 47.26819949150085,
+    "mean_candidate_graph_query_seconds": 113.56923308372498,
+    "candidate_query_slowdown": 2.4026562108452114
+  },
+  "claim_limit": "Fixed five-question pilot; too small for a dataset-level no-regression or production claim."
+}

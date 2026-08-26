@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_468",
+  "candidate_source": "official_parser",
+  "candidate_answer": "82.72, 1.11",
+  "reference": "The Conv. Self-Corr. method achieved the highest performance on the PASCAL VOC 2012 test set with a score of 82.72. This is approximately 1.11 points higher than the baseline model (\"No Self-Corr.\") which achieved a score of 81.61.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 15.472657203674316,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Conv. Self-Corr. method achieved 82.72 on PASCAL VOC 2012 test set",
+      "No Self-Corr. baseline achieved 81.61",
+      "Conv. Self-Corr. outperforms baseline by 1.11 points"
+    ],
+    "candidate_claims": [
+      "Score of Conv. Self-Corr. is 82.72",
+      "Outperforms baseline by 1.11 points"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer '82.72, 1.11' directly provides the two key numerical values requested: the exact score of the Conv. Self-Corr. method (82.72) and the performance gain over the baseline (1.11 points). These values are factually correct and semantically equivalent to the reference, even though the candidate omits explicit mention of the baseline score (81.61). The difference 1.11 is consistent with 82.72 - 81.61, so no contradiction or error exists. The candidate answers the central question with the same factual meaning, and the omission of intermediate values is harmless."
+  },
+  "usage": {
+    "prompt_tokens": 284,
+    "total_tokens": 580,
+    "completion_tokens": 296,
+    "prompt_tokens_details": null
+  }
+}

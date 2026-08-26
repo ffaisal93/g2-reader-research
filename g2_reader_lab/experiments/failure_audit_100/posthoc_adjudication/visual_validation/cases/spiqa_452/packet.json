@@ -1,0 +1,215 @@
+{
+  "question_id": "spiqa_452",
+  "question": "In the figure comparing ENet, FRVSR, DUF, and TecoGAN on video super-resolution of Vid4 using PieAPP for perceptual metrics, which model is represented by the largest bubble, indicating the highest tOF score and best temporal coherence?",
+  "reference": "TecoGAN.",
+  "main_doc": "1811.09393v4.pdf",
+  "documents": [
+    "1811.09393v4.pdf",
+    "1703.00899v2.pdf",
+    "1705.02946v3.pdf",
+    "1707.01917v2.pdf",
+    "1704.07121v2.pdf",
+    "1803.05776v2.pdf",
+    "1606.07384v2.pdf"
+  ],
+  "eight_b_answer": "ENet",
+  "eight_b_answer_source": "official_parser",
+  "thirty_two_b_answer": null,
+  "thirty_two_b_verdict": null,
+  "provisional_classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary visual evidence (Figure 18, node_id: 9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad) was retrieved and contains the bubble chart comparing ENet, FRVSR, DUF, and TecoGAN with bubble size indicating tOF score. The text in the image explicitly states 'Bubble size indicates the tOF score' and lists the models with their corresponding tOF values. The tOF values are: ENet=0.194, FRVSR=0.023, DUF=0.028, TecoGAN=0.021. The smallest tOF value (best temporal coherence) is TecoGAN (0.021), which should correspond to the largest bubble (since smaller tOF is better, and bubble size indicates tOF score). However, the final answer incorrectly states 'ENet' as the largest bubble. The worker's initial response correctly noted the lack of figure description in text and the need for visual analysis, but the final answer misinterprets the visual evidence, claiming ENet has the largest bubble despite its tOF value being the largest (worst). This is a worker_support_failure: the evidence was retrieved, but the worker misread or misinterpreted it. The retrieval_failure is secondary because the necessary visual node was retrieved, but the worker failed to correctly interpret it. Raw visual review is required to confirm the bubble sizes, as the text in the image provides the tOF values which contradict the worker's visual interpretation."
+  },
+  "visual_nodes": [
+    {
+      "node_id": "9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad",
+      "text_content": "Fig. 18. Tables and visualization of perceptual metrics computed with PieAPP [Prashnani et al. 2018] (instead of LPIPS used in Fig. 14 previously) on ENet, FRVSR, DUF and TecoGAN for the VSR of Vid4. Bubble size indicates the tOF score. tPieP↓ PieAPP (error) ← 0.3 0.25 0.2 0.15 0.1 0.05 0 0.7 0.8 0.9 1 1.1 tPieP↓ BIC ENet FRVSR DUF TecoGAN calendar 0.091 0.194 0.023 0.028 0.021 foliage 0.155 0.276 0.040 0.037 0.036 city 0.136 0.286 0.025 0.0283 0.0276 walk 0.064 0.155 0.072 0.042 0.060",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In the figure comparing ENet, FRVSR, DUF, and TecoGAN on video super-resolution of Vid4 using PieAPP for perceptual metrics, which model is represented by the largest bubble, indicating the highest tOF score and best temporal coherence?",
+          "method": "initial_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 1,
+          "query": "Identify the model corresponding to the largest bubble in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad.jpg",
+      "sha256": "0f7c03c9d4cc4634707d977fa339cafa7c4e2777480169223fa81effa11a1d0a",
+      "width": 675,
+      "height": 647,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.09393v4/1811.09393v4/auto/images/e85051dbe99ccd1a37b9a17fb010cb062d458cf6f9c3dd46ad110419f82a87ad.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 8,
+      "graph_summary": "Figure 18 — Visualization of perceptual metrics computed with PieAPP on VSR methods for Vid4 scenes. The bubble plot shows tPieP (y-axis, error) vs. tOF (x-axis, error), with bubble size indicating tOF score. TecoGAN achieves the lowest tPieP and tOF scores across all scenes, indicating superior perceptual quality and temporal coherence. ENet shows the highest tPieP error, while FRVSR and DUF are grouped closely with similar performance.",
+      "graph_text_content": "Fig. 18. Tables and visualization of perceptual metrics computed with PieAPP [Prashnani et al. 2018] (instead of LPIPS used in Fig. 14 previously) on ENet, FRVSR, DUF and TecoGAN for the VSR of Vid4. Bubble size indicates the tOF score. tPieP↓ PieAPP (error) ← 0.3 0.25 0.2 0.15 0.1 0.05 0 0.7 0.8 0.9 1 1.1 tPieP↓ BIC ENet FRVSR DUF TecoGAN calendar 0.091 0.194 0.023 0.028 0.021 foliage 0.155 0.276 0.040 0.037 0.036 city 0.136 0.286 0.025 0.0283 0.0276 walk 0.064 0.155 0.072 0.042 0.060"
+    },
+    {
+      "node_id": "2b397f59-f746-4bde-8985-792be042d809",
+      "text_content": "tOF ↓ tLP ↓ T-Diff ↓ BIC ENet FRVSR DUF TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP GT calendar foliage city walk average",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In the figure comparing ENet, FRVSR, DUF, and TecoGAN on video super-resolution of Vid4 using PieAPP for perceptual metrics, which model is represented by the largest bubble, indicating the highest tOF score and best temporal coherence?",
+          "method": "initial_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/2b397f59-f746-4bde-8985-792be042d809.jpg",
+      "sha256": "8c40bcabbe7bcfcdbeace6db39d52216e819be69218522eb6af8219dd60fc969",
+      "width": 1273,
+      "height": 322,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.09393v4/1811.09393v4/auto/images/c8920c08aceb205e54c99f0fec67efedf1a30c2b9c7e578a26bed26678913964.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 14,
+      "graph_summary": "Bar charts compare temporal coherence metrics (tOF, tLP, T-Diff) across video scenes for VSR methods, showing TecoGAN's superior perceptual performance.",
+      "graph_text_content": "tOF ↓ tLP ↓ T-Diff ↓ BIC ENet FRVSR DUF TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP GT calendar foliage city walk average"
+    },
+    {
+      "node_id": "6da8e1be-25bf-4c36-afff-ce52e6aba99c",
+      "text_content": "Figure 1: Construction for perfect. Player 1 has uniform density everywhere; y = x + 0.5, 0 < a, d ≤ 0.1, x, b, c, e > 0, x + a + b = 0.5 and c + 2d + e = 0.5. V1 [0, x] x [x, x+a] a [x + a, y] 0.5 - a [y, y+a] a [y + a, 1] b V2 [0, x] c [x, x+a] d [x + a, y] 0.5 - 2d [y, y+a] 3d [y + a, 1] e",
+      "retrieval_occurrences": [
+        {
+          "event_index": 1,
+          "query": "Identify the model corresponding to the largest bubble in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 4
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/6da8e1be-25bf-4c36-afff-ce52e6aba99c.jpg",
+      "sha256": "f14c1909b8c3f655475919c90cfa15afa62013ce7f87c0b48f1f7e3887ff1bdf",
+      "width": 731,
+      "height": 114,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.02946v3/1705.02946v3/auto/images/73863cefe73c5fea1e5cfdafe16df7034c5780b02a867d81f92912b663d9a5d1.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 4,
+      "graph_summary": "Figure 1 presents a valuation table for two players over five intervals, with Player 1 having uniform density, used to establish a lower bound on queries for ε-perfect allocation.",
+      "graph_text_content": "Figure 1: Construction for perfect. Player 1 has uniform density everywhere; y = x + 0.5, 0 < a, d ≤ 0.1, x, b, c, e > 0, x + a + b = 0.5 and c + 2d + e = 0.5. V1 [0, x] x [x, x+a] a [x + a, y] 0.5 - a [y, y+a] a [y + a, 1] b V2 [0, x] c [x, x+a] d [x + a, y] 0.5 - 2d [y, y+a] 3d [y + a, 1] e"
+    },
+    {
+      "node_id": "7190eebd-0569-4d30-afef-f2dfc1d3e61b",
+      "text_content": "Figure δ: Construction for perfect. Player 1 has uniform density everywhere; y = x + 0.5, 0 < a, d ≤ 0.1, x, b, c, e > 0, x + a + b = 0.5 and c + 2d + e = 0.5. V1 [0, x] [x, x+a] [x + a, y] [y, y+a] [y + a, 1] x a 0.5 - a a b V2 c d 0.5 - 2d 3d e",
+      "retrieval_occurrences": [
+        {
+          "event_index": 1,
+          "query": "Identify the model corresponding to the largest bubble in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/7190eebd-0569-4d30-afef-f2dfc1d3e61b.jpg",
+      "sha256": "c90ab3423b6c871ea3219397af70d6bd9b9923858f28d15f22e7c1e1c2b937c6",
+      "width": 733,
+      "height": 116,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1705.02946v3/1705.02946v3/auto/images/482a413343511542883d5553ba09ef4c5af6e09052e0a62c5770e22525efef9a.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 12,
+      "graph_summary": "Figure δ — Valuation matrix for two players over five intervals, used in Lemma 5 to establish ε-perfect allocation lower bounds with Player 1 having uniform density.",
+      "graph_text_content": "Figure δ: Construction for perfect. Player 1 has uniform density everywhere; y = x + 0.5, 0 < a, d ≤ 0.1, x, b, c, e > 0, x + a + b = 0.5 and c + 2d + e = 0.5. V1 [0, x] [x, x+a] [x + a, y] [y, y+a] [y + a, 1] x a 0.5 - a a b V2 c d 0.5 - 2d 3d e"
+    },
+    {
+      "node_id": "8abf9dd6-583d-465b-8d8e-e5e949325685",
+      "text_content": "Fig. 14. Visual summary of VSR models. a) LPIPS (x-axis) measures spatial detail and temporal coherence is measured by tLP (y-axis) and tOF (bubble size with smaller as better). b) The red-dashed-box region of a), containing our ablated models. c) The network sizes. tLP ↓ LPIPS ← DsOnly DsDtPP DsDt TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoG",
+      "retrieval_occurrences": [
+        {
+          "event_index": 1,
+          "query": "Identify the model corresponding to the largest bubble in the provided figure.",
+          "method": "simple_semantic",
+          "rank": 1
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/8abf9dd6-583d-465b-8d8e-e5e949325685.jpg",
+      "sha256": "f76067c0f245f676c1c212b053a8402cc677300adbd2446a3dbcd606f33f122b",
+      "width": 1378,
+      "height": 334,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.09393v4/1811.09393v4/auto/images/1bc6536fc31a17e55de4fa1857ae4ad70babbce761d566b91d6e9d79614587b2.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 19,
+      "graph_summary": "Visual comparison of VSR models via LPIPS vs. tLP plot, highlighting TecoGAN's performance and ablated variants' trade-offs, alongside network size analysis.",
+      "graph_text_content": "Fig. 14. Visual summary of VSR models. a) LPIPS (x-axis) measures spatial detail and temporal coherence is measured by tLP (y-axis) and tOF (bubble size with smaller as better). b) The red-dashed-box region of a), containing our ablated models. c) The network sizes. tLP ↓ LPIPS ← DsOnly DsDtPP DsDt TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoGAN DsDtPP DsDt TecoGAN DsOnly TecoG"
+    },
+    {
+      "node_id": "b559a534-ce5d-4f1e-acb9-0743f1cf9cf8",
+      "text_content": "Table 5. Metrics evaluated for VSR of ToS scenes. PSNR↑ BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 26.90 25.22 29.80 30.85 26.82 31.12 29.31 bridge 28.34 26.40 32.56 33.02 28.56 32.88 30.81 face 33.75 32.17 39.94 40.23 33.74 41.57 38.60 average 29.58 27.82 34.04 34.60 29.71 35.02 32.75 LPIPS ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 5.167 2.427 1.917 1.987 2.054 2.232 1.358 bridge 4.897 2.807 1.761 1.684 1.845 1.663 1.263 face 2.241 1.784 0.586 0.517 0.728 0.613 0.590 average 4.169 2.395 1.449 1.414 1.565 1.501 1.086 tOF ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 1.735 1.625 0.861 0.901 0.821 0.769 0.737 bridge 5.485 4.037 1.614 1.348 1.354 1.140 1.492 face 4.302 2.255 1.782 1.577 1.612 1.383 1.667 average 4.110 2.845 1.460 1.296 1.287 1.113 1.340 tLP ↓×100 BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 1.320 2.491 0.366 0.307 0.263 0.252 0.590 bridge 2.237 6.241 0.821 0.526 0.821 1.030 0.912 face 1.270 1.613 0.290 0.314 0.364 0.396 0.379 average 1.696 3.827 0.537 0.403 0.531 0.628 0.664",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In the figure comparing ENet, FRVSR, DUF, and TecoGAN on video super-resolution of Vid4 using PieAPP for perceptual metrics, which model is represented by the largest bubble, indicating the highest tOF score and best temporal coherence?",
+          "method": "initial_semantic",
+          "rank": 2
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/b559a534-ce5d-4f1e-acb9-0743f1cf9cf8.jpg",
+      "sha256": "d656523f129457090d50e99463e1edd7248b3d45fb4451e0a49672f0751550e8",
+      "width": 575,
+      "height": 419,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.09393v4/1811.09393v4/auto/images/ddf8e7a13f0f014cfbbf1acf806cb19afaf708152e9feb3c7d6bd4849a808c02.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 14,
+      "graph_summary": "Table 5 compares VSR methods on ToS scenes using PSNR, LPIPS, tOF, and tLP metrics, highlighting TecoGAN's superior perceptual and temporal performance.",
+      "graph_text_content": "Table 5. Metrics evaluated for VSR of ToS scenes. PSNR↑ BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 26.90 25.22 29.80 30.85 26.82 31.12 29.31 bridge 28.34 26.40 32.56 33.02 28.56 32.88 30.81 face 33.75 32.17 39.94 40.23 33.74 41.57 38.60 average 29.58 27.82 34.04 34.60 29.71 35.02 32.75 LPIPS ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 5.167 2.427 1.917 1.987 2.054 2.232 1.358 bridge 4.897 2.807 1.761 1.684 1.845 1.663 1.263 face 2.241 1.784 0.586 0.517 0.728 0.613 0.590 average 4.169 2.395 1.449 1.414 1.565 1.501 1.086 tOF ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 1.735 1.625 0.861 0.901 0.821 0.769 0.737 bridge 5.485 4.037 1.614 1.348 1.354 1.140 1.492 face 4.302 2.255 1.782 1.577 1.612 1.383 1.667 average 4.110 2.845 1.460 1.296 1.287 1.113 1.340 tLP ↓×100 BIC ENet FRVSR DUF RBPN EDVR TecoGAN room 1.320 2.491 0.366 0.307 0.263 0.252 0.590 bridge 2.237 6.241 0.821 0.526 0.821 1.030 0.912 face 1.270 1.613 0.290 0.314 0.364 0.396 0.379 average 1.696 3.827 0.537 0.403 0.531 0.628 0.664"
+    },
+    {
+      "node_id": "eae53df8-532c-4f86-9428-535cd492db9b",
+      "text_content": "Table 4. Metrics evaluated for the VSR Vid4 scenes. PSNR ↑ BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 20.27 19.85 23.86 24.07 23.88 23.97 23.21 23.35 22.23 22.76 22.95 foliage 23.57 21.15 26.35 26.45 26.32 26.42 24.26 25.13 22.33 22.73 25.00 city 24.82 23.36 27.71 28.25 27.51 27.76 26.78 26.94 25.86 26.52 27.03 walk 25.84 24.90 29.56 30.58 30.59 30.92 28.11 28.14 26.49 27.37 28.14 average 23.66 22.31 26.91 27.38 27.15 27.34 25.57 25.89 24.14 24.75 25.77 LPIPS ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 5.935 2.191 2.989 3.086 2.654 2.296 1.511 2.142 1.532 2.111 2.112 foliage 5.338 2.663 3.242 3.492 3.613 3.485 1.902 1.984 2.113 2.092 1.902 city 5.451 3.431 2.429 2.447 0.233 2.264 2.084 1.940 2.120 1.889 1.989 walk 3.655 1.794 1.374 1.380 1.362 1.291 1.106 1.011 1.215 1.057 1.051 average 5.036 2.458 2.506 2.607 2.511 2.356 1.623 1.743 1.727 1.770 1.733 tOF ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 4.956 3.450 1.537 1.134 1.068 0.986 1.342 1.403 1.609 1.683 1.583 foliage 4.922 2.775 1.489 1.356 1.234 1.144 1.238 1.444 1.543 1.562 1.373 city 7.967 6.225 2.992 1.724 1.584 1.446 2.612 2.905 2.920 2.936 3.062 walk 5.150 3.203 2.569 2.127 1.994 1.871 2.571 2.765 2.745 2.796 2.649 average 5.78 4.409 2.090 1.588 1.473 1.367 1.897 2.082 2.157 2.198 2.103 tLP ↓×100 BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 3.258 2.957 1.067 1.603 0.802 0.622 0.165 1.087 0.872 0.764 0.670 foliage 2.434 6.372 1.644 2.034 1.927 1.998 0.894 0.740 3.422 0.493 0.454 city 2.1",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "In the figure comparing ENet, FRVSR, DUF, and TecoGAN on video super-resolution of Vid4 using PieAPP for perceptual metrics, which model is represented by the largest bubble, indicating the highest tOF score and best temporal coherence?",
+          "method": "initial_semantic",
+          "rank": 4
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_452/nodes/eae53df8-532c-4f86-9428-535cd492db9b.jpg",
+      "sha256": "0065756b02e7956e005abcf0a68b2dedcdeb780f9da3fa420f27118c93f31b38",
+      "width": 703,
+      "height": 692,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1811.09393v4/1811.09393v4/auto/images/55922ec8a7c72d3b3ff0ab726ee7202da89e663fc0fd612de7a5548fa4dda883.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 13,
+      "graph_summary": "Table 4 compares VSR methods on Vid4 scenes using PSNR, LPIPS, and temporal metrics. TecoGAN excels in perceptual quality and temporal coherence.",
+      "graph_text_content": "Table 4. Metrics evaluated for the VSR Vid4 scenes. PSNR ↑ BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 20.27 19.85 23.86 24.07 23.88 23.97 23.21 23.35 22.23 22.76 22.95 foliage 23.57 21.15 26.35 26.45 26.32 26.42 24.26 25.13 22.33 22.73 25.00 city 24.82 23.36 27.71 28.25 27.51 27.76 26.78 26.94 25.86 26.52 27.03 walk 25.84 24.90 29.56 30.58 30.59 30.92 28.11 28.14 26.49 27.37 28.14 average 23.66 22.31 26.91 27.38 27.15 27.34 25.57 25.89 24.14 24.75 25.77 LPIPS ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 5.935 2.191 2.989 3.086 2.654 2.296 1.511 2.142 1.532 2.111 2.112 foliage 5.338 2.663 3.242 3.492 3.613 3.485 1.902 1.984 2.113 2.092 1.902 city 5.451 3.431 2.429 2.447 0.233 2.264 2.084 1.940 2.120 1.889 1.989 walk 3.655 1.794 1.374 1.380 1.362 1.291 1.106 1.011 1.215 1.057 1.051 average 5.036 2.458 2.506 2.607 2.511 2.356 1.623 1.743 1.727 1.770 1.733 tOF ↓×10 BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 4.956 3.450 1.537 1.134 1.068 0.986 1.342 1.403 1.609 1.683 1.583 foliage 4.922 2.775 1.489 1.356 1.234 1.144 1.238 1.444 1.543 1.562 1.373 city 7.967 6.225 2.992 1.724 1.584 1.446 2.612 2.905 2.920 2.936 3.062 walk 5.150 3.203 2.569 2.127 1.994 1.871 2.571 2.765 2.745 2.796 2.649 average 5.78 4.409 2.090 1.588 1.473 1.367 1.897 2.082 2.157 2.198 2.103 tLP ↓×100 BIC ENet FRVSR DUF RBPN EDVR TecoGAN TecoGAN⊖ DsOnly DsDt DsDtPP calendar 3.258 2.957 1.067 1.603 0.802 0.622 0.165 1.087 0.872 0.764 0.670 foliage 2.434 6.372 1.644 2.034 1.927 1.998 0.894 0.740 3.422 0.493 0.454 city 2.1"
+    }
+  ]
+}

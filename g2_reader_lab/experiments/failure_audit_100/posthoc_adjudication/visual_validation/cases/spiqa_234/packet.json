@@ -1,0 +1,165 @@
+{
+  "question_id": "spiqa_234",
+  "question": "Based on the PTB test perplexity figure, how does increasing the number of distinct hidden layer matrices (K) from 1 to 10000 affect the test PPL for both r-RNTNs and RNTNs?",
+  "reference": "The test PPL of all the models decreases as K increases.",
+  "main_doc": "1704.00774v3.pdf",
+  "documents": [
+    "1704.00774v3.pdf",
+    "1809.01246v1.pdf",
+    "1809.02731v3.pdf",
+    "1809.03550v3.pdf",
+    "1811.02721v3.pdf",
+    "1809.03449v3.pdf",
+    "1809.01989v2.pdf",
+    "1704.05958v2.pdf",
+    "1803.02750v3.pdf",
+    "1703.04887v4.pdf"
+  ],
+  "eight_b_answer": "For both r-RNTNs and RNTNs, increasing K from 1 to 10000 causes the test PPL to decrease significantly from around 150 to approximately 128.8, with minimal further improvement after K=100.",
+  "eight_b_answer_source": "official_parser",
+  "thirty_two_b_answer": null,
+  "thirty_two_b_verdict": null,
+  "provisional_classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "a2c40805-58d1-4cae-b56e-97514c2619f8"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.9,
+    "rationale": "The candidate answer is factually correct: it accurately describes the trend shown in Figure 1 — test PPL decreases as K increases, stabilizing near 128.8 for both models, with minimal gain after K=100. The reference is a general statement that is fully supported by the candidate.\n\nHowever, the primary causal failure is a retrieval_failure: the necessary visual evidence (Figure 1) was retrieved (node_id: a2c40805-58d1-4cae-b56e-97514c2619f8), but the system did not extract the required data points from it. The worker responses for nodes n1 and n2 in round 0 explicitly state that the exact numerical values for PPL at K=100 and K=10000 are not available in the provided text, and the image is not accessible for direct reading. The workers correctly identify the need for the figure but cannot extract the values without visual analysis.\n\nIn round 1, the workers attempt to extract values from the figure, and the final answer is generated based on the visual interpretation of the chart (e.g., 'around 150' for initial PPL, 'approximately 128.8' for final PPL). This indicates that the system eventually used the visual evidence, but the initial retrieval and parsing of the figure's data was insufficient. The worker responses in round 1 show that they are attempting to interpret the visual data, which suggests that the visual node was retrieved but not properly parsed or utilized in the early stages.\n\nThe sufficiency check in round 0 correctly identifies gaps, and the check in round 1 marks sufficient, indicating that the system eventually resolved the gaps through visual interpretation. However, the earliest decisive failure is that the necessary evidence (the visual data from Figure 1) was not properly extracted or utilized in the initial steps — a retrieval_failure. The worker_support_failure is secondary, as the workers correctly identified the need for the figure but were unable to extract the data without visual access.\n\nThe final composition is supported because the answer is consistent with the visual evidence and the reference. The sufficiency behavior is appropriate, as the system drove refinement to resolve the gaps. Raw visual review is required to confirm the exact values, but the candidate answer is consistent with the visual trend. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "retrieval_failure"
+  },
+  "visual_nodes": [
+    {
+      "node_id": "a2c40805-58d1-4cae-b56e-97514c2619f8",
+      "text_content": "Figure 1: PTB test PPL as K varies from 1 to 10000 (100 for gated networks). At K = 100, the r-RNTN with f mapping already closely approximates the much bigger RNTN, with little gain for bigger K, showing that dedicated matrices should be reserved for frequent words as hypothesized. Test PPL 160 150 140 130 93 90 87 10^1 10^2 10^3 10^4 K r-RNTN f r-RNTN fmod RNTN s-RNN H = 100 s-RNN H = 150 r-GRU r-LSTM",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "Based on the PTB test perplexity figure, how does increasing the number of distinct hidden layer matrices (K) from 1 to 10000 affect the test PPL for both r-RNTNs and RNTNs?",
+          "method": "initial_semantic",
+          "rank": 1
+        },
+        {
+          "event_index": 1,
+          "query": "Extract the test PPL values for r-RNTN f and RNTN from the figure at K=100.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 2,
+          "query": "Extract the test PPL values for r-RNTN f and RNTN from the figure at K=10000.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 3,
+          "query": "Extract the test PPL for r-RNTN f at K=10000 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 4,
+          "query": "Extract the test PPL for RNTN at K=10000 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 5,
+          "query": "Extract the test PPL for r-RNTN f at K=100 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 0
+        },
+        {
+          "event_index": 6,
+          "query": "Extract the test PPL for RNTN at K=100 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 0
+        }
+      ],
+      "cited_by_classifier": true,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_234/nodes/a2c40805-58d1-4cae-b56e-97514c2619f8.jpg",
+      "sha256": "b70d80fa14ca3abc7e4a23ce8a57b0c9fd6ad4d96e94756cd682188d08246c7e",
+      "width": 572,
+      "height": 355,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1704.00774v3/1704.00774v3/auto/images/f828d60d53337df3b7dcc03ed5c168c47e24e60a715701d31f86964fed370235.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 21,
+      "graph_summary": "Plot shows PTB test PPL vs. K for r-RNTN variants, s-RNNs, and gated networks, highlighting performance trade-offs.",
+      "graph_text_content": "Figure 1: PTB test PPL as K varies from 1 to 10000 (100 for gated networks). At K = 100, the r-RNTN with f mapping already closely approximates the much bigger RNTN, with little gain for bigger K, showing that dedicated matrices should be reserved for frequent words as hypothesized. Test PPL 160 150 140 130 93 90 87 10^1 10^2 10^3 10^4 K r-RNTN f r-RNTN fmod RNTN s-RNN H = 100 s-RNN H = 150 r-GRU r-LSTM"
+    },
+    {
+      "node_id": "9d0669cd-0180-4e1c-af62-75e7414bb8dd",
+      "text_content": "Table 1: Comparison of validation and test set perplexity for r-RNTNs with $f$ mapping $K = 1 0 0$ for PTB, $K = 3 7 6$ for text8) versus s-RNNs and m-RNN. r-RNTNs with the same $H$ as corresponding s-RNNs significantly increase model capacity and performance with no computational cost. The RNTN was not run on text8 due to the number of parameters required. Method H # Params Test PPL PTB text8 Method H # Params Test PPL PTB s-RNN 100 2M 146.7 7.6M 236.4 GRU 244 9.6M 92.2 r-RNTN f 100 3M 131.2 11.4M 190.1 GRU 650 15.5M 90.3 RNTN 100 103M 128.8 388M - r-GRU f 244 15.5M 87.5 m-RNN 100 3M 164.2 11.4M 895.0 LSTM 254 10M 88.8 s-RNN 150 3M 133.7 11.4M 207.9 LSTM 650 16.4M 84.6 r-RNTN f 150 5.3M 126.4 19.8M 171.7 r-LSTM f 254 16.4M 87.1",
+      "retrieval_occurrences": [
+        {
+          "event_index": 0,
+          "query": "Based on the PTB test perplexity figure, how does increasing the number of distinct hidden layer matrices (K) from 1 to 10000 affect the test PPL for both r-RNTNs and RNTNs?",
+          "method": "initial_semantic",
+          "rank": 2
+        },
+        {
+          "event_index": 1,
+          "query": "Extract the test PPL values for r-RNTN f and RNTN from the figure at K=100.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 2,
+          "query": "Extract the test PPL values for r-RNTN f and RNTN from the figure at K=10000.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 3,
+          "query": "Extract the test PPL for r-RNTN f at K=10000 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 4,
+          "query": "Extract the test PPL for RNTN at K=10000 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 5,
+          "query": "Extract the test PPL for r-RNTN f at K=100 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 3
+        },
+        {
+          "event_index": 6,
+          "query": "Extract the test PPL for RNTN at K=100 from Figure 1.",
+          "method": "simple_semantic",
+          "rank": 3
+        }
+      ],
+      "cited_by_classifier": false,
+      "decoded_path": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/visual_validation/cases/spiqa_234/nodes/9d0669cd-0180-4e1c-af62-75e7414bb8dd.jpg",
+      "sha256": "a6362910149b51b4756d116c8ca5f49dc0d5266e2e8c5883b542f164bcce7b75",
+      "width": 1245,
+      "height": 311,
+      "source_paths": [
+        "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/data/processed_hf/spiqa/1704.00774v3/1704.00774v3/auto/images/2c46ec2bfc494f145ce0ca63674f579c835a14dc07271850c7746c464368c300.jpg"
+      ],
+      "source_match_method": "same_dimensions_perceptual",
+      "perceptual_distance": 16,
+      "graph_summary": "r-RNTN f outperforms s-RNNs on PTB and text8 with lower Test PPL and comparable parameters, using f mapping and H=100/150.",
+      "graph_text_content": "Table 1: Comparison of validation and test set perplexity for r-RNTNs with $f$ mapping $K = 1 0 0$ for PTB, $K = 3 7 6$ for text8) versus s-RNNs and m-RNN. r-RNTNs with the same $H$ as corresponding s-RNNs significantly increase model capacity and performance with no computational cost. The RNTN was not run on text8 due to the number of parameters required. Method H # Params Test PPL PTB text8 Method H # Params Test PPL PTB s-RNN 100 2M 146.7 7.6M 236.4 GRU 244 9.6M 92.2 r-RNTN f 100 3M 131.2 11.4M 190.1 GRU 650 15.5M 90.3 RNTN 100 103M 128.8 388M - r-GRU f 244 15.5M 87.5 m-RNN 100 3M 164.2 11.4M 895.0 LSTM 254 10M 88.8 s-RNN 150 3M 133.7 11.4M 207.9 LSTM 650 16.4M 84.6 r-RNTN f 150 5.3M 126.4 19.8M 171.7 r-LSTM f 254 16.4M 87.1"
+    }
+  ]
+}

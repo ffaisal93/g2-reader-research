@@ -1,0 +1,37 @@
+{
+  "question_id": "spiqa_116",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points.",
+  "reference": "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.776729345321655,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned."
+    ],
+    "candidate_claims": [
+      "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate provides specific numerical values (75% vs 70%) that support the qualitative claim in the reference ('slightly better'). The comparison is consistent: the proposed method outperforms Yosinski et al. [90]. The candidate adds precise data points and a percentage-point difference, which are harmless extra details and do not contradict the reference. The core semantic meaning — that the proposed method performs better — is preserved."
+  },
+  "usage": {
+    "prompt_tokens": 301,
+    "total_tokens": 552,
+    "completion_tokens": 251,
+    "prompt_tokens_details": null
+  },
+  "official_prediction": "The proposed RGB-to-Depth transfer method achieves 75% top-1 re-identification accuracy at x=7, while Yosinski et al. [90] achieves 70%, indicating the proposed method outperforms Yosinski et al. [90] by 5 percentage points.",
+  "official_parser_success": true,
+  "has_open_output_tag": true,
+  "has_close_output_tag": true,
+  "prediction_file": "/mnt/maxtox-nfs-student/zff/g2-reader/g2_reader_lab/experiments/failure_audit_100/posthoc_adjudication/teacher_replays/spiqa_116/local-qwen-vl_dag_rag_1.jsonl",
+  "process_time": 96.07219386100769,
+  "eight_b_candidate": "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario).",
+  "eight_b_candidate_source": "official_parser",
+  "eight_b_answer_verdict": "incorrect",
+  "eight_b_primary_category": "worker_support_failure"
+}

@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_234",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 45.70584964752197,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "a2c40805-58d1-4cae-b56e-97514c2619f8"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.9,
+    "rationale": "The candidate answer is factually correct: it accurately describes the trend shown in Figure 1 — test PPL decreases as K increases, stabilizing near 128.8 for both models, with minimal gain after K=100. The reference is a general statement that is fully supported by the candidate.\n\nHowever, the primary causal failure is a retrieval_failure: the necessary visual evidence (Figure 1) was retrieved (node_id: a2c40805-58d1-4cae-b56e-97514c2619f8), but the system did not extract the required data points from it. The worker responses for nodes n1 and n2 in round 0 explicitly state that the exact numerical values for PPL at K=100 and K=10000 are not available in the provided text, and the image is not accessible for direct reading. The workers correctly identify the need for the figure but cannot extract the values without visual analysis.\n\nIn round 1, the workers attempt to extract values from the figure, and the final answer is generated based on the visual interpretation of the chart (e.g., 'around 150' for initial PPL, 'approximately 128.8' for final PPL). This indicates that the system eventually used the visual evidence, but the initial retrieval and parsing of the figure's data was insufficient. The worker responses in round 1 show that they are attempting to interpret the visual data, which suggests that the visual node was retrieved but not properly parsed or utilized in the early stages.\n\nThe sufficiency check in round 0 correctly identifies gaps, and the check in round 1 marks sufficient, indicating that the system eventually resolved the gaps through visual interpretation. However, the earliest decisive failure is that the necessary evidence (the visual data from Figure 1) was not properly extracted or utilized in the initial steps — a retrieval_failure. The worker_support_failure is secondary, as the workers correctly identified the need for the figure but were unable to extract the data without visual access.\n\nThe final composition is supported because the answer is consistent with the visual evidence and the reference. The sufficiency behavior is appropriate, as the system drove refinement to resolve the gaps. Raw visual review is required to confirm the exact values, but the candidate answer is consistent with the visual trend. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "retrieval_failure"
+  },
+  "usage": {
+    "prompt_tokens": 7190,
+    "total_tokens": 7898,
+    "completion_tokens": 708,
+    "prompt_tokens_details": null
+  }
+}

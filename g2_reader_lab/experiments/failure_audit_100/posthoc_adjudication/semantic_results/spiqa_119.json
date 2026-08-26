@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_119",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Yes",
+  "reference": "The PE-N=5 sampler performs better than the HMC sampler.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.44699478149414,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The PE-N=5 sampler performs better than the HMC sampler."
+    ],
+    "candidate_claims": [
+      "Yes"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Yes' directly affirms the central question: whether PE-N=5 exhibits a higher log-predictive density than HMC. The reference answer states that PE-N=5 performs better, which, in the context of log-predictive density (a higher value being better), is semantically equivalent to 'yes'. No contradiction, wrong entity, or missing component is present. The candidate is a concise, unambiguous affirmation of the reference’s claim."
+  },
+  "usage": {
+    "prompt_tokens": 201,
+    "total_tokens": 374,
+    "completion_tokens": 173,
+    "prompt_tokens_details": null
+  }
+}

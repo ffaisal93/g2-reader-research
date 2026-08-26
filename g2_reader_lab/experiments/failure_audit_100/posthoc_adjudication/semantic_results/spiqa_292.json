@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_292",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Not enough information is provided to answer the question, as the actual fixation counts in panel c and the predicted probability mass in panel b are not quantified in the text or trajectory insights.",
+  "reference": "The fixation density map predicts the probability of a person fixating on a particular location in the image. The ground truth fixations are the actual locations where people fixated on the image.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 18.440603971481323,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The fixation density map (panel b) predicts the probability of fixation at each location.",
+      "The ground truth (panel c) shows actual recorded fixations.",
+      "The question asks for a comparison of how accurately the model distributes probability mass across four contour-separated areas relative to the ground truth distribution."
+    ],
+    "candidate_claims": [
+      "The actual fixation counts in panel c and predicted probability mass in panel b are not quantified in the text or trajectory insights.",
+      "Therefore, not enough information is provided to answer the question."
+    ],
+    "substantive_differences": [
+      "The reference answer provides a factual definition of the panels and implies that a comparison is possible (or expected) based on the figure, even if not quantified in text.",
+      "The candidate answer incorrectly asserts that the information is insufficient, which contradicts the premise of the question — which assumes the figure contains sufficient visual information to make a qualitative assessment of accuracy in probability mass distribution across regions.",
+      "The candidate fails to address the core question: the relationship between predicted and actual fixation distributions across the four contour-separated areas, which is the central semantic focus."
+    ],
+    "rationale": "The candidate misinterprets the task. The question asks for an interpretation of the figure, not a request for numerical data. The reference answer correctly frames the panels as predictive vs. actual, implying a visual comparison is possible. The candidate’s claim of insufficient information is factually incorrect in context, as the figure itself (as referenced) is meant to convey the relationship. Thus, the candidate answer is semantically incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 288,
+    "total_tokens": 646,
+    "completion_tokens": 358,
+    "prompt_tokens_details": null
+  }
+}

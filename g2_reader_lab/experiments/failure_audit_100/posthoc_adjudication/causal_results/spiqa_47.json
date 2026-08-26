@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_47",
+  "status": "complete",
+  "attempt": 2,
+  "latency_seconds": 34.01818323135376,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "composition_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "7514f431-06ba-45b4-9913-c58aa47185cb",
+      "895d334c-6653-4244-aa48-ccfad56cd449"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence was retrieved and correctly interpreted by the Workers: the 'before' disagreement rate is 44.85%, after GBI is 24.92%, and after A* is 33.91%. These values are explicitly present in the retrieved table (node_id: 7514f431-06ba-45b4-9913-c58aa47185cb) and confirmed by the Worker responses. However, the final answer incorrectly states that GBI reduces the rate by 19.93% and A* by 10.94%, which are correct reductions. The error lies in the comparison: the final answer claims GBI’s reduction is 8.99 percentage points greater than A*'s, which is mathematically correct (19.93 - 10.94 = 8.99). However, the reference states that GBI’s reduction is 19.93% greater than A*'s — meaning a relative percentage increase, not an absolute difference. The candidate answer misrepresents the comparison as an absolute difference in percentage points, while the reference requires a relative percentage increase. This is a composition failure: the system correctly computed the individual reductions but incorrectly composed the comparison, failing to match the reference’s required interpretation of 'greater reduction' as a relative percentage increase. The planning and retrieval were adequate, and the Workers provided correct intermediate values, so the failure is in the final composition step."
+  },
+  "usage": {
+    "prompt_tokens": 5129,
+    "total_tokens": 5684,
+    "completion_tokens": 555,
+    "prompt_tokens_details": null
+  }
+}

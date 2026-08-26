@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_116",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 49.86325693130493,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "56e52cc0-23d7-4e6a-ba34-8e6281126bf9"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer claims a 10 percentage point difference, but the reference states only a 'slightly better' performance. The retrieved evidence includes the figure caption (node_id: 56e52cc0-23d7-4e6a-ba34-8e6281126bf9) which describes the right panel and x=7 as 'all layers fine-tuned', and the visual image (node_id: b102547e-602e-4f26-9ec8-341429b49041) which shows the chart. However, the Workers consistently failed to extract the actual accuracy values from the visual data, instead reporting 'not enough information' or 'not available in text'. This indicates a worker_support_failure: the necessary visual evidence was retrieved, but the Workers misread or failed to interpret it, producing unsupported claims. The planning was adequate, decomposing the task into identifying x=7 and reading the accuracies. The sufficiency checks correctly flagged missing subproblems, but the Workers did not resolve them. The final answer is unsupported by the evidence, as the Workers never extracted the actual values from the chart. A raw visual review is required to confirm the actual accuracy values at x=7, which are not readable from the provided text alone."
+  },
+  "usage": {
+    "prompt_tokens": 12979,
+    "total_tokens": 13473,
+    "completion_tokens": 494,
+    "prompt_tokens_details": null
+  }
+}

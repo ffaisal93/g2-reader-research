@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_364",
+  "candidate_source": "official_parser",
+  "candidate_answer": "GB-KMV",
+  "reference": "GB-KMV performs better in terms of F1 score and precision when the space used is 5%.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.120297908782959,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "GB-KMV performs better in terms of F1 score and precision when the space used is 5%."
+    ],
+    "candidate_claims": [
+      "GB-KMV"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'GB-KMV' correctly identifies the algorithm that performs better in F1 score and precision at 5% space usage, as stated in the reference. While the candidate is concise and omits explicit mention of 'F1 score and precision', the context of the question makes it clear that the answer refers to the superior algorithm in those metrics. The core factual claim is preserved without contradiction or omission of required components."
+  },
+  "usage": {
+    "prompt_tokens": 232,
+    "total_tokens": 406,
+    "completion_tokens": 174,
+    "prompt_tokens_details": null
+  }
+}

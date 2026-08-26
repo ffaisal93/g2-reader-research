@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_80",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The average number of inter-word semantic connections per word increases monotonically from 0.39 at κ=0 to 5.58 at κ=5.",
+  "reference": "The average number of inter-word semantic connections per word increases as the value of κ increases.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 17.176079750061035,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The average number of inter-word semantic connections per word increases as the value of κ increases."
+    ],
+    "candidate_claims": [
+      "The average number of inter-word semantic connections per word increases monotonically from 0.39 at κ=0 to 5.58 at κ=5."
+    ],
+    "substantive_differences": [
+      "The candidate provides specific numerical values (0.39 at κ=0, 5.58 at κ=5) and claims monotonic increase, which are not present in the reference and cannot be verified as correct from the reference alone.",
+      "The reference makes a general trend claim without specifying values or monotonicity, so the candidate's addition of precise numbers and the term 'monotonically' introduces unverified factual claims.",
+      "The candidate's answer goes beyond the reference by asserting exact values and a stronger condition (monotonicity), which may not be supported by the figure or the paper's description."
+    ],
+    "rationale": "While the candidate correctly identifies the increasing trend, it adds specific numerical values and the term 'monotonically' that are not present in the reference and cannot be confirmed as factually accurate based solely on the reference. The reference only states a general increase, not a monotonic one or with specific values. Adding such details without justification constitutes a factual overreach, making the candidate answer semantically incorrect relative to the reference."
+  },
+  "usage": {
+    "prompt_tokens": 251,
+    "total_tokens": 579,
+    "completion_tokens": 328,
+    "prompt_tokens_details": null
+  }
+}

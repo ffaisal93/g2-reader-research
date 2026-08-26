@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_434",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 37.96775269508362,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "9f2756ab-66fe-4fd3-b2d2-259741029829"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary evidence was retrieved: Table 3 (node_id: 9f2756ab-66fe-4fd3-b2d2-259741029829) explicitly shows that for Italian (it), the Variational J^var (7) method achieves 67.4% accuracy, not 77.4%. The worker correctly extracted 67.4% in round 2 and round 3 (node n4), but then incorrectly concluded that 77.4% is not present, and the final answer falsely claims no method achieves 77.4%. This is a worker_support_failure: the worker misread or misinterpreted the evidence (67.4% vs 77.4%) and produced an unsupported answer. The planning was adequate, as it correctly decomposed the task into locating the table, extracting the value, and comparing it to 77.4%. The sufficiency checks appropriately flagged the gap, but the worker failed to use the retrieved evidence correctly. A retrieval_failure is secondary because the correct table was retrieved, but the worker failed to use it properly."
+  },
+  "usage": {
+    "prompt_tokens": 14355,
+    "total_tokens": 14806,
+    "completion_tokens": 451,
+    "prompt_tokens_details": null
+  }
+}

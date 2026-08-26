@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_440",
+  "candidate_source": "official_parser",
+  "candidate_answer": "EDVR",
+  "reference": "DUF",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.668784856796265,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The method that achieves the highest pixel-wise accuracy (as measured by averaged PSNR on 500 up-scaled frames from the Vid4 dataset) is DUF."
+    ],
+    "candidate_claims": [
+      "The method that achieves the highest pixel-wise accuracy is EDVR."
+    ],
+    "substantive_differences": [
+      "The candidate answer identifies EDVR as the top-performing method, while the reference answer identifies DUF. This is a direct factual contradiction regarding the method achieving the highest PSNR."
+    ],
+    "rationale": "The question asks for the method with the highest pixel-wise accuracy, which is quantified by PSNR in the context. The reference answer explicitly names DUF as the top method, while the candidate names EDVR. Since these are distinct methods and the question requires a specific entity as the answer, the candidate is factually incorrect. There is no indication that EDVR outperforms DUF in the given context, and the reference is treated as the benchmark."
+  },
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 448,
+    "completion_tokens": 241,
+    "prompt_tokens_details": null
+  }
+}

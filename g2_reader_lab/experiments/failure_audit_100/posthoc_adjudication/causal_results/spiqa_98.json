@@ -1,0 +1,34 @@
+{
+  "question_id": "spiqa_98",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 35.14020872116089,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "parser_failure",
+    "secondary_categories": [
+      "worker_support_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "6461e0ca-cef4-44ad-99d7-3ffc82431669"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unknown",
+    "confidence": 0.9,
+    "rationale": "The candidate answer is factually correct: both segment loss rate and goodput decrease as maximum link delay increases, as shown in Figure 5a (chart (a)). However, the retrieval system failed to provide the necessary visual evidence (the actual chart) in a usable form for the Worker to extract the trend. The retrieved evidence includes an image node (node_id: 6461e0ca-cef4-44ad-99d7-3ffc82431669) with a text description of Figure 5, which correctly identifies chart (a) as 'TCP goodput, one hop' and lists the axes. But the Worker's response in round 0 for node n2 incorrectly claims that goodput remains constant, based on text that only compares two specific delay points (5ms and 40ms) and does not describe a general trend. This indicates the Worker misread or misinterpreted the evidence, likely because the actual visual chart was not available for direct analysis. The Worker's later response in round 1 for node n3 correctly identifies the downward trend in goodput from the visual chart, but this was only possible after the system retrieved the image and the Worker was able to interpret it. The sufficiency check in round 0 correctly flagged missing sub-problems, but the system did not resolve them until round 1. The primary failure is retrieval: the necessary visual chart was retrieved but not properly exposed to the Worker for accurate interpretation. The Worker's initial misstatement constitutes a secondary worker_support_failure. The final answer is correct, but the system's failure to provide usable evidence for the Worker's task is the root cause. [Audit normalization: the answer is correct; official-parser status determines whether this is no primary answer failure or a parser failure. Any grounding concern is retained separately.]",
+    "grounding_warning_category": "retrieval_failure"
+  },
+  "usage": {
+    "prompt_tokens": 7121,
+    "total_tokens": 7674,
+    "completion_tokens": 553,
+    "prompt_tokens_details": null
+  }
+}

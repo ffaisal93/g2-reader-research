@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_479",
+  "candidate_source": "official_parser",
+  "candidate_answer": "DLA",
+  "reference": "DLA performs better than RandList in terms of mean square error.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 14.707106351852417,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "DLA performs better than RandList in terms of mean square error."
+    ],
+    "candidate_claims": [
+      "DLA"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'DLA' correctly identifies the algorithm that performs better, as stated in the reference. While the reference includes a comparative claim ('performs better than RandList in terms of mean square error'), the candidate answer is a concise, unambiguous selection of the superior algorithm, which directly answers the central question: 'which algorithm provides more accurate click propensity estimates'. The question asks for the better-performing algorithm, and 'DLA' is semantically equivalent to the reference's conclusion. No contradiction or missing component exists. The candidate omits the comparison and metric, but these are implied by the question context and are not required for semantic correctness at this stage."
+  },
+  "usage": {
+    "prompt_tokens": 192,
+    "total_tokens": 405,
+    "completion_tokens": 213,
+    "prompt_tokens_details": null
+  }
+}

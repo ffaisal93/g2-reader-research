@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_434",
+  "candidate_source": "official_parser",
+  "candidate_answer": "No method achieves 77.4% accuracy for Italian data in the provided figures.",
+  "reference": "Variational J^var (7)",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.512600183486938,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The method Variational J^var (7) achieves the highest reported accuracy of 77.4% for the Italian language data."
+    ],
+    "candidate_claims": [
+      "No method achieves 77.4% accuracy for Italian data in the provided figures."
+    ],
+    "substantive_differences": [
+      "The candidate directly contradicts the reference by denying that any method achieves 77.4% accuracy for Italian, while the reference explicitly identifies Variational J^var (7) as achieving that score.",
+      "The candidate fails to identify the correct method and instead asserts a negative claim that is factually incorrect based on the reference."
+    ],
+    "rationale": "The candidate answer is semantically incorrect because it contradicts the reference answer, which explicitly states that Variational J^var (7) achieves 77.4% accuracy for Italian. The candidate’s claim that no method achieves this accuracy is factually wrong in the context of the reference, which serves as the benchmark. This is not a paraphrase or harmless extra detail, but a direct contradiction."
+  },
+  "usage": {
+    "prompt_tokens": 210,
+    "total_tokens": 469,
+    "completion_tokens": 259,
+    "prompt_tokens_details": null
+  }
+}

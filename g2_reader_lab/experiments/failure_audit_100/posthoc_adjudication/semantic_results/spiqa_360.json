@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_360",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Multi-X",
+  "reference": "Multi-X is generally faster for fitting planes and cylinders compared to T-Linkage.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 11.276282787322998,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Multi-X is generally faster for fitting planes and cylinders compared to T-Linkage."
+    ],
+    "candidate_claims": [
+      "Multi-X"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'Multi-X' correctly identifies the algorithm that is faster, as stated in the reference. While the reference includes a comparative claim ('faster than T-Linkage') and context ('for fitting planes and cylinders'), the candidate answer is a concise, unambiguous selection of the correct entity. The question asks which algorithm 'consistently demonstrates faster processing times', and 'Multi-X' directly answers that. The reference's 'generally faster' aligns with 'consistently faster' in the context of the question, which refers to all point sizes. No contradiction or missing component exists; the candidate is a valid, minimal response to the question."
+  },
+  "usage": {
+    "prompt_tokens": 213,
+    "total_tokens": 429,
+    "completion_tokens": 216,
+    "prompt_tokens_details": null
+  }
+}

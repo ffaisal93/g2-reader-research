@@ -1,0 +1,589 @@
+diff --git a/agent_search/pred_kw.py b/agent_search/pred_kw.py
+index 09f85dc..5b8dcf4 100644
+--- a/agent_search/pred_kw.py
++++ b/agent_search/pred_kw.py
+@@ -18,6 +18,8 @@ sys.path.append(os.path.dirname(current_dir))
+ 
+ from agent_search.logging import setup_logging
+ from agent_search.counter import ProcessSafeCounter
++from agent_search.bm25 import rank_bm25
++from agent_search.response_parsing import extract_json
+ from config.config import LLM_BASE_URL, LLM_API_KEY
+ from config.config import (
+     reasoner_prompt_with_trajectory,
+@@ -43,9 +45,11 @@ class DAGPred:
+         self._memory_cache = {}
+ 
+     def query_llm(self, prompt, model, tokenizer, client=None, temperature=0.0, max_new_tokens=128, stop=None, images: List[str] = None, track_usage: bool = True):
+-        max_len = 4096
++        max_len = int(getattr(self.args, "max_context_tokens", 20000))
+         input_ids = tokenizer.encode(prompt)
+         if len(input_ids) > max_len:
++            if self.logger:
++                self.logger.warning(f"Prompt truncated explicitly with head-tail policy: {len(input_ids)} -> {max_len} tokens")
+             input_ids = input_ids[:max_len//2] + input_ids[-max_len//2:]
+             prompt = tokenizer.decode(input_ids)
+         tries = 0
+@@ -123,7 +127,7 @@ class DAGPred:
+             if cache_flag and link in self._memory_cache:
+                 memory_system = self._memory_cache[link]
+             else:
+-                memory_system = asyncio.run(construct_memory(pdf_path=link))
++                memory_system = asyncio.run(construct_memory(pdf_path=link, evolve_iters=int(getattr(self.args, "evolution_rounds", 3)), document_limit=(int(getattr(self.args, "document_limit", 0)) or None)))
+                 if cache_flag:
+                     self._memory_cache[link] = memory_system
+ 
+@@ -314,6 +318,7 @@ class DAGPred:
+                 
+                 retrieval_results.append({
+                     "index": idx,
++                    "node_id": getattr(note, "id", None) if not isinstance(note, dict) else note.get("id"),
+                     "type": "image" if visual else "text",
+                     "content": content if not visual else "[IMAGE_BASE64]",
+                     "text_content": text_content if visual else content,
+@@ -363,6 +368,7 @@ class DAGPred:
+                        
+                 semantic_results.append({
+                     "index": idx,
++                    "node_id": getattr(note, "id", None) if not isinstance(note, dict) else note.get("id"),
+                     "type": "image" if visual else "text",
+                     "content": content if not visual else "[IMAGE_BASE64]",
+                     "text_content": text_content if visual else content,  # 图片显示OCRtext，text显示原文
+@@ -433,7 +439,7 @@ class DAGPred:
+             if cache_flag and link in self._memory_cache:
+                 memory_system = self._memory_cache[link]
+             else:
+-                memory_system = asyncio.run(construct_memory(pdf_path=link))
++                memory_system = asyncio.run(construct_memory(pdf_path=link, evolve_iters=int(getattr(self.args, "evolution_rounds", 3)), document_limit=(int(getattr(self.args, "document_limit", 0)) or None)))
+                 if cache_flag:
+                     self._memory_cache[link] = memory_system
+ 
+@@ -472,12 +478,12 @@ class DAGPred:
+ 
+             #TODO
+             if k_bm25 > 0:
+-                bm25_top_text = self._phrase_rank_texts_optimized(all_text_docs, keywords, k=int(k_bm25))
++                bm25_top_text = rank_bm25(all_text_docs, keywords, k=int(k_bm25))
+             else:
+                 bm25_top_text = []
+ 
+             if k_bm25 > 0:
+-                bm25_top_index = self._phrase_rank_texts_optimized(all_image_docs, keywords, k=int(k_bm25),return_indices=True)
++                bm25_top_index = rank_bm25(all_image_docs, keywords, k=int(k_bm25), return_indices=True)
+                 images  += [all_image[i] for i in bm25_top_index]
+             else:
+                 pass
+@@ -572,7 +578,7 @@ class DAGPred:
+         if self.logger:
+             self.logger.info(f"saved {len(response_list)} model responses to folder: {save_path} (Unique ID: {unique_data_id}, Round: {adjust_round}, run_idx: {prefixed_run_idx})")
+ 
+-    def dag_decomposer(self, context, question, model, tokenizer, client, images: List[str] = None, max_depth=4, max_nodes=12, max_retries=5, max_rounds=3, round_index=1):        
++    def dag_decomposer(self, context, question, model, tokenizer, client, images: List[str] = None, max_depth=4, max_nodes=12, max_retries=3, max_rounds=1, round_index=1):
+         """
+         生成分层 DAG 结构（失败时重新调用 dag_decomposer）
+         """
+@@ -591,14 +597,7 @@ class DAGPred:
+                     temperature=0.5, max_new_tokens=1000, images=images
+                 )
+                 self.logger.info(f" DAG decomposition response generated, length: {len(response)} 字符")
+-                # 提取 <dag> 标签包围的 JSON
+-                match = re.search(r'<dag>(.*?)</dag>', response, re.DOTALL)
+-                if not match:
+-                    self.logger.warning(" DAG tag not found, retrying...")
+-                    continue
+-
+-                dag_str = match.group(1).strip()
+-                dag = json.loads(dag_str)
++                dag, dag_str = extract_json(response, tag="dag")
+                 self.logger.info(f" DAG JSON extracted successfully, length: {len(dag_str)} 字符")
+ 
+                 # 验证 DAG 合法性
+@@ -624,11 +623,11 @@ class DAGPred:
+                 round_index=round_index + 1
+             )
+         else:
+-            self.logger.error(" All DAG generation attempts failed, giving up。")
+-            raise RuntimeError("DAG 解析多轮失败，无法Generated valid DAG。")
++            self.logger.error(" All DAG generation attempts failed; using a traceable single-node fallback.")
++            return {"nodes": [{"id": "root", "task": question, "type": "question", "children": []}], "fallback": "invalid_structured_output"}
+ 
+ 
+-    def dag_decomposer_after_check(self, context, question, evidence, gaps, model, tokenizer, client, images: List[str] = None, old_dag: dict = None, max_depth=4, max_nodes=12, max_retries=5, max_rounds=3, round_index=1):
++    def dag_decomposer_after_check(self, context, question, evidence, gaps, model, tokenizer, client, images: List[str] = None, old_dag: dict = None, max_depth=4, max_nodes=12, max_retries=3, max_rounds=1, round_index=1):
+         """
+         在证据检查后调整 DAG 结构（类似 dag_decomposer，但注入当前证据和 gaps）
+         """
+@@ -658,14 +657,7 @@ class DAGPred:
+                 )
+                 self.logger.info(f" DAG adjustment response generated, length: {len(response)} 字符")
+ 
+-                # 提取 <dag> 标签包围的 JSON
+-                match = re.search(r'<dag>(.*?)</dag>', response, re.DOTALL)
+-                if not match:
+-                    self.logger.warning(" DAG tag not found, retrying...")
+-                    continue
+-
+-                dag_str = match.group(1).strip()
+-                dag = json.loads(dag_str)
++                dag, dag_str = extract_json(response, tag="dag")
+                 self.logger.info(f" Adjusted DAG JSON extracted successfully, length: {len(dag_str)} 字符")
+ 
+                 # 验证 DAG 合法性
+@@ -691,12 +683,21 @@ class DAGPred:
+                 round_index=round_index + 1
+             )
+         else:
+-            self.logger.error(" All adjusted DAG generation attempts failed, giving up。")
+-            raise RuntimeError("Adjusted DAG 解析多轮失败，无法Generated valid DAG。")
++            self.logger.error(" All adjusted DAG generation attempts failed; retaining the prior DAG.")
++            return old_dag or {"nodes": [{"id": "root", "task": question, "type": "question", "children": []}], "fallback": "invalid_structured_output"}
+ 
+ 
+     def _validate_dag(self, dag, max_depth, max_nodes):
+         """验证 DAG：无环、depth、nodes数"""
++        nodes = dag.get("nodes", []) if isinstance(dag, dict) else []
++        node_ids = [node.get("id") for node in nodes if isinstance(node, dict)]
++        if not nodes or len(node_ids) != len(nodes) or len(node_ids) != len(set(node_ids)):
++            self.logger.warning("DAG contains malformed or duplicate node IDs")
++            return False
++        known_ids = set(node_ids)
++        if any(child not in known_ids for node in nodes for child in node.get("children", [])):
++            self.logger.warning("DAG edge references a missing child node")
++            return False
+         if len(dag.get('nodes', [])) > max_nodes:
+             self.logger.warning(f"nodes数超限: {len(dag['nodes'])} > {max_nodes}")
+             return False
+@@ -723,6 +724,10 @@ class DAGPred:
+         if visited != len(dag['nodes']):
+             self.logger.warning("DAG has cycles")
+             return False
++        depth = self._compute_depth(dag)
++        if depth > max_depth:
++            self.logger.warning(f"DAG depth exceeds limit: {depth} > {max_depth}")
++            return False
+         return True
+ 
+     def _compute_depth(self, dag):
+@@ -777,6 +782,8 @@ class DAGPred:
+             response = "No response"
+         # 修改: 用 (round, node_id) 作为 key 存储结果，避免内存覆盖
+         self.node_results[(adjust_round, node_id)] = response
++        if hasattr(self, "execution_trajectory"):
++            self.execution_trajectory.append({"round": adjust_round, "node_id": node_id, "task": task, "answer": response, "children": list(node.get("children", []))})
+         self.logger.info(f" nodes {node_id} 推理完成: {response[:100]}... (Round {adjust_round})")
+ 
+         # 保存nodes响应：注入 adjust_round
+@@ -888,7 +895,6 @@ class DAGPred:
+             process_time = end_time - start_time
+             time_ls.append(process_time)
+             item['process_time'] = process_time
+-            
+             current_count = self.counter.increment()
+             self.logger.info(f" Task ID: {id}, Prediction: {item['pred']}, Correct answer: {item['answer']},  Time: {process_time:.4f}s, Completed: {current_count}")
+             
+@@ -991,6 +997,7 @@ class DAGPred:
+             self.logger.info(f" DAG saved to: {dag_filepath}")
+             self.logger.info(f" Task ID: {id}, Starting DAG execution")
+             self.node_results = {}  # 初始化nodes结果
++            self.execution_trajectory = []
+             response = self._execute_dag(dag, question, model, tokenizer, client, main_context, id, idx ,item, initial_images)
+             self.logger.info(f" Task ID: {id}, DAG execution complete")
+             
+@@ -1000,9 +1007,19 @@ class DAGPred:
+             item['response'] = response
+             item['pred'] = self.extract_output(response)
+             item['process_time'] = process_time
++            item["trace"] = {
++                "initial_planning_graph": dag,
++                "planning_graphs": getattr(self, "planning_graph_trace", []),
++                "execution_orders": getattr(self, "execution_order_trace", []),
++                "evidence_checks": getattr(self, "evidence_check_trace", []),
++                "node_trajectory": getattr(self, "execution_trajectory", []),
++                "content_graph": str(Path(os.environ.get("G2_MEMORY_DIR", str(Path(__file__).resolve().parents[3] / "results" / "cache" / "memory_systems"))) / f"{id}_docs_{args.document_limit or 'all'}_iter_{args.evolution_rounds}" / "content_graph.json"),
++                "retrieval_log": str(Path(args.save_dir) / "logs" / f"data_{item['_id']}" / "retrieval_results.jsonl"),
++                "final_response": response,
++            }
+             
+             current_count = self.counter.increment()
+-            self.logger.info(f" Task ID: {id}, Prediction: {item['pred']}, Correct answer: {item['answer']}, Judgment: {item['judge']}, Time: {process_time:.4f}s, Completed: {current_count}")
++            self.logger.info(f" Task ID: {id}, Prediction: {item['pred']}, Correct answer: {item['answer']}, Judgment: {item.get('judge')}, Time: {process_time:.4f}s, Completed: {current_count}")
+             self.save_model_responses_to_folders(item, [response], args.save_dir, model, item['_id'],content=main_context)  
+             idx += 1
+ 
+@@ -1040,6 +1057,9 @@ class DAGPred:
+         
+         # Adjustment round计数器 (从 0 开始)
+         adjust_round = 0
++        self.planning_graph_trace = []
++        self.execution_order_trace = []
++        self.evidence_check_trace = []
+         # breakpoint()
+         while adjust_round <= max_adjust_rounds:
+             self.logger.info(f" Executing DAG (Adjustment round {adjust_round + 1}/{max_adjust_rounds + 1})")
+@@ -1097,6 +1117,9 @@ class DAGPred:
+                     if indegree[neighbor] == 0:
+                         queue.append(neighbor)
+             
++            # Parent inference consumes child answers, so execute child dependencies first.
++            execution_order.reverse()
++
+             if len(execution_order) != len(dag['nodes']):
+                 self.logger.error(f"DAG has cycles or is invalid，Execution order incomplete: {len(execution_order)}/{len(dag['nodes'])}")
+                 texts, images = self.retriever(question, link, top_k=10, save_retrieval=True, item=item)
+@@ -1105,6 +1128,8 @@ class DAGPred:
+                 response = self.query_llm(reasoner_input, model, tokenizer, client, temperature=0.2, max_new_tokens=2048, images=images)
+                 return response  # 回退
+             
++            self.planning_graph_trace.append({"round": adjust_round, "dag": dag})
++            self.execution_order_trace.append({"round": adjust_round, "order": list(execution_order)})
+             self.logger.info(f" DAG execution order determined: {len(execution_order)} 个nodes - {execution_order}")
+             
+             # 逐nodes执行：层层递进 (子结果增强父上下文)，注入 adjust_round
+@@ -1117,6 +1142,7 @@ class DAGPred:
+             
+             # 新增：证据检查，注入 adjust_round
+             sufficient, gaps = self._check_evidence_sufficiency(question, main_context, nodes_dict, self.node_results, model, tokenizer, client, initial_images, adjust_round=adjust_round)
++            self.evidence_check_trace.append({"round": adjust_round, "sufficient": bool(sufficient), "gaps": list(gaps or [])})
+             if sufficient:
+                 self.logger.info(" 证据sufficient，跳过调整，直接聚合")
+                 break
+@@ -1152,9 +1178,9 @@ class DAGPred:
+                 response = "No response"
+             return response
+         
+-        # 只用最后Round的结果构建轨迹
+-        last_round_results = {nid: res for (rnd, nid), res in self.node_results.items() if rnd == adjust_round}
+-        trajectory_parts = [f"\nNode {nid}: \nQuestion:\n{nodes_dict[nid]['task']}\nAnswer:\n{res}" for nid, res in last_round_results.items()]
++        # Preserve every executed round so refinement does not discard prior evidence.
++        trajectory_entries = getattr(self, "execution_trajectory", [])
++        trajectory_parts = [f"\nRound {entry['round']} Node {entry['node_id']}: \nQuestion:\n{entry['task']}\nAnswer:\n{entry['answer']}" for entry in trajectory_entries]
+         trajectory_str = '\n\n'.join(trajectory_parts)
+         trajectory_str = self.truncate_context(trajectory_str, max_tokens=20000)  # 限 20000 tokens
+         self.logger.info(f"Trajectory length (最终Round): {self.get_token_length(trajectory_str)} tokens")
+@@ -1176,7 +1202,8 @@ class DAGPred:
+                 "reasoner_input": reasoner_input,
+                 "initial_images": initial_images if initial_images else [],  # 保存images以便复现
+                 "adjust_round": adjust_round,
+-                "total_rounds": adjust_round + 1
++                "total_rounds": adjust_round + 1,
++                "node_trajectory": trajectory_entries
+             }, f, ensure_ascii=False, indent=2)
+         self.logger.info(f" DAG final response saved to: {save_path} (Unique ID: {item['_id']}, 最终Round: {adjust_round}, Image count: {len(initial_images) if initial_images else 0})")
+         return final_response
+diff --git a/config/config.py b/config/config.py
+index 6140505..431ef61 100644
+--- a/config/config.py
++++ b/config/config.py
+@@ -138,4 +138,10 @@ PARALLEL_ANALYSIS = False
+ class SaveChecks:
+     min_bytes: int = 10
+ 
+-SAVE_CHECKS = SaveChecks()
+\ No newline at end of file
++SAVE_CHECKS = SaveChecks()
++
++# Corrected worktree: override released placeholders from explicit environment.
++from config.local_runtime import (
++    LLM_BASE_URL, LLM_API_KEY, EMBED_BASE_URL, EMBED_API_KEY, MODELS,
++    MEMORY_SYSTEMS_DIR, PDF_TMP_DIR, DATASETS, MAX_CONCURRENCY, PARALLEL_ANALYSIS,
++)
+diff --git a/prebuild/amem_new.py b/prebuild/amem_new.py
+index 10c92bc..b4c5466 100644
+--- a/prebuild/amem_new.py
++++ b/prebuild/amem_new.py
+@@ -2,6 +2,7 @@ import os
+ import json
+ import time
+ import asyncio
++from pathlib import Path
+ from typing import Dict, List, Tuple, Any
+ import numpy as np
+ import pandas as pd
+@@ -9,6 +10,8 @@ from openai import OpenAI,AsyncOpenAI
+ 
+ from config.config import (
+     LLM_BASE_URL,
++    EMBED_BASE_URL,
++    EMBED_API_KEY,
+     LLM_API_KEY,
+     MODELS,
+     LLM_GENERATION,
+@@ -39,6 +42,7 @@ except Exception:
+ # Client
+ # -----------------------------
+ qwen_aclient = AsyncOpenAI(api_key=LLM_API_KEY, base_url=LLM_BASE_URL)
++embed_aclient = AsyncOpenAI(api_key=EMBED_API_KEY, base_url=EMBED_BASE_URL)
+ 
+ _llm_sem_by_loop = {}
+ 
+@@ -110,12 +114,18 @@ def load_dataset_df(name: str) -> pd.DataFrame:
+     return df
+ 
+ # Mineru dir aggregation
+-def resolve_docs_from_dataset_mineru(dataset_name: str, q_id: str, limit: int = 5) -> Tuple[str, List[str]]:
++def resolve_docs_from_dataset_mineru(dataset_name: str, q_id: str, limit: int | None = None) -> Tuple[str, List[str]]:
+     cfg = DATASETS[dataset_name]
+     df = load_dataset_df(dataset_name)
+     key, docs_col = cfg["key"], cfg["docs_col"]
+-
+-    matches = np.where(df[key] == q_id)[0]
++    lookup_id = q_id
++    prefix = f"{dataset_name}_"
++    if isinstance(lookup_id, str) and lookup_id.startswith(prefix):
++        lookup_id = lookup_id[len(prefix):]
++    if pd.api.types.is_numeric_dtype(df[key]):
++        lookup_id = int(lookup_id)
++
++    matches = np.where(df[key] == lookup_id)[0]
+     if len(matches) == 0:
+         raise ValueError(
+             f"error: data not found in {dataset_name}.csv for {key}='{q_id}'.\n"
+@@ -125,7 +135,9 @@ def resolve_docs_from_dataset_mineru(dataset_name: str, q_id: str, limit: int =
+     row = df.iloc[matches[0]].to_dict()
+     base_dir = cfg["mineru_dir"]
+ 
+-    doc_names_raw = list(eval(row[docs_col]))[:limit]
++    doc_names_raw = list(eval(row[docs_col]))
++    if limit is not None:
++        doc_names_raw = doc_names_raw[:limit]
+     doc_names = [os.path.splitext(d)[0] for d in doc_names_raw]
+ 
+     mineru_paths: List[str] = []
+@@ -325,6 +337,7 @@ async def construct_memory(
+     *,
+     evolve_iters: int = 1,
+     window_size: int = 2,
++    document_limit: int | None = None,
+ ) -> AgenticMemorySystem:
+     """
+     Build the memory system for a given q_id (dataset) or a remote/local PDF path.
+@@ -332,6 +345,7 @@ async def construct_memory(
+     Keeps visdom_utils & memory_layer imports intact.
+     Uses config for URLs, API keys, absolute paths, and prompts.
+     """
++
+     print("\n" + "=" * 80)
+     print(f"start building Memory System: {pdf_path}")
+     print("=" * 80)
+@@ -345,7 +359,7 @@ async def construct_memory(
+     flag_dataset = detected_dataset is not None
+     name = pdf_path 
+     if flag_dataset:
+-        _, pdf_paths = resolve_docs_from_dataset_mineru(detected_dataset, pdf_path)
++        _, pdf_paths = resolve_docs_from_dataset_mineru(detected_dataset, pdf_path, limit=document_limit)
+         print(pdf_paths)
+     else:
+         print("Downloading pdf")
+@@ -360,10 +374,13 @@ async def construct_memory(
+ 
+     # load or initialize memory system
+     existing = set(os.listdir(MEMORY_SYSTEMS_DIR))
+-    if name in existing:
++    scope = str(document_limit) if document_limit is not None else "all"
++    cache_prefix = name + "_docs_" + scope
++    cache_name = cache_prefix + "_iter_" + str(evolve_iters)
++    if cache_name in existing:
+         print(f"Loading existing memory system: {name}")
+         ms = AgenticMemorySystem(model_name=MODELS["embed"], llm_model=MODELS["chat"])  # type: ignore
+-        ms.load_memory_system(name+"_iter_"+str(evolve_iters))
++        ms.load_memory_system(cache_name)
+     else:
+         print("initialize memory system")
+         ms = AgenticMemorySystem(model_name=MODELS["embed"], llm_model=MODELS["chat"])  # type: ignore
+@@ -557,14 +574,14 @@ async def construct_memory(
+                 bad_i += 1
+         print(f"image notes added successfully: {ok_i} successful, {bad_i} failed")
+          
+-        # --- Initialize local links for text notes only ---
+-        text_count = ok
+-        for i, note in enumerate(list(ms.memories.values())[:text_count]):
++        # Initialize local links for every retained node, including visual evidence.
++        ordered_notes = list(ms.memories.values())
++        for i, note in enumerate(ordered_notes):
+             for d in range(-window_size, window_size + 1):
+                 if d == 0:
+                     continue
+                 j = i + d
+-                if 0 <= j < text_count:
++                if 0 <= j < len(ordered_notes):
+                     note.links.append(j)
+             note.links = list(set(note.links))
+         print("links initialized")
+@@ -574,7 +591,7 @@ async def construct_memory(
+         # save the memory system before evolving
+         print(f"\nsave Memory System: {name}")
+         print(f"  prepare to save {len(ms.memories)} memories...")
+-        ms.save_memory_system(name+"_iter_0")
++        ms.save_memory_system(cache_prefix+"_iter_0")
+          
+         # --- Evolve (optional) ---
+         for it in range(evolve_iters):
+@@ -600,7 +617,7 @@ async def construct_memory(
+             # save the memory system after each iteration
+             print(f"\nsave Memory System: {name}")
+             print(f"  prepare to save {len(ms.memories)} memories...")
+-            ms.save_memory_system(name+"_iter_"+str(it+1))
++            ms.save_memory_system(cache_prefix+"_iter_"+str(it+1))
+ 
+     if not flag_dataset:
+         for p in pdf_paths:
+@@ -609,6 +626,32 @@ async def construct_memory(
+             except Exception:
+                 pass
+ 
++    # Persist a redacted, JSON-readable graph snapshot for per-question trace inspection.
++    snapshot_notes = list(ms.memories.values())
++    snapshot = {
++        "nodes": [
++            {
++                "id": note.id,
++                "index": index,
++                "category": note.category,
++                "visual": bool(note.visual),
++                "summary": note.context,
++                "keywords": list(note.keywords),
++                "tags": list(note.tags),
++            }
++            for index, note in enumerate(snapshot_notes)
++        ],
++        "edges": [
++            {"source_id": note.id, "target_id": snapshot_notes[target].id, "relation": "reading_or_evolved"}
++            for note in snapshot_notes
++            for target in note.links
++            if isinstance(target, int) and 0 <= target < len(snapshot_notes)
++        ],
++    }
++    snapshot_dir = Path(MEMORY_SYSTEMS_DIR) / cache_name
++    snapshot_dir.mkdir(parents=True, exist_ok=True)
++    (snapshot_dir / "content_graph.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++
+     print("\n" + "=" * 80)
+     print("Memory System built successfully!")
+     print(f"   - name: {name}")
+diff --git a/prebuild/memory_layer.py b/prebuild/memory_layer.py
+index 7eb8a62..061017d 100644
+--- a/prebuild/memory_layer.py
++++ b/prebuild/memory_layer.py
+@@ -150,7 +150,7 @@ class AgenticMemorySystem:
+ 
+ 
+ 
+-    async def _call_llm_evolve(self, messages, response_format, temperature=0.7):
++    async def _call_llm_evolve(self, messages, response_format, temperature=0.7, max_tokens=2048):
+         async with self._evolve_semaphore: 
+             call_start = time.time()  
+             try:
+@@ -159,7 +159,7 @@ class AgenticMemorySystem:
+                     messages=messages,
+                     response_format=response_format,
+                     temperature=temperature,
+-                    max_tokens=2048
++                    max_tokens=max_tokens
+                 )
+             except Exception as e:
+                 print(f"[evolve] API error: {e}")
+diff --git a/prebuild/usage_tracker.py b/prebuild/usage_tracker.py
+index d6a2193..d6c5b93 100644
+--- a/prebuild/usage_tracker.py
++++ b/prebuild/usage_tracker.py
+@@ -3,6 +3,7 @@ import time
+ import copy
+ 
+ USAGE: Dict[str, Any] = {
++    "peak_vram_bytes": 0,
+     "prompt_tokens": 0,
+     "completion_tokens": 0,
+     "total_tokens": 0,
+@@ -84,12 +85,20 @@ def _extract(usage: Any) -> Dict[str, int]:
+     except Exception:
+         return {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+ 
++def _peak_vram(usage: Any) -> int:
++    if usage is None:
++        return 0
++    if isinstance(usage, dict):
++        return int(usage.get("peak_vram_bytes", 0) or 0)
++    return int(getattr(usage, "peak_vram_bytes", 0) or 0)
++
+ def add_chat_usage(usage: Any, meta: Dict[str, Any] | None = None) -> None:
+     t = _extract(usage)
+     USAGE["prompt_tokens"] += t["prompt_tokens"]
+     USAGE["completion_tokens"] += t["completion_tokens"]
+     USAGE["total_tokens"] += t["total_tokens"]
+-    call = {"type": "chat", "timestamp": time.time(), **t}
++    USAGE["peak_vram_bytes"] = max(USAGE["peak_vram_bytes"], _peak_vram(usage))
++    call = {"type": "chat", "timestamp": time.time(), **t, "peak_vram_bytes": _peak_vram(usage)}
+     if meta:
+         call.update(meta)
+     USAGE["calls"].append(call)
+@@ -114,7 +123,8 @@ def add_embed_usage(usage: Any, meta: Dict[str, Any] | None = None) -> None:
+     t = _extract(usage)
+     emb = t["total_tokens"] or t["prompt_tokens"]
+     USAGE["embedding_tokens"] += emb
+-    call = {"type": "embed", "timestamp": time.time(), "total_tokens": emb}
++    USAGE["peak_vram_bytes"] = max(USAGE["peak_vram_bytes"], _peak_vram(usage))
++    call = {"type": "embed", "timestamp": time.time(), "total_tokens": emb, "peak_vram_bytes": _peak_vram(usage)}
+     if meta:
+         call.update(meta)
+     USAGE["calls"].append(call)
+@@ -154,6 +164,7 @@ def reset_usage() -> None:
+     USAGE["completion_tokens"] = 0
+     USAGE["total_tokens"] = 0
+     USAGE["embedding_tokens"] = 0
++    USAGE["peak_vram_bytes"] = 0
+     USAGE["calls"] = []
+     for stage in USAGE["by_stage"]:
+         stage_data = USAGE["by_stage"][stage]
+@@ -184,6 +195,7 @@ def get_summary() -> Dict[str, Any]:
+         "completion_tokens": USAGE["completion_tokens"],
+         "total_tokens": USAGE["total_tokens"],
+         "embedding_tokens": USAGE["embedding_tokens"],
++        "peak_vram_bytes": USAGE["peak_vram_bytes"],
+         "calls": copy.deepcopy(USAGE["calls"]),
+         "by_stage": stage_data_copy,
+     }
+diff --git a/scripts/G2reader.sh b/scripts/G2reader.sh
+index f4fb1ab..d05424f 100644
+--- a/scripts/G2reader.sh
++++ b/scripts/G2reader.sh
+@@ -3,10 +3,10 @@ set -euo pipefail
+ subsets=(feta_tab paper_tab spiqa slidevqa scigraphvqa)
+ BASE_SAVE_DIR="results/"
+ for subset in "${subsets[@]}"; do
+-  DATA_PATH="/data/new/processed_${subset}.jsonl"
++  DATA_PATH="data/all_dataset/processed_${subset}.jsonl"
+   SAVE_DIR="${BASE_SAVE_DIR}/${subset}"
+   mkdir -p "${SAVE_DIR}"
+   echo "Running ${subset}..." 
+   echo "Data path: ${DATA_PATH}"
+-  python -m test.test_rag --data_path "${DATA_PATH}" --save_dir "${SAVE_DIR}" --model <YOUR_MODEL_NAME> --use_dag 
++  python -m scripts.test_rag --data_path "${DATA_PATH}" --save_dir "${SAVE_DIR}" --model "${G2_MODEL:?set G2_MODEL}" --use_dag
+ done
+\ No newline at end of file
+diff --git a/scripts/evaluate.py b/scripts/evaluate.py
+index 1dbbd5f..5202a16 100644
+--- a/scripts/evaluate.py
++++ b/scripts/evaluate.py
+@@ -44,7 +44,7 @@ class Evaluator:
+         self.error_lock = threading.Lock()
+     
+     def extract_model_answer(self, model_answer: str) -> str:
+-        output = re.findall(r'<answer>(.*?)</answer>', model_answer, re.DOTALL)
++        output = re.findall(r'<(?:output|answer)>(.*?)</(?:output|answer)>', model_answer, re.DOTALL)
+         if len(output) == 0:
+             return None
+         return output[0].strip()
+diff --git a/scripts/test_rag.py b/scripts/test_rag.py
+index d095ce3..1e70057 100644
+--- a/scripts/test_rag.py
++++ b/scripts/test_rag.py
+@@ -21,6 +21,9 @@ if __name__ == "__main__":
+     parser.add_argument("--keyword_modality", default = "all")
+     parser.add_argument("--keyword", default=True)
+     parser.add_argument("--use_dag", action="store_true", help="Use DAG mode")
++    parser.add_argument("--max_context_tokens", type=int, default=20000)
++    parser.add_argument("--evolution_rounds", type=int, default=3)
++    parser.add_argument("--document_limit", type=int, default=0, help="0 means all listed documents")
+     args = parser.parse_args()
+ 
+     method = DAGPred(args)

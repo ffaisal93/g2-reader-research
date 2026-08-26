@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_156",
+  "candidate_source": "official_parser",
+  "candidate_answer": "DMRNet has a lower training loss than ResNet.",
+  "reference": "The training loss of DMRNet is lower than that of ResNet on the CIFAR-10 dataset with L = 30.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 13.025128841400146,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The training loss of DMRNet is lower than that of ResNet on the CIFAR-10 dataset with L = 30."
+    ],
+    "candidate_claims": [
+      "DMRNet has a lower training loss than ResNet."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly conveys the core comparison: DMRNet’s training loss is lower than ResNet’s. While the candidate omits explicit mention of 'CIFAR-10' and '30 layers', these are contextually implied by the question, which specifies 'Figure (a) of the *Deep Convolutional Neural Networks with Merge-and-Run Mappings* paper' and 'networks with 30 layers'. The omission does not alter the factual meaning, and the comparison is preserved. This qualifies as a paraphrase with harmless omission of contextually redundant details."
+  },
+  "usage": {
+    "prompt_tokens": 244,
+    "total_tokens": 465,
+    "completion_tokens": 221,
+    "prompt_tokens_details": null
+  }
+}

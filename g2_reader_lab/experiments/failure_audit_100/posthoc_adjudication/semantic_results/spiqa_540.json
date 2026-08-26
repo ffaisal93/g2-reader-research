@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_540",
+  "candidate_source": "official_parser",
+  "candidate_answer": "DMRNet",
+  "reference": "DMRNet",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 11.514310598373413,
+  "judgment": {
+    "label": "correct",
+    "confidence": 1.0,
+    "reference_claims": [
+      "DMRNet exhibits the shortest average path length when L = 9"
+    ],
+    "candidate_claims": [
+      "DMRNet exhibits the shortest average path length when L = 9"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer exactly matches the reference answer in entity and factual claim. The question asks for the network with the shortest average path length at L=9, and both answers identify DMRNet as that network. No paraphrase or extra detail is present, but exact match suffices for semantic correctness."
+  },
+  "usage": {
+    "prompt_tokens": 179,
+    "total_tokens": 329,
+    "completion_tokens": 150,
+    "prompt_tokens_details": null
+  }
+}

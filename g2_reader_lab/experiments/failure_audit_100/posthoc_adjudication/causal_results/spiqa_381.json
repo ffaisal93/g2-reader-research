@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_381",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 35.05189061164856,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "composition_failure",
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "4cedf60e-4b37-4346-b8c3-701c426bc84f"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer incorrectly identifies CLASS as the dataset with the fewest interactions, when the reference and retrieved evidence (Table 1) clearly show that RSC15 has 31,637,239 events and CLASS has 9,011,321 events — making CLASS the correct minimum. However, the worker at node n6 (calculating the ratio) incorrectly used VIDEO (10,214,429) as the minimum, leading to a wrong ratio of 6.787. This is a worker_support_failure because the necessary evidence (Table 1) was retrieved and visible, but the worker misread or misapplied it. The final answer then incorrectly reports CLASS as the minimum, which is unsupported by the worker's own calculation (which used VIDEO). This is a composition_failure because the final answer combines the correct maximum (VIDXL) with an incorrect minimum (CLASS) and an incorrect ratio (7.690, which is actually the correct ratio of VIDXL to CLASS, but the worker did not compute it — they computed VIDXL to VIDEO). The final answer's ratio of 7.690 is numerically correct for VIDXL/CLASS, but the reasoning is flawed because the worker did not identify CLASS as the minimum. The sufficiency check passed because it did not detect the logical inconsistency in the worker's calculation. The primary failure is worker_support_failure at node n6, which cascaded into the final composition."
+  },
+  "usage": {
+    "prompt_tokens": 7216,
+    "total_tokens": 7735,
+    "completion_tokens": 519,
+    "prompt_tokens_details": null
+  }
+}

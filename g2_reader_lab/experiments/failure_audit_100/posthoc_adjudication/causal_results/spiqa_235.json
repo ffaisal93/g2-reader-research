@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_235",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 34.631930351257324,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "composition_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "d290c0b2-4247-492c-a734-24deeb57c919"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer is factually correct in stating that increasing FLOPS reduces error rates for both models and that the small ANN with AdaLoss (orange) outperforms the large ANN with CONST (green) across all budget levels. However, the worker results contain a critical misidentification: in node n2, the worker incorrectly identifies the 'large ANN with non-adaptive weights (CONST)' as the purple curve ('ANN+CONST') in Figure 5(a), which is not the correct figure referenced in the question (Figure 4(a)). The question specifically asks about Figure (a) from the context of the main comparison, which is Figure 4(a) — not Figure 5(a). In Figure 4(a), the green curve is labeled 'Large ANN w/ 10% Relative Final Gap', which corresponds to CONST, and the orange curve is 'Small ANN w/ no Final Gap (Ours)', which corresponds to AdaLoss. The worker's misidentification of the figure (confusing Figure 4(a) with Figure 5(a)) is a worker_support_failure. This error propagates to the final composition, where the final answer correctly states the trend but incorrectly attributes the green curve to CONST in Figure 4(a) based on the flawed worker input — a composition_failure. The necessary evidence (Figure 4(a)) was retrieved, and the planning was adequate, but the worker misread the visual evidence by misattributing the figure. Raw visual review is required to confirm the curve labels in Figure 4(a) vs. Figure 5(a). [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "worker_support_failure"
+  },
+  "usage": {
+    "prompt_tokens": 5612,
+    "total_tokens": 6149,
+    "completion_tokens": 537,
+    "prompt_tokens_details": null
+  }
+}

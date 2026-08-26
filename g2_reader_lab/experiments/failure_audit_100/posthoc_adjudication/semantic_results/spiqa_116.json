@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_116",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario).",
+  "reference": "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 16.537147045135498,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The proposed RGB-to-Depth transfer performs slightly better than Yosinski et al. [90] in terms of top-1 accuracy on DPI-T when all layers are fine-tuned."
+    ],
+    "candidate_claims": [
+      "The proposed RGB-to-Depth transfer method outperforms Yosinski et al. [90] by approximately 10 percentage points at x=7 in the right panel (finetuning scenario)."
+    ],
+    "substantive_differences": [
+      "The reference states a 'slightly better' performance, implying a small margin of improvement, whereas the candidate claims a large, specific improvement of 'approximately 10 percentage points', which is a quantitatively and semantically significant discrepancy.",
+      "The candidate introduces a specific numerical value (10 percentage points) not present or implied in the reference, which may misrepresent the actual performance difference.",
+      "The reference does not specify any magnitude of improvement, so the candidate's claim adds a factual detail that contradicts the reference's qualitative assessment."
+    ],
+    "rationale": "The candidate answer introduces a specific, large performance gap (10 percentage points) that contradicts the reference's qualitative claim of 'slightly better'. This constitutes a factual and semantic mismatch. The reference does not support or imply such a large margin, making the candidate answer incorrect under the given rules."
+  },
+  "usage": {
+    "prompt_tokens": 279,
+    "total_tokens": 596,
+    "completion_tokens": 317,
+    "prompt_tokens_details": null
+  }
+}

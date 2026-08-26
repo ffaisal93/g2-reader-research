@@ -1,0 +1,18 @@
+{
+  "question_id": "spiqa_510",
+  "candidate_source": "no_candidate_answer",
+  "candidate_answer": null,
+  "reference": "The Transfer + MTSA model performed best on the SNLI test set with an accuracy of 86.9%.",
+  "status": "complete",
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 1.0,
+    "reference_claims": [],
+    "candidate_claims": [],
+    "substantive_differences": [
+      "No candidate answer was produced."
+    ],
+    "rationale": "No answer is available for semantic comparison."
+  },
+  "usage": {}
+}

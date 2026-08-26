@@ -1,0 +1,33 @@
+{
+  "question_id": "spiqa_527",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 40.821643114089966,
+  "classification": {
+    "answer_verdict": "correct",
+    "reference_mismatch_material": false,
+    "primary_category": "no_failure",
+    "secondary_categories": [
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "664aadcc-afbe-4d6d-8c15-9d33bc68c49f"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer correctly identifies KEHNN as the top-performing model across all four metrics and provides accurate scores (R2@1: 0.786, R10@1: 0.460, R10@2: 0.591, R10@5: 0.819), which are verifiable in the retrieved image node '664aadcc-afbe-4d6d-8c15-9d33bc68c49f'. The justification about statistical significance (p-value ≤ 0.01) and alignment with LSTM-based models and prior knowledge is also supported by the text in node '5e236dd5-eec5-4f28-81df-20eb763971c8'. However, the primary causal failure is a retrieval_failure: the system did not retrieve the correct table labeled 'Table 1' as requested in the question. Instead, it retrieved 'Table 4' (which is the correct data) and 'Table 3' (which is for answer selection, not response selection). The question specifically asks for 'Table 1', and the retrieved evidence does not contain a node explicitly labeled 'Table 1'. The worker correctly inferred that 'Table 4' is the relevant table, but the retrieval system failed to surface the table explicitly named 'Table 1' as requested. This is a retrieval failure because the necessary evidence (the table labeled 'Table 1') was not retrieved, even though the correct data was available in 'Table 4'. The worker then produced a correct answer based on the retrieved data, which constitutes a worker_support_failure as a secondary effect. The planning was adequate, and sufficiency checks were appropriate. No raw visual review is needed as the image node clearly shows the required data. The confidence is high because the answer is factually correct, but the retrieval failure is decisive. [Audit normalization: the final answer is correct and officially parsed; the grounding concern is retained as a warning, not counted as a primary incorrect-answer failure.]",
+    "grounding_warning_category": "retrieval_failure"
+  },
+  "usage": {
+    "prompt_tokens": 5800,
+    "total_tokens": 6423,
+    "completion_tokens": 623,
+    "prompt_tokens_details": null
+  }
+}

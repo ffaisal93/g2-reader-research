@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_52",
+  "candidate_source": "official_parser",
+  "candidate_answer": "Batching reduces both the radio duty cycle and the CPU duty cycle for TCP. Specifically, the radio duty cycle drops from 2.29% (No Batching) to 0.734% (Batching), and the CPU duty cycle drops from 0.973% (No Batching) to 0.30% (Batching).",
+  "reference": "Batching reduces both the radio duty cycle and CPU duty cycle.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.814191102981567,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Batching reduces both the radio duty cycle and CPU duty cycle."
+    ],
+    "candidate_claims": [
+      "Batching reduces both the radio duty cycle and the CPU duty cycle for TCP.",
+      "The radio duty cycle drops from 2.29% (No Batching) to 0.734% (Batching).",
+      "The CPU duty cycle drops from 0.973% (No Batching) to 0.30% (Batching)."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly identifies that batching reduces both radio and CPU duty cycles, which matches the reference. The additional specific percentages and comparison values are consistent with the question’s context (TCP experiments) and do not contradict the reference. These details are harmless extra information and do not alter the core semantic meaning. The mention of 'for TCP' is contextually appropriate and does not change the factual claim. No contradictions, missing components, or incorrect trends are present."
+  },
+  "usage": {
+    "prompt_tokens": 265,
+    "total_tokens": 510,
+    "completion_tokens": 245,
+    "prompt_tokens_details": null
+  }
+}

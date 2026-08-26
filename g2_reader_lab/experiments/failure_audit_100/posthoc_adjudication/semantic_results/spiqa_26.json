@@ -1,0 +1,18 @@
+{
+  "question_id": "spiqa_26",
+  "candidate_source": "no_candidate_answer",
+  "candidate_answer": null,
+  "reference": "No, adversarial examples generated with the 2-keyword constraint deviate significantly from the original syntactic structure.",
+  "status": "complete",
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 1.0,
+    "reference_claims": [],
+    "candidate_claims": [],
+    "substantive_differences": [
+      "No candidate answer was produced."
+    ],
+    "rationale": "No answer is available for semantic comparison."
+  },
+  "usage": {}
+}

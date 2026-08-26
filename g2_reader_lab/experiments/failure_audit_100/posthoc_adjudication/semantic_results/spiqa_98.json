@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_98",
+  "candidate_source": "derived_unclosed_output_tag",
+  "candidate_answer": "Both the segment loss rate and goodput decrease as the maximum link delay increases.",
+  "reference": "As the maximum link delay increases, the segment loss rate increases and the goodput decreases.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.647082328796387,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "As the maximum link delay increases, the segment loss rate increases",
+      "As the maximum link delay increases, the goodput decreases"
+    ],
+    "candidate_claims": [
+      "Both the segment loss rate and goodput decrease as the maximum link delay increases"
+    ],
+    "substantive_differences": [
+      "The candidate incorrectly states that the segment loss rate decreases, while the reference states it increases."
+    ],
+    "rationale": "The candidate misrepresents the trend for segment loss rate — it claims it decreases with increasing delay, whereas the reference explicitly states it increases. This is a factual contradiction. Although goodput is correctly identified as decreasing, the error in segment loss rate renders the overall answer incorrect per the rules."
+  },
+  "usage": {
+    "prompt_tokens": 239,
+    "total_tokens": 422,
+    "completion_tokens": 183,
+    "prompt_tokens_details": null
+  }
+}

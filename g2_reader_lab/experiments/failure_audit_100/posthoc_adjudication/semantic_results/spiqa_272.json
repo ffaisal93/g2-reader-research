@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_272",
+  "candidate_source": "derived_unclosed_output_tag",
+  "candidate_answer": "Participants are asked to choose which of the two images (A or B) is perceptually closer to the reference video.",
+  "reference": "The user study is designed to test which of two images is closer to a reference video.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.077004671096802,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The user study is designed to test which of two images is closer to a reference video."
+    ],
+    "candidate_claims": [
+      "Participants are asked to choose which of the two images (A or B) is perceptually closer to the reference video."
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer accurately rephrases the reference by specifying the participants' task (choosing between images A and B) and explicitly using 'perceptually closer', which aligns with the implied perceptual comparison in the reference. The core meaning — comparing two images to a reference video — is preserved. No factual errors or omissions are present."
+  },
+  "usage": {
+    "prompt_tokens": 223,
+    "total_tokens": 396,
+    "completion_tokens": 173,
+    "prompt_tokens_details": null
+  }
+}

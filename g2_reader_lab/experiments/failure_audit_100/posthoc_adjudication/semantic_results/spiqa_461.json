@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_461",
+  "candidate_source": "official_parser",
+  "candidate_answer": "COPA demonstrates faster performance than Helwig on both the CHOA and CMS datasets, with Helwig failing on CMS due to memory constraints at R=40, while COPA successfully completed iterations.",
+  "reference": "COPA is faster than Helwig.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.989552736282349,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "COPA is faster than Helwig."
+    ],
+    "candidate_claims": [
+      "COPA demonstrates faster performance than Helwig on both the CHOA and CMS datasets",
+      "Helwig fails on CMS due to memory constraints at R=40",
+      "COPA successfully completed iterations"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer preserves the core factual claim that COPA is faster than Helwig, as stated in the reference. It adds contextually relevant and harmless extra details (specific dataset names, failure condition at R=40, successful completion by COPA) that are consistent with the question and do not contradict the reference. The comparison remains accurate and the central semantic meaning is preserved."
+  },
+  "usage": {
+    "prompt_tokens": 243,
+    "total_tokens": 433,
+    "completion_tokens": 190,
+    "prompt_tokens_details": null
+  }
+}

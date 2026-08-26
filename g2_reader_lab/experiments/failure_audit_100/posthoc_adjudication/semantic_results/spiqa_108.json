@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_108",
+  "candidate_source": "official_parser",
+  "candidate_answer": "ESMM-NS and ESMM outperform all other models at every sampling rate for both CVR and CTCVR tasks.",
+  "reference": "ESMM-NS and ESMM outperform all other models consistently across different training set sizes on both the CVR and CTCVR tasks.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 16.45218062400818,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "ESMM-NS and ESMM outperform all other models",
+      "consistently across different training set sizes",
+      "on both CVR and CTCVR tasks"
+    ],
+    "candidate_claims": [
+      "ESMM-NS and ESMM outperform all other models",
+      "at every sampling rate",
+      "for both CVR and CTCVR tasks"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer conveys the same core meaning as the reference: ESMM-NS and ESMM consistently outperform other models across varying data conditions (sampling rates/training set sizes) for both CVR and CTCVR tasks. 'Sampling rate' and 'training set size' are functionally equivalent in this context (both refer to data volume variation). The phrase 'at every sampling rate' is a direct paraphrase of 'consistently across different training set sizes' in the context of the ESMM paper's experimental setup. No factual contradiction or missing component exists."
+  },
+  "usage": {
+    "prompt_tokens": 242,
+    "total_tokens": 487,
+    "completion_tokens": 245,
+    "prompt_tokens_details": null
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_181",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The embedded vector $E$ from the part encoding network and the generated mask $G_{\\mathcal{M}}(x)$ from the mask prediction network.",
+  "reference": "The inputs to the image generation network are the observed images (x) and a random noise vector (z).",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 14.676711320877075,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The inputs to the image generation network are the observed images (x) and a random noise vector (z)."
+    ],
+    "candidate_claims": [
+      "The embedded vector $E$ from the part encoding network and the generated mask $G_{\\mathcal{M}}(x)$ from the mask prediction network."
+    ],
+    "substantive_differences": [
+      "The candidate answer identifies entirely different inputs (embedded vector E and generated mask G_M(x)) than the reference (observed images x and random noise vector z).",
+      "There is no mention of observed images or random noise in the candidate, which are explicitly stated in the reference as required inputs.",
+      "The candidate introduces components (part encoding network, mask prediction network) that are not referenced in the benchmark answer, suggesting a different architectural interpretation."
+    ],
+    "rationale": "The candidate answer does not match the reference in terms of the actual inputs to the image generation network. The reference specifies x (observed images) and z (random noise), while the candidate specifies E and G_M(x), which are not equivalent entities. This constitutes a factual mismatch in the core components of the input, violating the requirement for semantic equivalence."
+  },
+  "usage": {
+    "prompt_tokens": 227,
+    "total_tokens": 508,
+    "completion_tokens": 281,
+    "prompt_tokens_details": null
+  }
+}

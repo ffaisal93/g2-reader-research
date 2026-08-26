@@ -1,0 +1,22 @@
+profile: corrected_upstream_dev
+models:
+  chat_model: local-qwen-vl
+  embedding_model: local-bge-m3
+  api_base: http://127.0.0.1:18000/v1
+  api_key_env: G2_API_KEY
+  dtype: bfloat16
+  endpoint_generation_cap: 1024
+  max_visual_pixels: 262144
+  max_input_characters: 20000
+runtime:
+  max_context_tokens: 8192
+  evolution_rounds: 3
+  document_limit: 0
+  top_k: 5
+  top_k_text_kw: 3
+  top_k_image_kw: 3
+  concurrency: 1
+  n_proc: 1
+revisions:
+  upstream: e4d047a756ef9136ea7f0c4dd8ba36eb1b08ec27
+  processed: 57d76a6ab4872592dfe47dbf4fae6cd77bcf184b

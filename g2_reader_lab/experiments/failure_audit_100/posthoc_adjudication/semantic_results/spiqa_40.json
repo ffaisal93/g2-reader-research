@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_40",
+  "candidate_source": "official_parser",
+  "candidate_answer": "The proposed methods generate faces with significantly higher visual clarity and more detailed facial features than the baseline.",
+  "reference": "The baseline method generates faces that are blurry and unrealistic, while the other methods generate faces that are more realistic.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 10.696234226226807,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "Baseline method → blurry and unrealistic faces",
+      "Other (proposed) methods → more realistic faces"
+    ],
+    "candidate_claims": [
+      "Proposed methods → higher visual clarity",
+      "Proposed methods → more detailed facial features",
+      "Baseline → implicitly less clear and less detailed"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer correctly captures the core comparison: proposed methods outperform the baseline in realism, specifically in visual clarity and facial detail. This aligns with the reference’s claim that baseline faces are blurry/unrealistic while others are more realistic. The candidate uses more specific descriptors (‘visual clarity’, ‘facial features’) which are semantically equivalent to the reference’s ‘realistic’ in context. No contradiction or missing component exists. Paraphrase is acceptable."
+  },
+  "usage": {
+    "prompt_tokens": 227,
+    "total_tokens": 431,
+    "completion_tokens": 204,
+    "prompt_tokens_details": null
+  }
+}

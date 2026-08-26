@@ -1,0 +1,36 @@
+{
+  "question_id": "spiqa_47",
+  "candidate_source": "official_parser",
+  "candidate_answer": "GBI reduces the average disagreement rate by 19.93%, while A* reduces it by 10.94%. Therefore, GBI’s reduction is 8.99 percentage points greater than A*'s reduction.",
+  "reference": "GBI is more effective than A* in reducing the disagreement rate on the SRL-100 network's failure set. After applying GBI, the average disagreement rate drops to 24.92%, while A* only reduces it to 33.91%. This represents an 19.93% greater reduction in disagreement rate when using GBI compared to A*.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 30.62456965446472,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "GBI reduces the average disagreement rate to 24.92% (from an implied baseline)",
+      "A* reduces it to 33.91%",
+      "GBI’s reduction is 19.93% greater than A*'s reduction (in relative terms or as a difference in reduction percentages)"
+    ],
+    "candidate_claims": [
+      "GBI reduces the average disagreement rate by 19.93% (absolute reduction)",
+      "A* reduces it by 10.94% (absolute reduction)",
+      "GBI’s reduction is 8.99 percentage points greater than A*'s"
+    ],
+    "substantive_differences": [
+      "The candidate misrepresents the 19.93% as an absolute reduction (i.e., from original rate) rather than as the difference in reduction effectiveness between GBI and A* (as implied in the reference).",
+      "The reference does not state absolute reduction percentages (e.g., 19.93% or 10.94%) but rather final rates (24.92% and 33.91%) and a comparative improvement of 19.93% (likely meaning 19.93 percentage points or relative improvement — context unclear, but candidate’s interpretation is inconsistent).",
+      "The candidate’s 8.99 percentage point difference (19.93 - 10.94) is mathematically correct given its own numbers, but those numbers are not supported by the reference. The reference does not provide absolute reduction percentages, only final rates and a comparative improvement figure.",
+      "The candidate’s claim of '19.93% reduction' contradicts the reference’s presentation of 24.92% as the final rate — unless the original rate is 44.85% (24.92 / (1 - 0.1993)), which is not stated or implied in the reference."
+    ],
+    "rationale": "The candidate misinterprets the reference’s 19.93% as an absolute reduction percentage, whereas the reference presents it as a comparative advantage (likely in percentage points or relative terms) derived from the difference between final rates (33.91% - 24.92% = 8.99 percentage points). The candidate’s 19.93% and 10.94% are not stated in the reference and cannot be derived from it without assuming an original rate, which is not provided. Thus, the candidate’s answer is factually inconsistent with the reference."
+  },
+  "usage": {
+    "prompt_tokens": 330,
+    "total_tokens": 918,
+    "completion_tokens": 588,
+    "prompt_tokens_details": null
+  }
+}

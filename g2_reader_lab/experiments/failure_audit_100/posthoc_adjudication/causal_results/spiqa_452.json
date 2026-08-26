@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_452",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 38.85504078865051,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The necessary visual evidence (Figure 18, node_id: 9ec7f7a0-f33f-44ef-9a68-b28c5567d5ad) was retrieved and contains the bubble chart comparing ENet, FRVSR, DUF, and TecoGAN with bubble size indicating tOF score. The text in the image explicitly states 'Bubble size indicates the tOF score' and lists the models with their corresponding tOF values. The tOF values are: ENet=0.194, FRVSR=0.023, DUF=0.028, TecoGAN=0.021. The smallest tOF value (best temporal coherence) is TecoGAN (0.021), which should correspond to the largest bubble (since smaller tOF is better, and bubble size indicates tOF score). However, the final answer incorrectly states 'ENet' as the largest bubble. The worker's initial response correctly noted the lack of figure description in text and the need for visual analysis, but the final answer misinterprets the visual evidence, claiming ENet has the largest bubble despite its tOF value being the largest (worst). This is a worker_support_failure: the evidence was retrieved, but the worker misread or misinterpreted it. The retrieval_failure is secondary because the necessary visual node was retrieved, but the worker failed to correctly interpret it. Raw visual review is required to confirm the bubble sizes, as the text in the image provides the tOF values which contradict the worker's visual interpretation."
+  },
+  "usage": {
+    "prompt_tokens": 6211,
+    "total_tokens": 6747,
+    "completion_tokens": 536,
+    "prompt_tokens_details": null
+  }
+}

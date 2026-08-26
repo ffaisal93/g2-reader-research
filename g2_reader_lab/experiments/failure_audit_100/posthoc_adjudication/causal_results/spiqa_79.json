@@ -1,0 +1,23 @@
+{
+  "question_id": "spiqa_79",
+  "status": "complete",
+  "classification": {
+    "answer_verdict": "ambiguous",
+    "reference_mismatch_material": true,
+    "primary_category": "dataset_failure",
+    "secondary_categories": [
+      "parser_failure"
+    ],
+    "necessary_evidence_retrieved": "uncertain",
+    "decisive_evidence_node_ids": [],
+    "planning_adequate": "uncertain",
+    "worker_answer_supported": "uncertain",
+    "final_composition_supported": "uncertain",
+    "sufficiency_behavior": "uncertain",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unknown",
+    "confidence": 1.0,
+    "rationale": "The benchmark question is literally 'New question:' while the reference describes alpha and recommendation accuracy. This malformed row is excluded from valid G2 failure and accuracy denominators."
+  },
+  "usage": {}
+}

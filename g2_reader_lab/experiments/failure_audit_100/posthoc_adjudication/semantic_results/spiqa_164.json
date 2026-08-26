@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_164",
+  "candidate_source": "official_parser",
+  "candidate_answer": "3",
+  "reference": "5 hops",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 11.088314056396484,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The number of hops between Node 1 (Hamilton) and the Internet in the OpenThread topology at -8 dBm is 5."
+    ],
+    "candidate_claims": [
+      "The number of hops between Node 1 (Hamilton) and the Internet in the OpenThread topology at -8 dBm is 3."
+    ],
+    "substantive_differences": [
+      "The candidate provides a different numerical value (3) for the number of hops, which contradicts the reference answer (5)."
+    ],
+    "rationale": "The question asks for a specific count of hops in a given topology and transmission power. The candidate's answer of '3' directly contradicts the reference answer of '5'. There is no indication of paraphrasing, extra detail, or ambiguity — the factual value is incorrect. Therefore, the candidate answer is semantically incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 184,
+    "total_tokens": 396,
+    "completion_tokens": 212,
+    "prompt_tokens_details": null
+  }
+}

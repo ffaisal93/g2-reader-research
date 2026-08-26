@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_281",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 64.49526000022888,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "retrieval_failure",
+    "secondary_categories": [
+      "worker_support_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "9acd61a3-2238-4e9a-ae27-ae3be0e1af83"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The benchmark answer states that the $L_2$-norm of a word vector is inversely proportional to its frequency. The candidate answer incorrectly states that the norm is inversely proportional to the log frequency, which is a material mismatch. The necessary evidence to resolve this is the left figure in Figure 1 of the paper, which is not fully retrievable in the trace. The retrieved image node (9acd61a3-2238-4e9a-ae27-ae3be0e1af83) contains a visual of the left figure, but its text is clipped and does not provide the full description or mathematical form. The text in the retrieved nodes does not explicitly state the relationship between the norm and frequency or log frequency. The workers correctly identify the lack of Figure 1 in the text, but they do not have access to the full visual evidence to determine the precise relationship. The planning graph is adequate, but the retrieval failure prevents the workers from producing a correct answer. The final answer is unsupported by the retrieved evidence, and the sufficiency checks appropriately identify gaps. A raw visual review of the left figure in Figure 1 is required to determine the exact relationship."
+  },
+  "usage": {
+    "prompt_tokens": 11643,
+    "total_tokens": 12100,
+    "completion_tokens": 457,
+    "prompt_tokens_details": null
+  }
+}

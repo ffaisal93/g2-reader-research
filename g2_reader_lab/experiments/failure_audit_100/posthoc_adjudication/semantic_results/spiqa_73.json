@@ -1,0 +1,29 @@
+{
+  "question_id": "spiqa_73",
+  "candidate_source": "official_parser",
+  "candidate_answer": "US-BS-MQ achieves higher accuracy than S-MQ when more SST examples are incorporated.",
+  "reference": "The US-BS-MQ method achieves higher accuracy than the S-MQ method when adding SST examples.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 9.109418630599976,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "US-BS-MQ achieves higher accuracy than S-MQ",
+      "when adding SST examples"
+    ],
+    "candidate_claims": [
+      "US-BS-MQ achieves higher accuracy than S-MQ",
+      "when more SST examples are incorporated"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer conveys the same factual comparison and trend as the reference: US-BS-MQ outperforms S-MQ as more SST examples are added. 'More SST examples are incorporated' is semantically equivalent to 'adding SST examples'. No contradiction, wrong entity, or missing component exists. The phrasing is a harmless paraphrase."
+  },
+  "usage": {
+    "prompt_tokens": 227,
+    "total_tokens": 400,
+    "completion_tokens": 173,
+    "prompt_tokens_details": null
+  }
+}

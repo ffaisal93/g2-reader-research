@@ -1,0 +1,31 @@
+{
+  "question_id": "spiqa_223",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 29.237367630004883,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "parser_failure",
+    "secondary_categories": [],
+    "necessary_evidence_retrieved": "yes",
+    "decisive_evidence_node_ids": [
+      "133cd61f-b19c-4be5-8288-bbae5e4aa30d",
+      "26305e59-f0b6-42dc-8c0f-08278d4ff84c"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "yes",
+    "final_composition_supported": "yes",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": false,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer is null, and the final response is truncated mid-sentence ('...dynamically learns and a [...clipped]'). The sufficiency check passed, and the worker responses for both subproblems (n1 and n2) are fluent and supported by retrieved evidence, including the visual depiction of Figure 4 (node_id: 133cd61f-b19c-4be5-8288-bbae5e4aa30d) and textual descriptions of the modules' roles. The planning graph correctly decomposed the question into two subproblems. The final composition was underway and logically sound, but the output was truncated before completion. This is a parser_failure: the system failed to generate a complete, usable answer despite having all necessary components. The evidence was retrieved, the reasoning was correct, and the sufficiency check passed — the failure occurred at the output generation/parsing stage."
+  },
+  "usage": {
+    "prompt_tokens": 5785,
+    "total_tokens": 6206,
+    "completion_tokens": 421,
+    "prompt_tokens_details": null
+  }
+}

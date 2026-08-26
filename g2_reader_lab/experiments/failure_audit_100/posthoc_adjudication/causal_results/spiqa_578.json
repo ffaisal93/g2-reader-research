@@ -1,0 +1,32 @@
+{
+  "question_id": "spiqa_578",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 31.299338579177856,
+  "classification": {
+    "answer_verdict": "incorrect",
+    "reference_mismatch_material": true,
+    "primary_category": "worker_support_failure",
+    "secondary_categories": [
+      "retrieval_failure"
+    ],
+    "necessary_evidence_retrieved": "no",
+    "decisive_evidence_node_ids": [
+      "64ea7b76-bb84-4140-b586-3d63e31c6e38"
+    ],
+    "planning_adequate": "yes",
+    "worker_answer_supported": "no",
+    "final_composition_supported": "no",
+    "sufficiency_behavior": "appropriate",
+    "requires_raw_visual_review": true,
+    "low_resource_confound": "unlikely",
+    "confidence": 0.95,
+    "rationale": "The candidate answer 'SCHOLAR' is incorrect because the question asks for the *topic* (i.e., the set of words) that has the highest internal coherence, not the model name. The reference explicitly identifies the topic as \"turks armenian armenia turkish roads escape soviet muslim mountain soul\". The retrieved evidence includes Table 4 (node_id: 64ea7b76-bb84-4140-b586-3d63e31c6e38), which shows that the SCHOLAR model has the highest NPMI(int.) value (0.35) on the 20 newsgroups dataset. However, the worker and final answer incorrectly interpret this as the answer to the question, conflating the model name with the topic. The worker's response correctly extracts the NPMI values but fails to recognize that the question asks for the topic, not the model. The final answer is therefore unsupported by the evidence in terms of the required output format. This is a worker_support_failure because the necessary evidence (the table) was retrieved, but the worker misinterpreted the question and produced an answer that does not match the required entity (topic vs. model). The retrieval_failure is secondary because the table with the needed values was retrieved, but the worker failed to use it correctly. Raw visual review of the image is required to confirm the exact topic words associated with the highest coherence, as the text extraction may not capture them."
+  },
+  "usage": {
+    "prompt_tokens": 3704,
+    "total_tokens": 4228,
+    "completion_tokens": 524,
+    "prompt_tokens_details": null
+  }
+}

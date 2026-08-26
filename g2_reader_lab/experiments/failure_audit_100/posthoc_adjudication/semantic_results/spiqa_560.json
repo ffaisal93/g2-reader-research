@@ -1,0 +1,27 @@
+{
+  "question_id": "spiqa_560",
+  "candidate_source": "official_parser",
+  "candidate_answer": "LST-Skip",
+  "reference": "LST-Skip seems to perform better in predicting electricity consumption.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 8.89778757095337,
+  "judgment": {
+    "label": "correct",
+    "confidence": 0.95,
+    "reference_claims": [
+      "LST-Skip performs better in predicting electricity consumption"
+    ],
+    "candidate_claims": [
+      "LST-Skip"
+    ],
+    "substantive_differences": [],
+    "rationale": "The candidate answer 'LST-Skip' directly identifies the model that performs better, which is the core factual claim of the reference answer. While the reference includes a qualitative judgment ('seems to perform better'), the candidate correctly names the superior model without contradiction. The question asks which model demonstrates closer alignment, and 'LST-Skip' is the correct entity. No substantive difference in meaning exists; the candidate is a concise, accurate response to the question."
+  },
+  "usage": {
+    "prompt_tokens": 213,
+    "total_tokens": 382,
+    "completion_tokens": 169,
+    "prompt_tokens_details": null
+  }
+}

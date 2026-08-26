@@ -1,0 +1,30 @@
+{
+  "question_id": "spiqa_585",
+  "candidate_source": "official_parser",
+  "candidate_answer": "MLE SeqGAN",
+  "reference": "MLE SeqGAN and Word LSTM with temperature 1.0.",
+  "status": "complete",
+  "attempt": 1,
+  "latency_seconds": 12.451413869857788,
+  "judgment": {
+    "label": "incorrect",
+    "confidence": 0.95,
+    "reference_claims": [
+      "The generators that produced reviews hardest for meta-adversarial evaluators to distinguish from human-written ones (achieving lowest accuracy) are MLE SeqGAN and Word LSTM with temperature 1.0."
+    ],
+    "candidate_claims": [
+      "The generator that produced reviews hardest for meta-adversarial evaluators to distinguish from human-written ones is MLE SeqGAN."
+    ],
+    "substantive_differences": [
+      "The candidate answer omits 'Word LSTM with temperature 1.0', which is explicitly mentioned in the reference as one of the two generators achieving the lowest accuracy.",
+      "The question asks for 'which specific generators' (plural), implying multiple entities are expected. The candidate provides only one, which is incomplete."
+    ],
+    "rationale": "The candidate answer is factually incomplete. While MLE SeqGAN is correct, the reference explicitly identifies two generators. Omitting one of the required components constitutes a missing required component, which per the rules marks the answer as incorrect."
+  },
+  "usage": {
+    "prompt_tokens": 207,
+    "total_tokens": 445,
+    "completion_tokens": 238,
+    "prompt_tokens_details": null
+  }
+}
