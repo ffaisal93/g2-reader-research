@@ -4,6 +4,10 @@ This workspace reproduces the released G²-Reader pipeline, records the minimum 
 
 For a detailed code-grounded explanation of both runtime paths, see [`docs/g2_and_minimal_g2_architecture_walkthrough.md`](docs/g2_and_minimal_g2_architecture_walkthrough.md).
 
+For the authoritative cross-experiment conclusions, corrected failure counts,
+failure-term definitions, and source-grounded examples, see
+[`experiments/FINDINGS.md`](experiments/FINDINGS.md).
+
 ## Progress
 
 - [x] Phase 1 — system inspection and isolated environment
