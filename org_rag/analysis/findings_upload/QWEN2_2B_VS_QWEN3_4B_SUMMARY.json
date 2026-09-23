@@ -1,0 +1,64 @@
+{
+  "generation_seconds": 216.516,
+  "input_sha256": {
+    "four_b": "03b8cf8bc41ae6bd3b1062b4688fe561786eafaaab8d0b14b1146ca9ad0aeb01",
+    "questions": "01c82796e778c5ddd94e8b6f8f5a38e206a482861323921d1eedffaa46c5dad6",
+    "two_b": "ec7490900687386e567100f0a32c1409f4fb49043a44da9d2b1147c8322a2384"
+  },
+  "invalid_judgments": 1,
+  "judge_is_provisional_not_human_gold": true,
+  "judge_model": "/mnt/maxtox-nfs-student/zff/models/qwen3-14b",
+  "load_seconds": 88.258,
+  "model_metrics": {
+    "qwen2_vl_2b": {
+      "answer_leakage": 40,
+      "atomic": 163,
+      "coverage": 153,
+      "fully_correct": 78,
+      "invented_content": 190,
+      "necessary": 82
+    },
+    "qwen3_4b": {
+      "answer_leakage": 1,
+      "atomic": 408,
+      "coverage": 443,
+      "fully_correct": 375,
+      "invented_content": 57,
+      "necessary": 384
+    }
+  },
+  "preferences": {
+    "qwen2_vl_2b": 70,
+    "qwen3_4b": 378,
+    "tie": 51
+  },
+  "questions": 500,
+  "subset_preferences": {
+    "feta_tab": {
+      "qwen2_vl_2b": 4,
+      "qwen3_4b": 7,
+      "tie": 9
+    },
+    "paper_tab": {
+      "qwen2_vl_2b": 15,
+      "qwen3_4b": 126,
+      "tie": 17
+    },
+    "scigraphqa": {
+      "qwen2_vl_2b": 9,
+      "qwen3_4b": 126,
+      "tie": 9
+    },
+    "slidevqa": {
+      "qwen2_vl_2b": 14,
+      "qwen3_4b": 45,
+      "tie": 5
+    },
+    "spiqa": {
+      "qwen2_vl_2b": 28,
+      "qwen3_4b": 74,
+      "tie": 11
+    }
+  },
+  "valid_judgments": 499
+}
